@@ -65,16 +65,16 @@ class _HeroCard extends StatelessWidget {
         if (fit.restGoals != null) ...[
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Icon(training ? PhosphorIconsFill.barbell : PhosphorIconsFill.bed,
-                size: 13, color: training ? gc.accent : gc.sage),
+                size: 13, color: training ? gc.teal : gc.lavender),
             const SizedBox(width: 6),
             Text(training ? t.trainingDay : t.restDay,
-                style: AppTheme.f(12, weight: FontWeight.w700, color: training ? gc.accent : gc.sage)),
+                style: AppTheme.f(12, weight: FontWeight.w700, color: training ? gc.teal : gc.lavender)),
           ]),
           const SizedBox(height: 10),
         ],
         if (fit.trackerOn(Tracker.calories))
           Row(children: [
-            side(PhosphorIconsFill.forkKnife, gc.accent, '${fit.energyOf(total.kcal)}', t.kcalEaten),
+            side(PhosphorIconsFill.forkKnife, gc.teal, '${fit.energyOf(total.kcal)}', t.kcalEaten),
             CalorieRing(
               pct: budget <= 0 ? 0 : total.kcal / budget,
               size: 148,
@@ -192,7 +192,7 @@ class _DetailGrid extends StatelessWidget {
       if (fit.trackerOn(Tracker.fiber))
         _RingCard(
           icon: PhosphorIconsFill.leaf,
-          color: gc.sage,
+          color: gc.lavender,
           label: t.fiberLabel,
           value: _g(total.fiber),
           sub: '/ ${goals.fiber} g',
@@ -228,7 +228,7 @@ class _DetailGrid extends StatelessWidget {
         ),
         _RingCard(
           icon: PhosphorIconsFill.lightning,
-          color: gc.sage,
+          color: gc.lavender,
           label: t.potassiumLabel,
           value: fmt((total.potassium / 100).round() / 10),
           sub: '/ ${fmt(fit.potassiumGoal(goals) / 1000)} g',
@@ -295,7 +295,7 @@ class _QualityCard extends StatelessWidget {
     final color = scores.isEmpty
         ? gc.textTertiary
         : q >= 1
-            ? gc.sage
+            ? gc.lavender
             : q >= 0.8
                 ? gc.warn
                 : gc.danger;
@@ -384,12 +384,12 @@ class _QualityCard extends StatelessWidget {
         ]),
         if (total.protein > 0) ...[
           const SizedBox(height: 12),
-          _SplitBar(parts: [(total.animal, gc.warn), (total.plant, gc.sage)], height: 6),
+          _SplitBar(parts: [(total.animal, gc.warn), (total.plant, gc.lavender)], height: 6),
           const SizedBox(height: 10),
           Row(children: [
             Expanded(child: source(PhosphorIconsFill.cow, gc.warn, t.proteinAnimalShort, total.animal)),
             const SizedBox(width: 16),
-            Expanded(child: source(PhosphorIconsFill.leaf, gc.sage, t.proteinPlantShort, total.plant)),
+            Expanded(child: source(PhosphorIconsFill.leaf, gc.lavender, t.proteinPlantShort, total.plant)),
           ]),
         ],
         if (scores.isNotEmpty && coverage < 0.9) ...[
@@ -454,7 +454,7 @@ class _AminoRadar extends CustomPainter {
     }
     shape.close();
     final worst = limiting >= 0 ? scores[limiting] : 1.0;
-    final tone = worst < 0.8 ? gc.danger : (worst < 1 ? gc.warn : gc.sage);
+    final tone = worst < 0.8 ? gc.danger : (worst < 1 ? gc.warn : gc.lavender);
     canvas.drawPath(
       shape,
       Paint()
@@ -571,12 +571,12 @@ class _FatTypesCard extends StatelessWidget {
           Text('${_g(total.fat)} g', style: AppTheme.f(13, weight: FontWeight.w800, color: gc.text)),
         ]),
         const SizedBox(height: 14),
-        _SplitBar(parts: [(total.sat, gc.warn), (total.trans, gc.danger), (total.mono, gc.sage), (total.poly, gc.info)]),
+        _SplitBar(parts: [(total.sat, gc.warn), (total.trans, gc.danger), (total.mono, gc.lavender), (total.poly, gc.info)]),
         const SizedBox(height: 14),
         Row(children: [
           legend(gc.warn, t.fatSaturated, total.sat),
           if (total.trans > 0) legend(gc.danger, t.fatTrans, total.trans),
-          legend(gc.sage, t.fatMono, total.mono),
+          legend(gc.lavender, t.fatMono, total.mono),
           legend(gc.info, t.fatPoly, total.poly),
         ]),
         if (of == null) ...[
@@ -704,7 +704,7 @@ class _WaterTile extends StatelessWidget {
       value: decimalText(fit.waterValue(ml)),
       unit: '/ ${fit.waterLabel(goals.waterMl)}',
       hint: done ? t.waterDone : t.waterTapHint(fit.waterLabel(goals.glassMl)),
-      hintColor: done ? gc.sage : gc.water,
+      hintColor: done ? gc.lavender : gc.water,
     );
   }
 
@@ -1021,7 +1021,7 @@ class _SupplementsCardState extends State<_SupplementsCard> {
           Expanded(child: _kicker(gc, t.supplementsLabel)),
           if (due.isNotEmpty)
             Text('$done/${due.length}',
-                style: AppTheme.f(13, weight: FontWeight.w800, color: done == due.length ? gc.sage : gc.textSecondary)),
+                style: AppTheme.f(13, weight: FontWeight.w800, color: done == due.length ? gc.lavender : gc.textSecondary)),
           if (list.isNotEmpty || archived.isNotEmpty)
             Semantics(
               button: true,
@@ -1100,9 +1100,9 @@ class _SupplementsCardState extends State<_SupplementsCard> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 6),
             child: Row(children: [
-              Icon(PhosphorIconsBold.plus, size: 13, color: gc.accent),
+              Icon(PhosphorIconsBold.plus, size: 13, color: gc.teal),
               const SizedBox(width: 6),
-              Text(t.addSupplement, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+              Text(t.addSupplement, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
               const Spacer(),
               if (due.isNotEmpty && done == 0)
                 Text(t.suppRowHint, style: AppTheme.f(11, weight: FontWeight.w600, color: gc.textTertiary)),
@@ -1177,13 +1177,13 @@ class _SupplementRow extends StatelessWidget {
           curve: Curves.easeOutCubic,
           padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
           decoration: BoxDecoration(
-            color: taken ? gc.sage.withValues(alpha: 0.14) : gc.bgRaised2,
+            color: taken ? gc.lavender.withValues(alpha: 0.14) : gc.bgRaised2,
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
                 color: fit.suppFocus.contains(supp.id) && !taken
-                    ? gc.accent
+                    ? gc.teal
                     : taken
-                        ? gc.sage.withValues(alpha: 0.45)
+                        ? gc.lavender.withValues(alpha: 0.45)
                         : Colors.transparent,
                 width: fit.suppFocus.contains(supp.id) && !taken ? 2 : 1),
           ),
@@ -1230,7 +1230,7 @@ class _SupplementRow extends StatelessWidget {
                           if (low != null)
                             TextSpan(
                                 text: detail.isEmpty ? low : '$low · ',
-                                style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.accent)),
+                                style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.teal)),
                           TextSpan(text: detail),
                         ]),
                         maxLines: 1,
@@ -1255,9 +1255,9 @@ class _SupplementRow extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
-                    color: taken ? gc.sage : Colors.transparent,
+                    color: taken ? gc.lavender : Colors.transparent,
                     shape: BoxShape.circle,
-                    border: Border.all(color: taken ? gc.sage : gc.border, width: 2),
+                    border: Border.all(color: taken ? gc.lavender : gc.border, width: 2),
                   ),
                   child: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 320),
@@ -1338,8 +1338,8 @@ Future<void> showSupplementInfo(BuildContext context, Supplement supp) => _sheet
             if (due.isNotEmpty)
               Text(t.suppTakenOf(done, due.length), style: AppTheme.f(12, weight: FontWeight.w800, color: gc.textSecondary)),
             const SizedBox(width: 10),
-            Text(t.healthSeeAll, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.accent)),
-            Icon(PhosphorIconsBold.caretRight, size: 11, color: gc.accent),
+            Text(t.healthSeeAll, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.teal)),
+            Icon(PhosphorIconsBold.caretRight, size: 11, color: gc.teal),
           ]),
         ),
         const SizedBox(height: 10),
@@ -1352,10 +1352,10 @@ Future<void> showSupplementInfo(BuildContext context, Supplement supp) => _sheet
                   height: 16,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: fit.takenOn(d).contains(s.id) ? gc.sage : Colors.transparent,
+                    color: fit.takenOn(d).contains(s.id) ? gc.lavender : Colors.transparent,
                     border: Border.all(
                       color: fit.takenOn(d).contains(s.id)
-                          ? gc.sage
+                          ? gc.lavender
                           : s.dueOn(d)
                               ? gc.textTertiary
                               : gc.border.withValues(alpha: 0.5),
@@ -1579,7 +1579,7 @@ class _SupplementEditorState extends State<_SupplementEditor> with _StickerDraft
           decoration: BoxDecoration(
             color: gc.bgRaised2,
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: selected ? gc.accent : gc.border, width: selected ? 2 : 1),
+            border: Border.all(color: selected ? gc.teal : gc.border, width: selected ? 2 : 1),
           ),
           child: FoodSticker(photo: photo, name: '', size: 50, tilt: false, shadow: false),
         ),
@@ -1633,8 +1633,8 @@ class _SupplementEditorState extends State<_SupplementEditor> with _StickerDraft
               child: _working
                   ? Center(
                       child: SizedBox(
-                          width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.accent)))
-                  : Icon(PhosphorIconsRegular.camera, size: 22, color: gc.accent),
+                          width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.teal)))
+                  : Icon(PhosphorIconsRegular.camera, size: 22, color: gc.teal),
             ),
           ),
         ]),
@@ -1725,11 +1725,11 @@ class _SupplementEditorState extends State<_SupplementEditor> with _StickerDraft
                             height: 40,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: on ? gc.accent : gc.bgRaised2,
+                              color: on ? gc.teal : gc.bgRaised2,
                               borderRadius: BorderRadius.circular(13),
                             ),
                             child: Text(t.weekdayInitial(d),
-                                style: AppTheme.f(13.5, weight: FontWeight.w800, color: on ? gc.onEmber : gc.textSecondary)),
+                                style: AppTheme.f(13.5, weight: FontWeight.w800, color: on ? gc.onMagenta : gc.textSecondary)),
                           ),
                         ),
                       ),
@@ -1820,10 +1820,10 @@ class _SupplementEditorState extends State<_SupplementEditor> with _StickerDraft
       const SizedBox(height: 18),
       Container(
         padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-        decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(16)),
         child: Row(children: [
           Icon(at == null ? PhosphorIconsFill.calendarCheck : PhosphorIconsFill.bellSimpleRinging,
-              size: 15, color: gc.accent),
+              size: 15, color: gc.teal),
           const SizedBox(width: 10),
           Expanded(
             child: Text(_suppSchedule(context, _preview),
@@ -1983,8 +1983,8 @@ Future<void> _editWeightGoal(BuildContext context) async {
 Color _dayTone(GymColors gc, double value, double goal) {
   final r = goal <= 0 ? 0 : value / goal;
   if (r > 1.1) return gc.danger;
-  if (r >= 0.9) return gc.sage;
-  return gc.accent;
+  if (r >= 0.9) return gc.lavender;
+  return gc.teal;
 }
 
 class _WeekTile extends StatelessWidget {
@@ -2000,7 +2000,7 @@ class _WeekTile extends StatelessWidget {
     final goal = fit.energyOf(fit.kcalBudgetOn(fit.nutritionDay)).toDouble();
     return _ChartCard(
       icon: PhosphorIconsFill.chartLineUp,
-      color: gc.accent,
+      color: gc.teal,
       title: t.weekAverage,
       value: w == null ? '—' : '${fit.energyOf(w.kcal)}',
       unit: w == null ? '' : t.perDayUnit(fit.energyUnit),
@@ -2014,7 +2014,7 @@ class _WeekTile extends StatelessWidget {
               ],
               labels: [for (final d in days) t.weekdayInitial(d.weekday)],
               format: (v) => '${v.round()}',
-              color: gc.accent,
+              color: gc.teal,
               goal: goal > 0 ? goal : null,
               goalLabel: goal > 0 ? '${goal.round()}' : null,
               highlight: days.indexOf(fit.nutritionDay),
@@ -2042,13 +2042,13 @@ class _Chip extends StatelessWidget {
       scale: 0.94,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
-        decoration: BoxDecoration(color: selected ? gc.accent : gc.bgRaised2, borderRadius: BorderRadius.circular(100)),
+        decoration: BoxDecoration(color: selected ? gc.teal : gc.bgRaised2, borderRadius: BorderRadius.circular(100)),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           if (icon != null) ...[
-            Icon(icon, size: 12, color: selected ? gc.onEmber : gc.textSecondary),
+            Icon(icon, size: 12, color: selected ? gc.onMagenta : gc.textSecondary),
             const SizedBox(width: 6),
           ],
-          Text(label, style: AppTheme.f(12.5, weight: FontWeight.w700, color: selected ? gc.onEmber : gc.text)),
+          Text(label, style: AppTheme.f(12.5, weight: FontWeight.w700, color: selected ? gc.onMagenta : gc.text)),
         ]),
       ),
     );

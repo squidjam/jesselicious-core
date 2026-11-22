@@ -198,7 +198,7 @@ class _ExercisePreviewState extends State<_ExercisePreview> {
         widget.onAdd!();
       },
       child: on
-          ? SvgPathIcon(Ic.checkBold, size: 14, color: gc.onEmber)
+          ? SvgPathIcon(Ic.checkBold, size: 14, color: gc.onMagenta)
           : Icon(PhosphorIconsBold.plus, size: 15, color: gc.text),
     );
   }
@@ -247,8 +247,8 @@ class _ExercisePreviewState extends State<_ExercisePreview> {
             width: 24,
             height: 24,
             alignment: Alignment.center,
-            decoration: BoxDecoration(color: gc.emberSoft, shape: BoxShape.circle),
-            child: Text('${i + 1}', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.ember)),
+            decoration: BoxDecoration(color: gc.marigoldSoft, shape: BoxShape.circle),
+            child: Text('${i + 1}', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.marigold)),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -296,8 +296,8 @@ class _ExercisePreviewState extends State<_ExercisePreview> {
           height: 26,
           padding: const EdgeInsets.symmetric(horizontal: 10),
           alignment: Alignment.center,
-          decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(100)),
-          child: Text(_clock(ms), style: AppTheme.f(12, weight: FontWeight.w700, color: gc.accent)),
+          decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
+          child: Text(_clock(ms), style: AppTheme.f(12, weight: FontWeight.w700, color: gc.teal)),
         ),
       );
 }
@@ -357,7 +357,7 @@ class _VideoStage extends StatelessWidget {
                         allowScrubbing: true,
                         padding: const EdgeInsets.symmetric(vertical: 10.5),
                         colors: VideoProgressColors(
-                          playedColor: gc.accent,
+                          playedColor: gc.teal,
                           bufferedColor: gc.border,
                           backgroundColor: gc.bgRaised,
                         ),

@@ -213,7 +213,7 @@ class _TrendScreenState extends State<TrendScreen> {
   Widget build(BuildContext context) {
     final gc = context.gc;
     final s = _series;
-    final color = s.color ?? gc.accent;
+    final color = s.color ?? gc.teal;
     final points = pointsSince(s.points, _range, DateTime.now());
     final enough = points.length >= 2;
     final line = enough ? fitTrend(points) : null;
@@ -242,7 +242,7 @@ class _TrendScreenState extends State<TrendScreen> {
     final chartH = (height * 0.3).clamp(190.0, 280.0);
     Color tone(double d) => !s.judged || d.abs() < 1e-9
         ? gc.textSecondary
-        : ((s.lowerIsBetter ? d < 0 : d > 0) ? gc.sage : gc.textSecondary);
+        : ((s.lowerIsBetter ? d < 0 : d > 0) ? gc.lavender : gc.textSecondary);
     String signed(double d) => '${d >= 0 ? '+' : '−'}${_withUnit(s, s.format(d.abs()))}';
     final head = <Widget>[
       if (widget.series.length > 1) ...[
@@ -258,8 +258,8 @@ class _TrendScreenState extends State<TrendScreen> {
                 Pill(
                   key: _chips[i],
                   label: widget.series[i].name,
-                  bg: i == _pick ? gc.ember : gc.bgRaised,
-                  fg: i == _pick ? gc.onEmber : gc.textSecondary,
+                  bg: i == _pick ? gc.teal : gc.bgRaised,
+                  fg: i == _pick ? gc.onTeal : gc.textSecondary,
                   vPad: 0,
                   onTap: () => _setPick(i),
                 ),

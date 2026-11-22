@@ -300,8 +300,8 @@ class ToolDetailScreen extends StatelessWidget {
       final active = fit.calActivity == v;
       return Pill(
         label: label,
-        bg: active ? gc.ember : gc.bgRaised2,
-        fg: active ? gc.onEmber : gc.textSecondary,
+        bg: active ? gc.magenta : gc.bgRaised2,
+        fg: active ? gc.onMagenta : gc.textSecondary,
         onTap: () => fit.setCalActivity(v),
         hPad: 12,
         vPad: 7,
@@ -362,11 +362,11 @@ class ToolDetailScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(8),
             alignment: Alignment.center,
-            decoration: BoxDecoration(color: active ? gc.ember : gc.bgRaised2, borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(color: active ? gc.magenta : gc.bgRaised2, borderRadius: BorderRadius.circular(10)),
             child: Text(label,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: AppTheme.f(13, weight: FontWeight.w600, color: active ? gc.onEmber : gc.textSecondary)),
+                style: AppTheme.f(13, weight: FontWeight.w600, color: active ? gc.onMagenta : gc.textSecondary)),
           ),
         ),
       );
@@ -423,7 +423,7 @@ class ToolDetailScreen extends StatelessWidget {
               ),
           if (loadable < target - 0.01)
             Text(t.plateAchievable('${fmt(loadable)} ${fit.units}'),
-                style: AppTheme.f(12, weight: FontWeight.w500, color: gc.brass)),
+                style: AppTheme.f(12, weight: FontWeight.w500, color: gc.marigold)),
         ],
       ),
     );
@@ -515,7 +515,7 @@ void showPlateSheet(BuildContext context, double displayTarget, {double? startBa
               const SizedBox(height: 4),
               Text('${fmt(displayTarget)} ${fit.units}',
                   textAlign: TextAlign.center,
-                  style: AppTheme.f(30, weight: FontWeight.w700, color: gc.ember)),
+                  style: AppTheme.f(30, weight: FontWeight.w700, color: gc.magenta)),
               const SizedBox(height: 18),
               Text(t.barWeight,
                   style: AppTheme.f(10, weight: FontWeight.w700, color: gc.textTertiary, letterSpacing: 1.5)),
@@ -555,7 +555,7 @@ void showPlateSheet(BuildContext context, double displayTarget, {double? startBa
               if (loadable < displayTarget - 0.01) ...[
                 const SizedBox(height: 2),
                 Text(t.plateAchievable('${fmt(loadable)} ${fit.units}'),
-                    style: AppTheme.f(12, weight: FontWeight.w500, color: gc.brass)),
+                    style: AppTheme.f(12, weight: FontWeight.w500, color: gc.marigold)),
               ],
               const SizedBox(height: 18),
               PrimaryButton(label: t.done, onTap: () => Navigator.of(sheet).pop()),
@@ -575,13 +575,13 @@ Widget _sheetBarChip(GymColors gc, String label, bool active, VoidCallback onTap
           padding: const EdgeInsets.all(10),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: active ? gc.ember : gc.bgRaised2,
+            color: active ? gc.teal : gc.bgRaised2,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(label,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppTheme.f(13, weight: FontWeight.w600, color: active ? gc.onEmber : gc.textSecondary)),
+              style: AppTheme.f(13, weight: FontWeight.w600, color: active ? gc.onTeal : gc.textSecondary)),
         ),
       ),
     );

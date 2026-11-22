@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 
 void main() {
@@ -12,7 +12,7 @@ void main() {
     fit.trainContinue();
     fit.route = 'train';
 
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pumpAndSettle();
 
     final iconFinder = find.byIcon(PhosphorIconsRegular.arrowCounterClockwise);
@@ -53,7 +53,7 @@ void main() {
       expect(suggested.every((e) => muscles.contains(e.primary)), true);
     }
 
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pumpAndSettle();
 
     expect(find.text('Triceps'), findsWidgets);

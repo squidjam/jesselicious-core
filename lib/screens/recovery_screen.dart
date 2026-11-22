@@ -570,7 +570,7 @@ class _RecoverySheetState extends State<_RecoverySheet> {
           decoration: BoxDecoration(
             color: on ? gc.bgRaised2 : Colors.transparent,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: on ? gc.accent.withValues(alpha: 0.5) : gc.border.withValues(alpha: 0.6)),
+            border: Border.all(color: on ? gc.teal.withValues(alpha: 0.5) : gc.border.withValues(alpha: 0.6)),
           ),
           child: Column(children: [
             FitText(f.label.toUpperCase(),
@@ -581,7 +581,7 @@ class _RecoverySheetState extends State<_RecoverySheet> {
               child: Center(
                 child: f.on
                     ? Ltr(child: FitText(value, style: AppTheme.f(20, weight: FontWeight.w800, color: on ? gc.text : gc.textSecondary)))
-                    : Text(t.recoveryAdd, style: AppTheme.f(13.5, weight: FontWeight.w700, color: gc.accent)),
+                    : Text(t.recoveryAdd, style: AppTheme.f(13.5, weight: FontWeight.w700, color: gc.teal)),
               ),
             ),
           ]),
@@ -633,7 +633,7 @@ class _RecoverySheetState extends State<_RecoverySheet> {
           controller: _note,
           maxLength: 200,
           textCapitalization: TextCapitalization.sentences,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           style: AppTheme.f(14.5, weight: FontWeight.w600, color: gc.text),
           decoration: InputDecoration(
             border: InputBorder.none,

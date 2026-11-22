@@ -10,7 +10,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.gymmane.app</string>
+		<string>group.com.jesselicious.app</string>
 	</array>
 </dict>
 </plist>

@@ -17,7 +17,7 @@ class RestAlarm {
   static final RestAlarm instance = RestAlarm._();
 
   static const _id = 1001;
-  static const _haptics = MethodChannel('gymmane/haptics');
+  static const _haptics = MethodChannel('jesselicious/haptics');
   static final _pattern = Int64List.fromList([0, 350, 180, 350, 180, 600]);
 
   String style = 'loud';
@@ -112,7 +112,7 @@ class RestAlarm {
       tzdata.initializeTimeZones();
       await _plugin.initialize(
         settings: const InitializationSettings(
-          android: AndroidInitializationSettings('@drawable/ic_stat_gymmane'),
+          android: AndroidInitializationSettings('@drawable/ic_stat_jesselicious'),
           iOS: DarwinInitializationSettings(
             requestAlertPermission: false,
             requestSoundPermission: false,

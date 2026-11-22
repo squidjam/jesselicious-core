@@ -119,7 +119,7 @@ Future<void> _copyDay(BuildContext context) async {
   HapticFeedback.lightImpact();
   await Clipboard.setData(ClipboardData(text: dayMarkdown(day, full: full)));
   if (!context.mounted) return;
-  showNotchToast(context, t.copiedDone, subtitle: _dayName(day), icon: PhosphorIconsRegular.copy, accent: gc.accent);
+  showNotchToast(context, t.copiedDone, subtitle: _dayName(day), icon: PhosphorIconsRegular.copy, accent: gc.teal);
 }
 
 String _dayName(DateTime day) {
@@ -556,19 +556,19 @@ class _DayDot extends StatelessWidget {
     final ringColor = pct > 1.1
         ? gc.danger
         : pct >= 0.9
-            ? gc.sage
-            : gc.accent;
+            ? gc.lavender
+            : gc.teal;
     final label = Text('${day.day}',
         style: AppTheme.f(13,
-            weight: FontWeight.w800, color: selected ? gc.onEmber : (future ? gc.textTertiary : gc.text)));
+            weight: FontWeight.w800, color: selected ? gc.onTeal : (future ? gc.textTertiary : gc.text)));
     return AnimatedContainer(
       duration: const Duration(milliseconds: 220),
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: selected ? gc.ember : Colors.transparent,
+        color: selected ? gc.teal : Colors.transparent,
         shape: BoxShape.circle,
-        boxShadow: selected ? [BoxShadow(color: gc.emberShadow, blurRadius: 10, offset: const Offset(0, 3))] : null,
+        boxShadow: selected ? [BoxShadow(color: gc.teal.withValues(alpha: 0.5), blurRadius: 10, offset: const Offset(0, 3))] : null,
       ),
       child: selected || future
           ? Center(child: label)
@@ -710,7 +710,7 @@ void _loggedToast(BuildContext context, FoodEntry e) {
     t.loggedToast(mealInSentence(e.meal)),
     subtitle: e.name.isEmpty && when == null ? null : [if (e.name.isNotEmpty) e.name, ?when].join(' · '),
     icon: PhosphorIconsFill.forkKnife,
-    accent: context.gc.accent,
+    accent: context.gc.teal,
     action: t.undo,
     onTap: () => fit.removeEntry(e.id),
   );

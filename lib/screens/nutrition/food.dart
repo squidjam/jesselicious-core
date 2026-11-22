@@ -209,9 +209,9 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
                       width: 62,
                       height: 62,
                       decoration: BoxDecoration(
-                        color: _cat == c ? gc.accentSoft : gc.bgRaised2,
+                        color: _cat == c ? gc.tealSoft : gc.bgRaised2,
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: _cat == c ? gc.accent.withValues(alpha: 0.75) : Colors.transparent, width: 1.5),
+                        border: Border.all(color: _cat == c ? gc.teal.withValues(alpha: 0.75) : Colors.transparent, width: 1.5),
                       ),
                       alignment: Alignment.center,
                       child: FoodSticker(photo: catPhoto(c), name: catName(c), size: 46, tilt: false, shadow: false),
@@ -220,7 +220,7 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
                     Text(catName(c),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: AppTheme.f(11, weight: FontWeight.w700, color: _cat == c ? gc.accent : gc.textSecondary)),
+                        style: AppTheme.f(11, weight: FontWeight.w700, color: _cat == c ? gc.teal : gc.textSecondary)),
                   ]),
                 ),
               ),
@@ -309,9 +309,9 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
               width: 62,
               height: 62,
               decoration: BoxDecoration(
-                color: selected ? gc.accentSoft : gc.bgRaised2,
+                color: selected ? gc.tealSoft : gc.bgRaised2,
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: selected ? gc.accent.withValues(alpha: 0.75) : Colors.transparent, width: 1.5),
+                border: Border.all(color: selected ? gc.teal.withValues(alpha: 0.75) : Colors.transparent, width: 1.5),
               ),
               alignment: Alignment.center,
               child: art,
@@ -320,7 +320,7 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
             Text(label,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: AppTheme.f(11, weight: FontWeight.w700, color: selected ? gc.accent : gc.textSecondary)),
+                style: AppTheme.f(11, weight: FontWeight.w700, color: selected ? gc.teal : gc.textSecondary)),
           ]),
         ),
       );
@@ -373,8 +373,8 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
           leading: Container(
             width: 38,
             height: 38,
-            decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.14), shape: BoxShape.circle),
-            child: Icon(PhosphorIconsRegular.sparkle, size: 17, color: gc.accent),
+            decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.14), shape: BoxShape.circle),
+            child: Icon(PhosphorIconsRegular.sparkle, size: 17, color: gc.teal),
           ),
           title: t.mealAiRow,
           detail: t.mealAiRowHint,
@@ -392,8 +392,8 @@ class _AddFoodSheetState extends State<_AddFoodSheet> {
             leading: Container(
               width: 38,
               height: 38,
-              decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.14), shape: BoxShape.circle),
-              child: Icon(PhosphorIconsBold.cookingPot, size: 17, color: gc.accent),
+              decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.14), shape: BoxShape.circle),
+              child: Icon(PhosphorIconsBold.cookingPot, size: 17, color: gc.teal),
             ),
             title: t.dishNew,
             detail: t.dishNewHint,
@@ -486,7 +486,7 @@ class _SearchInput extends StatelessWidget {
             onChanged: onChanged,
             textInputAction: TextInputAction.search,
             style: AppTheme.f(14.5, weight: FontWeight.w600, color: gc.text),
-            cursorColor: gc.accent,
+            cursorColor: gc.teal,
             decoration: InputDecoration(
               isCollapsed: true,
               border: InputBorder.none,
@@ -601,7 +601,7 @@ class _FoodRow extends StatelessWidget {
                   style: AppTheme.f(11.5, weight: FontWeight.w600, color: gc.textSecondary)),
             ]),
           ),
-          Icon(PhosphorIconsBold.plus, size: 15, color: gc.accent),
+          Icon(PhosphorIconsBold.plus, size: 15, color: gc.teal),
         ]),
       ),
     );
@@ -878,17 +878,17 @@ class _QuickChip extends StatelessWidget {
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? gc.accentSoft : gc.bgRaised2,
+          color: selected ? gc.tealSoft : gc.bgRaised2,
           borderRadius: BorderRadius.circular(100),
-          border: Border.all(color: selected ? gc.accent.withValues(alpha: 0.7) : Colors.transparent),
+          border: Border.all(color: selected ? gc.teal.withValues(alpha: 0.7) : Colors.transparent),
         ),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           if (icon != null) ...[
-            Icon(icon, size: 13, color: gc.accent),
+            Icon(icon, size: 13, color: gc.teal),
             const SizedBox(width: 5),
           ],
           Text(label,
-              style: AppTheme.f(12.5, weight: FontWeight.w700, color: selected || icon != null ? gc.accent : gc.textSecondary)),
+              style: AppTheme.f(12.5, weight: FontWeight.w700, color: selected || icon != null ? gc.teal : gc.textSecondary)),
         ]),
       ),
     );
@@ -932,9 +932,9 @@ class _ValueRows extends StatelessWidget {
               behavior: HitTestBehavior.opaque,
               onTap: onEdit,
               child: Row(children: [
-                Icon(PhosphorIconsBold.pencilSimple, size: 13, color: gc.accent),
+                Icon(PhosphorIconsBold.pencilSimple, size: 13, color: gc.teal),
                 const SizedBox(width: 5),
-                Text(t.editValues, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.accent)),
+                Text(t.editValues, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.teal)),
               ]),
             ),
         ]),
@@ -943,12 +943,12 @@ class _ValueRows extends StatelessWidget {
         row(sentenceCase(t.macroProtein), '${_g(per.protein)} g', gc.protein),
         row(sentenceCase(t.macroCarbs), '${_g(per.carbs)} g', gc.carbs),
         row(sentenceCase(t.macroFat), '${_g(per.fat)} g', gc.fat),
-        if (per.fiber > 0) row(t.fiberLabel, '${_g(per.fiber)} g', gc.sage),
+        if (per.fiber > 0) row(t.fiberLabel, '${_g(per.fiber)} g', gc.lavender),
         if (per.sugar > 0) row(t.sugarLabel, '${_g(per.sugar)} g', gc.warn),
         if (per.sodium > 0) row(t.sodiumLabel, '${per.sodium.round()} mg', gc.info),
         if (per.chol > 0) row(t.cholesterolLabel, '${per.chol.round()} mg', gc.textSecondary),
         if (per.iron > 0) row(t.ironLabel, '${fmt((per.iron * 10).round() / 10)} mg', gc.danger),
-        if (per.potassium > 0) row(t.potassiumLabel, '${per.potassium.round()} mg', gc.sage),
+        if (per.potassium > 0) row(t.potassiumLabel, '${per.potassium.round()} mg', gc.lavender),
       ]),
     );
   }
@@ -972,7 +972,7 @@ class _FoodHero extends StatelessWidget {
           width: size * 1.7,
           height: size * 1.25,
           decoration: BoxDecoration(
-            gradient: RadialGradient(colors: [gc.accent.withValues(alpha: 0.16), gc.accent.withValues(alpha: 0)]),
+            gradient: RadialGradient(colors: [gc.teal.withValues(alpha: 0.16), gc.teal.withValues(alpha: 0)]),
           ),
         ),
         TweenAnimationBuilder<double>(
@@ -998,7 +998,7 @@ class _FoodHero extends StatelessWidget {
                     fit.toggleFavoriteFood(favId!);
                   },
                   child: Icon(on ? PhosphorIconsFill.star : PhosphorIconsRegular.star,
-                      size: 19, color: on ? gc.accent : gc.textSecondary),
+                      size: 19, color: on ? gc.teal : gc.textSecondary),
                 );
               },
             ),
@@ -1339,9 +1339,9 @@ class _EntrySheetState extends State<_EntrySheet> {
           behavior: HitTestBehavior.opaque,
           onTap: _pickDay,
           child: Row(mainAxisSize: MainAxisSize.min, children: [
-            Text(_dayName(_day), style: AppTheme.f(14, weight: FontWeight.w800, color: gc.accent)),
+            Text(_dayName(_day), style: AppTheme.f(14, weight: FontWeight.w800, color: gc.teal)),
             const SizedBox(width: 6),
-            Icon(PhosphorIconsBold.calendarBlank, size: 15, color: gc.accent),
+            Icon(PhosphorIconsBold.calendarBlank, size: 15, color: gc.teal),
           ]),
         ),
       ),
@@ -1363,7 +1363,7 @@ class _EntrySheetState extends State<_EntrySheet> {
               t.movedToDay,
               subtitle: _dayName(_day),
               icon: PhosphorIconsFill.calendarCheck,
-              accent: gc.accent,
+              accent: gc.teal,
               action: t.undo,
               onTap: () => fit.moveEntryToDay(e.id, was),
             );
@@ -1579,7 +1579,7 @@ class _MacroInputs extends StatelessWidget {
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          child: Text(t.useValue, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+                          child: Text(t.useValue, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
                         ),
                       ),
                     ]),
@@ -1808,7 +1808,7 @@ class _TextInput extends StatelessWidget {
           controller: controller,
           textCapitalization: TextCapitalization.sentences,
           style: AppTheme.f(15.5, weight: FontWeight.w700, color: gc.text),
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           decoration: InputDecoration(
             isDense: true,
             border: InputBorder.none,
@@ -1866,7 +1866,7 @@ class _PhotoChoice extends StatelessWidget {
             decoration: BoxDecoration(
               color: gc.bgRaised2,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: selected ? gc.accent : gc.border, width: selected ? 2 : 1),
+              border: Border.all(color: selected ? gc.teal : gc.border, width: selected ? 2 : 1),
             ),
             child: ready
                 ? FoodSticker(photo: photo!, name: name, size: 60, tilt: false, shadow: false)
@@ -1999,12 +1999,12 @@ mixin _StickerDrafts<T extends StatefulWidget> on State<T> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             decoration:
-                BoxDecoration(color: gc.accent.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(100)),
+                BoxDecoration(color: gc.teal.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(100)),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Icon(PhosphorIconsBold.paintBrush, size: 14, color: gc.accent),
+              Icon(PhosphorIconsBold.paintBrush, size: 14, color: gc.teal),
               const SizedBox(width: 7),
               Text(_draft!.found ? t.cutoutEdit : t.cutoutByHand,
-                  style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+                  style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
             ]),
           ),
         ),
@@ -2130,7 +2130,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
     if (pick == null || !mounted) return;
     setState(() => _take(pick));
     showNotchToast(context, t.foodAiFilled,
-        subtitle: t.foodAiFilledHint, icon: PhosphorIconsFill.checkCircle, accent: context.gc.sage);
+        subtitle: t.foodAiFilledHint, icon: PhosphorIconsFill.checkCircle, accent: context.gc.lavender);
   }
 
   void _take(AiFoodPick pick) {
@@ -2184,8 +2184,8 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
             for (final c in FoodCat.values) ...[
               Pill(
                 label: catName(c),
-                bg: _cat == c ? gc.accentSoft : gc.bgRaised2,
-                fg: _cat == c ? gc.accent : gc.textSecondary,
+                bg: _cat == c ? gc.tealSoft : gc.bgRaised2,
+                fg: _cat == c ? gc.teal : gc.textSecondary,
                 fontSize: 12.5,
                 onTap: () {
                   HapticFeedback.selectionClick();
@@ -2200,8 +2200,8 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
             for (final g in fit.foodGroups) ...[
               Pill(
                 label: g.name,
-                bg: _group == g.id ? gc.accentSoft : gc.bgRaised2,
-                fg: _group == g.id ? gc.accent : gc.textSecondary,
+                bg: _group == g.id ? gc.tealSoft : gc.bgRaised2,
+                fg: _group == g.id ? gc.teal : gc.textSecondary,
                 fontSize: 12.5,
                 onTap: () {
                   HapticFeedback.selectionClick();
@@ -2333,8 +2333,8 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
           leading: Container(
             width: 38,
             height: 38,
-            decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.14), shape: BoxShape.circle),
-            child: Icon(PhosphorIconsRegular.sparkle, size: 17, color: gc.accent),
+            decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.14), shape: BoxShape.circle),
+            child: Icon(PhosphorIconsRegular.sparkle, size: 17, color: gc.teal),
           ),
           title: t.foodAiRow,
           detail: t.foodAiRowHint,
@@ -2368,7 +2368,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
                     SizedBox(
                       width: 26,
                       height: 26,
-                      child: CircularProgressIndicator(strokeWidth: 2.4, color: gc.accent),
+                      child: CircularProgressIndicator(strokeWidth: 2.4, color: gc.teal),
                     ),
                     const SizedBox(height: 12),
                     Text(t.cutoutWorking, style: AppTheme.f(12, weight: FontWeight.w600, color: gc.textSecondary)),
@@ -2381,7 +2381,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
                           border: Border.all(color: gc.border),
                         ),
                         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          Icon(PhosphorIconsRegular.camera, size: 30, color: gc.accent),
+                          Icon(PhosphorIconsRegular.camera, size: 30, color: gc.teal),
                           const SizedBox(height: 8),
                           Text(t.addPhoto, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.text)),
                         ]),
@@ -2427,7 +2427,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
       const SizedBox(height: 8),
       if (_extras) ...[
         Row(children: [
-          Expanded(child: _NumberField(label: t.fiberLabel.toUpperCase(), controller: _fi, color: gc.sage)),
+          Expanded(child: _NumberField(label: t.fiberLabel.toUpperCase(), controller: _fi, color: gc.lavender)),
           const SizedBox(width: 8),
           Expanded(child: _NumberField(label: t.sugarLabel.toUpperCase(), controller: _su, color: gc.warn)),
           const SizedBox(width: 8),
@@ -2450,7 +2450,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
             const SizedBox(width: 8),
             Expanded(
               child:
-                  _NumberField(label: t.potassiumLabel.toUpperCase(), controller: _ka, color: gc.sage, suffix: 'mg'),
+                  _NumberField(label: t.potassiumLabel.toUpperCase(), controller: _ka, color: gc.lavender, suffix: 'mg'),
             ),
           ] else
             const Spacer(flex: 2),
@@ -2466,7 +2466,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
         ]),
         const SizedBox(height: 8),
         Row(children: [
-          Expanded(child: _NumberField(label: t.fatMono.toUpperCase(), controller: _mono, color: gc.sage)),
+          Expanded(child: _NumberField(label: t.fatMono.toUpperCase(), controller: _mono, color: gc.lavender)),
           const SizedBox(width: 8),
           Expanded(child: _NumberField(label: t.fatPoly.toUpperCase(), controller: _poly, color: gc.info)),
         ]),
@@ -2476,7 +2476,7 @@ class _FoodEditorState extends State<_FoodEditor> with _StickerDrafts {
         Center(
           child: TextButton(
             onPressed: () => setState(() => _extras = true),
-            child: Text(t.moreNutrients, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.accent)),
+            child: Text(t.moreNutrients, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.teal)),
           ),
         ),
       if (fit.trackerOn(Tracker.animal)) ...[

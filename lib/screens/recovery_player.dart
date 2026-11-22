@@ -235,7 +235,7 @@ class _GuidedTimerState extends State<GuidedTimer> {
     final rounds = widget.plan.where((p) => p.$1 == 'heat').length;
     final round = widget.plan.take(math.min(at.index + 1, widget.plan.length)).where((p) => p.$1 == 'heat').length;
     final tone = switch (phase.$1) {
-      'heat' => gc.accent,
+      'heat' => gc.teal,
       'cold' => gc.info,
       _ => gc.textSecondary,
     };

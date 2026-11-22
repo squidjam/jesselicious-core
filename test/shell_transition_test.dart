@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/screens/home_screen.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/progress_reminder.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/widgets/award_celebration.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/screens/home_screen.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/progress_reminder.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/widgets/award_celebration.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -35,7 +35,7 @@ void main() {
   }
 
   testWidgets('the screen being left is gone before the new one shows up', (tester) async {
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pump();
 
     fit.goProgress();
@@ -50,7 +50,7 @@ void main() {
   });
 
   testWidgets('a medal waits before taking over the screen', (tester) async {
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pump();
 
     fit.refreshAwards();
@@ -72,7 +72,7 @@ void main() {
   });
 
   testWidgets('medals queue up one after another with a pause in between', (tester) async {
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pump();
 
     fit.sessions.add(LoggedSession(DateTime.now(), 1200, [
@@ -100,7 +100,7 @@ void main() {
   });
 
   testWidgets('holding a tab lets the pill slide to another one', (tester) async {
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     await tester.pump();
 
     final home = tester.getCenter(find.bySemanticsLabel(t.home));

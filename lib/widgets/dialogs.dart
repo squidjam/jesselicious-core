@@ -60,7 +60,7 @@ Future<bool> askConfirm(
       actions: [
         dialogAction(cancelLabel ?? t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(false),
             strong: false),
-        dialogAction(confirmLabel, danger ? gc.danger : gc.accent, () => Navigator.of(dctx).pop(true)),
+        dialogAction(confirmLabel, danger ? gc.danger : gc.teal, () => Navigator.of(dctx).pop(true)),
       ],
     ),
   );
@@ -89,18 +89,18 @@ Future<String?> askText(
         maxLines: maxLines,
         textCapitalization: TextCapitalization.sentences,
         style: AppTheme.s(15, color: gc.text),
-        cursorColor: gc.accent,
+        cursorColor: gc.teal,
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: AppTheme.s(15, color: gc.textTertiary),
           enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.border)),
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.accent)),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.teal)),
         ),
         onSubmitted: (v) => Navigator.of(dctx).pop(v),
       ),
       actions: [
         dialogAction(t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(), strong: false),
-        dialogAction(t.save, gc.accent, () => Navigator.of(dctx).pop(controller.text)),
+        dialogAction(t.save, gc.teal, () => Navigator.of(dctx).pop(controller.text)),
       ],
     ),
   );
@@ -130,7 +130,7 @@ Future<double?> askNumber(
         keyboardType: TextInputType.numberWithOptions(decimal: decimal),
         textAlign: TextAlign.center,
         style: AppTheme.f(34, weight: FontWeight.w800, color: gc.text, height: 1.1),
-        cursorColor: gc.accent,
+        cursorColor: gc.teal,
         onSubmitted: (v) => Navigator.of(dctx).pop(v),
         decoration: InputDecoration(
           filled: true,
@@ -141,7 +141,7 @@ Future<double?> askNumber(
       ),
       actions: [
         dialogAction(t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(), strong: false),
-        dialogAction(t.set, gc.accent, () => Navigator.of(dctx).pop(controller.text)),
+        dialogAction(t.set, gc.teal, () => Navigator.of(dctx).pop(controller.text)),
       ],
     ),
   );
@@ -161,7 +161,7 @@ Future<NoteLink?> askLink(BuildContext context, {NoteLink? initial}) async {
         hintStyle: AppTheme.s(15, color: gc.textTertiary),
         errorStyle: AppTheme.s(12, color: gc.danger),
         enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.border)),
-        focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.accent)),
+        focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.teal)),
         errorBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.danger)),
         focusedErrorBorder: UnderlineInputBorder(borderSide: BorderSide(color: gc.danger)),
       );
@@ -196,7 +196,7 @@ Future<NoteLink?> askLink(BuildContext context, {NoteLink? initial}) async {
                 textInputAction: TextInputAction.next,
                 maxLength: 60,
                 style: AppTheme.s(15, color: gc.text),
-                cursorColor: gc.accent,
+                cursorColor: gc.teal,
                 decoration: deco(t.noteLinkNameHint).copyWith(counterText: ''),
               ),
               const SizedBox(height: 8),
@@ -205,7 +205,7 @@ Future<NoteLink?> askLink(BuildContext context, {NoteLink? initial}) async {
                 keyboardType: TextInputType.url,
                 autocorrect: false,
                 style: AppTheme.s(15, color: gc.text),
-                cursorColor: gc.accent,
+                cursorColor: gc.teal,
                 decoration: deco(t.noteLinkUrlHint, error: bad ? t.noteLinkInvalid : null),
                 onChanged: (_) {
                   if (bad) setState(() => bad = false);
@@ -216,7 +216,7 @@ Future<NoteLink?> askLink(BuildContext context, {NoteLink? initial}) async {
           ),
           actions: [
             dialogAction(t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(), strong: false),
-            dialogAction(t.save, gc.accent, submit),
+            dialogAction(t.save, gc.teal, submit),
           ],
         );
       },

@@ -100,7 +100,7 @@ class AboutScreen extends StatelessWidget {
             child: Container(
               width: 162,
               height: 162,
-              decoration: BoxDecoration(color: gc.accentSoft, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: gc.tealSoft, shape: BoxShape.circle),
             ),
           ),
           Positioned(
@@ -109,7 +109,7 @@ class AboutScreen extends StatelessWidget {
             child: Container(
               width: 88,
               height: 88,
-              decoration: BoxDecoration(color: gc.emberSoft, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: gc.marigoldSoft, shape: BoxShape.circle),
             ),
           ),
           Positioned(
@@ -127,8 +127,12 @@ class AboutScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('GymMane',
+                Text('Jesselicious',
                     style: AppTheme.f(33, weight: FontWeight.w800, color: gc.text, letterSpacing: -0.5)),
+                const SizedBox(height: 6),
+                Text('Based on GymMane by InlitX',
+                    textAlign: TextAlign.center,
+                    style: AppTheme.f(11.5, weight: FontWeight.w600, color: gc.textSecondary)),
                 const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
@@ -196,7 +200,7 @@ class AboutScreen extends StatelessWidget {
 
   Widget _credits(GymColors gc) {
     final rows = <(IconData, String, String, String, Color?)>[
-      (PhosphorIconsFill.heart, t.madeWithLoveBy, _kAuthor, _kAuthorUrl, gc.accent),
+      (PhosphorIconsFill.heart, t.madeWithLoveBy, _kAuthor, _kAuthorUrl, gc.teal),
       (PhosphorIconsRegular.githubLogo, t.sourceCode, 'InlitX/GymMane', _kRepoUrl, null),
       (PhosphorIconsRegular.coffee, t.buyCoffee, 'ko-fi.com/inlitx', _kKofiUrl, null),
     ];

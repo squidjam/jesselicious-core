@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/nutrition.dart';
-import 'package:gymmane/services/food_library.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/meal_ai.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/models/nutrition.dart';
+import 'package:jesselicious/services/food_library.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/meal_ai.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -90,7 +90,7 @@ void main() {
   group('lector', () {
     test('respuesta limpia con texto alrededor', () {
       final r = parseMealAi('Claro, aquí tienes:\n```json\n'
-          '{"gymmane":"gymmane-meal","v":1,"options":[{"name":"Bowl","items":['
+          '{"jesselicious":"jesselicious-meal","v":1,"options":[{"name":"Bowl","items":['
           '{"food":"Greek yogurt","grams":170,"kcal":100,"protein":17,"carbs":6,"fat":0.7,"meal":"snacks"}]}]}\n'
           '```\nEspero que te guste.');
       expect(r.options.length, 1);
@@ -466,7 +466,7 @@ void main() {
 
   group('alimento con IA', () {
     test('lee la respuesta con el formato pedido y los valores por 100 g', () {
-      final pick = parseFoodAi('Aquí tienes:\n```json\n{"gymmane": "gymmane-food", "v": 1, "food": {"name": "Yogur griego Hacendado", "serving_name": "1 tarrina", "grams": 125, "liquid": false, "per100": {"kcal": 97, "protein": 6.5, "carbs": 3.4, "fat": 6.4, "sugar": 3.4, "saturated": 4.2, "sodium": 40}}}\n```');
+      final pick = parseFoodAi('Aquí tienes:\n```json\n{"jesselicious": "jesselicious-food", "v": 1, "food": {"name": "Yogur griego Hacendado", "serving_name": "1 tarrina", "grams": 125, "liquid": false, "per100": {"kcal": 97, "protein": 6.5, "carbs": 3.4, "fat": 6.4, "sugar": 3.4, "saturated": 4.2, "sodium": 40}}}\n```');
       expect(pick, isNotNull);
       final f = pick!.food;
       expect(f.name, 'Yogur griego Hacendado');
@@ -513,7 +513,7 @@ void main() {
     });
 
     test('un JSON a medias es una respuesta cortada', () {
-      expect(diagnoseMealAi('```json {"gymmane": "meal", "options": [{"items": [{"name": "Arroz", "grams": 150'),
+      expect(diagnoseMealAi('```json {"jesselicious": "meal", "options": [{"items": [{"name": "Arroz", "grams": 150'),
           MealAiTrouble.cut);
     });
 
@@ -522,7 +522,7 @@ void main() {
     });
   });
   test('#417 el escáner manda un alimento o un apunte rápido con el mismo formato', () {
-    const food = '{"gymmane":"gymmane-food","v":1,"food":{"name":"Skyr · Arla","serving_name":"1 pot","grams":150,"liquid":false,"per100":{"kcal":63,"protein":11,"carbs":4,"fat":0.2,"sodium":40}}}';
+    const food = '{"jesselicious":"jesselicious-food","v":1,"food":{"name":"Skyr · Arla","serving_name":"1 pot","grams":150,"liquid":false,"per100":{"kcal":63,"protein":11,"carbs":4,"fat":0.2,"sodium":40}}}';
     final quick = food.replaceFirst('"v":1,', '"v":1,"mode":"quick",');
     expect(isQuickFood(food), isFalse);
     expect(isQuickFood(quick), isTrue);

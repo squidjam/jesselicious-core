@@ -277,7 +277,7 @@ class _CutoutEditorState extends State<_CutoutEditor> {
                 if (photo == null || mask == null) {
                   return Center(
                     child: SizedBox(
-                        width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.accent)),
+                        width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.teal)),
                   );
                 }
                 return GestureDetector(
@@ -298,7 +298,7 @@ class _CutoutEditorState extends State<_CutoutEditor> {
                           offset: _offset,
                           imageWidth: widget.draft.width,
                           dim: gc.bg,
-                          edge: gc.accent,
+                          edge: gc.teal,
                         ),
                       ),
                     ),
@@ -307,7 +307,7 @@ class _CutoutEditorState extends State<_CutoutEditor> {
                         top: 12,
                         right: 12,
                         child: SizedBox(
-                            width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: gc.accent)),
+                            width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: gc.teal)),
                       ),
                   ]),
                 );
@@ -339,7 +339,7 @@ class _CutoutEditorState extends State<_CutoutEditor> {
                     height: 8.0 + i * 7,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: i == _brush ? gc.accent : gc.textTertiary.withValues(alpha: 0.5),
+                      color: i == _brush ? gc.teal : gc.textTertiary.withValues(alpha: 0.5),
                     ),
                   ),
                 ),

@@ -121,7 +121,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
     if (!mounted) return;
     HapticFeedback.lightImpact();
     showNotchToast(context, t.mealAiCopied,
-        subtitle: t.mealAiCopiedHint, icon: PhosphorIconsFill.copy, accent: context.gc.sage);
+        subtitle: t.mealAiCopiedHint, icon: PhosphorIconsFill.copy, accent: context.gc.lavender);
     setState(() => _step = 1);
   }
 
@@ -163,7 +163,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
   Future<void> _copyFix() async {
     await Clipboard.setData(const ClipboardData(text: mealAiRetrySentence));
     if (!mounted) return;
-    showNotchToast(context, t.copiedDone, icon: PhosphorIconsFill.copy, accent: context.gc.sage);
+    showNotchToast(context, t.copiedDone, icon: PhosphorIconsFill.copy, accent: context.gc.lavender);
   }
 
   void _useAsNew(AiDraft d) {
@@ -198,7 +198,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
     if (chosen.isEmpty) return;
     HapticFeedback.lightImpact();
     final host = Navigator.of(context, rootNavigator: true).context;
-    final sage = context.gc.sage;
+    final sage = context.gc.lavender;
     final pick = widget.onPick;
     var n = 0;
     if (pick != null) {
@@ -226,7 +226,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
     final name = await askText(context, title: title, initial: o.name);
     if (name == null || name.trim().isEmpty || !mounted) return;
     final host = Navigator.of(context, rootNavigator: true).context;
-    final sage = context.gc.sage;
+    final sage = context.gc.lavender;
     if (_day) {
       fit.saveMealPlan(
         MealPlan(
@@ -342,7 +342,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
         keyboardType: TextInputType.multiline,
         onChanged: (v) => _lastNotes = v,
         style: AppTheme.f(14, weight: FontWeight.w500, color: gc.text, height: 1.35),
-        cursorColor: gc.accent,
+        cursorColor: gc.teal,
         decoration: InputDecoration(
           hintText: t.mealAiNotesHint,
           hintStyle: AppTheme.f(14, weight: FontWeight.w500, color: gc.textTertiary),
@@ -374,7 +374,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Center(
             child: Text(_showText ? t.mealAiHideText : t.mealAiShowText,
-                style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.accent)),
+                style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.teal)),
           ),
         ),
       ),
@@ -421,7 +421,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
         keyboardType: TextInputType.multiline,
         onChanged: (_) => setState(() {}),
         style: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.text, height: 1.35),
-        cursorColor: gc.accent,
+        cursorColor: gc.teal,
         decoration: InputDecoration(
           hintText: t.mealAiPasteHint,
           hintStyle: AppTheme.f(14, weight: FontWeight.w500, color: gc.textTertiary),
@@ -440,8 +440,8 @@ class _MealAiSheetState extends State<_MealAiSheet> {
       const SizedBox(height: 16),
       PrimaryButton(
         label: t.mealAiReview,
-        bg: empty ? gc.bgRaised2 : gc.ember,
-        fg: empty ? gc.textTertiary : gc.onEmber,
+        bg: empty ? gc.bgRaised2 : gc.magenta,
+        fg: empty ? gc.textTertiary : gc.onMagenta,
         onTap: _review,
       ),
       if (_reviewed) ...[const SizedBox(height: 22), _result(gc)],
@@ -499,7 +499,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
           if (!_day || _kcal > 0) ...[
             const SizedBox(height: 10),
             Text(t.mealAiTargetLine(_energy(_kcal)),
-                style: AppTheme.f(11.5, weight: FontWeight.w700, color: near ? gc.sage : gc.textTertiary)),
+                style: AppTheme.f(11.5, weight: FontWeight.w700, color: near ? gc.lavender : gc.textTertiary)),
           ],
         ]),
       ),
@@ -621,7 +621,7 @@ class _MealAiSheetState extends State<_MealAiSheet> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 3),
                             child: Text(t.mealAiNotSame,
-                                style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.accent)),
+                                style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.teal)),
                           ),
                         ),
                       ],
@@ -653,10 +653,10 @@ class _MealAiSheetState extends State<_MealAiSheet> {
                     height: 24,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: active ? gc.accent : Colors.transparent,
-                      border: Border.all(color: active ? gc.accent : gc.textTertiary, width: 1.5),
+                      color: active ? gc.teal : Colors.transparent,
+                      border: Border.all(color: active ? gc.teal : gc.textTertiary, width: 1.5),
                     ),
-                    child: active ? Icon(PhosphorIconsBold.check, size: 13, color: gc.onEmber) : null,
+                    child: active ? Icon(PhosphorIconsBold.check, size: 13, color: gc.onMagenta) : null,
                   ),
                 ),
               ),
@@ -737,7 +737,7 @@ class _FoodAiSheetState extends State<_FoodAiSheet> {
     if (!mounted) return;
     HapticFeedback.lightImpact();
     showNotchToast(context, t.mealAiCopied,
-        subtitle: t.mealAiCopiedHint, icon: PhosphorIconsFill.copy, accent: context.gc.sage);
+        subtitle: t.mealAiCopiedHint, icon: PhosphorIconsFill.copy, accent: context.gc.lavender);
     setState(() => _step = 1);
   }
 
@@ -773,7 +773,7 @@ class _FoodAiSheetState extends State<_FoodAiSheet> {
   Future<void> _copyFix() async {
     await Clipboard.setData(const ClipboardData(text: mealAiRetrySentence));
     if (!mounted) return;
-    showNotchToast(context, t.copiedDone, icon: PhosphorIconsFill.copy, accent: context.gc.sage);
+    showNotchToast(context, t.copiedDone, icon: PhosphorIconsFill.copy, accent: context.gc.lavender);
   }
 
   Widget _chipButton(GymColors gc, IconData icon, String label, VoidCallback onTap, {Color? bg}) => Pressable(
@@ -805,7 +805,7 @@ class _FoodAiSheetState extends State<_FoodAiSheet> {
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Center(
             child: Text(_showText ? t.mealAiHideText : t.mealAiShowText,
-                style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.accent)),
+                style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.teal)),
           ),
         ),
       ),
@@ -837,7 +837,7 @@ class _FoodAiSheetState extends State<_FoodAiSheet> {
         keyboardType: TextInputType.multiline,
         onChanged: (_) => setState(() => _failed = false),
         style: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.text, height: 1.35),
-        cursorColor: gc.accent,
+        cursorColor: gc.teal,
         decoration: InputDecoration(
           hintText: t.mealAiPasteHint,
           hintStyle: AppTheme.f(14, weight: FontWeight.w500, color: gc.textTertiary),
@@ -856,8 +856,8 @@ class _FoodAiSheetState extends State<_FoodAiSheet> {
       const SizedBox(height: 16),
       PrimaryButton(
         label: t.foodAiFill,
-        bg: empty ? gc.bgRaised2 : gc.ember,
-        fg: empty ? gc.textTertiary : gc.onEmber,
+        bg: empty ? gc.bgRaised2 : gc.magenta,
+        fg: empty ? gc.textTertiary : gc.onMagenta,
         onTap: _fill,
       ),
       AnimatedSize(

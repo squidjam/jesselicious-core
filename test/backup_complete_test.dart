@@ -3,16 +3,16 @@ import 'dart:typed_data';
 
 import 'package:archive/archive.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/models/circuit.dart';
-import 'package:gymmane/models/note.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/backup_zip.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/media_store.dart';
-import 'package:gymmane/services/progress_reminder.dart';
-import 'package:gymmane/services/train_reminder.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/models/circuit.dart';
+import 'package:jesselicious/models/note.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/backup_zip.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/media_store.dart';
+import 'package:jesselicious/services/progress_reminder.dart';
+import 'package:jesselicious/services/train_reminder.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -29,7 +29,7 @@ void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Store.instance.init();
-    tmp = await Directory.systemTemp.createTemp('gymmane_full');
+    tmp = await Directory.systemTemp.createTemp('jesselicious_full');
     MediaStore.directory = tmp.path;
     ProgressReminder.instance.enabled = false;
     TrainReminder.instance.enabled = false;

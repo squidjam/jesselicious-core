@@ -25,16 +25,16 @@ class GoalRing extends StatelessWidget {
         tween: Tween(begin: 0, end: pct),
         duration: const Duration(milliseconds: 700),
         curve: Curves.easeOutCubic,
-        builder: (context, v, _) => CustomPaint(painter: _RingPainter(v, gc.bgRaised2, color ?? gc.accent)),
+        builder: (context, v, _) => CustomPaint(painter: _RingPainter(v, gc.bgRaised2, color ?? gc.teal)),
       ),
     );
   }
 }
 
 class _RingPainter extends CustomPainter {
-  _RingPainter(this.pct, this.track, this.accent);
+  _RingPainter(this.pct, this.track, this.ringColor);
   final double pct;
-  final Color track, accent;
+  final Color track, ringColor;
   @override
   void paint(Canvas canvas, Size size) {
     canvas.scale(size.width / 40);
@@ -46,12 +46,12 @@ class _RingPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round
-      ..color = accent;
+      ..color = ringColor;
     canvas.drawArc(Rect.fromCircle(center: center, radius: r), -math.pi / 2, pct / 100 * 2 * math.pi, false, a);
   }
 
   @override
-  bool shouldRepaint(_RingPainter o) => o.pct != pct || o.accent != accent || o.track != track;
+  bool shouldRepaint(_RingPainter o) => o.pct != pct || o.ringColor != ringColor || o.track != track;
 }
 
 class VolumeChart extends StatelessWidget {
@@ -157,11 +157,11 @@ class _VolumePainter extends CustomPainter {
       ..lineTo(size.width, size.height)
       ..lineTo(0, size.height)
       ..close();
-    canvas.drawPath(area, Paint()..color = gc.accentSoft..style = PaintingStyle.fill);
+    canvas.drawPath(area, Paint()..color = gc.tealSoft..style = PaintingStyle.fill);
     canvas.drawPath(
       line,
       Paint()
-        ..color = gc.accent
+        ..color = gc.teal
         ..style = PaintingStyle.stroke
         ..strokeWidth = 3
         ..strokeCap = StrokeCap.round
@@ -169,7 +169,7 @@ class _VolumePainter extends CustomPainter {
     );
     final end = m(points.length - 1);
     canvas.drawCircle(end, 5, Paint()..color = gc.bgRaised);
-    canvas.drawCircle(end, 5, Paint()..color = gc.accent..style = PaintingStyle.stroke..strokeWidth = 3);
+    canvas.drawCircle(end, 5, Paint()..color = gc.teal..style = PaintingStyle.stroke..strokeWidth = 3);
   }
 
   @override
@@ -305,7 +305,7 @@ class Sparkline extends StatelessWidget {
     final gc = context.gc;
     final label = scale;
     final bounds = label == null || values.length < 2 ? null : niceBounds(values);
-    final chart = CustomPaint(painter: _SparkPainter(values, color ?? gc.accent, gc.bgRaised, bounds));
+    final chart = CustomPaint(painter: _SparkPainter(values, color ?? gc.teal, gc.bgRaised, bounds));
     return SizedBox(
       height: height,
       width: double.infinity,
@@ -370,7 +370,7 @@ class TrendChart extends StatelessWidget {
     final gc = context.gc;
     final label = scale;
     final bounds = label == null || values.length < 2 ? null : niceBounds(values);
-    final chart = CustomPaint(painter: _TrendPainter(values, color ?? gc.accent, gc.bgRaised, gc.border, bounds));
+    final chart = CustomPaint(painter: _TrendPainter(values, color ?? gc.teal, gc.bgRaised, gc.border, bounds));
     return SizedBox(
       height: height,
       width: double.infinity,
@@ -631,7 +631,7 @@ class SplitBars extends StatelessWidget {
               value: e.pct / 100,
               minHeight: 6,
               backgroundColor: gc.bgRaised2,
-              valueColor: AlwaysStoppedAnimation(gc.accent),
+              valueColor: AlwaysStoppedAnimation(gc.teal),
             ),
           ),
           if (e != entries.last) const SizedBox(height: 12),
@@ -681,15 +681,15 @@ class _EmblemPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     canvas.scale(size.width / 100);
-    final starColor = variant == EmblemVariant.about ? gc.ember : gc.accent;
+    final starColor = variant == EmblemVariant.about ? gc.marigold : gc.teal;
 
     if (variant != EmblemVariant.settings) {
-      final ringColor = variant == EmblemVariant.about ? gc.border : gc.accent;
+      final ringColor = variant == EmblemVariant.about ? gc.border : gc.teal;
       canvas.drawCircle(const Offset(50, 50), 47,
           Paint()..style = PaintingStyle.stroke..strokeWidth = 2..color = ringColor);
     }
 
-    final starPaint = Paint()..color = variant == EmblemVariant.settings ? gc.accent : starColor;
+    final starPaint = Paint()..color = variant == EmblemVariant.settings ? gc.teal : starColor;
     for (final d in _cardinal) {
       canvas.drawPath(svgPath(d), starPaint);
     }
@@ -703,7 +703,7 @@ class _EmblemPainter extends CustomPainter {
     canvas.drawCircle(const Offset(50, 50), innerR, Paint()..color = gc.bgRaised2);
     if (variant != EmblemVariant.settings) {
       canvas.drawCircle(const Offset(50, 50), 24,
-          Paint()..style = PaintingStyle.stroke..strokeWidth = 2..color = gc.accent);
+          Paint()..style = PaintingStyle.stroke..strokeWidth = 2..color = gc.teal);
     }
 
     final facePaint = Paint()

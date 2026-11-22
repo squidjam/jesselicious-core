@@ -36,7 +36,7 @@ enum HealthMetric {
 class HealthMetrics {
   const HealthMetrics._();
 
-  static const _channel = MethodChannel('gymmane/health');
+  static const _channel = MethodChannel('jesselicious/health');
 
   static Future<Set<HealthMetric>> granted() async {
     if (!onMobile) return {};

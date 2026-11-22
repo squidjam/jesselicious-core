@@ -14,10 +14,10 @@ Future<Uint8List> buildReportPdf(RangeReport r, {ReportKind kind = ReportKind.su
 String reportFileStem(RangeReport r, ReportKind kind) {
   final stamp = '${_isoDay(r.from)}_${_isoDay(r.to)}';
   return switch (kind) {
-    ReportKind.summary => 'gymmane-report-$stamp',
-    ReportKind.training => 'gymmane-training-$stamp',
-    ReportKind.nutrition => 'gymmane-nutrition-$stamp',
-    ReportKind.full => 'gymmane-full-report-$stamp',
+    ReportKind.summary => 'jesselicious-report-$stamp',
+    ReportKind.training => 'jesselicious-training-$stamp',
+    ReportKind.nutrition => 'jesselicious-nutrition-$stamp',
+    ReportKind.full => 'jesselicious-full-report-$stamp',
   };
 }
 
@@ -29,7 +29,7 @@ Future<void> shareReport(RangeReport r,
       if (pdf) ShareItem('${reportFileStem(r, kind)}.pdf', await buildReportPdf(r, kind: kind), mime: 'application/pdf'),
       for (final section in csv)
         ShareItem(
-          'gymmane-${section == ReportSection.weighIns ? 'weigh-ins' : section.name}-$stamp.csv',
+          'jesselicious-${section == ReportSection.weighIns ? 'weigh-ins' : section.name}-$stamp.csv',
           utf8Bytes(fit.reportSectionCsv(r, section)),
           mime: 'text/csv',
         ),
@@ -83,7 +83,7 @@ class _ReportDoc extends _PlanDoc {
   void _head(RepHeader h) {
     final logo = Rect.fromLTWH(_x(_margin, 26), _y, 26, 26);
     _add((c) => _logo(c, logo));
-    _text('GymMane', _st(14, weight: FontWeight.w900), _margin + 34, _y + 4, 140);
+    _text('Jesselicious', _st(14, weight: FontWeight.w900), _margin + 34, _y + 4, 140);
     _text(h.who, _st(9, color: _faint), _pageW - _margin - 220, _y + 8, 220, align: TextAlign.end);
     _y += 50;
     _y += _text(h.kicker, _st(8.5, weight: FontWeight.w800, color: _accent, spacing: 1.8), _margin, _y, _contentW);

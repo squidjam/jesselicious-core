@@ -5,7 +5,7 @@ enum ScreenBridge {
   private static var savedBrightness: CGFloat?
 
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/screen", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/screen", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         let on = (call.arguments as? [String: Any])?["on"] as? Bool ?? false
         switch call.method {

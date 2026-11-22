@@ -6,7 +6,7 @@ import '../state/fit_state.dart';
 class WearSurfaces {
   WearSurfaces._();
 
-  static const _channel = MethodChannel('gymmane/wear');
+  static const _channel = MethodChannel('jesselicious/wear');
   static String _last = '';
 
   static void watch() {

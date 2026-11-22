@@ -186,7 +186,7 @@ class SearchField extends StatelessWidget {
             controller: controller,
             onChanged: onChanged,
             style: AppTheme.f(14, weight: FontWeight.w500, color: gc.text),
-            cursorColor: gc.accent,
+            cursorColor: gc.teal,
             decoration: InputDecoration(
               isCollapsed: true,
               border: InputBorder.none,
@@ -243,15 +243,15 @@ class TinySwitch extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       alignment: on ? Alignment.centerRight : Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: on ? gc.ember : gc.bgRaised2,
+        color: on ? gc.teal : gc.bgRaised2,
         borderRadius: BorderRadius.circular(100),
-        border: Border.all(color: on ? gc.ember : gc.border),
+        border: Border.all(color: on ? gc.teal : gc.border),
       ),
       child: Container(
         width: 20,
         height: 20,
         decoration: BoxDecoration(
-          color: on ? gc.onEmber : gc.textTertiary,
+          color: on ? gc.onTeal : gc.textTertiary,
           shape: BoxShape.circle,
         ),
       ),
@@ -322,7 +322,7 @@ class GhostButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 16, color: gc.ember),
+            Icon(icon, size: 16, color: gc.teal),
             const SizedBox(width: 8),
             Flexible(
               child: Text(titleCase(label),
@@ -445,7 +445,7 @@ class _OptionRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    final tone = o.danger ? gc.danger : (o.selected ? gc.ember : gc.text);
+    final tone = o.danger ? gc.danger : (o.selected ? gc.teal : gc.text);
     return Semantics(
       button: true,
       selected: o.selected,
@@ -461,7 +461,7 @@ class _OptionRow extends StatelessWidget {
                 o.leading!,
                 const SizedBox(width: 12),
               ] else if (o.icon != null) ...[
-                Icon(o.icon, size: 19, color: o.danger ? gc.danger : (o.selected ? gc.ember : gc.textSecondary)),
+                Icon(o.icon, size: 19, color: o.danger ? gc.danger : (o.selected ? gc.teal : gc.textSecondary)),
                 const SizedBox(width: 14),
               ],
               Expanded(
@@ -482,7 +482,7 @@ class _OptionRow extends StatelessWidget {
               ),
               if (o.selected) ...[
                 const SizedBox(width: 10),
-                Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.ember),
+                Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.teal),
               ],
               if (o.trailing != null) ...[
                 const SizedBox(width: 6),
@@ -522,9 +522,9 @@ class RoundAction extends StatelessWidget {
         width: size,
         height: size,
         decoration: BoxDecoration(
-          color: filled ? gc.ember : gc.bgRaised,
+          color: filled ? gc.magenta : gc.bgRaised,
           shape: BoxShape.circle,
-          border: Border.all(color: filled ? gc.ember : gc.border),
+          border: Border.all(color: filled ? gc.magenta : gc.border),
         ),
         child: Center(child: child),
       ),
@@ -966,7 +966,7 @@ class SegToggle extends StatelessWidget {
                     widthFactor: 1 / options.length,
                     heightFactor: 1,
                     child: DecoratedBox(
-                      decoration: BoxDecoration(color: gc.ember, borderRadius: BorderRadius.circular(100)),
+                      decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(100)),
                     ),
                   ),
                 ),
@@ -988,7 +988,7 @@ class SegToggle extends StatelessWidget {
                           curve: Curves.easeOutCubic,
                           textAlign: TextAlign.center,
                           style: AppTheme.f(fontSize,
-                              weight: FontWeight.w600, color: o.selected ? gc.onEmber : gc.textSecondary),
+                              weight: FontWeight.w600, color: o.selected ? gc.onTeal : gc.textSecondary),
                           child: Text(o.label, maxLines: 1, softWrap: false),
                         ),
                       ),
@@ -1105,13 +1105,13 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    final f = fg ?? gc.onEmber;
+    final f = fg ?? gc.onMagenta;
     return Pressable(
       onTap: onTap,
       child: Container(
         width: double.infinity,
         height: height,
-        decoration: BoxDecoration(color: bg ?? gc.ember, borderRadius: BorderRadius.circular(100)),
+        decoration: BoxDecoration(color: bg ?? gc.magenta, borderRadius: BorderRadius.circular(100)),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -1148,8 +1148,8 @@ class FavoriteStar extends StatelessWidget {
       height: 18,
       child: Stack(children: [
         if (on)
-          SvgPathIcon(const [IconPath('M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z', fill: true)], size: 18, color: gc.accent),
-        SvgPathIcon(Ic.star, size: 18, color: on ? gc.accent : gc.textSecondary),
+          SvgPathIcon(const [IconPath('M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z', fill: true)], size: 18, color: gc.teal),
+        SvgPathIcon(Ic.star, size: 18, color: on ? gc.teal : gc.textSecondary),
       ]),
     );
   }

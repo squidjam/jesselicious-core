@@ -387,7 +387,7 @@ Future<String?> _readCode(BuildContext context, ImageSource source, {void Functi
   }
   if (shot == null || !context.mounted) return null;
   final gc = context.gc;
-  showNotchToast(context, t.gymPassReading, icon: PhosphorIconsRegular.qrCode, accent: gc.accent);
+  showNotchToast(context, t.gymPassReading, icon: PhosphorIconsRegular.qrCode, accent: gc.teal);
   final code = await readQrFromFile(shot.path);
   if (!context.mounted) return null;
   if (code == null) {
@@ -530,7 +530,7 @@ class _PassEditorState extends State<_PassEditor> {
           onChanged: (_) => setState(() {}),
           keyboardType: numeric ? TextInputType.visiblePassword : TextInputType.text,
           textCapitalization: numeric ? TextCapitalization.characters : TextCapitalization.words,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           style: AppTheme.f(15, weight: FontWeight.w700, color: gc.text, letterSpacing: numeric ? 1.2 : 0),
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -602,12 +602,12 @@ class _PassEditorState extends State<_PassEditor> {
                     duration: const Duration(milliseconds: 200),
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
                     decoration: BoxDecoration(
-                      color: f == _format ? gc.ember : gc.bgRaised2,
+                      color: f == _format ? gc.teal : gc.bgRaised2,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Text(passFormatLabel(f),
                         style: AppTheme.f(12.5,
-                            weight: FontWeight.w700, color: f == _format ? gc.onEmber : gc.textSecondary)),
+                            weight: FontWeight.w700, color: f == _format ? gc.onTeal : gc.textSecondary)),
                   ),
                 ),
             ]),

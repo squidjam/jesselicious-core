@@ -14,7 +14,7 @@ String _pct(double d) {
   return '${n > 0 ? '+' : ''}$n %';
 }
 
-Color _tone(GymColors gc, double d) => (d * 100).round() > 0 ? gc.sage : gc.textSecondary;
+Color _tone(GymColors gc, double d) => (d * 100).round() > 0 ? gc.lavender : gc.textSecondary;
 
 IconData _icon(double d) {
   final n = (d * 100).round();

@@ -1,6 +1,6 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/app_localizations_ru.dart';
+import 'package:jesselicious/l10n/app_localizations_ru.dart';
 
 void main() {
   final ru = AppLocalizationsRu();

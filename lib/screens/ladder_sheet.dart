@@ -81,7 +81,7 @@ class _LadderSheetState extends State<_LadderSheet> {
           const SheetHandle(),
           const SizedBox(height: 18),
           Row(children: [
-            Icon(PhosphorIconsFill.stairs, size: 17, color: gc.sage),
+            Icon(PhosphorIconsFill.stairs, size: 17, color: gc.lavender),
             const SizedBox(width: 8),
             Expanded(child: Text(t.ladderTitle, style: AppTheme.f(19, weight: FontWeight.w800, color: gc.text))),
           ]),
@@ -113,7 +113,7 @@ class _LadderSheetState extends State<_LadderSheet> {
               child: Container(
                 height: 44,
                 alignment: Alignment.center,
-                child: Text(t.ladderClear, style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                child: Text(t.ladderClear, style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
               ),
             )
           else
@@ -135,7 +135,7 @@ class _LadderSheetState extends State<_LadderSheet> {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 8, 4, 8),
         decoration: BoxDecoration(
-          color: here ? gc.sageSoft : gc.bgRaised2,
+          color: here ? gc.lavenderSoft : gc.bgRaised2,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(children: [
@@ -144,13 +144,13 @@ class _LadderSheetState extends State<_LadderSheet> {
             height: 24,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: here ? gc.sage : (passed ? gc.mutedFill : gc.bgRaised),
+              color: here ? gc.lavender : (passed ? gc.mutedFill : gc.bgRaised),
               shape: BoxShape.circle,
             ),
             child: passed
                 ? Icon(PhosphorIconsBold.check, size: 11, color: gc.textSecondary)
                 : Text('${i + 1}',
-                    style: AppTheme.f(11, weight: FontWeight.w800, color: here ? gc.onEmber : gc.textSecondary)),
+                    style: AppTheme.f(11, weight: FontWeight.w800, color: here ? gc.onMagenta : gc.textSecondary)),
           ),
           const SizedBox(width: 10),
           if (ex != null) ...[
@@ -166,7 +166,7 @@ class _LadderSheetState extends State<_LadderSheet> {
               if (here) ...[
                 const SizedBox(height: 2),
                 Text(t.ladderInRoutine.toUpperCase(),
-                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.sage, letterSpacing: 1)),
+                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.lavender, letterSpacing: 1)),
               ],
             ]),
           ),

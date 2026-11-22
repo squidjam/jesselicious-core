@@ -10,7 +10,7 @@ import '../theme/app_theme.dart';
 import 'glass.dart';
 import 'ui_kit.dart';
 
-const _kGuideUrl = 'https://github.com/InlitX/GymMane/blob/main/WEAR.md';
+const _kGuideUrl = 'https://github.com/InlitX/jesselicious-core/blob/main/WEAR.md';
 
 void showWatchSheet(BuildContext context) {
   showAppSheet<void>(
@@ -171,7 +171,7 @@ class _Hero extends StatelessWidget {
         disc(PhosphorIconsRegular.deviceMobile),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: Icon(PhosphorIconsBold.arrowsLeftRight, size: 18, color: gc.accent),
+          child: Icon(PhosphorIconsBold.arrowsLeftRight, size: 18, color: gc.teal),
         ),
         disc(PhosphorIconsRegular.watch),
       ]),

@@ -319,7 +319,7 @@ Future<void> showNotchToast(
     title: title,
     subtitle: subtitle,
     icon: icon,
-    accent: accent,
+    teal: accent,
     action: action,
     onTap: onTap,
     duration: duration ?? Duration(milliseconds: math.max(2200, 900 + words * 330)),
@@ -337,7 +337,7 @@ class _ToastRequest {
     required this.title,
     required this.subtitle,
     required this.icon,
-    required this.accent,
+    required this.teal,
     required this.action,
     required this.onTap,
     required this.duration,
@@ -347,7 +347,7 @@ class _ToastRequest {
   final String title;
   final String? subtitle;
   final IconData? icon;
-  final Color accent;
+  final Color teal;
   final String? action;
   final VoidCallback? onTap;
   final Duration duration;
@@ -556,8 +556,8 @@ class _ToastContent extends StatelessWidget {
               Container(
                 width: 35,
                 height: 35,
-                decoration: BoxDecoration(color: request.accent.withValues(alpha: 0.18), shape: BoxShape.circle),
-                child: Icon(icon, size: 18, color: request.accent),
+                decoration: BoxDecoration(color: request.teal.withValues(alpha: 0.18), shape: BoxShape.circle),
+                child: Icon(icon, size: 18, color: request.teal),
               ),
               const SizedBox(width: 11),
             ],
@@ -579,7 +579,7 @@ class _ToastContent extends StatelessWidget {
             ),
             if (action != null) ...[
               const SizedBox(width: 8),
-              Text(action, style: AppTheme.f(13, weight: FontWeight.w800, color: request.accent)),
+              Text(action, style: AppTheme.f(13, weight: FontWeight.w800, color: request.teal)),
             ],
           ],
         ),

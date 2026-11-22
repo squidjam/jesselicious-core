@@ -1471,7 +1471,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get aboutGymmane => 'À propos de GymMane';
+  String get aboutGymmane => 'À propos de Jesselicious';
 
   @override
   String get yourProfile => 'TON PROFIL';
@@ -2079,7 +2079,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get planNothing => 'Aucun exercice de ce fichier ne correspond à ta bibliothèque';
 
   @override
-  String get planFailed => 'Ce fichier n’est pas un programme que GymMane peut lire';
+  String get planFailed => 'Ce fichier n’est pas un programme que Jesselicious peut lire';
 
   @override
   String get routineGroup => 'Groupe';
@@ -2243,7 +2243,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aiIntro =>
-      'GymMane ne communique jamais directement avec une IA. Tu exportes ta liste d’exercices, tu la colles dans l’assistant que tu utilises déjà, puis tu réimportes sa réponse. Rien ne quitte le téléphone tout seul.';
+      'Jesselicious ne communique jamais directement avec une IA. Tu exportes ta liste d’exercices, tu la colles dans l’assistant que tu utilises déjà, puis tu réimportes sa réponse. Rien ne quitte le téléphone tout seul.';
 
   @override
   String aiMissing(int n) {
@@ -2269,7 +2269,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get awardFirstStepName => 'Premier pas';
 
   @override
-  String get awardFirstStepLine => 'Bienvenue sur GymMane. Celle-ci est offerte.';
+  String get awardFirstStepLine => 'Bienvenue sur Jesselicious. Celle-ci est offerte.';
 
   @override
   String get awardFirstWorkoutName => 'Première séance';
@@ -2873,7 +2873,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String shareMessage(String name) {
-    return '$name: ouvre le fichier avec GymMane pour l\'ajouter.';
+    return '$name: ouvre le fichier avec Jesselicious pour l\'ajouter.';
   }
 
   @override
@@ -2881,7 +2881,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importPasteHint =>
-      'Colle une routine ici : partagée depuis GymMane, une réponse d\'IA, du JSON ou du CSV.';
+      'Colle une routine ici : partagée depuis Jesselicious, une réponse d\'IA, du JSON ou du CSV.';
 
   @override
   String get pasteAction => 'Coller';
@@ -2914,11 +2914,11 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get nothingToImport => 'Rien à importer ici pour GymMane';
+  String get nothingToImport => 'Rien à importer ici pour Jesselicious';
 
   @override
   String get aiStepCopy =>
-      'Copie la demande. Elle contient ta liste d\'exercices et le format que GymMane lit.';
+      'Copie la demande. Elle contient ta liste d\'exercices et le format que Jesselicious lit.';
 
   @override
   String get aiStepAsk =>
@@ -3068,7 +3068,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get shareIntroBody =>
-      'Envoie-la à ton ou ta partenaire, à un ami ou à ta famille. Ils reçoivent un petit fichier qui s\'ouvre avec GymMane et l\'ajoute en un geste, avec ses séries et ses poids.';
+      'Envoie-la à ton ou ta partenaire, à un ami ou à ta famille. Ils reçoivent un petit fichier qui s\'ouvre avec Jesselicious et l\'ajoute en un geste, avec ses séries et ses poids.';
 
   @override
   String get removedFromRoutine => 'Retiré de la routine';
@@ -3218,7 +3218,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Lit seulement ton nombre de pas. Ne lit rien d’autre et n’écrit jamais dans Health Connect.';
 
   @override
-  String get stepsInfoLocal => 'Tes pas restent sur ton téléphone. GymMane ne se connecte jamais à internet.';
+  String get stepsInfoLocal =>
+      'Tes pas restent sur ton téléphone. Jesselicious ne se connecte jamais à internet.';
 
   @override
   String get stepsInfoOff => 'Désactivable à tout moment dans les Réglages ou dans Health Connect.';
@@ -3585,7 +3586,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appIcon => 'Icône de l’app';
 
   @override
-  String get appIconHint => 'L’apparence de GymMane sur ton écran d’accueil';
+  String get appIconHint => 'L’apparence de Jesselicious sur ton écran d’accueil';
 
   @override
   String get appIconColors => 'Couleurs';
@@ -4818,7 +4819,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get nutritionAboutWhat =>
-      'Une façon simple de noter tes repas, ton eau, tes protéines et tes compléments juste à côté de tes séances. GymMane est d’abord une app de musculation : la nutrition est là pour que tout soit au même endroit, pas pour remplacer une vraie app de régime.';
+      'Une façon simple de noter tes repas, ton eau, tes protéines et tes compléments juste à côté de tes séances. Jesselicious est d’abord une app de musculation : la nutrition est là pour que tout soit au même endroit, pas pour remplacer une vraie app de régime.';
 
   @override
   String get nutritionAboutScanTitle => 'Pas de scanner, jamais';
@@ -4832,7 +4833,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get nutritionAboutLocal =>
-      'Plus de 500 aliments avec photo sont inclus dans l’app. Tu peux ajouter les tiens, changer leurs photos et modifier leurs valeurs. Tout reste sur ton téléphone, comme le reste de GymMane.';
+      'Plus de 500 aliments avec photo sont inclus dans l’app. Tu peux ajouter les tiens, changer leurs photos et modifier leurs valeurs. Tout reste sur ton téléphone, comme le reste de Jesselicious.';
 
   @override
   String get nutritionAboutBetaTitle => 'Encore en bêta';
@@ -4898,7 +4899,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get notifSuppTap => 'Coche-le dans GymMane une fois que tu l’as pris.';
+  String get notifSuppTap => 'Coche-le dans Jesselicious une fois que tu l’as pris.';
 
   @override
   String get suppNoneToday => 'Rien à prendre aujourd’hui.';
@@ -5804,7 +5805,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get ladderHint =>
-      'Classe les étapes de la plus facile à la plus dure. Quand tu fais 3 séries de 8 deux séances d\'affilée (5 pour les lentes), GymMane te propose la suivante.';
+      'Classe les étapes de la plus facile à la plus dure. Quand tu fais 3 séries de 8 deux séances d\'affilée (5 pour les lentes), Jesselicious te propose la suivante.';
 
   @override
   String get ladderBuiltIn =>
@@ -6792,14 +6793,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get supportThanksBody =>
-      'GymMane est gratuit et le restera, sans pub et sans rien de caché.\n\nS’il t’aide à t’entraîner, m’offrir un café me fait plaisir ☕\nEt sinon, pas de souci : une étoile sur GitHub aussi ⭐';
+      'Jesselicious est gratuit et le restera, sans pub et sans rien de caché.\n\nS’il t’aide à t’entraîner, m’offrir un café me fait plaisir ☕\nEt sinon, pas de souci : une étoile sur GitHub aussi ⭐';
 
   @override
   String get perfSetting => 'Performances';
 
   @override
   String get perfSheetHint =>
-      'La part de ton téléphone que GymMane utilise. Tu peux changer chaque élément ci-dessous.';
+      'La part de ton téléphone que Jesselicious utilise. Tu peux changer chaque élément ci-dessous.';
 
   @override
   String get perfLite => 'Économie';
@@ -7346,7 +7347,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get autoProgressHint =>
-      'Quand tu commences une séance, GymMane remplit l’étape suivante pour chaque exercice. Avec Ajouter des répétitions, tu ajoutes une répétition par série jusqu’à 12, puis le poids monte et tu repars à 8. Tu peux toujours ajuster chaque exercice sur sa page.';
+      'Quand tu commences une séance, Jesselicious remplit l’étape suivante pour chaque exercice. Avec Ajouter des répétitions, tu ajoutes une répétition par série jusqu’à 12, puis le poids monte et tu repars à 8. Tu peux toujours ajuster chaque exercice sur sa page.';
 
   @override
   String get noteFolders => 'Dossiers';
@@ -7850,7 +7851,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Pour les téléphones où les lettres s’affichent mal. Le flou reste, quelques effets sont simplifiés';
 
   @override
-  String get gfxRestartTitle => 'Redémarrer GymMane ?';
+  String get gfxRestartTitle => 'Redémarrer Jesselicious ?';
 
   @override
   String get gfxRestartBody =>
@@ -7948,7 +7949,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get wearSyncHow =>
-      'Sur le téléphone, active Paramètres › Montre Wear OS et ouvre GymMane sur les deux.';
+      'Sur le téléphone, active Paramètres › Montre Wear OS et ouvre Jesselicious sur les deux.';
 
   @override
   String get routinesOrder => 'Réorganiser les programmes';
@@ -8330,14 +8331,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get watchSubtitle => 'Tes programmes au poignet, tes séances de retour sur le téléphone';
 
   @override
-  String get watchPoint1 => 'Installe GymMane sur la montre';
+  String get watchPoint1 => 'Installe Jesselicious sur la montre';
 
   @override
   String get watchPoint1Body =>
       'C’est la même app que sur le téléphone. Touche pour voir le guide d’installation.';
 
   @override
-  String get watchPoint2 => 'Ouvre GymMane sur les deux';
+  String get watchPoint2 => 'Ouvre Jesselicious sur les deux';
 
   @override
   String get watchPoint2Body =>
@@ -8366,13 +8367,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get watchSearching => 'Recherche de la montre…';
 
   @override
-  String get watchSearchingHint => 'Ouvre GymMane sur la montre si ce n’est pas encore fait.';
+  String get watchSearchingHint => 'Ouvre Jesselicious sur la montre si ce n’est pas encore fait.';
 
   @override
   String get watchBluetoothOff => 'Le Bluetooth est désactivé.';
 
   @override
-  String get watchNotFound => 'Montre introuvable. Ouvre GymMane dessus et réessaie.';
+  String get watchNotFound => 'Montre introuvable. Ouvre Jesselicious dessus et réessaie.';
 
   @override
   String get watchNever => 'Pas encore synchronisé.';
@@ -8448,7 +8449,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get qsManual =>
-      'Déroule les réglages rapides, touche le crayon et fais glisser la tuile GymMane parmi les tiennes.';
+      'Déroule les réglages rapides, touche le crayon et fais glisser la tuile Jesselicious parmi les tiennes.';
 
   @override
   String get qsPassUse => 'Ouvrir depuis les réglages rapides';
@@ -9189,7 +9190,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get scannerTitle => 'GymMane Scanner';
 
   @override
-  String get scannerKicker => 'Community app · not part of GymMane';
+  String get scannerKicker => 'Community app · not part of Jesselicious';
 
   @override
   String get scannerBody => 'Scan a barcode and it sends you the food, ready to check.';

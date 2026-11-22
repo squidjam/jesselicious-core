@@ -107,7 +107,7 @@ class BodyMap extends StatelessWidget {
       painter: BodyPainter(
         gc: gc,
         token: (selected.toList()..sort()).join(','),
-        color: (id) => selected.contains(id) ? gc.ember : muscle,
+        color: (id) => selected.contains(id) ? gc.lavender : muscle,
       ),
     );
   }
@@ -139,7 +139,7 @@ class BodyHeatMap extends StatelessWidget {
 
 Color recoveryColor(GymColors gc, double recovered) {
   final v = recovered.clamp(0.0, 1.0);
-  final fresh = Color.lerp(idleMuscle(gc), gc.sage, 0.62)!;
+  final fresh = Color.lerp(idleMuscle(gc), gc.lavender, 0.62)!;
   if (v < 0.5) return Color.lerp(gc.danger, gc.warn, v / 0.5)!;
   return Color.lerp(gc.warn, fresh, (v - 0.5) / 0.5)!;
 }
@@ -276,7 +276,7 @@ Color untrainedColor(GymColors gc, int? days) {
   if (days == null || days >= 14) return gc.danger;
   if (days >= 7) return Color.lerp(gc.warn, gc.danger, (days - 7) / 7)!;
   if (days >= 4) return Color.lerp(idle, gc.warn, 0.35 + (days - 4) * 0.2)!;
-  return Color.lerp(idle, gc.sage, 0.35)!;
+  return Color.lerp(idle, gc.lavender, 0.35)!;
 }
 
 class BodyUntrainedMap extends StatelessWidget {

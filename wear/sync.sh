@@ -1,11 +1,11 @@
 #!/bin/sh
 set -eu
 
-WATCH_DIR=/sdcard/Android/data/com.gymmane.app/files/sync
-PREFIX=gymmane-auto-
+WATCH_DIR=/sdcard/Android/data/com.jesselicious.app/files/sync
+PREFIX=jesselicious-auto-
 
 if [ $# -lt 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-  echo "GymMane watch sync"
+  echo "Jesselicious watch sync"
   echo ""
   echo "  sh sync.sh <folder>            the folder where your phone or server leaves its backups"
   echo "  sh sync.sh <backup.zip>        a single backup exported from the phone"
@@ -35,7 +35,7 @@ if [ -z "$SERIAL" ]; then
   fi
 fi
 
-adb_ shell pm path com.gymmane.app >/dev/null 2>&1 || { echo "GymMane is not installed on that device."; exit 1; }
+adb_ shell pm path com.jesselicious.app >/dev/null 2>&1 || { echo "Jesselicious is not installed on that device."; exit 1; }
 adb_ shell mkdir -p "$WATCH_DIR"
 
 if [ -d "$SOURCE" ]; then
@@ -57,11 +57,11 @@ TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
 if [ -n "$NEWEST" ]; then
-  if unzip -p "$NEWEST" gymmane.json >"$TMP/$TARGET" 2>/dev/null && [ -s "$TMP/$TARGET" ]; then
+  if unzip -p "$NEWEST" jesselicious.json >"$TMP/$TARGET" 2>/dev/null && [ -s "$TMP/$TARGET" ]; then
     adb_ push "$TMP/$TARGET" "$WATCH_DIR/$TARGET" >/dev/null
     echo "Sent to the watch: $(basename "$NEWEST")"
   else
-    echo "$(basename "$NEWEST") is not a GymMane backup, nothing was sent."
+    echo "$(basename "$NEWEST") is not a Jesselicious backup, nothing was sent."
   fi
 else
   echo "No backup found in $FOLDER, nothing was sent."
@@ -77,4 +77,4 @@ done
 if [ "$BROUGHT" = 0 ]; then echo "Nothing new on the watch."
 else echo "Brought from the watch: $BROUGHT file(s) into $FOLDER"; fi
 
-echo "On the watch, open GymMane > Settings > Sync now."
+echo "On the watch, open Jesselicious > Settings > Sync now."

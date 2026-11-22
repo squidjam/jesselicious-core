@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/services/health_steps.dart';
+import 'package:jesselicious/services/health_steps.dart';
 
 void main() {
   test('Android includes the entire calendar day for daily step records', () {

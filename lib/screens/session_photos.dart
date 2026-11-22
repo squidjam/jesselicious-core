@@ -48,7 +48,7 @@ class _SessionPhotosState extends State<SessionPhotos> {
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(children: [
-              Icon(PhosphorIconsFill.camera, size: 14, color: gc.accent),
+              Icon(PhosphorIconsFill.camera, size: 14, color: gc.teal),
               const SizedBox(width: 7),
               Expanded(
                 child: Text(t.sessionPhotos.toUpperCase(),
@@ -80,9 +80,9 @@ class _SessionPhotosState extends State<SessionPhotos> {
                 ? SizedBox(
                     width: 20,
                     height: 20,
-                    child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.accent),
+                    child: CircularProgressIndicator(strokeWidth: 2.2, color: gc.teal),
                   )
-                : Icon(PhosphorIconsBold.plus, size: 20, color: gc.accent),
+                : Icon(PhosphorIconsBold.plus, size: 20, color: gc.teal),
           ),
         ),
       );

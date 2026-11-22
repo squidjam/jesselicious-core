@@ -106,8 +106,8 @@ class _SuppProgressSheetState extends State<_SuppProgressSheet> {
         padding: const EdgeInsetsDirectional.only(end: 8),
         child: Pill(
           label: label,
-          bg: on ? gc.ember : gc.bgRaised2,
-          fg: on ? gc.onEmber : gc.textSecondary,
+          bg: on ? gc.teal : gc.bgRaised2,
+          fg: on ? gc.onTeal : gc.textSecondary,
           hPad: 13,
           vPad: 6,
           fontSize: 12.5,
@@ -173,12 +173,12 @@ class _SuppProgressSheetState extends State<_SuppProgressSheet> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: done ? gc.sage : (partial ? gc.sage.withValues(alpha: 0.18) : Colors.transparent),
+              color: done ? gc.lavender : (partial ? gc.lavender.withValues(alpha: 0.18) : Colors.transparent),
               border: Border.all(
                 color: isToday
                     ? gc.text
                     : partial
-                        ? gc.sage
+                        ? gc.lavender
                         : missed
                             ? gc.textTertiary.withValues(alpha: 0.6)
                             : Colors.transparent,
@@ -203,8 +203,8 @@ class _SuppProgressSheetState extends State<_SuppProgressSheet> {
           Text(text, style: AppTheme.f(11, weight: FontWeight.w600, color: gc.textTertiary)),
         ]);
     return Wrap(alignment: WrapAlignment.center, spacing: 14, runSpacing: 6, children: [
-      dot(gc.sage, gc.sage, t.suppLegendAll),
-      dot(gc.sage.withValues(alpha: 0.18), gc.sage, t.suppLegendSome),
+      dot(gc.lavender, gc.lavender, t.suppLegendAll),
+      dot(gc.lavender.withValues(alpha: 0.18), gc.lavender, t.suppLegendSome),
       dot(Colors.transparent, gc.textTertiary.withValues(alpha: 0.6), t.suppLegendNone),
     ]);
   }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/exercise_match.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/widgets/ui_kit.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/exercise_match.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/widgets/ui_kit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -288,7 +288,7 @@ void main() {
       tester.view.devicePixelRatio = 2.75;
       addTearDown(tester.view.reset);
       fit.route = 'exercises';
-      await tester.pumpWidget(const GymManeApp());
+      await tester.pumpWidget(const JesseliciousApp());
       await tester.pumpAndSettle();
 
       await tester.tap(find.text(t.filters));

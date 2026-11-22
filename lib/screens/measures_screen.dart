@@ -95,7 +95,7 @@ class _MeasureReminder extends StatelessWidget {
                 height: 36,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: on ? gc.ember : Colors.transparent,
+                  color: on ? gc.teal : Colors.transparent,
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: FittedBox(
@@ -104,7 +104,7 @@ class _MeasureReminder extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: Text(label,
                         maxLines: 1,
-                        style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.onEmber : gc.textSecondary)),
+                        style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.onTeal : gc.textSecondary)),
                   ),
                 ),
               ),
@@ -119,7 +119,7 @@ class _MeasureReminder extends StatelessWidget {
         ),
         if (left != null)
           Text(due ? t.measureDueNow : t.measureNextIn(left),
-              style: AppTheme.f(12, weight: FontWeight.w600, color: due ? gc.accent : gc.textTertiary)),
+              style: AppTheme.f(12, weight: FontWeight.w600, color: due ? gc.teal : gc.textTertiary)),
       ]),
       const SizedBox(height: 10),
       Container(
@@ -190,7 +190,7 @@ class _MeasureRow extends StatelessWidget {
                                 '${change > 0 ? '+' : ''}${fmt(change)}',
                                 style: AppTheme.s(12.5,
                                     weight: FontWeight.w600,
-                                    color: change > 0 ? gc.sage : gc.accent),
+                                    color: change > 0 ? gc.lavender : gc.teal),
                               ),
                             ),
                           ],
@@ -205,7 +205,7 @@ class _MeasureRow extends StatelessWidget {
                   child: Sparkline(
                     values: [for (final v in series) fit.toDisplayMeasure(measureKey, v)],
                     height: 38,
-                    color: gc.accent,
+                    color: gc.teal,
                     scale: fmt,
                   ),
                 )
@@ -438,7 +438,7 @@ class _MeasureSheetState extends State<_MeasureSheet> {
           decoration: BoxDecoration(
             color: on ? gc.bgRaised2 : Colors.transparent,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: on ? gc.accent.withValues(alpha: 0.5) : gc.border.withValues(alpha: 0.6)),
+            border: Border.all(color: on ? gc.teal.withValues(alpha: 0.5) : gc.border.withValues(alpha: 0.6)),
           ),
           child: Column(children: [
             Text(f.label.toUpperCase(),
@@ -454,7 +454,7 @@ class _MeasureSheetState extends State<_MeasureSheet> {
                         child: FitText(value,
                             style: AppTheme.f(26, weight: FontWeight.w800, color: on ? gc.text : gc.textSecondary)),
                       )
-                    : Text(t.bpPulseAdd, style: AppTheme.f(14, weight: FontWeight.w700, color: gc.accent)),
+                    : Text(t.bpPulseAdd, style: AppTheme.f(14, weight: FontWeight.w700, color: gc.teal)),
               ),
             ),
           ]),
@@ -470,7 +470,7 @@ class _MeasureSheetState extends State<_MeasureSheet> {
           controller: _note,
           maxLength: 200,
           textCapitalization: TextCapitalization.sentences,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           style: AppTheme.f(14.5, weight: FontWeight.w600, color: gc.text),
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -681,7 +681,7 @@ class _NewMeasureSheetState extends State<_NewMeasureSheet> {
           autofocus: autofocus,
           maxLength: max,
           textCapitalization: TextCapitalization.sentences,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           onChanged: (_) => setState(() {}),
           onSubmitted: (_) => _save(),
           style: AppTheme.f(15, weight: FontWeight.w600, color: gc.text),
@@ -711,9 +711,9 @@ class _NewMeasureSheetState extends State<_NewMeasureSheet> {
             duration: const Duration(milliseconds: 180),
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
             decoration: BoxDecoration(
-              color: on ? gc.accent.withValues(alpha: 0.12) : gc.bgRaised2,
+              color: on ? gc.teal.withValues(alpha: 0.12) : gc.bgRaised2,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: on ? gc.accent : Colors.transparent, width: 1.5),
+              border: Border.all(color: on ? gc.teal : Colors.transparent, width: 1.5),
             ),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(title, style: AppTheme.f(14, weight: FontWeight.w700, color: gc.text)),

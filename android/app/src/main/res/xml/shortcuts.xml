@@ -8,9 +8,9 @@
         android:shortcutLongLabel="@string/shortcut_start_long">
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.gymmane.app"
-            android:targetClass="com.gymmane.app.MainActivity">
-            <extra android:name="gymmane_open" android:value="play" />
+            android:targetPackage="com.jesselicious.app"
+            android:targetClass="com.jesselicious.app.MainActivity">
+            <extra android:name="jesselicious_open" android:value="play" />
         </intent>
     </shortcut>
 </shortcuts>

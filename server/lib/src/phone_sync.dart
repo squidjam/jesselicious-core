@@ -26,7 +26,7 @@ class PhoneSync {
     'foodMedia': ['nutrition'],
     'passMedia': ['passes'],
   };
-  static final _legacy = RegExp(r'^gymmane-auto-\d{4}-\d{2}-\d{2}.*\.zip$');
+  static final _legacy = RegExp(r'^jesselicious-auto-\d{4}-\d{2}-\d{2}.*\.zip$');
 
   File get _meta => File('$dataDir/sync.meta.json');
 
@@ -150,7 +150,7 @@ class PhoneSync {
     }
     ArchiveFile? json;
     for (final f in archive.files) {
-      if (f.isFile && f.name.split('/').last == 'gymmane.json') json = f;
+      if (f.isFile && f.name.split('/').last == 'jesselicious.json') json = f;
     }
     if (json == null) return null;
     final Map<String, dynamic> incoming;
@@ -253,7 +253,7 @@ class PhoneSync {
         data[entry.key] = found;
       }
 
-      archive.addFile(ArchiveFile.string('gymmane.json', const JsonEncoder.withIndent('  ').convert(data)));
+      archive.addFile(ArchiveFile.string('jesselicious.json', const JsonEncoder.withIndent('  ').convert(data)));
       final zip = ZipEncoder().encodeBytes(archive);
       final now = DateTime.now().toUtc();
       final name = syncName(device, now);

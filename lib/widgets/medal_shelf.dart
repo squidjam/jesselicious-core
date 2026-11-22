@@ -67,7 +67,7 @@ class MedalShelf extends StatelessWidget {
                           width: 9,
                           height: 9,
                           decoration:
-                              BoxDecoration(color: context.gc.accent, shape: BoxShape.circle),
+                              BoxDecoration(color: context.gc.teal, shape: BoxShape.circle),
                         ),
                       ),
                   ],

@@ -57,7 +57,7 @@ class SessionScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 10, 8, 10),
         decoration: BoxDecoration(color: gc.bgRaised, borderRadius: BorderRadius.circular(16)),
         child: Row(children: [
-          Icon(PhosphorIconsRegular.feather, size: 17, color: gc.sage),
+          Icon(PhosphorIconsRegular.feather, size: 17, color: gc.lavender),
           const SizedBox(width: 10),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -76,7 +76,7 @@ class SessionScreen extends StatelessWidget {
             TextButton(
               onPressed: fit.toggleLightSession,
               child: Text(auto ? t.deloadSkip : t.lightSessionOff,
-                  style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.accent)),
+                  style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.teal)),
             ),
         ]),
       );
@@ -221,7 +221,7 @@ class SessionScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child: Icon(PhosphorIconsRegular.notePencil, size: 17, color: gc.ember),
+                  child: Icon(PhosphorIconsRegular.notePencil, size: 17, color: gc.magenta),
                 ),
               ),
             ),
@@ -369,7 +369,7 @@ class SessionScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: gc.bgRaised,
         borderRadius: BorderRadius.circular(20),
-        border: linked ? Border(left: BorderSide(color: gc.brass, width: 3)) : null,
+        border: linked ? Border(left: BorderSide(color: gc.marigold, width: 3)) : null,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -396,14 +396,14 @@ class SessionScreen extends StatelessWidget {
                   Text(t.catalogName(ex.id, ex.name),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTheme.f(16, weight: FontWeight.w800, color: done ? gc.sage : gc.text, height: 1.15)),
+                      style: AppTheme.f(16, weight: FontWeight.w800, color: done ? gc.lavender : gc.text, height: 1.15)),
                   const SizedBox(height: 3),
                   Row(children: [
                     if (linked) ...[
-                      Icon(PhosphorIconsRegular.link, size: 11, color: gc.brass),
+                      Icon(PhosphorIconsRegular.link, size: 11, color: gc.marigold),
                       const SizedBox(width: 4),
                       Text(t.superset,
-                          style: AppTheme.f(11, weight: FontWeight.w700, color: gc.brass, letterSpacing: 0.3)),
+                          style: AppTheme.f(11, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 0.3)),
                       Text('  ·  ', style: AppTheme.f(11, weight: FontWeight.w500, color: gc.textTertiary)),
                     ],
                     Flexible(
@@ -570,7 +570,7 @@ class SessionScreen extends StatelessWidget {
                     if (!s.exercises[i].linkedNext) return;
                     HapticFeedback.selectionClick();
                     showNotchToast(context, t.superset,
-                        subtitle: t.supersetHint, icon: PhosphorIconsFill.link, accent: gc.brass);
+                        subtitle: t.supersetHint, icon: PhosphorIconsFill.link, accent: gc.marigold);
                   }),
                 if (i < s.exercises.length - 1 && ex.linkedNext)
                   OptionItem(t.jumpSet, icon: PhosphorIconsRegular.arrowsClockwise, selected: ex.jumpNext, onTap: () {
@@ -579,7 +579,7 @@ class SessionScreen extends StatelessWidget {
                     if (!s.exercises[i].jumpNext) return;
                     HapticFeedback.selectionClick();
                     showNotchToast(context, t.jumpSet,
-                        subtitle: t.jumpSetHint, icon: PhosphorIconsFill.arrowsLeftRight, accent: gc.brass);
+                        subtitle: t.jumpSetHint, icon: PhosphorIconsFill.arrowsLeftRight, accent: gc.marigold);
                   }),
                 OptionItem(t.lightSession,
                     icon: PhosphorIconsRegular.feather,
@@ -701,9 +701,9 @@ class SessionScreen extends StatelessWidget {
             child: Container(
               width: 30,
               height: 30,
-              decoration: BoxDecoration(color: live ? gc.bgRaised2 : gc.ember, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: live ? gc.bgRaised2 : gc.magenta, shape: BoxShape.circle),
               child: Icon(live ? PhosphorIconsFill.stop : PhosphorIconsFill.play,
-                  size: 13, color: live ? gc.text : gc.onEmber),
+                  size: 13, color: live ? gc.text : gc.onMagenta),
             ),
           ),
         ),
@@ -750,14 +750,14 @@ class SessionScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: strong ? gc.ember : gc.bgRaised,
+              color: strong ? gc.magenta : gc.bgRaised,
               borderRadius: BorderRadius.circular(14),
             ),
             child: icon != null
-                ? Icon(icon, size: 16, color: strong ? gc.onEmber : gc.text)
+                ? Icon(icon, size: 16, color: strong ? gc.onMagenta : gc.text)
                 : Text(label,
                     maxLines: 1,
-                    style: AppTheme.f(13, weight: FontWeight.w800, color: strong ? gc.onEmber : gc.text)),
+                    style: AppTheme.f(13, weight: FontWeight.w800, color: strong ? gc.onMagenta : gc.text)),
           ),
         ),
       );
@@ -775,7 +775,7 @@ class SessionScreen extends StatelessWidget {
           return _dockFrame(
             gc,
             progress: left / total,
-            tint: gc.accent,
+            tint: gc.teal,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(children: [
@@ -789,7 +789,7 @@ class SessionScreen extends StatelessWidget {
                       onTap: () => _editRest(context, s),
                       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                         FitText((s.restSwitch ? t.switchSides : t.liveResting).toUpperCase(),
-                            style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.accent, letterSpacing: 1.2)),
+                            style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.teal, letterSpacing: 1.2)),
                         RollingText(clockLabel(left),
                             style: AppTheme.f(24, weight: FontWeight.w800, color: gc.text, height: 1.1)),
                       ]),
@@ -821,7 +821,7 @@ class SessionScreen extends StatelessWidget {
     return _dockFrame(
       gc,
       progress: 1 - left / total,
-      tint: gc.ember,
+      tint: gc.teal,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(children: [
@@ -833,7 +833,7 @@ class SessionScreen extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
               FitText(
                   [label.toUpperCase(), if (ex != null) t.catalogName(ex.id, ex.name)].join(' · '),
-                  style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.ember, letterSpacing: 1)),
+                  style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.teal, letterSpacing: 1)),
               RollingText(over ? '+${clockLabel(fit.holdExtra)}' : clockLabel(left),
                   style: AppTheme.f(24, weight: FontWeight.w800, color: gc.text, height: 1.1)),
             ]),
@@ -868,10 +868,10 @@ class SessionScreen extends StatelessWidget {
             decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(100)),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Icon(fit.inJumpSet ? PhosphorIconsRegular.arrowsLeftRight : PhosphorIconsRegular.link,
-                  size: 11, color: gc.brass),
+                  size: 11, color: gc.marigold),
               const SizedBox(width: 5),
               Text(fit.inJumpSet ? t.jumpSet : t.superset,
-                  style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.brass, letterSpacing: 0.5)),
+                  style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 0.5)),
             ]),
           ),
           const SizedBox(height: 8),
@@ -879,7 +879,7 @@ class SessionScreen extends StatelessWidget {
         if (ex != null)
           if (fit.blockOf(ex) case (n: final n, of: final of) when of > 1) ...[
           Text(t.routineRepeatTag(n, of).toUpperCase(),
-              style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1)),
+              style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1)),
           const SizedBox(height: 4),
         ],
         Text(ex == null ? '' : t.catalogName(ex.id, ex.name),
@@ -888,9 +888,9 @@ class SessionScreen extends StatelessWidget {
         Row(children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(color: gc.emberSoft, borderRadius: BorderRadius.circular(100)),
+            decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
             child: Text(muscleLabel(ex?.primary ?? ''),
-                style: AppTheme.f(12, weight: FontWeight.w600, color: gc.ember)),
+                style: AppTheme.f(12, weight: FontWeight.w600, color: gc.teal)),
           ),
           if (ex != null && !fit.sessionPaused && fit.session?.manual != true) ...[
             const SizedBox(width: 8),
@@ -1021,8 +1021,8 @@ class SessionScreen extends StatelessWidget {
     final count = sets.where((st) => st.done).length;
     final part = sets.isEmpty ? 0.0 : count / sets.length;
     final current = i == s.currentIndex;
-    final fill = gc.sage;
-    final track = current || count > 0 ? Color.lerp(gc.bgRaised2, gc.sage, 0.3)! : gc.bgRaised2;
+    final fill = gc.lavender;
+    final track = current || count > 0 ? Color.lerp(gc.bgRaised2, gc.lavender, 0.3)! : gc.bgRaised2;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 320),
       curve: Curves.easeOutCubic,
@@ -1054,10 +1054,10 @@ class SessionScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 18),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: gc.sage.withValues(alpha: 0.16),
+          color: gc.lavender.withValues(alpha: 0.16),
           borderRadius: BorderRadius.circular(14),
         ),
-        child: Icon(PhosphorIconsRegular.copy, size: 18, color: gc.sage),
+        child: Icon(PhosphorIconsRegular.copy, size: 18, color: gc.lavender),
       ),
       secondaryBackground: Container(
         margin: const EdgeInsets.only(bottom: 2),
@@ -1087,7 +1087,7 @@ class SessionScreen extends StatelessWidget {
       context,
       t.setDuplicated,
       icon: PhosphorIconsFill.copy,
-      accent: context.gc.sage,
+      accent: context.gc.lavender,
       action: t.undo,
       onTap: () => fit.removeSetObject(exIdx, copy),
       duration: const Duration(milliseconds: 3200),
@@ -1125,14 +1125,14 @@ class SessionScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(t.nextTime,
-              style: AppTheme.f(11, weight: FontWeight.w600, color: gc.brass, letterSpacing: 0.4)),
+              style: AppTheme.f(11, weight: FontWeight.w600, color: gc.marigold, letterSpacing: 0.4)),
           const SizedBox(width: 8),
           Expanded(
             child: LayoutBuilder(builder: (context, box) {
               final main = TextSpan(
                 text: fit.nextTargetLabel(id),
                 style: AppTheme.f(12,
-                    weight: FontWeight.w600, color: up ? gc.ember : gc.textSecondary),
+                    weight: FontWeight.w600, color: up ? gc.magenta : gc.textSecondary),
               );
               final why = fit.nextWhy(id);
               if (why == null) return Text.rich(main);
@@ -1227,7 +1227,7 @@ class SessionScreen extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: BoxDecoration(
-                    color: fit.sessionPaused ? gc.textTertiary : gc.ember, shape: BoxShape.circle),
+                    color: fit.sessionPaused ? gc.textTertiary : gc.teal, shape: BoxShape.circle),
               ),
               const SizedBox(width: 8),
               Flexible(
@@ -1237,7 +1237,7 @@ class SessionScreen extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: AppTheme.f(12,
                       weight: FontWeight.w600,
-                      color: fit.sessionPaused ? gc.textTertiary : gc.ember,
+                      color: fit.sessionPaused ? gc.textTertiary : gc.teal,
                       letterSpacing: 0.4),
                 ),
               ),
@@ -1290,14 +1290,14 @@ class SessionScreen extends StatelessWidget {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: fit.sessionPaused ? gc.ember : gc.bgRaised2,
+                      color: fit.sessionPaused ? gc.magenta : gc.bgRaised2,
                       shape: BoxShape.circle,
-                      border: Border.all(color: fit.sessionPaused ? gc.ember : gc.border),
+                      border: Border.all(color: fit.sessionPaused ? gc.magenta : gc.border),
                     ),
                     child: Icon(
                       fit.sessionPaused ? PhosphorIconsFill.play : PhosphorIconsFill.pause,
                       size: 16,
-                      color: fit.sessionPaused ? gc.onEmber : gc.text,
+                      color: fit.sessionPaused ? gc.onMagenta : gc.text,
                     ),
                   ),
                 ),
@@ -1325,14 +1325,14 @@ class SessionScreen extends StatelessWidget {
       Row(children: [
         _stepOutButton(gc),
         const SizedBox(width: 12),
-        Icon(PhosphorIconsRegular.calendarPlus, size: 15, color: gc.brass),
+        Icon(PhosphorIconsRegular.calendarPlus, size: 15, color: gc.marigold),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
             '${t.logging} · ${t.longDate(start)}',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.brass, letterSpacing: 0.6),
+            style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 0.6),
           ),
         ),
       ]),
@@ -1392,7 +1392,7 @@ class SessionScreen extends StatelessWidget {
               border: Border.all(color: gc.border),
             ),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Icon(icon, size: 15, color: gc.brass),
+              Icon(icon, size: 15, color: gc.marigold),
               const SizedBox(width: 8),
               Text(value, style: AppTheme.f(13.5, weight: FontWeight.w700, color: gc.text)),
             ]),
@@ -1572,7 +1572,7 @@ class SessionScreen extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 2),
       padding: EdgeInsets.symmetric(horizontal: list ? 8 : _rowPad, vertical: list ? 4 : 10),
       decoration: BoxDecoration(
-        color: st.done ? gc.sageSoft : Colors.transparent,
+        color: st.done ? gc.lavenderSoft : Colors.transparent,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(children: [
@@ -1622,9 +1622,9 @@ class SessionScreen extends StatelessWidget {
                     width: 28,
                     height: 28,
                     decoration: BoxDecoration(
-                      color: st.done ? gc.sage : Colors.transparent,
+                      color: st.done ? gc.lavender : Colors.transparent,
                       shape: BoxShape.circle,
-                      border: Border.all(color: st.done || st.half ? gc.sage : gc.textTertiary, width: 2),
+                      border: Border.all(color: st.done || st.half ? gc.lavender : gc.textTertiary, width: 2),
                     ),
                     child: st.done
                         ? Center(child: SvgPathIcon(Ic.checkBold, size: 14, color: Colors.white))
@@ -1635,7 +1635,7 @@ class SessionScreen extends StatelessWidget {
                                   child: FractionallySizedBox(
                                     alignment: AlignmentDirectional.centerStart,
                                     widthFactor: 0.5,
-                                    child: ColoredBox(color: gc.sage),
+                                    child: ColoredBox(color: gc.lavender),
                                   ),
                                 ),
                               )
@@ -1684,7 +1684,7 @@ class SessionScreen extends StatelessWidget {
                   color: rpe == null ? Colors.transparent : gc.bgRaised2,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
-                    color: waiting ? gc.ember : (rpe == null ? gc.border : Colors.transparent),
+                    color: waiting ? gc.magenta : (rpe == null ? gc.border : Colors.transparent),
                     width: waiting ? 1.6 : 1,
                   ),
                 ),
@@ -1797,7 +1797,7 @@ class SessionScreen extends StatelessWidget {
     return Row(mainAxisSize: MainAxisSize.min, children: [
       Flexible(child: label),
       const SizedBox(width: 3),
-      Icon(PhosphorIconsFill.notePencil, size: 10, color: gc.accent),
+      Icon(PhosphorIconsFill.notePencil, size: 10, color: gc.teal),
     ]);
   }
 
@@ -1825,7 +1825,7 @@ class SessionScreen extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(14, 6, 6, 6),
       decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(16)),
       child: Row(children: [
-        Icon(PhosphorIconsRegular.timer, size: 17, color: own == null ? gc.textSecondary : gc.accent),
+        Icon(PhosphorIconsRegular.timer, size: 17, color: own == null ? gc.textSecondary : gc.teal),
         const SizedBox(width: 10),
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -1855,11 +1855,11 @@ class SessionScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: own == null ? gc.bgRaised : gc.accentSoft,
+              color: own == null ? gc.bgRaised : gc.tealSoft,
               borderRadius: BorderRadius.circular(100),
             ),
             child: Text(value ?? t.restChange,
-                style: AppTheme.f(12.5, weight: FontWeight.w700, color: own == null ? gc.text : gc.accent)),
+                style: AppTheme.f(12.5, weight: FontWeight.w700, color: own == null ? gc.text : gc.teal)),
           ),
         ),
       ]),
@@ -2036,7 +2036,7 @@ class SessionScreen extends StatelessWidget {
       sets: '${count.done}/${count.total}',
       setsLabel: t.setsCaps,
       hint: fit.holdPaused ? t.holdPausedHint : t.tapToPause,
-      color: gc.accent,
+      color: gc.teal,
       onTap: fit.toggleHoldPause,
     );
   }
@@ -2308,13 +2308,13 @@ class SessionScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: gc.bgRaised,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: gc.accent.withValues(alpha: 0.35), width: 1.2),
+        border: Border.all(color: gc.teal.withValues(alpha: 0.35), width: 1.2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(t.nextToday.toUpperCase(),
-              style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1.4)),
+              style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1.4)),
           const SizedBox(height: 7),
           Text(fit.routineTitle(next),
               maxLines: 2,
@@ -2335,7 +2335,7 @@ class SessionScreen extends StatelessWidget {
   }
 
   Future<void> _saveRoutine(BuildContext context) async {
-    final accent = context.gc.sage;
+    final accent = context.gc.lavender;
     final routine = fit.sessionRoutine;
     if (routine != null) {
       if (!await _confirmRoutineChanges(context, routine) || !context.mounted) return;
@@ -2385,11 +2385,11 @@ class SessionScreen extends StatelessWidget {
                 Text(t.saveChangesBody,
                     style: AppTheme.f(13.5, weight: FontWeight.w500, color: gc.textSecondary, height: 1.45)),
                 const SizedBox(height: 12),
-                for (final e in changes.added) row(PhosphorIconsBold.plus, gc.sage, exerciseName(e)),
+                for (final e in changes.added) row(PhosphorIconsBold.plus, gc.lavender, exerciseName(e)),
                 for (final e in changes.removed) row(PhosphorIconsBold.minus, gc.danger, exerciseName(e)),
-                if (changes.reordered) row(PhosphorIconsBold.arrowsDownUp, gc.brass, t.routineOrderChanged),
+                if (changes.reordered) row(PhosphorIconsBold.arrowsDownUp, gc.marigold, t.routineOrderChanged),
                 for (final c in changes.sets)
-                  row(c.to > c.from ? PhosphorIconsBold.plus : PhosphorIconsBold.minus, gc.brass, () {
+                  row(c.to > c.from ? PhosphorIconsBold.plus : PhosphorIconsBold.minus, gc.marigold, () {
                     final repeat = fit.routineRepeat(routine, c.slot);
                     final name = repeat.of > 1
                         ? '${exerciseName(c.ex)} (${t.routineRepeatTag(repeat.n, repeat.of).toLowerCase()})'
@@ -2402,7 +2402,7 @@ class SessionScreen extends StatelessWidget {
         ),
         actions: [
           dialogAction(t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(false), strong: false),
-          dialogAction(t.save, gc.accent, () => Navigator.of(dctx).pop(true)),
+          dialogAction(t.save, gc.teal, () => Navigator.of(dctx).pop(true)),
         ],
       ),
     );
@@ -2435,7 +2435,7 @@ class SessionScreen extends StatelessWidget {
               child: Container(
                 width: 150,
                 height: 150,
-                decoration: BoxDecoration(color: gc.accentSoft, shape: BoxShape.circle),
+                decoration: BoxDecoration(color: gc.tealSoft, shape: BoxShape.circle),
               ),
             ),
             Positioned(
@@ -2454,15 +2454,15 @@ class SessionScreen extends StatelessWidget {
                 children: [
                   Row(children: [
                     Text(t.sessionComplete.toUpperCase(),
-                        style: AppTheme.f(11, weight: FontWeight.w600, color: gc.brass, letterSpacing: 1.4)),
+                        style: AppTheme.f(11, weight: FontWeight.w600, color: gc.marigold, letterSpacing: 1.4)),
                     if (prs > 0) ...[
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                         decoration:
-                            BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+                            BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
                         child: Text(t.prCount(prs),
-                            style: AppTheme.f(10, weight: FontWeight.w700, color: gc.accent)),
+                            style: AppTheme.f(10, weight: FontWeight.w700, color: gc.teal)),
                       ),
                     ],
                   ]),
@@ -2506,18 +2506,18 @@ class SessionScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
             decoration: BoxDecoration(
-              color: name == null ? gc.bgRaised2 : gc.accentSoft,
+              color: name == null ? gc.bgRaised2 : gc.tealSoft,
               borderRadius: BorderRadius.circular(100),
             ),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Icon(PhosphorIconsRegular.pencilSimple, size: 13, color: name == null ? gc.textSecondary : gc.accent),
+              Icon(PhosphorIconsRegular.pencilSimple, size: 13, color: name == null ? gc.textSecondary : gc.teal),
               const SizedBox(width: 6),
               Flexible(
                 child: Text(name ?? t.nameWorkout,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTheme.f(12.5,
-                        weight: FontWeight.w700, color: name == null ? gc.textSecondary : gc.accent)),
+                        weight: FontWeight.w700, color: name == null ? gc.textSecondary : gc.teal)),
               ),
             ]),
           ),
@@ -2532,14 +2532,14 @@ class SessionScreen extends StatelessWidget {
       radius: 16,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       child: Row(children: [
-        SvgPathIcon(Ic.trendUp, size: 16, color: up ? gc.sage : gc.textTertiary),
+        SvgPathIcon(Ic.trendUp, size: 16, color: up ? gc.lavender : gc.textTertiary),
         const SizedBox(width: 12),
         Expanded(
           child: Text(t.vsLastTime,
               style: AppTheme.f(11, weight: FontWeight.w600, color: gc.textSecondary, letterSpacing: 0.4)),
         ),
         Text('${up ? '+' : ''}$pct%',
-            style: AppTheme.f(16, weight: FontWeight.w700, color: up ? gc.sage : gc.textSecondary)),
+            style: AppTheme.f(16, weight: FontWeight.w700, color: up ? gc.lavender : gc.textSecondary)),
       ]),
     );
   }
@@ -2553,7 +2553,7 @@ class SessionScreen extends StatelessWidget {
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Padding(
             padding: const EdgeInsets.only(top: 1),
-            child: Icon(PhosphorIconsRegular.clockCounterClockwise, size: 18, color: gc.accent),
+            child: Icon(PhosphorIconsRegular.clockCounterClockwise, size: 18, color: gc.teal),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -2607,10 +2607,10 @@ class SessionScreen extends StatelessWidget {
             Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(children: [
-                  Icon(PhosphorIconsBold.trendUp, size: 13, color: gc.sage),
+                  Icon(PhosphorIconsBold.trendUp, size: 13, color: gc.lavender),
                   const SizedBox(width: 6),
                   Text(t.levelUpKicker,
-                      style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.sage, letterSpacing: 1.4)),
+                      style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.lavender, letterSpacing: 1.4)),
                 ]),
                 const SizedBox(height: 4),
                 Text(exerciseName(level.to),
@@ -2635,16 +2635,16 @@ class SessionScreen extends StatelessWidget {
               if (routine == null) return;
               HapticFeedback.lightImpact();
               showNotchToast(context, t.levelUpSwapped(name, routine),
-                  icon: PhosphorIconsFill.checkCircle, accent: gc.sage);
+                  icon: PhosphorIconsFill.checkCircle, accent: gc.lavender);
             },
             child: Container(
               height: 46,
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: gc.sageSoft, borderRadius: BorderRadius.circular(100)),
+              decoration: BoxDecoration(color: gc.lavenderSoft, borderRadius: BorderRadius.circular(100)),
               child: Text(inRoutine ? t.levelUpSwap(fit.routineTitle(fit.sessionRoutine!)) : t.levelUpSee,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: AppTheme.f(14, weight: FontWeight.w700, color: gc.sage)),
+                  style: AppTheme.f(14, weight: FontWeight.w700, color: gc.lavender)),
             ),
           ),
           const SizedBox(height: 2),
@@ -2656,7 +2656,7 @@ class SessionScreen extends StatelessWidget {
               if (undo == null) return;
               showNotchToast(context, t.levelUpStayed,
                   icon: PhosphorIconsRegular.bellSlash,
-                  accent: gc.accent,
+                  accent: gc.teal,
                   action: t.undo,
                   onTap: undo,
                   duration: const Duration(milliseconds: 3600));
@@ -2689,7 +2689,7 @@ class SessionScreen extends StatelessWidget {
               const SizedBox(width: 12),
               Ltr(
                 child: Text(fit.loggedSetLabel(st, id: e.id),
-                    style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                    style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
               ),
             ]),
           ),
@@ -2702,7 +2702,7 @@ class SessionScreen extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Row(children: [
-          Icon(PhosphorIconsRegular.trophy, size: 16, color: gc.accent),
+          Icon(PhosphorIconsRegular.trophy, size: 16, color: gc.teal),
           const SizedBox(width: 12),
           Expanded(
             child: Text(t.reportRecords.toUpperCase(),
@@ -2723,7 +2723,7 @@ class SessionScreen extends StatelessWidget {
       radius: 16,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       child: Row(children: [
-        SvgPathIcon(Ic.flame, size: 16, color: gc.accent),
+        SvgPathIcon(Ic.flame, size: 16, color: gc.teal),
         const SizedBox(width: 12),
         Expanded(child: Text(t.firstTime, style: AppTheme.f(13, weight: FontWeight.w500, color: gc.textSecondary))),
       ]),
@@ -2953,7 +2953,7 @@ Widget _swapRow(BuildContext sheetCtx, GymColors gc, Exercise ex, VoidCallback o
               ),
             ),
             if (fit.favorites[ex.id] == true) ...[
-              Icon(PhosphorIconsFill.star, size: 13, color: gc.accent),
+              Icon(PhosphorIconsFill.star, size: 13, color: gc.teal),
               const SizedBox(width: 8),
             ],
             Icon(PhosphorIconsRegular.arrowsLeftRight, size: 15, color: gc.textSecondary),
@@ -3048,7 +3048,7 @@ class _ExerciseStageState extends State<_ExerciseStage> {
     showNotchToast(context, t.catalogName(ex.id, ex.name),
         subtitle: where,
         icon: fit.inSuperset ? PhosphorIconsBold.link : PhosphorIconsBold.arrowRight,
-        accent: fit.inSuperset ? gc.brass : gc.ember,
+        accent: fit.inSuperset ? gc.marigold : gc.magenta,
         duration: const Duration(milliseconds: 1900));
   }
 
@@ -3162,7 +3162,7 @@ Widget _overviewRow(BuildContext sheet, GymColors gc, WorkoutSession s, int i) {
       color: current ? gc.bgRaised2 : Colors.transparent,
       borderRadius: BorderRadius.circular(16),
       border: Border.all(
-          color: current ? gc.ember.withValues(alpha: 0.6) : gc.border.withValues(alpha: 0.6)),
+          color: current ? gc.magenta.withValues(alpha: 0.6) : gc.border.withValues(alpha: 0.6)),
     ),
     child: GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -3178,14 +3178,14 @@ Widget _overviewRow(BuildContext sheet, GymColors gc, WorkoutSession s, int i) {
             height: 26,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: all ? gc.sage : (current ? gc.ember : gc.bgRaised2),
+              color: all ? gc.lavender : (current ? gc.magenta : gc.bgRaised2),
               shape: BoxShape.circle,
             ),
             child: all
                 ? SvgPathIcon(Ic.checkBold, size: 12, color: Colors.white)
                 : Text('${i + 1}',
                     style: AppTheme.f(11.5,
-                        weight: FontWeight.w700, color: current ? gc.onEmber : gc.textSecondary)),
+                        weight: FontWeight.w700, color: current ? gc.onMagenta : gc.textSecondary)),
           ),
           const SizedBox(width: 10),
           if (def != null) ...[
@@ -3204,27 +3204,27 @@ Widget _overviewRow(BuildContext sheet, GymColors gc, WorkoutSession s, int i) {
                 Row(children: [
                   Text(t.setsDoneOf(done, e.sets.length),
                       style: AppTheme.f(11.5,
-                          weight: FontWeight.w500, color: all ? gc.sage : gc.textSecondary)),
+                          weight: FontWeight.w500, color: all ? gc.lavender : gc.textSecondary)),
                   if (fit.blockOf(e) case (n: final n, of: final of) when of > 1) ...[
                     Text(' · ', style: AppTheme.f(11.5, color: gc.textTertiary)),
                     Semantics(
                       label: t.routineRepeatTag(n, of),
                       excludeSemantics: true,
                       child: Row(mainAxisSize: MainAxisSize.min, children: [
-                        Icon(PhosphorIconsRegular.copySimple, size: 11, color: gc.accent),
+                        Icon(PhosphorIconsRegular.copySimple, size: 11, color: gc.teal),
                         const SizedBox(width: 3),
-                        Text('$n/$of', style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.accent)),
+                        Text('$n/$of', style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.teal)),
                       ]),
                     ),
                   ],
                   if (current) ...[
                     Text(' · ', style: AppTheme.f(11.5, color: gc.textTertiary)),
                     Text(t.nowLabel,
-                        style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.ember)),
+                        style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.magenta)),
                   ],
                   if (linked) ...[
                     const SizedBox(width: 6),
-                    Icon(PhosphorIconsRegular.link, size: 12, color: gc.brass),
+                    Icon(PhosphorIconsRegular.link, size: 12, color: gc.marigold),
                   ],
                 ]),
               ],
@@ -3245,7 +3245,7 @@ Widget _overviewRow(BuildContext sheet, GymColors gc, WorkoutSession s, int i) {
                   width: 38,
                   height: 44,
                   child: Icon(e.linkedNext ? PhosphorIconsFill.link : PhosphorIconsRegular.link,
-                      size: 17, color: e.linkedNext ? gc.ember : gc.textTertiary),
+                      size: 17, color: e.linkedNext ? gc.teal : gc.textTertiary),
                 ),
               ),
             ),
@@ -3270,7 +3270,7 @@ void _showLockHint(BuildContext context) {
     t.screenLocked,
     subtitle: t.lockedHint,
     icon: PhosphorIconsFill.fingerprint,
-    accent: context.gc.accent,
+    accent: context.gc.teal,
   );
 }
 
@@ -3382,7 +3382,7 @@ class _HoldToUnlockState extends State<_HoldToUnlock> with SingleTickerProviderS
               child: Container(
                 padding: const EdgeInsets.fromLTRB(6, 6, 14, 6),
                 decoration: BoxDecoration(
-                  color: gc.emberSoft,
+                  color: gc.magentaSoft,
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
@@ -3395,11 +3395,11 @@ class _HoldToUnlockState extends State<_HoldToUnlock> with SingleTickerProviderS
                           value: v,
                           strokeWidth: 2.4,
                           strokeCap: StrokeCap.round,
-                          color: gc.ember,
-                          backgroundColor: gc.ember.withValues(alpha: 0.15),
+                          color: gc.magenta,
+                          backgroundColor: gc.magenta.withValues(alpha: 0.15),
                         ),
                       ),
-                      Icon(PhosphorIconsFill.fingerprint, size: 14, color: gc.ember),
+                      Icon(PhosphorIconsFill.fingerprint, size: 14, color: gc.magenta),
                     ]),
                   ),
                   const SizedBox(width: 8),
@@ -3408,7 +3408,7 @@ class _HoldToUnlockState extends State<_HoldToUnlock> with SingleTickerProviderS
                       t.holdToUnlock,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTheme.f(12, weight: FontWeight.w800, color: gc.ember),
+                      style: AppTheme.f(12, weight: FontWeight.w800, color: gc.magenta),
                     ),
                   ),
                 ]),
@@ -3443,7 +3443,7 @@ class _CelebrateState extends State<_Celebrate> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final gc = context.gc;
-      celebrate(context, colors: [gc.accent, gc.brass, gc.sage, gc.text]);
+      celebrate(context, colors: [gc.teal, gc.marigold, gc.lavender, gc.text]);
     });
   }
 
@@ -3502,7 +3502,7 @@ class _TuneCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: AppTheme.f(11.5,
-                          weight: FontWeight.w600, color: vote == 0 ? gc.textSecondary : gc.sage, height: 1.3)),
+                          weight: FontWeight.w600, color: vote == 0 ? gc.textSecondary : gc.lavender, height: 1.3)),
                 ),
         ),
         const SizedBox(height: 8),
@@ -3567,7 +3567,7 @@ class _ExtrasCardState extends State<_ExtrasCard> {
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Text(t.newInWorkout.toUpperCase(),
-            style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.brass, letterSpacing: 1.4)),
+            style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 1.4)),
         const SizedBox(height: 4),
         Text(t.newInWorkoutHint(fit.routineTitle(routine)),
             style: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.textSecondary, height: 1.35)),
@@ -3601,16 +3601,16 @@ class _ExtrasCardState extends State<_ExtrasCard> {
                   curve: Curves.easeOutCubic,
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   decoration: BoxDecoration(
-                    color: _added.contains(e.id) ? gc.sageSoft : gc.bgRaised2,
+                    color: _added.contains(e.id) ? gc.lavenderSoft : gc.bgRaised2,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 200),
                     child: _added.contains(e.id)
                         ? Row(key: const ValueKey('done'), mainAxisSize: MainAxisSize.min, children: [
-                            Icon(PhosphorIconsBold.check, size: 13, color: gc.sage),
+                            Icon(PhosphorIconsBold.check, size: 13, color: gc.lavender),
                             const SizedBox(width: 5),
-                            Text(t.addedToRoutine, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.sage)),
+                            Text(t.addedToRoutine, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.lavender)),
                           ])
                         : Row(key: const ValueKey('add'), mainAxisSize: MainAxisSize.min, children: [
                             Icon(PhosphorIconsBold.plus, size: 13, color: gc.text),

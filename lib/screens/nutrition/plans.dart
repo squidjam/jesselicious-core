@@ -15,7 +15,7 @@ Future<void> shareMealPlans(List<MealPlan> plans) async {
   final name = plans.length == 1 ? plans.first.name : t.mealPlansTitle;
   try {
     final slug = name.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), '-').replaceAll(RegExp(r'^-+|-+$'), '');
-    await shareFile('gymmane-${slug.isEmpty ? 'plan' : slug}.json', utf8Bytes(fit.exportMealPlansJson(plans)),
+    await shareFile('jesselicious-${slug.isEmpty ? 'plan' : slug}.json', utf8Bytes(fit.exportMealPlansJson(plans)),
         mime: 'application/json', text: [for (final p in plans) _planSummary(p)].join('\n\n'), subject: name);
   } catch (_) {}
 }
@@ -30,7 +30,7 @@ void showMealPlanImportResult(BuildContext context, int n) {
   final gc = context.gc;
   if (n > 0) {
     HapticFeedback.lightImpact();
-    showNotchToast(context, t.planImported(n), icon: PhosphorIconsFill.calendarCheck, accent: gc.sage);
+    showNotchToast(context, t.planImported(n), icon: PhosphorIconsFill.calendarCheck, accent: gc.lavender);
   } else {
     HapticFeedback.heavyImpact();
     showNotchToast(context, t.planImportNone, icon: PhosphorIconsFill.warningCircle, accent: gc.warn);
@@ -63,8 +63,8 @@ class _PlansSection extends StatelessWidget {
               Container(
                 width: 44,
                 height: 44,
-                decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.14), shape: BoxShape.circle),
-                child: Icon(PhosphorIconsBold.plus, size: 18, color: gc.accent),
+                decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.14), shape: BoxShape.circle),
+                child: Icon(PhosphorIconsBold.plus, size: 18, color: gc.teal),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -181,7 +181,7 @@ class _PlanWeek extends StatelessWidget {
                         color: plan == null ? Colors.transparent : gc.bgRaised2,
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: isToday ? gc.accent : (plan == null ? gc.border : Colors.transparent),
+                          color: isToday ? gc.teal : (plan == null ? gc.border : Colors.transparent),
                           width: isToday ? 2 : 1,
                         ),
                       ),
@@ -236,7 +236,7 @@ Future<void> _pickPlanForDay(BuildContext context, int weekday) {
               fit.setPlanDay(weekday, p.id);
               Navigator.of(sheet).pop();
               showNotchToast(context, t.planSetForDay(t.weekdayInline(weekday)),
-                  subtitle: p.name, icon: PhosphorIconsFill.calendarCheck, accent: context.gc.sage);
+                  subtitle: p.name, icon: PhosphorIconsFill.calendarCheck, accent: context.gc.lavender);
             },
           ),
         OptionItem(
@@ -344,7 +344,7 @@ class _PlanEditorState extends State<_PlanEditor> {
       t.planSaved,
       subtitle: _days.isEmpty ? saved.name : '${saved.name} · ${_daysLine(_days)}',
       icon: PhosphorIconsFill.calendarCheck,
-      accent: context.gc.sage,
+      accent: context.gc.lavender,
     );
   }
 
@@ -431,7 +431,7 @@ class _PlanEditorState extends State<_PlanEditor> {
     final n = fit.logPlanDay(_plan);
     HapticFeedback.lightImpact();
     showNotchToast(context, n > 0 ? t.planLogged(n) : t.planNothingToLog,
-        icon: PhosphorIconsFill.checkCircle, accent: context.gc.sage);
+        icon: PhosphorIconsFill.checkCircle, accent: context.gc.lavender);
   }
 
   Widget _item(GymColors gc, FoodEntry e) => Padding(
@@ -488,7 +488,7 @@ class _PlanEditorState extends State<_PlanEditor> {
               onChanged: (_) => _dirty = true,
               textCapitalization: TextCapitalization.sentences,
               style: AppTheme.f(21, weight: FontWeight.w800, color: gc.text),
-              cursorColor: gc.accent,
+              cursorColor: gc.teal,
               decoration: InputDecoration(
                 isDense: true,
                 border: InputBorder.none,
@@ -533,14 +533,14 @@ class _PlanEditorState extends State<_PlanEditor> {
                     duration: const Duration(milliseconds: 180),
                     height: 40,
                     decoration: BoxDecoration(
-                      color: on ? gc.accent : gc.bgRaised2,
+                      color: on ? gc.teal : gc.bgRaised2,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     alignment: Alignment.center,
                     child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                       Text(t.weekdayInitial(d),
                           style: AppTheme.f(13,
-                              weight: FontWeight.w800, color: on ? gc.onEmber : gc.textSecondary)),
+                              weight: FontWeight.w800, color: on ? gc.onMagenta : gc.textSecondary)),
                       if (taken)
                         Container(
                           width: 4,
@@ -601,10 +601,10 @@ class _PlanEditorState extends State<_PlanEditor> {
             border: Border.all(color: gc.border),
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Icon(PhosphorIconsBold.plus, size: 13, color: gc.accent),
+            Icon(PhosphorIconsBold.plus, size: 13, color: gc.teal),
             const SizedBox(width: 6),
             Text(t.addToMeal(mealInSentence(slot.meal)),
-                style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+                style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
           ]),
         ),
       ),
@@ -712,9 +712,9 @@ class _TodayPlanCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 10, 12, 10),
         decoration: BoxDecoration(
-          color: gc.accent.withValues(alpha: 0.08),
+          color: gc.teal.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: gc.accent.withValues(alpha: 0.28)),
+          border: Border.all(color: gc.teal.withValues(alpha: 0.28)),
         ),
         child: Row(children: [
           FoodPlate(items: _plateOf(plan.items), size: 52),
@@ -722,7 +722,7 @@ class _TodayPlanCard extends StatelessWidget {
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(t.planToday.toUpperCase(),
-                  style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.accent, letterSpacing: 1)),
+                  style: AppTheme.f(9.5, weight: FontWeight.w800, color: gc.teal, letterSpacing: 1)),
               const SizedBox(height: 2),
               Text(plan.name,
                   maxLines: 1,
@@ -736,7 +736,7 @@ class _TodayPlanCard extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsetsDirectional.only(end: 3),
                     decoration: BoxDecoration(
-                      color: i < p.done ? gc.sage : gc.border,
+                      color: i < p.done ? gc.lavender : gc.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -757,16 +757,16 @@ class _TodayPlanCard extends StatelessWidget {
               onTap: () {
                 final n = fit.logPlanDay(plan);
                 HapticFeedback.lightImpact();
-                showNotchToast(context, t.planLogged(n), icon: PhosphorIconsFill.checkCircle, accent: gc.sage);
+                showNotchToast(context, t.planLogged(n), icon: PhosphorIconsFill.checkCircle, accent: gc.lavender);
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
-                decoration: BoxDecoration(color: gc.accent, borderRadius: BorderRadius.circular(100)),
-                child: Text(t.planLogRest, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.onEmber)),
+                decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(100)),
+                child: Text(t.planLogRest, style: AppTheme.f(12, weight: FontWeight.w800, color: gc.onMagenta)),
               ),
             )
           else
-            Icon(PhosphorIconsFill.checkCircle, size: 22, color: gc.sage),
+            Icon(PhosphorIconsFill.checkCircle, size: 22, color: gc.lavender),
         ]),
       ),
     );
@@ -788,9 +788,9 @@ class _PlannedMeal extends StatelessWidget {
       margin: const EdgeInsets.only(top: 14),
       padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
       decoration: BoxDecoration(
-        color: gc.accent.withValues(alpha: 0.08),
+        color: gc.teal.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: gc.accent.withValues(alpha: 0.25)),
+        border: Border.all(color: gc.teal.withValues(alpha: 0.25)),
       ),
       child: Row(children: [
         FoodPlate(items: _plateOf(items), size: 44),
@@ -813,8 +813,8 @@ class _PlannedMeal extends StatelessWidget {
           },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
-            decoration: BoxDecoration(color: gc.accent, borderRadius: BorderRadius.circular(100)),
-            child: Text(t.logPlan, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.onEmber)),
+            decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(100)),
+            child: Text(t.logPlan, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.onMagenta)),
           ),
         ),
       ]),

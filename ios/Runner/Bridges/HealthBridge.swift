@@ -5,13 +5,13 @@ import UIKit
 enum HealthBridge {
   private static let store = HKHealthStore()
   private static let defaults = UserDefaults.standard
-  private static let askedKey = "gymmane.health.asked"
-  private static let metricsKey = "gymmane.health.metrics"
+  private static let askedKey = "jesselicious.health.asked"
+  private static let metricsKey = "jesselicious.health.metrics"
   private static let stepType = HKQuantityType(.stepCount)
   private static let perMinute = HKUnit.count().unitDivided(by: .minute())
 
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/health", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/health", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         guard HKHealthStore.isHealthDataAvailable() else {
           result(call.method == "status" ? "unsupported" : nil)
@@ -327,8 +327,8 @@ enum HealthBridge {
     }
     var metadata: [String: Any] = [HKMetadataKeyWasUserEntered: args["manual"] as? Bool ?? false]
     if !id.isEmpty { metadata[HKMetadataKeyExternalUUID] = id }
-    if let title = args["title"] as? String, !title.isEmpty { metadata["GymManeTitle"] = title }
-    if let notes = args["notes"] as? String, !notes.isEmpty { metadata["GymManeNotes"] = notes }
+    if let title = args["title"] as? String, !title.isEmpty { metadata["JesseliciousTitle"] = title }
+    if let notes = args["notes"] as? String, !notes.isEmpty { metadata["JesseliciousNotes"] = notes }
 
     let configuration = HKWorkoutConfiguration()
     configuration.activityType = activity(args["type"] as? String ?? "")

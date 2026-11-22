@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class DeviceKind {
   DeviceKind._();
 
-  static const _channel = MethodChannel('gymmane/device');
+  static const _channel = MethodChannel('jesselicious/device');
 
   @visibleForTesting
   static bool? lowEndOverride;

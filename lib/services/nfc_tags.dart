@@ -8,7 +8,7 @@ import '../state/fit_state.dart';
 class NfcTags {
   NfcTags._();
 
-  static const _channel = MethodChannel('gymmane/nfc');
+  static const _channel = MethodChannel('jesselicious/nfc');
   static final _written = StreamController<String>.broadcast();
 
   static bool available = false;

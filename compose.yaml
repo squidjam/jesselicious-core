@@ -1,26 +1,26 @@
 services:
-  gymmane:
-    image: ghcr.io/inlitx/gymmane:latest
+  jesselicious:
+    image: ghcr.io/inlitx/jesselicious:latest
     build: .
-    container_name: gymmane
+    container_name: jesselicious
     user: "${PUID:-1000}:${PGID:-1000}"
     restart: unless-stopped
     ports:
-      - "${GYMMANE_PORT:-8080}:8080"
+      - "${JESSELICIOUS_PORT:-8080}:8080"
     volumes:
-      - ./gymmane-data:/data
+      - ./jesselicious-data:/data
     environment:
-      GYMMANE_PASSWORD: ${GYMMANE_PASSWORD:-}
-      GYMMANE_PEOPLE: ${GYMMANE_PEOPLE:-}
-      GYMMANE_SYNC: ${GYMMANE_SYNC:-}
-      GYMMANE_KEEP_DAYS: ${GYMMANE_KEEP_DAYS:-}
+      JESSELICIOUS_PASSWORD: ${JESSELICIOUS_PASSWORD:-}
+      JESSELICIOUS_PEOPLE: ${JESSELICIOUS_PEOPLE:-}
+      JESSELICIOUS_SYNC: ${JESSELICIOUS_SYNC:-}
+      JESSELICIOUS_KEEP_DAYS: ${JESSELICIOUS_KEEP_DAYS:-}
 
   syncthing:
     image: syncthing/syncthing:latest
-    container_name: gymmane-syncthing
+    container_name: jesselicious-syncthing
     restart: unless-stopped
     profiles: ["sync"]
-    hostname: gymmane
+    hostname: jesselicious
     environment:
       PUID: ${PUID:-1000}
       PGID: ${PGID:-1000}
@@ -31,5 +31,5 @@ services:
       - "21027:21027/udp"
     volumes:
       - ./syncthing:/var/syncthing
-      - ./gymmane-data/sync:/var/syncthing/GymMane
-      - ./gymmane-data:/var/syncthing/data
+      - ./jesselicious-data/sync:/var/syncthing/Jesselicious
+      - ./jesselicious-data:/var/syncthing/data

@@ -11,7 +11,7 @@ import '../state/fit_state.dart';
 class QuickTiles {
   QuickTiles._();
 
-  static const _ch = MethodChannel('gymmane/qs');
+  static const _ch = MethodChannel('jesselicious/qs');
   static bool canAdd = false;
   static String _sent = '';
 

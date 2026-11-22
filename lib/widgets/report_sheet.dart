@@ -61,7 +61,7 @@ class _ReportSheetState extends State<ReportSheet> {
     await Clipboard.setData(ClipboardData(text: reportMarkdown(reportBlocks(report, _kind))));
     if (!mounted) return;
     final gc = context.gc;
-    showNotchToast(context, t.copiedDone, subtitle: t.reportCopyMarkdown, icon: PhosphorIconsRegular.copy, accent: gc.accent);
+    showNotchToast(context, t.copiedDone, subtitle: t.reportCopyMarkdown, icon: PhosphorIconsRegular.copy, accent: gc.teal);
   }
 
   static DateTimeRange _last(int days) {

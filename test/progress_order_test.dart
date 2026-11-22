@@ -1,13 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/progress_reminder.dart';
-import 'package:gymmane/services/train_reminder.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/progress_reminder.dart';
+import 'package:jesselicious/services/train_reminder.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -41,7 +41,7 @@ void main() {
     tester.view.physicalSize = const Size(1170, 12000);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
   }
 
   Future<double> yOf(WidgetTester tester, String text) async {

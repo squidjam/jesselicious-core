@@ -101,8 +101,8 @@ class StartSheet extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: gc.emberSoft,
-          border: Border.all(color: gc.ember.withValues(alpha: 0.4)),
+          color: gc.magentaSoft,
+          border: Border.all(color: gc.magenta.withValues(alpha: 0.4)),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(children: [
@@ -111,7 +111,7 @@ class StartSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(day == null ? t.todaysRoutine : t.plannedRoutine,
-                    style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.brass, letterSpacing: 1.4)),
+                    style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 1.4)),
                 const SizedBox(height: 6),
                 Text(fit.routineTitle(r),
                     maxLines: 1,
@@ -129,8 +129,8 @@ class StartSheet extends StatelessWidget {
           Container(
             width: 46,
             height: 46,
-            decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
-            child: Icon(PhosphorIconsFill.play, size: 18, color: gc.onEmber),
+            decoration: BoxDecoration(color: gc.magenta, shape: BoxShape.circle),
+            child: Icon(PhosphorIconsFill.play, size: 18, color: gc.onMagenta),
           ),
         ]),
       ),

@@ -6,15 +6,15 @@ String _esc(String s) => const HtmlEscape().convert(s);
 
 String personalPage(String html, Person person) => html
     .replaceFirst(RegExp(r'<base href="[^"]*"\s*/?>'),
-        '<base href="/${person.name}/">\n  <meta name="gymmane-person" content="${person.name}">')
-    .replaceFirst('<title>GymMane</title>', '<title>GymMane · ${_esc(person.display)}</title>');
+        '<base href="/${person.name}/">\n  <meta name="jesselicious-person" content="${person.name}">')
+    .replaceFirst('<title>Jesselicious</title>', '<title>Jesselicious · ${_esc(person.display)}</title>');
 
 String personalManifest(String text, Person person) {
   try {
     final m = jsonDecode(text) as Map<String, dynamic>;
     final label = person.display;
-    m['name'] = 'GymMane · $label';
-    m['short_name'] = label.length <= 12 ? label : 'GymMane';
+    m['name'] = 'Jesselicious · $label';
+    m['short_name'] = label.length <= 12 ? label : 'Jesselicious';
     m['id'] = '/${person.name}/';
     return jsonEncode(m);
   } catch (_) {
@@ -68,7 +68,7 @@ String _page(String body, String script) => '''<!DOCTYPE html>
 <meta name="theme-color" content="#0A0A0A">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>GymMane</title>
+<title>Jesselicious</title>
 <style>$_style</style>
 </head>
 <body>
@@ -101,8 +101,8 @@ String pickerPage(List<Person> people) {
 }
 
 String loginPage({required String action, Person? person, bool wrong = false, bool wait = false, bool shared = false}) {
-  final title = person == null ? 'GymMane' : _esc(person.display);
-  final user = person?.name ?? 'gymmane';
+  final title = person == null ? 'Jesselicious' : _esc(person.display);
+  final user = person?.name ?? 'jesselicious';
   final back = shared ? '<a class="back" id="b" href="/">Not you?</a>' : '';
   return _page(
     '<h1>$title</h1>\n<p id="s">Enter your password to continue.</p>\n'

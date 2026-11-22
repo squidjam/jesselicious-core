@@ -28,7 +28,7 @@ void showAutoBackupSheet(BuildContext context) {
     final merged = n > 0;
     showNotchToast(sheet, ok ? (merged ? t.autoBackupMerged : t.autoBackupSaved) : t.autoBackupLost,
         icon: ok ? PhosphorIconsFill.checkCircle : PhosphorIconsFill.warningCircle,
-        accent: ok ? sheet.gc.sage : sheet.gc.danger);
+        accent: ok ? sheet.gc.lavender : sheet.gc.danger);
   }
 
   String status() {
@@ -111,7 +111,7 @@ void showAutoBackupSheet(BuildContext context) {
                         child: SizedBox(
                           width: 22,
                           height: 22,
-                          child: CircularProgressIndicator(strokeWidth: 2.4, color: gc.ember),
+                          child: CircularProgressIndicator(strokeWidth: 2.4, color: gc.teal),
                         ),
                       )
                     : GhostButton(

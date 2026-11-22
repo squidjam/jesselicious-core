@@ -12,8 +12,8 @@ Color setKindColor(GymColors gc, SetKind kind) => switch (kind) {
       SetKind.warmup => gc.warn,
       SetKind.drop => gc.info,
       SetKind.failure => gc.danger,
-      SetKind.restPause => gc.brass,
-      SetKind.cluster => gc.sage,
+      SetKind.restPause => gc.marigold,
+      SetKind.cluster => gc.lavender,
       SetKind.normal => gc.text,
     };
 
@@ -150,9 +150,9 @@ class RecordBadge extends StatelessWidget {
           decoration: BoxDecoration(
             color: gc.bgRaised,
             shape: BoxShape.circle,
-            border: Border.all(color: gc.brass, width: 1.2),
+            border: Border.all(color: gc.marigold, width: 1.2),
           ),
-          child: Icon(PhosphorIconsBold.trophy, size: size * 0.56, color: gc.brass),
+          child: Icon(PhosphorIconsBold.trophy, size: size * 0.56, color: gc.marigold),
         ),
       ),
     );

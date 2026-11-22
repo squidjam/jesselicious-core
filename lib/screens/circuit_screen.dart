@@ -59,7 +59,7 @@ class CircuitSection extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(13)),
-                child: Icon(PhosphorIconsRegular.timer, size: 19, color: gc.accent),
+                child: Icon(PhosphorIconsRegular.timer, size: 19, color: gc.teal),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -132,8 +132,8 @@ class _CircuitCard extends StatelessWidget {
               child: Container(
                 width: 46,
                 height: 46,
-                decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
-                child: Icon(PhosphorIconsFill.play, size: 18, color: gc.onEmber),
+                decoration: BoxDecoration(color: gc.magenta, shape: BoxShape.circle),
+                child: Icon(PhosphorIconsFill.play, size: 18, color: gc.onMagenta),
               ),
             ),
           ),
@@ -267,10 +267,10 @@ class _CircuitEditorState extends State<_CircuitEditor> {
                 style: AppTheme.f(14, weight: FontWeight.w700, color: gc.text, height: 1.25)),
             const SizedBox(height: 7),
             Wrap(spacing: 6, runSpacing: 6, children: [
-              _chip(gc, t.circuitWork, _secs(step.work), gc.accent,
+              _chip(gc, t.circuitWork, _secs(step.work), gc.teal,
                   () => _seconds(t.circuitWork, step.work, 5, (v) => step.work = v)),
               if (!last)
-                _chip(gc, t.circuitRest, step.rest == 0 ? '0 s' : _secs(step.rest), gc.sage,
+                _chip(gc, t.circuitRest, step.rest == 0 ? '0 s' : _secs(step.rest), gc.lavender,
                     () => _seconds(t.circuitRest, step.rest, 5, (v) => step.rest = v, allowZero: true)),
             ]),
           ]),
@@ -350,7 +350,7 @@ class _CircuitEditorState extends State<_CircuitEditor> {
                     controller: _name,
                     maxLength: 60,
                     textCapitalization: TextCapitalization.sentences,
-                    cursorColor: gc.accent,
+                    cursorColor: gc.teal,
                     style: AppTheme.f(16, weight: FontWeight.w700, color: gc.text),
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -383,7 +383,7 @@ class _CircuitEditorState extends State<_CircuitEditor> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                         child: Text(_c.roundRest == 0 ? t.noRestTimer : _secs(_c.roundRest),
-                            style: AppTheme.f(14, weight: FontWeight.w700, color: gc.sage)),
+                            style: AppTheme.f(14, weight: FontWeight.w700, color: gc.lavender)),
                       ),
                     ),
                   ),
@@ -767,9 +767,9 @@ class _CircuitPlayerState extends State<_CircuitPlayer> {
     final phase = _phase;
     final working = phase.kind == _Kind.work;
     final tone = switch (phase.kind) {
-      _Kind.work => gc.accent,
+      _Kind.work => gc.teal,
       _Kind.ready => gc.textSecondary,
-      _ => gc.sage,
+      _ => gc.lavender,
     };
     final label = switch (phase.kind) {
       _Kind.work => t.circuitWork,
@@ -906,8 +906,8 @@ class _CircuitPlayerState extends State<_CircuitPlayer> {
           child: Container(
             width: 80,
             height: 80,
-            decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
-            child: Icon(_paused ? PhosphorIconsFill.play : PhosphorIconsFill.pause, size: 30, color: gc.onEmber),
+            decoration: BoxDecoration(color: gc.magenta, shape: BoxShape.circle),
+            child: Icon(_paused ? PhosphorIconsFill.play : PhosphorIconsFill.pause, size: 30, color: gc.onMagenta),
           ),
         ),
       ),
@@ -978,9 +978,9 @@ class _CircuitPlayerState extends State<_CircuitPlayer> {
             height: 5,
             decoration: BoxDecoration(
               color: i == current
-                  ? gc.accent
+                  ? gc.teal
                   : i < upTo
-                      ? gc.accent.withValues(alpha: 0.45)
+                      ? gc.teal.withValues(alpha: 0.45)
                       : gc.bgRaised2,
               borderRadius: BorderRadius.circular(3),
             ),
@@ -997,8 +997,8 @@ class _CircuitPlayerState extends State<_CircuitPlayer> {
           Container(
             width: 96,
             height: 96,
-            decoration: BoxDecoration(color: gc.sage.withValues(alpha: 0.16), shape: BoxShape.circle),
-            child: Icon(PhosphorIconsBold.check, size: 40, color: gc.sage),
+            decoration: BoxDecoration(color: gc.lavender.withValues(alpha: 0.16), shape: BoxShape.circle),
+            child: Icon(PhosphorIconsBold.check, size: 40, color: gc.lavender),
           ),
           const SizedBox(height: 22),
           Text(t.circuitDone, style: AppTheme.f(26, weight: FontWeight.w800, color: gc.text)),

@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_colors.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -44,7 +44,7 @@ void main() {
 
     test('the light accent reads on bone', () {
 
-      expect(contrast(GymColors.light.bg, GymColors.light.accent), greaterThanOrEqualTo(4.5));
+      expect(contrast(GymColors.light.bg, GymColors.light.teal), greaterThanOrEqualTo(4.5));
     });
 
     test('dark text stays readable too', () {
@@ -54,8 +54,8 @@ void main() {
     });
 
     test('action colour flips with the theme but keeps its contrast', () {
-      expect(contrast(GymColors.dark.ember, GymColors.dark.onEmber), greaterThan(7));
-      expect(contrast(GymColors.light.ember, GymColors.light.onEmber), greaterThan(7));
+      expect(contrast(GymColors.dark.magenta, GymColors.dark.onMagenta), greaterThan(7));
+      expect(contrast(GymColors.light.magenta, GymColors.light.onMagenta), greaterThan(7));
     });
   });
 }

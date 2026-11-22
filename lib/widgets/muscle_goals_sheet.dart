@@ -129,8 +129,8 @@ class _MuscleGoalsSheetState extends State<_MuscleGoalsSheet> {
             for (final p in StatsState.muscleGoalPresets)
               Pill(
                 label: '${muscleLevelName(p)} · ${_shown(p)}',
-                bg: fit.muscleGoalAll == p ? gc.ember : gc.bgRaised,
-                fg: fit.muscleGoalAll == p ? gc.onEmber : gc.textSecondary,
+                bg: fit.muscleGoalAll == p ? gc.teal : gc.bgRaised,
+                fg: fit.muscleGoalAll == p ? gc.onTeal : gc.textSecondary,
                 hPad: 11,
                 vPad: 6,
                 fontSize: 12,
@@ -165,7 +165,7 @@ class _MuscleGoalsSheetState extends State<_MuscleGoalsSheet> {
                   fit.setMuscleGoal(id, null);
                 },
                 child: Text(t.muscleGoalReset,
-                    style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.accent)),
+                    style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.teal)),
               ),
           ]),
         ),

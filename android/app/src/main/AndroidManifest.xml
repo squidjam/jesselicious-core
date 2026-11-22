@@ -38,8 +38,8 @@
     <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
 
     <application
-        android:label="GymMane"
-        android:name=".GymManeApplication"
+        android:label="Jesselicious"
+        android:name=".JesseliciousApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
@@ -65,7 +65,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".GymTileService"
+            android:name=".JesseliciousTileService"
             android:exported="true"
             android:label="@string/tile_label"
             android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
@@ -75,7 +75,7 @@
             <meta-data android:name="androidx.wear.tiles.PREVIEW" android:resource="@drawable/tile_preview"/>
         </service>
         <service
-            android:name=".GymComplicationService"
+            android:name=".JesseliciousComplicationService"
             android:exported="true"
             android:icon="@drawable/ic_complication"
             android:label="@string/tile_label"
@@ -119,7 +119,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:roundIcon="@mipmap/ic_launcher"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -135,7 +135,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_light"
             android:roundIcon="@mipmap/ic_launcher_light"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -151,7 +151,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_sand"
             android:roundIcon="@mipmap/ic_launcher_sand"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -167,7 +167,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_graphite"
             android:roundIcon="@mipmap/ic_launcher_graphite"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -183,7 +183,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_sage"
             android:roundIcon="@mipmap/ic_launcher_sage"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -199,7 +199,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_night"
             android:roundIcon="@mipmap/ic_launcher_night"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -215,7 +215,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_material"
             android:roundIcon="@mipmap/ic_launcher_material"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -231,7 +231,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_medal"
             android:roundIcon="@mipmap/ic_launcher_medal"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -247,7 +247,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_glass"
             android:roundIcon="@mipmap/ic_launcher_glass"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -263,7 +263,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_stopwatch"
             android:roundIcon="@mipmap/ic_launcher_stopwatch"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -279,7 +279,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_marble"
             android:roundIcon="@mipmap/ic_launcher_marble"
-            android:label="GymMane"
+            android:label="Jesselicious"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -297,7 +297,7 @@
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="gymmane" android:host="today"/>
+                <data android:scheme="jesselicious" android:host="today"/>
             </intent-filter>
         </activity-alias>
         <activity-alias

@@ -78,7 +78,7 @@ class HeatmapWidgetView extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Text('GymMane',
+                  child: Text('Jesselicious',
                       maxLines: 1,
                       overflow: TextOverflow.clip,
                       softWrap: false,
@@ -89,7 +89,7 @@ class HeatmapWidgetView extends StatelessWidget {
                           fontWeight: FontWeight.w800,
                           color: gc.text)),
                 ),
-                Icon(Icons.local_fire_department_rounded, size: 15, color: gc.accent),
+                Icon(Icons.local_fire_department_rounded, size: 15, color: gc.teal),
                 const SizedBox(width: 3),
                 Text('$streak',
                     style: TextStyle(
@@ -97,7 +97,7 @@ class HeatmapWidgetView extends StatelessWidget {
                         fontSize: 15,
                         height: 1.2,
                         fontWeight: FontWeight.w700,
-                        color: gc.accent)),
+                        color: gc.teal)),
               ],
             ),
           ),
@@ -163,7 +163,7 @@ class StatsWidgetView extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.local_fire_department_rounded, size: 16, color: gc.accent),
+              Icon(Icons.local_fire_department_rounded, size: 16, color: gc.teal),
               const SizedBox(width: 4),
               Text(titleCase(t.streakCaps),
                   style: TextStyle(
@@ -267,7 +267,7 @@ class TodayWidgetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final side = size.shortestSide;
-    final tone = planned ? gc.brass : gc.textTertiary;
+    final tone = planned ? gc.marigold : gc.textTertiary;
     return Container(
       width: size.width,
       height: size.height,
@@ -277,15 +277,15 @@ class TodayWidgetView extends StatelessWidget {
           width: side * 0.62,
           height: side * 0.62,
           decoration: BoxDecoration(
-            color: done ? gc.accent : (rest ? gc.sageSoft : Colors.transparent),
+            color: done ? gc.teal : (rest ? gc.lavenderSoft : Colors.transparent),
             shape: BoxShape.circle,
-            border: done || rest ? null : Border.all(color: planned ? gc.brass : gc.border, width: side * 0.035),
+            border: done || rest ? null : Border.all(color: planned ? gc.marigold : gc.border, width: side * 0.035),
           ),
           child: Center(
             child: done
                 ? Icon(Icons.check_rounded, size: side * 0.34, color: gc.bgRaised)
                 : rest
-                    ? Icon(Icons.local_cafe_rounded, size: side * 0.24, color: gc.sage)
+                    ? Icon(Icons.local_cafe_rounded, size: side * 0.24, color: gc.lavender)
                     : Icon(Icons.fitness_center_rounded, size: side * 0.22, color: tone),
           ),
         ),
@@ -386,7 +386,7 @@ class WeekWidgetView extends StatelessWidget {
                   strokeWidth: 4,
                   strokeCap: StrokeCap.round,
                   backgroundColor: gc.bgRaised2,
-                  valueColor: AlwaysStoppedAnimation(gc.accent),
+                  valueColor: AlwaysStoppedAnimation(gc.teal),
                 ),
               ),
             ],
@@ -411,11 +411,11 @@ class WeekWidgetView extends StatelessWidget {
                         width: dot,
                         height: dot,
                         decoration: BoxDecoration(
-                          color: done[i] ? gc.ember : gc.bgRaised2,
+                          color: done[i] ? gc.magenta : gc.bgRaised2,
                           shape: BoxShape.circle,
                         ),
                         child: done[i]
-                            ? Icon(Icons.check_rounded, size: 17, color: gc.onEmber)
+                            ? Icon(Icons.check_rounded, size: 17, color: gc.onMagenta)
                             : null,
                       ),
                     ],
@@ -564,7 +564,7 @@ class MusclesWidgetView extends StatelessWidget {
                 widthFactor: pct,
                 heightFactor: 1,
                 alignment: AlignmentDirectional.centerStart,
-                child: ColoredBox(color: done ? gc.sage : gc.text),
+                child: ColoredBox(color: done ? gc.lavender : gc.text),
               ),
             ]),
           ),

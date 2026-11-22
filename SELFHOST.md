@@ -1,11 +1,11 @@
 <div align="center">
 
-# GymMane on your own server
+# Jesselicious on your own server
 
 The whole app in any browser at home, laid out for a big screen.<br/>
 Your data stays in one folder on your machine. No account, no cloud.
 
-<img src="docs/screenshots/devices.png" alt="GymMane on a computer, a phone and a watch" width="820">
+<img src="docs/screenshots/devices.png" alt="Jesselicious on a computer, a phone and a watch" width="820">
 
 </div>
 
@@ -13,7 +13,7 @@ Your data stays in one folder on your machine. No account, no cloud.
 
 1. **Install it** on a machine that stays on: a NAS, a home server, a Raspberry Pi or your PC.
 2. **Open the address** it gives you, like `http://192.168.1.20:8080`, from any browser at home.
-3. **Optional:** share data with the GymMane phone app through Syncthing ([how](#phone-app)).
+3. **Optional:** share data with the Jesselicious phone app through Syncthing ([how](#phone-app)).
 
 The phone app stays exactly as it is, with no internet permission at all.
 
@@ -33,12 +33,12 @@ The phone app stays exactly as it is, with no internet permission at all.
 ## Linux, Raspberry Pi and macOS
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/InlitX/jesselicious-core/main/selfhost/install.sh | sh
 ```
 
 It asks a few questions, each with a default, so you can press Enter all the way: Docker or not,
 the port, a password, who will use it and, with Docker, Syncthing for the phone. Then it prints the
-address and the password. GymMane starts again by itself after a reboot.
+address and the password. Jesselicious starts again by itself after a reboot.
 
 **Update or remove:** run the same command again.
 
@@ -58,7 +58,7 @@ address and the password. GymMane starts again by itself after a reboot.
 In PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/install.ps1 | iex
+irm https://raw.githubusercontent.com/InlitX/jesselicious-core/main/selfhost/install.ps1 | iex
 ```
 
 Same questions as on Linux. As administrator it starts with Windows and opens the firewall port;
@@ -71,10 +71,10 @@ without admin it starts when you log in.
 In the shell of your node (Datacenter › your node › Shell):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/proxmox.sh | sh
+curl -fsSL https://raw.githubusercontent.com/InlitX/jesselicious-core/main/selfhost/proxmox.sh | sh
 ```
 
-It creates a small Debian container called `gymmane` (1 core, 512 MB, 2 GB), installs GymMane in it
+It creates a small Debian container called `jesselicious` (1 core, 512 MB, 2 GB), installs Jesselicious in it
 and prints the address and the password. The container starts with Proxmox, and its backups include
 your data.
 
@@ -88,15 +88,15 @@ Set any of these before `sh`:
 
 | Variable | Default | |
 |---|---|---|
-| `GYMMANE_IP` | `dhcp` | A fixed address: `192.168.1.50/24,gw=192.168.1.1` |
-| `GYMMANE_BRIDGE` | `vmbr0` | Network bridge |
-| `GYMMANE_MEMORY` | `512` | MB of RAM |
-| `GYMMANE_DISK` | `2` | GB of disk |
-| `GYMMANE_STORAGE` | `local-lvm` | Where the disk goes |
-| `GYMMANE_CTID` | next free | Container ID |
+| `JESSELICIOUS_IP` | `dhcp` | A fixed address: `192.168.1.50/24,gw=192.168.1.1` |
+| `JESSELICIOUS_BRIDGE` | `vmbr0` | Network bridge |
+| `JESSELICIOUS_MEMORY` | `512` | MB of RAM |
+| `JESSELICIOUS_DISK` | `2` | GB of disk |
+| `JESSELICIOUS_STORAGE` | `local-lvm` | Where the disk goes |
+| `JESSELICIOUS_CTID` | next free | Container ID |
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/proxmox.sh | GYMMANE_IP=192.168.1.50/24,gw=192.168.1.1 sh
+curl -fsSL https://raw.githubusercontent.com/InlitX/jesselicious-core/main/selfhost/proxmox.sh | JESSELICIOUS_IP=192.168.1.50/24,gw=192.168.1.1 sh
 ```
 
 </details>
@@ -104,11 +104,11 @@ curl -fsSL https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/proxmo
 ## Unraid
 
 1. Docker tab › **Add Container** › Template: paste
-   `https://raw.githubusercontent.com/InlitX/GymMane/main/selfhost/unraid/gymmane.xml` and press Enter.
+   `https://raw.githubusercontent.com/InlitX/jesselicious-core/main/selfhost/unraid/jesselicious.xml` and press Enter.
 2. Set a password (8 or more characters) and, if you like, the names of the people who will use it.
-3. **Apply**, then open it from the GymMane icon › WebUI.
+3. **Apply**, then open it from the Jesselicious icon › WebUI.
 
-Your data goes to `/mnt/user/appdata/gymmane`. **Update:** from the Docker tab, like any other app.
+Your data goes to `/mnt/user/appdata/jesselicious`. **Update:** from the Docker tab, like any other app.
 
 ## NAS
 
@@ -122,7 +122,7 @@ Your data goes to `/mnt/user/appdata/gymmane`. **Update:** from the Docker tab, 
    | <img src="docs/selfhost/truenas.svg" width="22"> | TrueNAS SCALE 24.10+ | Apps › Discover Apps › ⋮ › Install via YAML |
    | <img src="docs/selfhost/nas.svg" width="22"> | CasaOS, ZimaOS | App Store › + › Install a customized app › Import |
 
-3. Write a password between the quotes of `GYMMANE_PASSWORD` (8 or more characters), start it and
+3. Write a password between the quotes of `JESSELICIOUS_PASSWORD` (8 or more characters), start it and
    open `http://<nas-ip>:8080`.
 
 **Update:** pull the image again and recreate it (Synology: Project › Action › Build; TrueNAS and
@@ -134,8 +134,8 @@ CasaOS: their update button).
 - **Port 8080 taken:** change the first number in `ports`, for example `"8095:8080"`, and open that
   port instead.
 - **Data in your own folder** (for example to sync it with the phone): the file keeps it in a Docker
-  volume, which works on any NAS. Replace `gymmane-data:/data` with your folder
-  (`/volume1/docker/gymmane:/data`) and add `user: "<uid>:<gid>"` with the owner of that folder
+  volume, which works on any NAS. Replace `jesselicious-data:/data` with your folder
+  (`/volume1/docker/jesselicious:/data`) and add `user: "<uid>:<gid>"` with the owner of that folder
   (`id` over SSH shows it). If the folder belongs to someone else, the log says how to fix it.
 
 </details>
@@ -145,16 +145,16 @@ CasaOS: their update button).
 With Compose:
 
 ```sh
-mkdir -p gymmane/gymmane-data/sync && cd gymmane
-curl -fsSLO https://raw.githubusercontent.com/InlitX/GymMane/main/compose.yaml
-echo "GYMMANE_PASSWORD=pick-something-long" > .env
-docker compose up -d gymmane
+mkdir -p jesselicious/jesselicious-data/sync && cd jesselicious
+curl -fsSLO https://raw.githubusercontent.com/InlitX/jesselicious-core/main/compose.yaml
+echo "JESSELICIOUS_PASSWORD=pick-something-long" > .env
+docker compose up -d jesselicious
 ```
 
 Or in one line:
 
 ```sh
-docker run -d --name gymmane -p 8080:8080 -v gymmane-data:/data --restart unless-stopped ghcr.io/inlitx/gymmane
+docker run -d --name jesselicious -p 8080:8080 -v jesselicious-data:/data --restart unless-stopped ghcr.io/inlitx/jesselicious
 ```
 
 Portainer and Dockge: paste [`selfhost/nas/compose.yaml`](selfhost/nas/compose.yaml) as a new stack.
@@ -165,12 +165,12 @@ Images for `amd64` and `arm64`.
 <details>
 <summary>User ID and running without Docker</summary>
 
-- GymMane runs as user `1000`. If yours is another (`id -u`), add `PUID=<id>` and `PGID=<group id>`
-  to `.env`, and create `gymmane-data` before the first start so it belongs to you.
+- Jesselicious runs as user `1000`. If yours is another (`id -u`), add `PUID=<id>` and `PGID=<group id>`
+  to `.env`, and create `jesselicious-data` before the first start so it belongs to you.
 - **Without Docker or scripts:** download the archive for your system from the
-  [latest release](https://github.com/InlitX/GymMane/releases/latest), unpack it and run
-  `gymmane-server` (`start.bat` on Windows), with the `web` folder next to it. On macOS, if it is
-  blocked, run `xattr -d com.apple.quarantine gymmane-server` once.
+  [latest release](https://github.com/InlitX/jesselicious-core/releases/latest), unpack it and run
+  `jesselicious-server` (`start.bat` on Windows), with the `web` folder next to it. On macOS, if it is
+  blocked, run `xattr -d com.apple.quarantine jesselicious-server` once.
 
 </details>
 
@@ -190,7 +190,7 @@ Each person can have their own data on the same address. The installers ask for 
 add them to the [settings](#settings), separated by commas:
 
 ```sh
-GYMMANE_PEOPLE="Ana María, Pablo"
+JESSELICIOUS_PEOPLE="Ana María, Pablo"
 ```
 
 The address then asks who is training, and each person gets their own page (`/ana-maria/`,
@@ -199,12 +199,12 @@ The address then asks who is training, and each person gets their own page (`/an
 <details>
 <summary>Passwords per person and where their data goes</summary>
 
-- Own password after a colon: `GYMMANE_PEOPLE="Ana María:a-long-password, Pablo:another-one"`.
-  Whoever has none uses `GYMMANE_PASSWORD`. Keep the quotes and use passwords without commas.
+- Own password after a colon: `JESSELICIOUS_PEOPLE="Ana María:a-long-password, Pablo:another-one"`.
+  Whoever has none uses `JESSELICIOUS_PASSWORD`. Keep the quotes and use passwords without commas.
 - The first person keeps the data the server already had. The others start empty, in
   `people/<name>` inside the data folder. Removing a name hides that page but never deletes data.
-- Phone folder: the first person uses `gymmane-data/sync` (`/var/syncthing/GymMane` in Syncthing),
-  everyone else `gymmane-data/people/<name>/sync` (`/var/syncthing/data/people/<name>/sync`).
+- Phone folder: the first person uses `jesselicious-data/sync` (`/var/syncthing/Jesselicious` in Syncthing),
+  everyone else `jesselicious-data/people/<name>/sync` (`/var/syncthing/data/people/<name>/sync`).
 - Prefer fully separate servers? Run one container per person, each with its own port and volume.
 
 </details>
@@ -216,10 +216,10 @@ what the other leaves there.
 
 1. **Server:** choose Syncthing in the installer, or `docker compose --profile sync up -d`. Open
    `http://<server-ip>:8384`, set a password (Actions › Settings › GUI) and add the folder
-   `/var/syncthing/GymMane`.
+   `/var/syncthing/Jesselicious`.
 2. **Phone:** install [Syncthing-Fork](https://f-droid.org/packages/com.github.catfriend1.syncthingandroid/),
    add the server as a device (on the server, Actions › Show ID) and accept the shared folder.
-3. **GymMane on the phone:** Settings › Data & backup › Auto backup, and pick that folder.
+3. **Jesselicious on the phone:** Settings › Data & backup › Auto backup, and pick that folder.
 
 The server merges each phone backup within 15 seconds; what you log in the browser reaches the phone
 when the app opens, or right away with Auto backup › Sync now.
@@ -257,25 +257,25 @@ An update never touches your data.
 
 | Variable | Default | What it does |
 |---|---|---|
-| `GYMMANE_PASSWORD` | none | Password to open GymMane |
-| `GYMMANE_PEOPLE` | none | Several people, each with their own data |
-| `GYMMANE_PORT` | `8080` | Port |
-| `GYMMANE_KEEP_DAYS` | `30` | Daily copies kept in `<data>/history` |
-| `GYMMANE_SYNC` | `<data>/sync` | Folder shared with the phone. `off` turns it off |
-| `GYMMANE_HOST` | `0.0.0.0` | `127.0.0.1` keeps it to this machine. Not with Docker |
-| `GYMMANE_DATA` | `data` next to the server | Where data lives. In Docker it is `/data` |
+| `JESSELICIOUS_PASSWORD` | none | Password to open Jesselicious |
+| `JESSELICIOUS_PEOPLE` | none | Several people, each with their own data |
+| `JESSELICIOUS_PORT` | `8080` | Port |
+| `JESSELICIOUS_KEEP_DAYS` | `30` | Daily copies kept in `<data>/history` |
+| `JESSELICIOUS_SYNC` | `<data>/sync` | Folder shared with the phone. `off` turns it off |
+| `JESSELICIOUS_HOST` | `0.0.0.0` | `127.0.0.1` keeps it to this machine. Not with Docker |
+| `JESSELICIOUS_DATA` | `data` next to the server | Where data lives. In Docker it is `/data` |
 
 | Installed with | Where | Then |
 |---|---|---|
-| Script, Linux or macOS | `~/gymmane/.env` (`/opt/gymmane/.env` as root) | Run the script and pick Update |
-| Script, Windows | `%LOCALAPPDATA%\GymMane\gymmane.env` | Run the script and pick Update |
-| Proxmox | `/opt/gymmane/.env` in the container (`pct enter <id>`) | `systemctl restart gymmane` |
+| Script, Linux or macOS | `~/jesselicious/.env` (`/opt/jesselicious/.env` as root) | Run the script and pick Update |
+| Script, Windows | `%LOCALAPPDATA%\Jesselicious\jesselicious.env` | Run the script and pick Update |
+| Proxmox | `/opt/jesselicious/.env` in the container (`pct enter <id>`) | `systemctl restart jesselicious` |
 | Unraid, NAS | The container variables or the compose file | Save and redeploy |
 | Docker Compose | `.env` next to `compose.yaml` | `docker compose up -d` |
 
 ### Password and access from outside
 
-With a password, GymMane asks once per browser and remembers it for a year (Settings › Data &
+With a password, Jesselicious asks once per browser and remembers it for a year (Settings › Data &
 backup › Sign out forgets it). At home the password travels unencrypted, so to use it from outside,
 go through a VPN like Tailscale or WireGuard, or a reverse proxy with HTTPS (Caddy, Traefik, Nginx
 Proxy Manager). Never open the port to the internet as it is.
@@ -284,10 +284,10 @@ Proxy Manager). Never open the port to the internet as it is.
 <summary>Building it yourself</summary>
 
 ```sh
-docker build -t gymmane .
+docker build -t jesselicious .
 ```
 
 Or `flutter build web --wasm --release --no-web-resources-cdn` for the app and
-`dart compile exe server/bin/server.dart` for the server, with `GYMMANE_WEB` pointing to `build/web`.
+`dart compile exe server/bin/server.dart` for the server, with `JESSELICIOUS_WEB` pointing to `build/web`.
 
 </details>

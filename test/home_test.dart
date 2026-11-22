@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_colors.dart';
-import 'package:gymmane/widgets/home_widget_views.dart';
-import 'package:gymmane/widgets/scroll_away.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_colors.dart';
+import 'package:jesselicious/widgets/home_widget_views.dart';
+import 'package:jesselicious/widgets/scroll_away.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

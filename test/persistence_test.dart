@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/note.dart';
-import 'package:gymmane/models/nutrition.dart';
-import 'package:gymmane/models/profile.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/models/note.dart';
+import 'package:jesselicious/models/nutrition.dart';
+import 'package:jesselicious/models/profile.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

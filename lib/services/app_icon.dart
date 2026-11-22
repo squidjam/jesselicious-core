@@ -15,7 +15,7 @@ class AppIconStyle {
 class AppIcon {
   AppIcon._();
 
-  static const _channel = MethodChannel('gymmane/app_icon');
+  static const _channel = MethodChannel('jesselicious/app_icon');
 
   static const styles = [
     AppIconStyle('default', false),

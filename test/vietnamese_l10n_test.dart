@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/l10n/app_localizations_vi.dart';
-import 'package:gymmane/l10n/catalog_vi.dart';
-import 'package:gymmane/l10n/l10n.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/l10n/app_localizations_vi.dart';
+import 'package:jesselicious/l10n/catalog_vi.dart';
+import 'package:jesselicious/l10n/l10n.dart';
 
 void main() {
   final vi = AppLocalizationsVi();

@@ -4,7 +4,7 @@ import UIKit
 
 enum DeviceBridge {
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/device", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/device", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         switch call.method {
         case "isWatch":
@@ -17,7 +17,7 @@ enum DeviceBridge {
           result(Double(UIScreen.main.maximumFramesPerSecond))
         case "groupDir":
           result(FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.gymmane.app")?.path)
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.jesselicious.app")?.path)
         case "setHighRefresh":
           result(nil)
         default:
@@ -25,7 +25,7 @@ enum DeviceBridge {
         }
       }
 
-    FlutterMethodChannel(name: "gymmane/haptics", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/haptics", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         guard call.method == "buzz" else {
           result(FlutterMethodNotImplemented)

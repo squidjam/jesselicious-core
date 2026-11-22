@@ -44,9 +44,9 @@ Future<void> showTrackersSheet(BuildContext context) => _sheet<void>(context, (c
         label(t.trackersDetail),
         ToolGroup([
           toggle(Tracker.animal, PhosphorIconsRegular.lightning, gc.warn, t.animalProtein),
-          toggle(Tracker.quality, PhosphorIconsRegular.dna, gc.sage, t.proteinQuality),
+          toggle(Tracker.quality, PhosphorIconsRegular.dna, gc.lavender, t.proteinQuality),
           toggle(Tracker.fats, PhosphorIconsRegular.drop, gc.fat, t.fatTypes),
-          toggle(Tracker.fiber, PhosphorIconsRegular.leaf, gc.sage, t.fiberLabel),
+          toggle(Tracker.fiber, PhosphorIconsRegular.leaf, gc.lavender, t.fiberLabel),
           toggle(Tracker.sugarSodium, PhosphorIconsRegular.cube, gc.carbs, t.sugarSodium),
           toggle(Tracker.minerals, PhosphorIconsRegular.atom, gc.danger, t.mineralsTracker),
         ]),
@@ -54,13 +54,13 @@ Future<void> showTrackersSheet(BuildContext context) => _sheet<void>(context, (c
         ToolGroup([
           toggle(Tracker.water, PhosphorIconsRegular.drop, gc.water, t.waterLabel),
           toggle(Tracker.shake, PhosphorIconsRegular.egg, gc.protein, t.shakeCard),
-          toggle(Tracker.supplements, PhosphorIconsRegular.pill, gc.sage, t.supplementsLabel),
-          toggle(Tracker.fasting, PhosphorIconsRegular.hourglassMedium, gc.brass, t.fastTracker),
+          toggle(Tracker.supplements, PhosphorIconsRegular.pill, gc.lavender, t.supplementsLabel),
+          toggle(Tracker.fasting, PhosphorIconsRegular.hourglassMedium, gc.marigold, t.fastTracker),
           toggle(Tracker.weight, PhosphorIconsRegular.scales, gc.water, t.bodyweightLabel),
-          toggle(Tracker.week, PhosphorIconsRegular.chartLineUp, gc.sage, t.weekAverage),
+          toggle(Tracker.week, PhosphorIconsRegular.chartLineUp, gc.lavender, t.weekAverage),
           toggle(Tracker.prep, PhosphorIconsRegular.cookingPot, gc.warn, t.prepTitle),
-          toggle(Tracker.plans, PhosphorIconsRegular.calendarBlank, gc.accent, t.mealPlansTitle),
-          toggle(Tracker.foods, PhosphorIconsRegular.bookmarkSimple, gc.accent, t.myFoods),
+          toggle(Tracker.plans, PhosphorIconsRegular.calendarBlank, gc.teal, t.mealPlansTitle),
+          toggle(Tracker.foods, PhosphorIconsRegular.bookmarkSimple, gc.teal, t.myFoods),
         ]),
         label(t.trackersScreen),
         ToolGroup([
@@ -144,12 +144,12 @@ Future<void> showWeekSheet(BuildContext context) => _sheet<void>(context, (conte
         const SizedBox(height: 18),
         chartBox(
           sentenceCase(t.kcalLabel),
-          gc.accent,
+          gc.teal,
           ValueLineChart(
             values: [for (final d in days) open(d) ? null : fit.energyOf(fit.totalOn(d).kcal).toDouble()],
             labels: labels,
             format: (v) => '${v.round()}',
-            color: gc.accent,
+            color: gc.teal,
             goal: kcalGoal > 0 ? kcalGoal : null,
             goalLabel: kcalGoal > 0 ? '${kcalGoal.round()}' : null,
             highlight: hot,
@@ -368,8 +368,8 @@ Future<void> showNutritionAbout(BuildContext context) => _sheet<void>(context, (
       return _sheetFrame(sheet, [
         SheetTitle(t.nutritionAboutTitle, subtitle: t.nutritionAboutSub),
         const SizedBox(height: 4),
-        point(PhosphorIconsRegular.barbell, gc.accent, t.nutritionAboutWhatTitle, t.nutritionAboutWhat),
-        point(PhosphorIconsRegular.shieldCheck, gc.sage, t.nutritionAboutScanTitle, t.nutritionAboutScan),
+        point(PhosphorIconsRegular.barbell, gc.teal, t.nutritionAboutWhatTitle, t.nutritionAboutWhat),
+        point(PhosphorIconsRegular.shieldCheck, gc.lavender, t.nutritionAboutScanTitle, t.nutritionAboutScan),
         point(PhosphorIconsRegular.deviceMobile, gc.protein, t.nutritionAboutLocalTitle, t.nutritionAboutLocal),
         point(PhosphorIconsRegular.flask, gc.warn, t.nutritionAboutBetaTitle, t.nutritionAboutBeta),
         const SizedBox(height: 24),
@@ -380,7 +380,7 @@ Future<void> showNutritionAbout(BuildContext context) => _sheet<void>(context, (
           icon: PhosphorIconsBold.githubLogo,
           onTap: () async {
             try {
-              await launchUrl(Uri.parse('https://github.com/InlitX/GymMane/issues'), mode: LaunchMode.externalApplication);
+              await launchUrl(Uri.parse('https://github.com/InlitX/jesselicious-core/issues'), mode: LaunchMode.externalApplication);
             } catch (_) {}
           },
         ),

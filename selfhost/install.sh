@@ -1,9 +1,9 @@
 #!/bin/sh
 set -eu
 
-REPO="InlitX/GymMane"
+REPO="InlitX/jesselicious-core"
 RAW="https://raw.githubusercontent.com/$REPO/main"
-IMAGE="ghcr.io/inlitx/gymmane"
+IMAGE="ghcr.io/inlitx/jesselicious"
 MODE=""
 SYNC=""
 ACTION=""
@@ -18,18 +18,18 @@ for arg in "$@"; do
     --uninstall) ACTION=uninstall ;;
     -y|--yes) YES=1 ;;
     -h|--help)
-      echo "GymMane installer"
+      echo "Jesselicious installer"
       echo ""
       echo "  sh install.sh              guided install or update"
       echo "  sh install.sh --yes        no questions, use the defaults"
       echo "  sh install.sh --docker     use Docker"
       echo "  sh install.sh --binary     use the standalone server, no Docker"
       echo "  sh install.sh --sync       also run Syncthing to share data with the phone app (Docker)"
-      echo "  sh install.sh --uninstall  remove GymMane (your data is kept)"
+      echo "  sh install.sh --uninstall  remove Jesselicious (your data is kept)"
       echo ""
-      echo "Environment: GYMMANE_PORT, GYMMANE_PASSWORD (empty = no password), GYMMANE_HOME,"
-      echo "             GYMMANE_PEOPLE (\"Ana, Pablo\": one GymMane each, on the same address),"
-      echo "             GYMMANE_ARCHIVE (a release .tar.gz already downloaded, for --binary)"
+      echo "Environment: JESSELICIOUS_PORT, JESSELICIOUS_PASSWORD (empty = no password), JESSELICIOUS_HOME,"
+      echo "             JESSELICIOUS_PEOPLE (\"Ana, Pablo\": one Jesselicious each, on the same address),"
+      echo "             JESSELICIOUS_ARCHIVE (a release .tar.gz already downloaded, for --binary)"
       exit 0 ;;
     *) echo "Unknown option: $arg (try --help)"; exit 1 ;;
   esac
@@ -79,7 +79,7 @@ if [ "$YES" = 0 ] && (: </dev/tty) 2>/dev/null; then TTY=1; fi
 
 STEP=0
 STEPS=4
-LOGF=$(mktemp 2>/dev/null || echo "/tmp/gymmane-install.$$")
+LOGF=$(mktemp 2>/dev/null || echo "/tmp/jesselicious-install.$$")
 TMPD=""
 cleanup() {
   rc=$?
@@ -304,10 +304,10 @@ compose() {
 healthy() {
   url="http://127.0.0.1:$PORT/api/health"
   if have curl; then
-    if [ -n "$PASS" ]; then curl -fs -m 3 -u "gymmane:$PASS" "$url" >/dev/null 2>&1
+    if [ -n "$PASS" ]; then curl -fs -m 3 -u "jesselicious:$PASS" "$url" >/dev/null 2>&1
     else curl -fs -m 3 "$url" >/dev/null 2>&1; fi
   elif have wget; then
-    if [ -n "$PASS" ]; then wget -q -T 3 --user=gymmane --password="$PASS" -O /dev/null "$url" 2>/dev/null
+    if [ -n "$PASS" ]; then wget -q -T 3 --user=jesselicious --password="$PASS" -O /dev/null "$url" 2>/dev/null
     else wget -q -T 3 -O /dev/null "$url" 2>/dev/null; fi
   else
     return 2
@@ -328,16 +328,16 @@ wait_loop() {
 }
 
 wait_healthy() {
-  if run "Waiting for GymMane to answer" wait_loop; then
-    ok "GymMane answers on port $PORT"
+  if run "Waiting for Jesselicious to answer" wait_loop; then
+    ok "Jesselicious answers on port $PORT"
     UP=1
   else
-    warn "GymMane is not answering yet. See what it says with: $LOGS"
+    warn "Jesselicious is not answering yet. See what it says with: $LOGS"
   fi
 }
 
-if [ "$(id -u)" = 0 ]; then ROOT=1; HOME_DIR="${GYMMANE_HOME:-/opt/gymmane}"
-else ROOT=0; HOME_DIR="${GYMMANE_HOME:-$HOME/gymmane}"; fi
+if [ "$(id -u)" = 0 ]; then ROOT=1; HOME_DIR="${JESSELICIOUS_HOME:-/opt/jesselicious}"
+else ROOT=0; HOME_DIR="${JESSELICIOUS_HOME:-$HOME/jesselicious}"; fi
 
 case "$(uname -s)" in
   Linux) OS=linux; OS_NAME="Linux" ;;
@@ -356,21 +356,21 @@ elif [ "$OS" = macos ] && have sw_vers; then
   OS_NAME="macOS $(sw_vers -productVersion 2>/dev/null || true)"
 fi
 
-if [ "$ROOT" = 1 ]; then SYSTEMCTL="systemctl"; JOURNAL="journalctl -u gymmane -f"
-else SYSTEMCTL="systemctl --user"; JOURNAL="journalctl --user -u gymmane -f"; fi
+if [ "$ROOT" = 1 ]; then SYSTEMCTL="systemctl"; JOURNAL="journalctl -u jesselicious -f"
+else SYSTEMCTL="systemctl --user"; JOURNAL="journalctl --user -u jesselicious -f"; fi
 SYSTEMD=0
 if [ "$OS" = linux ] && have systemctl && [ -d /run/systemd/system ]; then
   if [ "$ROOT" = 1 ] || systemctl --user show-environment >/dev/null 2>&1; then SYSTEMD=1; fi
 fi
-if [ "$ROOT" = 1 ]; then PLIST=/Library/LaunchDaemons/com.gymmane.server.plist
-else PLIST="$HOME/Library/LaunchAgents/com.gymmane.server.plist"; fi
+if [ "$ROOT" = 1 ]; then PLIST=/Library/LaunchDaemons/com.jesselicious.server.plist
+else PLIST="$HOME/Library/LaunchAgents/com.jesselicious.server.plist"; fi
 
 banner
 
 step "This machine"
 ok "$OS_NAME ${D}($ARCH)${R}"
-if [ "$ROOT" = 1 ]; then note "Running as root: GymMane goes to $HOME_DIR as a system service"
-else note "Running as $(id -un), no root needed: GymMane goes to $HOME_DIR"; fi
+if [ "$ROOT" = 1 ]; then note "Running as root: Jesselicious goes to $HOME_DIR as a system service"
+else note "Running as $(id -un), no root needed: Jesselicious goes to $HOME_DIR"; fi
 DOCKER=0
 if have docker; then
   if docker info >/dev/null 2>&1; then
@@ -383,9 +383,9 @@ fi
 if ! have curl && ! have wget; then die "This script needs curl or wget."; fi
 
 INSTALLED=0
-if [ -f "$HOME_DIR/compose.yaml" ] || [ -f "$HOME_DIR/gymmane-server" ]; then
+if [ -f "$HOME_DIR/compose.yaml" ] || [ -f "$HOME_DIR/jesselicious-server" ]; then
   INSTALLED=1
-  ok "GymMane is already installed in $HOME_DIR"
+  ok "Jesselicious is already installed in $HOME_DIR"
 fi
 
 if [ "$INSTALLED" = 1 ] && [ -z "$ACTION" ]; then
@@ -409,16 +409,16 @@ fi
 if [ "$ACTION" = uninstall ]; then
   STEPS=2
   say ""
-  if [ "$TTY" = 1 ]; then yes_no "Remove GymMane? Your data stays in $HOME_DIR" n || { say ""; exit 0; }; fi
-  step "Removing GymMane"
+  if [ "$TTY" = 1 ]; then yes_no "Remove Jesselicious?? Your data stays in $HOME_DIR" n || { say ""; exit 0; }; fi
+  step "Removing Jesselicious"
   if [ -f "$HOME_DIR/compose.yaml" ] && [ "$DOCKER" = 1 ]; then
     (cd "$HOME_DIR" && compose --profile sync down >/dev/null 2>&1) || true
     ok "Stopped the containers"
   fi
   if [ "$SYSTEMD" = 1 ]; then
-    $SYSTEMCTL disable --now gymmane.service >/dev/null 2>&1 || true
-    if [ "$ROOT" = 1 ]; then rm -f /etc/systemd/system/gymmane.service
-    else rm -f "$HOME/.config/systemd/user/gymmane.service"; fi
+    $SYSTEMCTL disable --now jesselicious.service >/dev/null 2>&1 || true
+    if [ "$ROOT" = 1 ]; then rm -f /etc/systemd/system/jesselicious.service
+    else rm -f "$HOME/.config/systemd/user/jesselicious.service"; fi
     $SYSTEMCTL daemon-reload >/dev/null 2>&1 || true
     ok "Removed the service"
   fi
@@ -427,7 +427,7 @@ if [ "$ACTION" = uninstall ]; then
     rm -f "$PLIST"
     ok "Removed the login item"
   fi
-  rm -rf "$HOME_DIR/web" "$HOME_DIR/gymmane-server" "$HOME_DIR/compose.yaml"
+  rm -rf "$HOME_DIR/web" "$HOME_DIR/jesselicious-server" "$HOME_DIR/compose.yaml"
   ok "Removed the program files"
   say ""
   say "  Your data is still in ${B}$HOME_DIR${R}. Delete that folder yourself if you want it gone."
@@ -439,7 +439,7 @@ if [ "$ACTION" = update ]; then
   if [ -z "$MODE" ]; then
     if [ -f "$HOME_DIR/compose.yaml" ]; then MODE=docker; else MODE=binary; fi
   fi
-  [ -n "$SYNC" ] || SYNC=$(env_value GYMMANE_SYNCTHING)
+  [ -n "$SYNC" ] || SYNC=$(env_value JESSELICIOUS_SYNCTHING)
   [ -n "$SYNC" ] || SYNC=0
 fi
 
@@ -447,7 +447,7 @@ step "Settings"
 if [ "$ACTION" = update ]; then ok "Keeping your port, password and data"
 elif [ "$TTY" = 1 ]; then note "Press Enter to keep the value in grey."; say ""; fi
 if [ -z "$MODE" ]; then
-  if [ "$DOCKER" = 1 ] && yes_no "Docker is available. Run GymMane in Docker?" y; then MODE=docker; else MODE=binary; fi
+  if [ "$DOCKER" = 1 ] && yes_no "Docker is available. Run Jesselicious in Docker?" y; then MODE=docker; else MODE=binary; fi
 fi
 if [ "$MODE" = docker ] && [ "$DOCKER" = 0 ]; then die "Docker is not running or not usable by this user."; fi
 if [ "$MODE" = binary ]; then
@@ -456,11 +456,11 @@ if [ "$MODE" = binary ]; then
   if [ "$OS" = macos ] && [ "$ARCH" = x64 ]; then die "There is no build for Intel Macs yet. Use Docker instead."; fi
 fi
 
-OLD_PORT=$(env_value GYMMANE_PORT)
-PORT="${GYMMANE_PORT:-${OLD_PORT:-8080}}"
-if [ "$ACTION" != update ] && [ -z "${GYMMANE_PORT:-}" ]; then
+OLD_PORT=$(env_value JESSELICIOUS_PORT)
+PORT="${JESSELICIOUS_PORT:-${OLD_PORT:-8080}}"
+if [ "$ACTION" != update ] && [ -z "${JESSELICIOUS_PORT:-}" ]; then
   while :; do
-    ask "Port to open GymMane on" "$PORT"
+    ask "Port to open Jesselicious on" "$PORT"
     case "$REPLY" in
       ''|*[!0-9]*) note "Type a number between 1 and 65535." ;;
       *) if [ "$REPLY" -ge 1 ] && [ "$REPLY" -le 65535 ]; then PORT=$REPLY; break; fi
@@ -470,11 +470,11 @@ if [ "$ACTION" != update ] && [ -z "${GYMMANE_PORT:-}" ]; then
 fi
 
 GENERATED=0
-if [ "${GYMMANE_PASSWORD+set}" = set ]; then
-  PASS="$GYMMANE_PASSWORD"
-  [ -z "$PASS" ] || valid_password "$PASS" || die "GYMMANE_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -"
+if [ "${JESSELICIOUS_PASSWORD+set}" = set ]; then
+  PASS="$JESSELICIOUS_PASSWORD"
+  [ -z "$PASS" ] || valid_password "$PASS" || die "JESSELICIOUS_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -"
 elif [ "$ACTION" = update ]; then
-  PASS=$(env_value GYMMANE_PASSWORD)
+  PASS=$(env_value JESSELICIOUS_PASSWORD)
 elif yes_no "Ask for a password in the browser?" y; then
   PASS=""
   if [ "$TTY" = 1 ]; then
@@ -490,10 +490,10 @@ else
   PASS=""
 fi
 
-if [ "${GYMMANE_PEOPLE+set}" = set ]; then
-  PEOPLE="$GYMMANE_PEOPLE"
+if [ "${JESSELICIOUS_PEOPLE+set}" = set ]; then
+  PEOPLE="$JESSELICIOUS_PEOPLE"
 elif [ "$ACTION" = update ]; then
-  PEOPLE=$(env_value GYMMANE_PEOPLE)
+  PEOPLE=$(env_value JESSELICIOUS_PEOPLE)
 elif [ "$TTY" = 1 ]; then
   if yes_no "Will more than one person use it, each with their own data?" n; then
     while :; do
@@ -510,7 +510,7 @@ elif [ "$TTY" = 1 ]; then
 else
   PEOPLE=""
 fi
-case "$PEOPLE" in *'"'*) die "GYMMANE_PEOPLE cannot have quotes in it." ;; esac
+case "$PEOPLE" in *'"'*) die "JESSELICIOUS_PEOPLE cannot have quotes in it." ;; esac
 WHO=$(names_only "$PEOPLE")
 
 if [ "$MODE" = docker ] && [ -z "$SYNC" ]; then
@@ -529,8 +529,8 @@ if [ -n "$FIREWALL" ] && yes_no "Open port $PORT in the firewall ($FIREWALL) so 
 
 if [ "$MODE" = docker ]; then
   HOW="Docker"
-  DATA_DIR="$HOME_DIR/gymmane-data"
-  LOGS="docker logs -f gymmane"
+  DATA_DIR="$HOME_DIR/jesselicious-data"
+  LOGS="docker logs -f jesselicious"
 elif [ "$SYSTEMD" = 1 ]; then
   HOW="systemd service"
   [ "$ROOT" = 1 ] || HOW="systemd service of $(id -un)"
@@ -540,7 +540,7 @@ elif [ "$OS" = macos ]; then
   HOW="starts when you log in"
   [ "$ROOT" = 1 ] && HOW="starts with the Mac"
   DATA_DIR="$HOME_DIR/data"
-  LOGS="tail -f $HOME_DIR/gymmane.log"
+  LOGS="tail -f $HOME_DIR/jesselicious.log"
 else
   HOW="you start it yourself"
   DATA_DIR="$HOME_DIR/data"
@@ -571,7 +571,7 @@ fi
 mkdir -p "$HOME_DIR"
 EXTRA=""
 if [ -f "$HOME_DIR/.env" ]; then
-  EXTRA=$(grep -E '^GYMMANE_' "$HOME_DIR/.env" | grep -vE '^GYMMANE_(PASSWORD|PORT|DATA|WEB|SYNCTHING|PEOPLE)=' || true)
+  EXTRA=$(grep -E '^JESSELICIOUS_' "$HOME_DIR/.env" | grep -vE '^JESSELICIOUS_(PASSWORD|PORT|DATA|WEB|SYNCTHING|PEOPLE)=' || true)
 fi
 
 if [ "$ROOT" = 1 ]; then OWNER="${SUDO_UID:-1000}"; GROUP="${SUDO_GID:-$OWNER}"
@@ -579,14 +579,14 @@ else OWNER=$(id -u); GROUP=$(id -g); fi
 
 write_env() {
   {
-    say "GYMMANE_PASSWORD=$PASS"
-    say "GYMMANE_PORT=$PORT"
-    [ -z "$PEOPLE" ] || say "GYMMANE_PEOPLE=\"$PEOPLE\""
+    say "JESSELICIOUS_PASSWORD=$PASS"
+    say "JESSELICIOUS_PORT=$PORT"
+    [ -z "$PEOPLE" ] || say "JESSELICIOUS_PEOPLE=\"$PEOPLE\""
     if [ "$MODE" = binary ]; then
-      say "GYMMANE_DATA=$DATA_DIR"
-      say "GYMMANE_WEB=$HOME_DIR/web"
+      say "JESSELICIOUS_DATA=$DATA_DIR"
+      say "JESSELICIOUS_WEB=$HOME_DIR/web"
     else
-      say "GYMMANE_SYNCTHING=$SYNC"
+      say "JESSELICIOUS_SYNCTHING=$SYNC"
       say "PUID=$OWNER"
       say "PGID=$GROUP"
     fi
@@ -596,17 +596,17 @@ write_env() {
 }
 
 docker_up() {
-  if [ "$SYNC" = 1 ]; then compose --profile sync up -d; else compose up -d gymmane; fi
+  if [ "$SYNC" = 1 ]; then compose --profile sync up -d; else compose up -d jesselicious; fi
 }
 
 docker_pull() {
-  if [ "$SYNC" = 1 ]; then compose --profile sync pull -q; else compose pull -q gymmane; fi
+  if [ "$SYNC" = 1 ]; then compose --profile sync pull -q; else compose pull -q jesselicious; fi
 }
 
 UP=0
 if [ "$MODE" = docker ]; then
   step "Installing with Docker"
-  if [ -n "${GYMMANE_COMPOSE:-}" ]; then cp "$GYMMANE_COMPOSE" "$HOME_DIR/compose.yaml"
+  if [ -n "${JESSELICIOUS_COMPOSE:-}" ]; then cp "$JESSELICIOUS_COMPOSE" "$HOME_DIR/compose.yaml"
   else fetch "$RAW/compose.yaml" "$HOME_DIR/compose.yaml" || die "Could not download compose.yaml. Check the internet connection and try again."; fi
   ok "Got compose.yaml"
   write_env
@@ -624,48 +624,48 @@ if [ "$MODE" = docker ]; then
     warn "Could not download a newer image, using the one already here"
   else
     show_log
-    die "Could not download the GymMane image. Check the internet connection and try again."
+    die "Could not download the Jesselicious image. Check the internet connection and try again."
   fi
-  run "Starting the container" docker_up || { show_log; die "Docker could not start GymMane."; }
+  run "Starting the container" docker_up || { show_log; die "Docker could not start Jesselicious."; }
   ok "Started the container, Docker brings it back after a reboot"
   [ "$SYNC" = 1 ] && ok "Started Syncthing"
 else
   step "Installing the standalone server"
-  asset="gymmane-selfhost-$OS-$ARCH.tar.gz"
+  asset="jesselicious-selfhost-$OS-$ARCH.tar.gz"
   TMPD=$(mktemp -d)
-  if [ -n "${GYMMANE_ARCHIVE:-}" ]; then
-    [ -f "$GYMMANE_ARCHIVE" ] || die "$GYMMANE_ARCHIVE does not exist."
-    tar -xzf "$GYMMANE_ARCHIVE" -C "$TMPD"
-    ok "Unpacked $(basename "$GYMMANE_ARCHIVE")"
+  if [ -n "${JESSELICIOUS_ARCHIVE:-}" ]; then
+    [ -f "$JESSELICIOUS_ARCHIVE" ] || die "$JESSELICIOUS_ARCHIVE does not exist."
+    tar -xzf "$JESSELICIOUS_ARCHIVE" -C "$TMPD"
+    ok "Unpacked $(basename "$JESSELICIOUS_ARCHIVE")"
   else
     run "Downloading $asset" fetch "https://github.com/$REPO/releases/latest/download/$asset" "$TMPD/$asset" \
       || die "Could not download $asset from the latest release."
     tar -xzf "$TMPD/$asset" -C "$TMPD"
     ok "Downloaded $asset"
   fi
-  if [ "$SYSTEMD" = 1 ]; then $SYSTEMCTL stop gymmane.service >/dev/null 2>&1 || true; fi
+  if [ "$SYSTEMD" = 1 ]; then $SYSTEMCTL stop jesselicious.service >/dev/null 2>&1 || true; fi
   if [ "$OS" = macos ] && [ -f "$PLIST" ]; then launchctl unload "$PLIST" >/dev/null 2>&1 || true; fi
   rm -rf "$HOME_DIR/web"
-  cp -R "$TMPD/gymmane/." "$HOME_DIR/"
-  chmod +x "$HOME_DIR/gymmane-server"
+  cp -R "$TMPD/jesselicious/." "$HOME_DIR/"
+  chmod +x "$HOME_DIR/jesselicious-server"
   mkdir -p "$DATA_DIR"
-  [ "$OS" = macos ] && { xattr -d com.apple.quarantine "$HOME_DIR/gymmane-server" 2>/dev/null || true; }
+  [ "$OS" = macos ] && { xattr -d com.apple.quarantine "$HOME_DIR/jesselicious-server" 2>/dev/null || true; }
   ok "Copied it to $HOME_DIR"
   write_env
   ok "Saved the settings in $HOME_DIR/.env"
 
   if [ "$SYSTEMD" = 1 ]; then
-    if [ "$ROOT" = 1 ]; then unit=/etc/systemd/system/gymmane.service; target=multi-user.target
-    else unit="$HOME/.config/systemd/user/gymmane.service"; target=default.target; mkdir -p "$(dirname "$unit")"; fi
+    if [ "$ROOT" = 1 ]; then unit=/etc/systemd/system/jesselicious.service; target=multi-user.target
+    else unit="$HOME/.config/systemd/user/jesselicious.service"; target=default.target; mkdir -p "$(dirname "$unit")"; fi
     cat >"$unit" <<UNIT
 [Unit]
-Description=GymMane
+Description=Jesselicious
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 EnvironmentFile=$HOME_DIR/.env
-ExecStart=$HOME_DIR/gymmane-server
+ExecStart=$HOME_DIR/jesselicious-server
 Restart=on-failure
 RestartSec=3
 
@@ -673,9 +673,9 @@ RestartSec=3
 WantedBy=$target
 UNIT
     $SYSTEMCTL daemon-reload
-    $SYSTEMCTL enable --now gymmane.service >/dev/null 2>&1 || die "The service did not start. See why with: $JOURNAL"
+    $SYSTEMCTL enable --now jesselicious.service >/dev/null 2>&1 || die "The service did not start. See why with: $JOURNAL"
     if [ "$ROOT" = 0 ] && have loginctl; then loginctl enable-linger "$(id -un)" >/dev/null 2>&1 || true; fi
-    ok "Started the gymmane service, it comes back after a reboot"
+    ok "Started the jesselicious service, it comes back after a reboot"
   elif [ "$OS" = macos ]; then
     mkdir -p "$(dirname "$PLIST")"
     cat >"$PLIST" <<PLIST
@@ -683,22 +683,22 @@ UNIT
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>Label</key><string>com.gymmane.server</string>
+  <key>Label</key><string>com.jesselicious.server</string>
   <key>ProgramArguments</key>
   <array>
     <string>/bin/sh</string>
     <string>-c</string>
-    <string>set -a; . "$HOME_DIR/.env"; set +a; exec "$HOME_DIR/gymmane-server"</string>
+    <string>set -a; . "$HOME_DIR/.env"; set +a; exec "$HOME_DIR/jesselicious-server"</string>
   </array>
   <key>RunAtLoad</key><true/>
   <key>KeepAlive</key><true/>
-  <key>StandardOutPath</key><string>$HOME_DIR/gymmane.log</string>
-  <key>StandardErrorPath</key><string>$HOME_DIR/gymmane.log</string>
+  <key>StandardOutPath</key><string>$HOME_DIR/jesselicious.log</string>
+  <key>StandardErrorPath</key><string>$HOME_DIR/jesselicious.log</string>
 </dict>
 </plist>
 PLIST
-    launchctl load -w "$PLIST" || die "macOS did not start GymMane. See $HOME_DIR/gymmane.log"
-    ok "Started GymMane, it starts again on its own"
+    launchctl load -w "$PLIST" || die "macOS did not start Jesselicious. See $HOME_DIR/jesselicious.log"
+    ok "Started Jesselicious, it starts again on its own"
   fi
 fi
 
@@ -720,11 +720,11 @@ if [ "$GENERATED" = 1 ]; then box_fit "$PASS  (any user name works)"; fi
 say ""
 box_top
 if [ "$UP" = 1 ] || [ "$MODE" = docker ] || [ "$SYSTEMD" = 1 ] || [ "$OS" = macos ]; then
-  box_row "+ GymMane is running" "${G}${TICK}${R} ${B}GymMane is running${R}"
+  box_row "+ Jesselicious is running" "${G}${TICK}${R} ${B}Jesselicious is running${R}"
   box_row ""
   box_row "Open it from any device on your network:" "${D}Open it from any device on your network:${R}"
 else
-  box_row "GymMane is installed" "${B}GymMane is installed${R}"
+  box_row "Jesselicious is installed" "${B}Jesselicious is installed${R}"
   box_row ""
   box_row "Once it runs, open it from any device on your network:" "${D}Once it runs, open it from any device on your network:${R}"
 fi
@@ -747,12 +747,12 @@ box_bottom
 if [ "$MODE" = binary ] && [ "$SYSTEMD" = 0 ] && [ "$OS" != macos ]; then
   say ""
   say "  Start it with:"
-  say "    ${B}set -a; . $HOME_DIR/.env; set +a; $HOME_DIR/gymmane-server${R}"
+  say "    ${B}set -a; . $HOME_DIR/.env; set +a; $HOME_DIR/jesselicious-server${R}"
 fi
 if [ "$SYNC" = 1 ]; then
   say ""
   say "  ${B}Phone sync${R}  ${D}open Syncthing at${R} http://<this-machine>:8384${D}, add the folder${R}"
-  say "              /var/syncthing/GymMane ${D}and share it with your phone. Then, in the${R}"
+  say "              /var/syncthing/Jesselicious ${D}and share it with your phone. Then, in the${R}"
   say "              ${D}phone app, choose it in Settings › Data & backup › Auto backup.${R}"
 fi
 say ""

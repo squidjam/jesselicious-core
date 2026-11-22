@@ -392,11 +392,11 @@ class _NfcTag extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: gc.accent.withValues(alpha: 0.14),
+        color: gc.teal.withValues(alpha: 0.14),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: gc.accent.withValues(alpha: 0.45)),
+        border: Border.all(color: gc.teal.withValues(alpha: 0.45)),
       ),
-      child: Text('NFC', style: AppTheme.f(10, weight: FontWeight.w800, color: gc.accent, letterSpacing: 1.2)),
+      child: Text('NFC', style: AppTheme.f(10, weight: FontWeight.w800, color: gc.teal, letterSpacing: 1.2)),
     );
   }
 }
@@ -436,7 +436,7 @@ class _ScreenPreview extends StatelessWidget {
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(children: [
               if (resting) ...[
-                Icon(PhosphorIconsFill.bed, size: 9 * s, color: gc.sage),
+                Icon(PhosphorIconsFill.bed, size: 9 * s, color: gc.lavender),
                 SizedBox(width: 4 * s),
               ],
               line(34 * s, 4 * s, faint),
@@ -517,7 +517,7 @@ class _Hero extends StatelessWidget {
           Positioned(
             left: left + phone + 12,
             top: 92,
-            child: _Waves(color: gc.accent, size: 30, flip: true),
+            child: _Waves(color: gc.teal, size: 30, flip: true),
           ),
           Positioned(
             left: left + phone + 48,
@@ -812,7 +812,7 @@ class _WritePicture extends StatelessWidget {
     final away = Offset(phoneLeft + phone + 14, phoneTop + phone * 1.32);
     final at = done ? center : away;
     final badge = done
-        ? _badge(gc.sage, PhosphorIconsBold.check, gc)
+        ? _badge(gc.lavender, PhosphorIconsBold.check, gc)
         : failed
             ? _badge(gc.danger, PhosphorIconsBold.x, gc)
             : null;
@@ -828,7 +828,7 @@ class _WritePicture extends StatelessWidget {
             Positioned(
               left: phoneLeft + phone - 8,
               top: phoneTop + phone * 1.18,
-              child: Transform.rotate(angle: -math.pi * 0.2, child: _Waves(color: gc.accent, size: 28, flip: true)),
+              child: Transform.rotate(angle: -math.pi * 0.2, child: _Waves(color: gc.teal, size: 28, flip: true)),
             ),
             Positioned(
               left: phoneLeft + phone + 10,
@@ -971,7 +971,7 @@ class _TodaySheetState extends State<_TodaySheet> {
           const SizedBox(height: 16),
           Row(children: [
             if (resting) ...[
-              Icon(PhosphorIconsFill.bed, size: 14, color: gc.sage),
+              Icon(PhosphorIconsFill.bed, size: 14, color: gc.lavender),
               const SizedBox(width: 7),
             ],
             Flexible(child: SectionLabel(resting ? t.weeklyPlan : t.todaysRoutine)),
@@ -991,8 +991,8 @@ class _TodaySheetState extends State<_TodaySheet> {
               for (final r in routines)
                 Pill(
                   label: '${pendingIds.contains(r.id) ? '' : '✓ '}${fit.routineTitle(r)}',
-                  bg: r.id == routine?.id ? gc.ember : gc.bgRaised2,
-                  fg: r.id == routine?.id ? gc.onEmber : gc.textSecondary,
+                  bg: r.id == routine?.id ? gc.teal : gc.bgRaised2,
+                  fg: r.id == routine?.id ? gc.onTeal : gc.textSecondary,
                   vPad: 7,
                   onTap: () {
                     HapticFeedback.selectionClick();

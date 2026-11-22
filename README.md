@@ -1,85 +1,38 @@
 <div align="center">
 
-<img src="docs/screenshots/banner-en.png" alt="GymMane — Lift. Log it. Grow." width="860" />
+<img src="docs/screenshots/banner-en.png" alt="Jesselicious — Lift. Log it. Grow." width="860" />
 
 <br/>
 
-<img src="docs/screenshots/icon.png" width="94" alt="GymMane" />
+<img src="docs/screenshots/icon.png" width="94" alt="Jesselicious" />
 
-# GymMane
+# Jesselicious
 
-A free, offline gym log for Android.<br/>
+> **Based on [GymMane](https://github.com/InlitX/GymMane) by InlitX**
+
+A free, offline-first gym log for Android and iOS.<br/>
 Tap the muscles you want to train, log your sets and watch your numbers go up.
 
 <br/>
 
 <p>
   <img alt="Android 7.0+" src="https://img.shields.io/badge/Android-7.0%2B-3DDC84?style=flat&logo=android&logoColor=white" />
+  <img alt="iOS 15+" src="https://img.shields.io/badge/iOS-15%2B-000000?style=flat&logo=apple&logoColor=white" />
   <img alt="License GPLv3" src="https://img.shields.io/badge/Code-GPLv3-C2410C?style=flat&logo=gnu&logoColor=white" />
   <img alt="Art CC BY-SA 4.0" src="https://img.shields.io/badge/Art-CC%20BY--SA%204.0-8A6B41?style=flat&logo=creativecommons&logoColor=white" />
-  <a href="https://github.com/InlitX/GymMane/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/InlitX/GymMane?style=flat&color=D9A184&labelColor=181717&logo=github" /></a>
-  <a href="https://github.com/InlitX/GymMane/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/InlitX/GymMane/total?style=flat&color=D9A184&labelColor=181717&logo=github&label=downloads" /></a>
 </p>
-
-<p>
-  <a href="https://trendshift.io/repositories/107197?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-107197" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/107197" alt="InlitX%2FGymMane | Trendshift" width="250" height="55"/></a>
-  <br/>
-  <a href="https://ko-fi.com/inlitx"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi" height="34" /></a>
-</p>
-
-<a href="https://f-droid.org/packages/com.gymmane.app/"><img alt="Get it on F-Droid" src="docs/badges/get-it-on-fdroid.png" height="60" /></a>
-&nbsp;
-<a href="https://apt.izzysoft.de/fdroid/index/apk/com.gymmane.app?repo=main"><img alt="Get it on IzzyOnDroid" src="docs/badges/get-it-on-izzyondroid.png" height="60" /></a>
-&nbsp;
-<a href="https://www.openapk.net/gymmane/com.gymmane.app/"><img alt="Get it on OpenAPK" src="docs/badges/get-it-on-openapk.png" height="60" /></a>
-&nbsp;
-<a href="https://github.com/InlitX/GymMane/releases"><img alt="Get it on GitHub" src="docs/badges/get-it-on-github.png" height="60" /></a>
-&nbsp;
-<a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22com.gymmane.app%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FInlitX%2FGymMane%22%2C%22author%22%3A%22InlitX%22%2C%22name%22%3A%22GymMane%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Afalse%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22allowInsecure%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22GymMane%20is%20an%20open%20source%20gym%20log%20for%20Android.%20Pick%20your%20muscles%20on%20a%20body%20map%2C%20log%20your%20sets%2C%20and%20watch%20your%20numbers%20grow.%20No%20accounts%2C%20no%20ads%2C%20no%20tracking%2C%20no%20internet%20permission.%5C%22%7D%22%2C%22overrideSource%22%3Anull%7D"><img alt="Get it on Obtainium" src="docs/badges/get-it-on-obtainium.png" height="60" /></a>
-
-<sub><b>English</b> · <a href="docs/readme/README.es.md">Español</a> · <a href="docs/readme/README.it.md">Italiano</a> · <a href="docs/readme/README.zh.md">简体中文</a></sub>
-
-<br/>
-<br/>
-
-<img src="docs/screenshots/store/en/01-hero.jpg" width="196" alt="Lift. Log it. Grow." />
-<img src="docs/screenshots/store/en/02-train.jpg" width="196" alt="Tap the muscle, get the session" />
-<img src="docs/screenshots/store/en/03-rest.jpg" width="196" alt="Tick the set, rest rings itself" />
-<img src="docs/screenshots/store/en/04-progress.jpg" width="196" alt="Progress from your own sets" />
-
-<img src="docs/screenshots/store/en/05-library.jpg" width="196" alt="500+ exercises with animations" />
-<img src="docs/screenshots/store/en/10-nutrition.jpg" width="196" alt="What you eat, at a glance" />
-<img src="docs/screenshots/store/en/06-privacy.jpg" width="196" alt="No account. No internet. No smoke." />
-
-<details>
-<summary><sub><b>Plain screenshots</b>, every screen straight off the phone</sub></summary>
-<br/>
-
-<img src="docs/screenshots/mock/01-home.png" width="215" alt="Today" />
-<img src="docs/screenshots/mock/03-train.png" width="215" alt="Body map" />
-<img src="docs/screenshots/mock/04-session.png" width="215" alt="Live session" />
-<img src="docs/screenshots/mock/02-progress.png" width="215" alt="Progress" />
-
-<sub><b>Today</b> &nbsp;·&nbsp; <b>Body map</b> &nbsp;·&nbsp; <b>Live session</b> &nbsp;·&nbsp; <b>Progress</b></sub>
-
-<br/>
-<br/>
-
-<img src="docs/screenshots/mock/05-history.png" width="215" alt="History" />
-<img src="docs/screenshots/mock/06-library.png" width="215" alt="Library" />
-<img src="docs/screenshots/mock/07-routines.png" width="215" alt="Routines" />
-<img src="docs/screenshots/mock/08-settings.png" width="215" alt="Settings" />
-
-<img src="docs/screenshots/mock/09-notes.png" width="215" alt="Journal" />
-<img src="docs/screenshots/mock/10-places.png" width="215" alt="Places" />
-<img src="docs/screenshots/mock/11-body.png" width="215" alt="Muscle timeline" />
-<img src="docs/screenshots/mock/12-profile.png" width="215" alt="Profile" />
-
-<sub><b>History</b> &nbsp;·&nbsp; <b>Library</b> &nbsp;·&nbsp; <b>Routines</b> &nbsp;·&nbsp; <b>Settings</b></sub>
-
-</details>
 
 </div>
+
+## Attribution
+
+Jesselicious is a fork of [GymMane](https://github.com/InlitX/GymMane) by [InlitX](https://github.com/InlitX).
+The original app is excellent — this fork extends it with a trainer marketplace, AI coaching, and optional
+cloud features while keeping the core experience offline-first and privacy-respecting.
+
+Full attribution details are in [ATTRIBUTION.md](ATTRIBUTION.md). The code is licensed under
+[GPL-3.0](LICENSE) with an [additional term](ADDITIONAL_TERMS.md) requiring this credit. Third-party
+asset licenses are listed in [CREDITS.md](CREDITS.md).
 
 ## What it does
 
@@ -131,6 +84,7 @@ Tap the muscles you want to train, log your sets and watch your numbers go up.
 
 - **CSV** export and a full **ZIP backup**
 - Import from **Hevy**, **Strong**, **Lyfta**, **Liftosaur**, **JEFIT**, **StrongLifts**, **FitNotes** or **openGym**
+- **Import from GymMane** — bring your existing GymMane backup into Jesselicious
 - **Health Connect** in and out, and workouts to **Strava** as a `.fit` file
 - No account, no ads, no analytics, no **internet permission**
 - **22 languages**, light and dark, kg or lb
@@ -144,26 +98,47 @@ Tap the muscles you want to train, log your sets and watch your numbers go up.
 
 Calories and macros against your goal, 500+ foods with photos, your own foods
 and dishes, water, supplements with dose and stock, meal plans and meal prep.
-**Ask any AI for a meal**, paste its answer and GymMane turns it into real
+**Ask any AI for a meal**, paste its answer and Jesselicious turns it into real
 food, with nothing sent from the app. No scanner and no online database. Don't
 need it? Turn it off in **Settings › Beta**.
 
 Want to scan barcodes? [GymMane Scanner](https://github.com/KingMezzo/GymMane-Scanner)
 is a separate community app (MIT) that looks the product up and sends it to
-GymMane as a new food.
+Jesselicious as a new food.
+
+## Planned features
+
+Jesselicious will grow beyond the original GymMane with optional cloud features.
+The app remains **offline-first** — these features require an optional account
+at [jesselicious.com](https://jesselicious.com).
+
+- **Trainer marketplace** — browse certified trainers, read reviews and testimonials, and hire coaching
+- **AI coaching** — connect your own Gemini API key for personalized training advice
+- **Trainer-trainee relationships** — trainers can follow up on and update their trainees' progress
+- **Trainer blogs** — training tips, nutrition advice, and workout guides from your coach
+- **Cloud sync** — optionally back up your data across devices
+
+The server architecture is outlined in [docs/server-architecture.md](docs/server-architecture.md).
+
+## Import from GymMane
+
+If you're migrating from GymMane, Jesselicious can import your existing backup:
+
+1. In GymMane, go to **Settings › Data & backup** and export a ZIP backup
+2. Transfer the backup file to your device
+3. In Jesselicious, go to **Settings › Data & backup › Import backup**
+4. Select the GymMane backup file — your workouts, routines, nutrition data, and notes will be migrated
 
 ## Download
 
-Get it from F-Droid, IzzyOnDroid, OpenAPK, Obtainium or the
-[GitHub releases](https://github.com/InlitX/GymMane/releases/latest). Not sure
-which APK? Take `arm64-v8a`.
+Jesselicious is available for Android and iOS. Web and self-hosted versions are also supported.
 
 | Platform | Status |
 |---|---|
 | Android 7.0+ | Supported |
+| iOS 15+ | In progress |
 | Web, self-hosted | Supported, see [SELFHOST.md](SELFHOST.md) |
 | Wear OS 3+ | Beta, see [WEAR.md](WEAR.md) |
-| iOS 15+ | In progress |
 
 ### Self-hosted
 
@@ -182,9 +157,9 @@ with the phone through Syncthing, is in [SELFHOST.md](SELFHOST.md).
 
 ## Privacy
 
-GymMane doesn't have the internet permission, so your training never leaves
-your phone. The permissions it asks for are for the rest timer, its
-notification and the widgets.
+Jesselicious doesn't require the internet permission, so your training never leaves
+your phone unless you choose to connect to the optional cloud server. The permissions
+it asks for are for the rest timer, its notification and the widgets.
 
 ## Contributing
 
@@ -194,19 +169,21 @@ request, [TRANSLATING.md](TRANSLATING.md) shows how.
 
 ```bash
 git clone https://github.com/InlitX/GymMane.git
-cd GymMane
+cd jesselicious-core
 flutter pub get
 flutter build apk --release
 ```
 
-## Support
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
-GymMane is free and will stay that way. A star, a translation or a clear bug
-report helps a lot. If you want to buy me a coffee:
+## Support the original project
+
+Jesselicious exists because of the excellent work by InlitX on GymMane. If you
+enjoy this app, consider supporting the original creator:
 
 <div align="center">
 
-<a href="https://ko-fi.com/inlitx"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi" height="38" /></a>
+<a href="https://ko-fi.com/inlitx"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support InlitX on Ko-fi" height="38" /></a>
 
 <table align="center">
   <tr>
@@ -236,16 +213,5 @@ under its section 7(b): works based on GymMane must credit it as "Based on
 GymMane by InlitX". The exercise art comes from
 [Workout Guide](https://github.com/bryllim/workout-guide) by Bryl Lim and from
 [Everkinetic](https://github.com/everkinetic/data), the drawings Workout Guide
-builds on, and is
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The fonts use
-the SIL Open Font License. [CREDITS.md](CREDITS.md) has the details.
-
-## Star history
-
-<a href="https://www.star-history.com/?repos=inlitx%2Fgymmane&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=inlitx/gymmane&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=inlitx/gymmane&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=inlitx/gymmane&type=date&legend=top-left" />
- </picture>
-</a>
+builds on, and is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+The fonts use the SIL Open Font License. [CREDITS.md](CREDITS.md) has the details.

@@ -1,23 +1,23 @@
 #!/bin/sh
 set -eu
 
-REPO="InlitX/GymMane"
+REPO="InlitX/jesselicious-core"
 RAW="https://raw.githubusercontent.com/$REPO/main"
-NAME="gymmane"
+NAME="jesselicious"
 YES=0
 
 for arg in "$@"; do
   case "$arg" in
     -y|--yes) YES=1 ;;
     -h|--help)
-      echo "GymMane for Proxmox VE: makes a small Debian container and installs GymMane in it."
+      echo "Jesselicious for Proxmox VE: makes a small Debian container and installs Jesselicious in it."
       echo ""
       echo "  sh proxmox.sh          guided install, or update if it is already there"
       echo "  sh proxmox.sh --yes    no questions, use the defaults"
       echo ""
-      echo "Environment: GYMMANE_CTID, GYMMANE_STORAGE, GYMMANE_BRIDGE (vmbr0), GYMMANE_IP (dhcp,"
-      echo "             or 192.168.1.50/24,gw=192.168.1.1), GYMMANE_MEMORY (512), GYMMANE_DISK (2),"
-      echo "             GYMMANE_PORT (8080), GYMMANE_PASSWORD (empty = no password), GYMMANE_PEOPLE"
+      echo "Environment: JESSELICIOUS_CTID, JESSELICIOUS_STORAGE, JESSELICIOUS_BRIDGE (vmbr0), JESSELICIOUS_IP (dhcp,"
+      echo "             or 192.168.1.50/24,gw=192.168.1.1), JESSELICIOUS_MEMORY (512), JESSELICIOUS_DISK (2),"
+      echo "             JESSELICIOUS_PORT (8080), JESSELICIOUS_PASSWORD (empty = no password), JESSELICIOUS_PEOPLE"
       exit 0 ;;
     *) echo "Unknown option: $arg (try --help)"; exit 1 ;;
   esac
@@ -113,8 +113,8 @@ run() {
 in_ct() { pct exec "$CTID" -- "$@"; }
 
 say ""
-say "  ${A}${B}GymMane${R} ${F}-${R} ${B}Proxmox VE${R}"
-say "  ${D}A small Debian container with GymMane in it. No account, no cloud.${R}"
+say "  ${A}${B}Jesselicious${R} ${F}-${R} ${B}Proxmox VE${R}"
+say "  ${D}A small Debian container with Jesselicious in it. No account, no cloud.${R}"
 
 [ "$(id -u)" = 0 ] || die "Run this as root in the Proxmox VE shell (Datacenter > your node > Shell)."
 for tool in pct pveam pvesm pvesh; do
@@ -126,7 +126,7 @@ ok "$(pveversion 2>/dev/null | head -n1 || echo 'Proxmox VE')"
 
 EXISTING=$(pct list 2>/dev/null | awk -v n="$NAME" 'NR > 1 && $NF == n { print $1 }' | head -n1)
 if [ -n "$EXISTING" ]; then
-  ok "GymMane is already in container $EXISTING"
+  ok "Jesselicious is already in container $EXISTING"
   CHOICE=update
   if [ "$TTY" = 1 ]; then
     say ""
@@ -145,12 +145,12 @@ if [ -n "$EXISTING" ]; then
     CTID=$EXISTING
     step "Updating"
     if ! pct status "$CTID" | grep -q running; then run "Starting container $CTID" pct start "$CTID" || die "Container $CTID did not start."; fi
-    run "Updating GymMane inside container $CTID" in_ct sh -c "curl -fsSL $RAW/selfhost/install.sh | TERM=dumb sh -s -- --yes" \
+    run "Updating Jesselicious inside container $CTID" in_ct sh -c "curl -fsSL $RAW/selfhost/install.sh | TERM=dumb sh -s -- --yes" \
       || die "The update did not finish. Your data is untouched."
     IP=$(in_ct hostname -I 2>/dev/null | awk '{print $1}')
-    PORT=$(in_ct sh -c 'grep "^GYMMANE_PORT=" /opt/gymmane/.env | cut -d= -f2' 2>/dev/null || echo 8080)
+    PORT=$(in_ct sh -c 'grep "^JESSELICIOUS_PORT=" /opt/jesselicious/.env | cut -d= -f2' 2>/dev/null || echo 8080)
     say ""
-    say "  ${G}+${R} ${B}GymMane is up to date${R}"
+    say "  ${G}+${R} ${B}Jesselicious is up to date${R}"
     say ""
     [ -z "$IP" ] || row "Open" "${A}${B}http://$IP:${PORT:-8080}${R}"
     row "Container" "$CTID"
@@ -162,8 +162,8 @@ fi
 step "Settings"
 [ "$TTY" = 0 ] || { note "Press Enter to keep the value in grey."; say ""; }
 
-CTID="${GYMMANE_CTID:-$(pvesh get /cluster/nextid)}"
-if [ -z "${GYMMANE_CTID:-}" ]; then
+CTID="${JESSELICIOUS_CTID:-$(pvesh get /cluster/nextid)}"
+if [ -z "${JESSELICIOUS_CTID:-}" ]; then
   while :; do
     ask "Container ID" "$CTID"
     case "$REPLY" in
@@ -174,11 +174,11 @@ if [ -z "${GYMMANE_CTID:-}" ]; then
     esac
   done
 fi
-pct status "$CTID" >/dev/null 2>&1 && die "Container $CTID already exists. Pick another ID with GYMMANE_CTID."
+pct status "$CTID" >/dev/null 2>&1 && die "Container $CTID already exists. Pick another ID with JESSELICIOUS_CTID."
 
 STORES=$(pvesm status -content rootdir 2>/dev/null | awk 'NR > 1 && $3 == "active" { print $1 }')
 [ -n "$STORES" ] || die "No storage here can hold containers (content type rootdir)."
-STORAGE="${GYMMANE_STORAGE:-}"
+STORAGE="${JESSELICIOUS_STORAGE:-}"
 if [ -z "$STORAGE" ]; then
   STORAGE=$(printf '%s\n' "$STORES" | grep -x 'local-lvm' || printf '%s\n' "$STORES" | head -n1)
   if [ "$(printf '%s\n' "$STORES" | wc -l)" -gt 1 ]; then
@@ -190,15 +190,15 @@ if [ -z "$STORAGE" ]; then
   fi
 fi
 
-BRIDGE="${GYMMANE_BRIDGE:-vmbr0}"
-NETIP="${GYMMANE_IP:-dhcp}"
-MEMORY="${GYMMANE_MEMORY:-512}"
-DISK="${GYMMANE_DISK:-2}"
+BRIDGE="${JESSELICIOUS_BRIDGE:-vmbr0}"
+NETIP="${JESSELICIOUS_IP:-dhcp}"
+MEMORY="${JESSELICIOUS_MEMORY:-512}"
+DISK="${JESSELICIOUS_DISK:-2}"
 
-PORT="${GYMMANE_PORT:-8080}"
-if [ -z "${GYMMANE_PORT:-}" ]; then
+PORT="${JESSELICIOUS_PORT:-8080}"
+if [ -z "${JESSELICIOUS_PORT:-}" ]; then
   while :; do
-    ask "Port to open GymMane on" "$PORT"
+    ask "Port to open Jesselicious on" "$PORT"
     case "$REPLY" in
       ''|*[!0-9]*) note "Type a number between 1 and 65535." ;;
       *) if [ "$REPLY" -ge 1 ] && [ "$REPLY" -le 65535 ]; then PORT=$REPLY; break; fi
@@ -208,9 +208,9 @@ if [ -z "${GYMMANE_PORT:-}" ]; then
 fi
 
 GENERATED=0
-if [ "${GYMMANE_PASSWORD+set}" = set ]; then
-  PASS="$GYMMANE_PASSWORD"
-  [ -z "$PASS" ] || valid_password "$PASS" || die "GYMMANE_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -"
+if [ "${JESSELICIOUS_PASSWORD+set}" = set ]; then
+  PASS="$JESSELICIOUS_PASSWORD"
+  [ -z "$PASS" ] || valid_password "$PASS" || die "JESSELICIOUS_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -"
 elif yes_no "Ask for a password in the browser?" y; then
   PASS=""
   if [ "$TTY" = 1 ]; then
@@ -226,8 +226,8 @@ else
   PASS=""
 fi
 
-if [ "${GYMMANE_PEOPLE+set}" = set ]; then
-  PEOPLE="$GYMMANE_PEOPLE"
+if [ "${JESSELICIOUS_PEOPLE+set}" = set ]; then
+  PEOPLE="$JESSELICIOUS_PEOPLE"
 elif [ "$TTY" = 1 ] && yes_no "Will more than one person use it, each with their own data?" n; then
   while :; do
     ask "Their names, separated by commas (Ana, Pablo)" ""
@@ -240,7 +240,7 @@ elif [ "$TTY" = 1 ] && yes_no "Will more than one person use it, each with their
 else
   PEOPLE=""
 fi
-case "$PEOPLE" in *'"'*|*"'"*) die "GYMMANE_PEOPLE cannot have quotes in it." ;; esac
+case "$PEOPLE" in *'"'*|*"'"*) die "JESSELICIOUS_PEOPLE cannot have quotes in it." ;; esac
 WHO=$(names_only "$PEOPLE")
 
 say ""
@@ -279,8 +279,8 @@ run "Creating container $CTID" pct create "$CTID" "$TSTORE:vztmpl/$TEMPLATE" \
   --unprivileged 1 \
   --features nesting=1 \
   --onboot 1 \
-  --tags gymmane \
-  --description "GymMane, your gym log on your own server. Update: run the Proxmox command again." \
+  --tags jesselicious \
+  --description "Jesselicious, your gym log on your own server. Update: run the Proxmox command again." \
   || die "Proxmox could not create the container."
 run "Starting it" pct start "$CTID" || die "Container $CTID did not start."
 
@@ -288,22 +288,22 @@ i=0
 pending "Waiting for the network"
 until in_ct sh -c 'getent hosts raw.githubusercontent.com >/dev/null 2>&1'; do
   i=$((i + 1))
-  if [ "$i" -ge 60 ]; then done_line; die "Container $CTID has no internet. Check the bridge ($BRIDGE) and DHCP, or set GYMMANE_IP."; fi
+  if [ "$i" -ge 60 ]; then done_line; die "Container $CTID has no internet. Check the bridge ($BRIDGE) and DHCP, or set JESSELICIOUS_IP."; fi
   sleep 1
 done
 done_line; ok "Container $CTID is online"
 
-step "Installing GymMane"
+step "Installing Jesselicious"
 run "Installing curl" in_ct sh -c 'command -v curl >/dev/null || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq curl ca-certificates; }' \
   || die "Could not install curl inside the container."
-run "Installing GymMane, this can take a minute" in_ct env GYMMANE_PORT="$PORT" GYMMANE_PASSWORD="$PASS" GYMMANE_PEOPLE="$PEOPLE" TERM=dumb \
+run "Installing Jesselicious, this can take a minute" in_ct env JESSELICIOUS_PORT="$PORT" JESSELICIOUS_PASSWORD="$PASS" JESSELICIOUS_PEOPLE="$PEOPLE" TERM=dumb \
   sh -c "curl -fsSL $RAW/selfhost/install.sh | sh -s -- --yes --binary" \
-  || die "GymMane did not install. The container stays, so you can look inside with: pct enter $CTID"
+  || die "Jesselicious did not install. The container stays, so you can look inside with: pct enter $CTID"
 
 IP=$(in_ct hostname -I 2>/dev/null | awk '{print $1}')
 
 say ""
-say "  ${G}+${R} ${B}GymMane is running${R}"
+say "  ${G}+${R} ${B}Jesselicious is running${R}"
 say ""
 if [ -n "$IP" ]; then row "Open" "${A}${B}http://$IP:$PORT${R}  ${D}from any device on your network${R}"
 else row "Open" "http://<container-ip>:$PORT"; fi
@@ -313,7 +313,7 @@ if [ -n "$PASS" ]; then
   else row "Password" "the one you chose"; fi
 fi
 row "Container" "$CTID ($NAME), starts with Proxmox"
-row "Data" "/opt/gymmane/data inside it, included in Proxmox backups of $CTID"
-row "Settings" "pct enter $CTID, then edit /opt/gymmane/.env"
+row "Data" "/opt/jesselicious/data inside it, included in Proxmox backups of $CTID"
+row "Settings" "pct enter $CTID, then edit /opt/jesselicious/.env"
 row "Update" "run this same command again"
 say ""

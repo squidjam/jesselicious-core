@@ -1,7 +1,7 @@
-import 'package:gymmane/l10n/l10n.dart';
+import 'package:jesselicious/l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/state/fit_state.dart';
 
 void _reset() {
   fit.saveAndExit();

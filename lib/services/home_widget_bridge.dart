@@ -13,8 +13,8 @@ import 'nutrition_widgets.dart';
 class HomeWidgetBridge {
   HomeWidgetBridge._();
 
-  static const _pkg = 'com.gymmane.app';
-  static const appGroup = 'group.com.gymmane.app';
+  static const _pkg = 'com.jesselicious.app';
+  static const appGroup = 'group.com.jesselicious.app';
   static const heatmapKey = 'heatmap_img';
   static const statsKey = 'stats_img';
   static const bodyKey = 'body_img';
@@ -214,8 +214,8 @@ class HomeWidgetBridge {
       await HomeWidget.saveWidgetData<String>('week_done', [for (final d in week) d ? '1' : '0'].join());
       await HomeWidget.saveWidgetData<String>(
           'week_geo', WeekWidgetView.geometry(weekSize, framed: framed).map((v) => v.toStringAsFixed(5)).join(','));
-      await HomeWidget.saveWidgetData<String>('week_ring', _hex(day.ember));
-      await HomeWidget.saveWidgetData<String>('week_ring_night', _hex(night.ember));
+      await HomeWidget.saveWidgetData<String>('week_ring', _hex(day.magenta));
+      await HomeWidget.saveWidgetData<String>('week_ring_night', _hex(night.magenta));
       if (_ios) {
         await HomeWidget.saveWidgetData<bool>(darkKey, fit.dark);
         await HomeWidget.saveWidgetData<String>(themeKey, pref);

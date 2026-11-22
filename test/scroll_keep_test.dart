@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -15,7 +15,7 @@ void main() {
     fit.onboarded = true;
     fit.pendingAwards.clear();
     fit.goExercises();
-    await tester.pumpWidget(const GymManeApp());
+    await tester.pumpWidget(const JesseliciousApp());
     for (var i = 0; i < 10; i++) {
       await tester.pump(const Duration(milliseconds: 80));
     }

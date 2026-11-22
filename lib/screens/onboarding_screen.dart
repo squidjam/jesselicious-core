@@ -176,18 +176,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: badge,
                     height: badge,
                     decoration: BoxDecoration(
-                      color: gc.accent,
+                      color: gc.teal,
                       shape: BoxShape.circle,
                       border: Border.all(color: gc.bg, width: 3),
                     ),
-                    child: Icon(PhosphorIconsBold.camera, size: badge * 0.44, color: gc.onEmber),
+                    child: Icon(PhosphorIconsBold.camera, size: badge * 0.44, color: gc.onMagenta),
                   ),
                 ),
               ]),
             ),
             const SizedBox(height: 10),
             Text(bytes == null ? t.onbPhotoAdd : t.onbPhotoChange,
-                style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
           ]),
         ),
       ),
@@ -487,7 +487,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const SizedBox(height: 22),
                   _in(1, _label(gc, t.welcomeKicker)),
                   const SizedBox(height: 8),
-                  _in(2, Text('GymMane', style: AppTheme.f(52, weight: FontWeight.w800, color: gc.text, height: 1))),
+                  _in(2, Text('Jesselicious', style: AppTheme.f(52, weight: FontWeight.w800, color: gc.text, height: 1))),
                   const SizedBox(height: 12),
                   _in(3, Text(kIsWeb ? t.webWelcomeBlurb : t.welcomeBlurb,
                       style: AppTheme.f(15, weight: FontWeight.w500, color: gc.textSecondary, height: 1.5))),
@@ -554,7 +554,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 2,
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Text('GymMane',
+                  child: Text('Jesselicious',
                       style: AppTheme.f(44, weight: FontWeight.w800, color: gc.text, height: 1)),
                 ),
               ),
@@ -626,7 +626,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: name.isEmpty ? gc.bgRaised : gc.ember,
+                color: name.isEmpty ? gc.bgRaised : gc.magenta,
               ),
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
@@ -635,7 +635,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ? Icon(PhosphorIconsRegular.user, key: const ValueKey(''), size: avatar * 0.42, color: gc.textTertiary)
                     : Text(name.characters.first.toUpperCase(),
                         key: ValueKey(name.characters.first.toUpperCase()),
-                        style: AppTheme.f(avatar * 0.44, weight: FontWeight.w800, color: gc.onEmber)),
+                        style: AppTheme.f(avatar * 0.44, weight: FontWeight.w800, color: gc.onMagenta)),
               ),
             ),
             SizedBox(height: h * 0.08),
@@ -662,7 +662,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   textCapitalization: TextCapitalization.words,
                   textInputAction: TextInputAction.done,
                   style: AppTheme.f(17, weight: FontWeight.w700, color: gc.text),
-                  cursorColor: gc.accent,
+                  cursorColor: gc.teal,
                   onSubmitted: (_) => _go(2),
                   decoration: InputDecoration(
                     hintText: t.onbNameHint,
@@ -717,7 +717,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 art: art,
                 crop: view,
                 token: 'onb${art.id}',
-                color: (_) => Color.lerp(gc.bgRaised2, gc.accent, 0.78)!,
+                color: (_) => Color.lerp(gc.bgRaised2, gc.teal, 0.78)!,
               ),
             ),
           ),
@@ -796,7 +796,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           duration: const Duration(milliseconds: 420),
           curve: Curves.easeOutCubic,
           builder: (context, lit, _) => CustomPaint(
-            painter: _WeekRing(lit: lit, on: gc.ember, off: gc.bgRaised2),
+            painter: _WeekRing(lit: lit, on: gc.magenta, off: gc.bgRaised2),
             child: Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 MediaQuery.withNoTextScaling(
@@ -841,12 +841,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         height: 36,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: n <= goal ? gc.ember : gc.bgRaised2,
+                          color: n <= goal ? gc.magenta : gc.bgRaised2,
                           shape: BoxShape.circle,
                         ),
                         child: Text('$n',
                             style: AppTheme.f(13.5,
-                                weight: FontWeight.w800, color: n <= goal ? gc.onEmber : gc.textTertiary)),
+                                weight: FontWeight.w800, color: n <= goal ? gc.onMagenta : gc.textTertiary)),
                       ),
                     ),
                   ),
@@ -881,7 +881,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 duration: const Duration(milliseconds: 240),
                 child: Text(fit.units,
                     key: ValueKey(fit.units),
-                    style: AppTheme.f(h * 0.15, weight: FontWeight.w800, color: gc.ember)),
+                    style: AppTheme.f(h * 0.15, weight: FontWeight.w800, color: gc.magenta)),
               ),
             ],
           )),
@@ -916,7 +916,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           decoration: BoxDecoration(
             color: gc.bgRaised,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: on ? gc.ember : Colors.transparent, width: 1.6),
+            border: Border.all(color: on ? gc.magenta : Colors.transparent, width: 1.6),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -927,12 +927,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: on ? 1 : 0,
-                    child: Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.ember),
+                    child: Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.magenta),
                   ),
                 ],
               ),
               const Spacer(),
-              Text(u, style: AppTheme.f(30, weight: FontWeight.w800, color: on ? gc.ember : gc.text, height: 1)),
+              Text(u, style: AppTheme.f(30, weight: FontWeight.w800, color: on ? gc.magenta : gc.text, height: 1)),
               const SizedBox(height: 6),
               Text(sample, style: AppTheme.f(11.5, weight: FontWeight.w600, color: gc.textTertiary)),
             ],
@@ -982,11 +982,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 width: h * 0.22,
                 height: h * 0.22,
                 decoration: BoxDecoration(
-                  color: _places.containsKey(preset) ? gc.ember : gc.bgRaised,
+                  color: _places.containsKey(preset) ? gc.magenta : gc.bgRaised,
                   borderRadius: BorderRadius.circular(h * 0.07),
                 ),
                 child: Icon(_placeIcons[preset],
-                    size: h * 0.1, color: _places.containsKey(preset) ? gc.onEmber : gc.textTertiary),
+                    size: h * 0.1, color: _places.containsKey(preset) ? gc.onMagenta : gc.textTertiary),
               ),
           ]),
           SizedBox(height: h * 0.06),
@@ -1031,8 +1031,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   if (e != 'Bodyweight')
                                     Pill(
                                       label: t.equipment(e),
-                                      bg: gear.contains(e) ? gc.ember : gc.bgRaised,
-                                      fg: gear.contains(e) ? gc.onEmber : gc.textSecondary,
+                                      bg: gear.contains(e) ? gc.magenta : gc.bgRaised,
+                                      fg: gear.contains(e) ? gc.onMagenta : gc.textSecondary,
                                       onTap: () => setState(() {
                                         if (!gear.remove(e)) gear.add(e);
                                       }),
@@ -1071,14 +1071,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
             children: [
-              _rowIcon(gc, _placeIcons[preset]!, color: on ? gc.ember : null),
+              _rowIcon(gc, _placeIcons[preset]!, color: on ? gc.magenta : null),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(t.placePresetName(preset),
                         style: AppTheme.f(14.5,
-                            weight: on ? FontWeight.w800 : FontWeight.w600, color: on ? gc.ember : gc.text)),
+                            weight: on ? FontWeight.w800 : FontWeight.w600, color: on ? gc.magenta : gc.text)),
                     const SizedBox(height: 2),
                     Text(t.exerciseCount(n),
                         style: AppTheme.f(12, weight: FontWeight.w500, color: gc.textSecondary)),
@@ -1088,7 +1088,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 200),
                 opacity: on ? 1 : 0,
-                child: Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.ember),
+                child: Icon(PhosphorIconsFill.checkCircle, size: 18, color: gc.magenta),
               ),
             ],
           ),
@@ -1143,7 +1143,7 @@ class _Glow extends StatelessWidget {
             gradient: RadialGradient(
               center: const Alignment(0.9, -0.85),
               radius: 1.1,
-              colors: [gc.ember.withValues(alpha: 0.12), gc.bg.withValues(alpha: 0)],
+              colors: [gc.magenta.withValues(alpha: 0.12), gc.bg.withValues(alpha: 0)],
             ),
           ),
           child: DecoratedBox(
@@ -1151,7 +1151,7 @@ class _Glow extends StatelessWidget {
               gradient: RadialGradient(
                 center: const Alignment(-0.9, 0.9),
                 radius: 1.0,
-                colors: [gc.brass.withValues(alpha: 0.07), gc.bg.withValues(alpha: 0)],
+                colors: [gc.marigold.withValues(alpha: 0.07), gc.bg.withValues(alpha: 0)],
               ),
             ),
             child: const SizedBox.expand(),

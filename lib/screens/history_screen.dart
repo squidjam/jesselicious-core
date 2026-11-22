@@ -175,10 +175,10 @@ class _MonthCard extends StatelessWidget {
             const SizedBox(height: 3),
             Row(mainAxisSize: MainAxisSize.min, children: [
               Icon(delta > 0 ? PhosphorIconsBold.arrowUp : PhosphorIconsBold.arrowDown,
-                  size: 10, color: delta > 0 ? gc.sage : gc.textTertiary),
+                  size: 10, color: delta > 0 ? gc.lavender : gc.textTertiary),
               const SizedBox(width: 2),
               Text('${delta.abs()}',
-                  style: AppTheme.f(10.5, weight: FontWeight.w700, color: delta > 0 ? gc.sage : gc.textTertiary)),
+                  style: AppTheme.f(10.5, weight: FontWeight.w700, color: delta > 0 ? gc.lavender : gc.textTertiary)),
             ]),
           ],
         ]),
@@ -223,15 +223,15 @@ class _MonthCard extends StatelessWidget {
                         height: 32,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: on ? gc.accent : Colors.transparent,
+                          color: on ? gc.teal : Colors.transparent,
                           shape: BoxShape.circle,
-                          border: isToday && !on ? Border.all(color: gc.ember, width: 1.4) : null,
+                          border: isToday && !on ? Border.all(color: gc.marigold, width: 1.4) : null,
                         ),
                         child: Text('$n',
                             style: AppTheme.f(13,
                                 weight: on || isToday ? FontWeight.w800 : FontWeight.w500,
                                 color: on
-                                    ? gc.onEmber
+                                    ? gc.onMagenta
                                     : future
                                         ? gc.textTertiary.withValues(alpha: 0.5)
                                         : gc.textSecondary)),
@@ -279,7 +279,7 @@ class WorkoutHistoryCard extends StatelessWidget {
               decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(12)),
               child: Column(children: [
                 Text(t.weekdayShort(s.day.weekday).toUpperCase(),
-                    style: AppTheme.f(9, weight: FontWeight.w800, color: gc.accent, letterSpacing: 0.8)),
+                    style: AppTheme.f(9, weight: FontWeight.w800, color: gc.teal, letterSpacing: 0.8)),
                 Text('${s.day.day}', style: AppTheme.f(19, weight: FontWeight.w800, color: gc.text, height: 1.15)),
               ]),
             ),
@@ -305,11 +305,11 @@ class WorkoutHistoryCard extends StatelessWidget {
               const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+                decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
-                  Icon(PhosphorIconsFill.trophy, size: 11, color: gc.accent),
+                  Icon(PhosphorIconsFill.trophy, size: 11, color: gc.teal),
                   const SizedBox(width: 4),
-                  Text('$records', style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.accent)),
+                  Text('$records', style: AppTheme.f(11.5, weight: FontWeight.w800, color: gc.teal)),
                 ]),
               ),
             ],

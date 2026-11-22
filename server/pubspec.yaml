@@ -1,5 +1,5 @@
-name: gymmane_server
-description: "Self-hosted server for the GymMane web app."
+name: jesselicious_server
+description: "Self-hosted server for the Jesselicious web app."
 publish_to: 'none'
 version: 1.0.0
 

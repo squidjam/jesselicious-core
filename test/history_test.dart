@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/app/gymmane_app.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_theme.dart';
-import 'package:gymmane/widgets/charts.dart';
-import 'package:gymmane/widgets/exercise_history_sheet.dart';
+import 'package:jesselicious/app/jesselicious_app.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_theme.dart';
+import 'package:jesselicious/widgets/charts.dart';
+import 'package:jesselicious/widgets/exercise_history_sheet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -169,7 +169,7 @@ void main() {
       fit.pendingAwards.clear();
       fit.resetRoute('settings');
       fit.goHistory();
-      await tester.pumpWidget(const GymManeApp());
+      await tester.pumpWidget(const JesseliciousApp());
       for (var i = 0; i < 20; i++) {
         await tester.pump(const Duration(milliseconds: 100));
       }
@@ -463,7 +463,7 @@ void main() {
       fit.pendingAwards.clear();
       fit.resetRoute('history');
       fit.openWorkout(s);
-      await tester.pumpWidget(const GymManeApp());
+      await tester.pumpWidget(const JesseliciousApp());
       for (var i = 0; i < 20; i++) {
         await tester.pump(const Duration(milliseconds: 100));
       }

@@ -19,7 +19,7 @@ class AutoBackup extends ChangeNotifier {
   AutoBackup._();
   static final AutoBackup instance = AutoBackup._();
 
-  static const _channel = MethodChannel('gymmane/backup');
+  static const _channel = MethodChannel('jesselicious/backup');
   static const _key = 'autoBackup';
   static const prefix = syncPrefix;
   static const keepOptions = [1, 3, 5, 10, 20];

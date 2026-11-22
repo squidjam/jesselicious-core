@@ -7,14 +7,14 @@ import 'package:archive/archive.dart';
 import 'package:barcode/barcode.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/gym_pass.dart';
-import 'package:gymmane/services/backup_zip.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/media_store.dart';
-import 'package:gymmane/services/pass_scan.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/widgets/gym_pass_card.dart';
-import 'package:gymmane/widgets/photo_crop.dart';
+import 'package:jesselicious/models/gym_pass.dart';
+import 'package:jesselicious/services/backup_zip.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/media_store.dart';
+import 'package:jesselicious/services/pass_scan.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/widgets/gym_pass_card.dart';
+import 'package:jesselicious/widgets/photo_crop.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Uint8List _qrPixels(String data, int side) {
@@ -101,7 +101,7 @@ void main() {
   });
 
   test('un pase con foto vale sin número y su foto viaja en la copia', () async {
-    final tmp = await Directory.systemTemp.createTemp('gymmane_pass');
+    final tmp = await Directory.systemTemp.createTemp('jesselicious_pass');
     MediaStore.directory = tmp.path;
     addTearDown(() async {
       MediaStore.directory = null;

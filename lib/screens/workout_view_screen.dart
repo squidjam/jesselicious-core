@@ -40,7 +40,7 @@ class WorkoutViewScreen extends StatelessWidget {
             label: t.copyWorkout,
             onTap: () {
               Clipboard.setData(ClipboardData(text: fit.workoutText(s)));
-              showNotchToast(context, t.copiedDone, icon: PhosphorIconsRegular.copy, accent: gc.accent);
+              showNotchToast(context, t.copiedDone, icon: PhosphorIconsRegular.copy, accent: gc.teal);
             },
             child: Icon(PhosphorIconsRegular.copy, size: 17, color: gc.text),
           ),
@@ -104,11 +104,11 @@ class _Totals extends StatelessWidget {
           const SizedBox(width: 12),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+            decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Icon(PhosphorIconsFill.trophy, size: 12, color: gc.accent),
+              Icon(PhosphorIconsFill.trophy, size: 12, color: gc.teal),
               const SizedBox(width: 5),
-              Text('$records', style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+              Text('$records', style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
             ]),
           ),
         ],

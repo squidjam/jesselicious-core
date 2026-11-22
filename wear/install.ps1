@@ -4,8 +4,8 @@ param(
 
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
-$repo = 'InlitX/GymMane'
-$tools = Join-Path $env:LOCALAPPDATA 'GymMane\platform-tools'
+$repo = 'InlitX/jesselicious-core'
+$tools = Join-Path $env:LOCALAPPDATA 'Jesselicious\platform-tools'
 
 function Say($t) { Write-Host "  $t" }
 function Step($n, $t) { Write-Host ''; Write-Host "  $n/4  $t" -ForegroundColor White; Write-Host '' }
@@ -14,7 +14,7 @@ function Fail($t) { Write-Host ''; Write-Host "  $t" -ForegroundColor Red; Write
 function Ask($q) { Write-Host "  ? $q " -NoNewline -ForegroundColor Yellow; return (Read-Host).Trim() }
 
 if ($Apk -in '-h', '--help') {
-  Write-Host 'GymMane watch installer'
+  Write-Host 'Jesselicious watch installer'
   Write-Host ''
   Write-Host '  .\install.ps1              connects to the watch and installs the right APK from the latest release'
   Write-Host '  .\install.ps1 <file.apk>   installs that APK instead'
@@ -22,7 +22,7 @@ if ($Apk -in '-h', '--help') {
 }
 
 Write-Host ''
-Write-Host '  GymMane for Wear OS' -ForegroundColor White
+Write-Host '  Jesselicious for Wear OS' -ForegroundColor White
 Say 'Before you start, on the watch: Settings > System > About > Versions, tap Build number 7 times.'
 Say 'Then Settings > Developer options: turn on ADB debugging and Wireless debugging.'
 Say 'The watch and this computer must be on the same Wi-Fi.'
@@ -32,7 +32,7 @@ $adb = (Get-Command adb -ErrorAction SilentlyContinue).Source
 if (-not $adb -and (Test-Path "$tools\adb.exe")) { $adb = "$tools\adb.exe" }
 if (-not $adb) {
   Say 'adb (Android platform-tools) is not installed. Downloading it from Google...'
-  $zip = Join-Path ([IO.Path]::GetTempPath()) 'gymmane-platform-tools.zip'
+  $zip = Join-Path ([IO.Path]::GetTempPath()) 'jesselicious-platform-tools.zip'
   try {
     Invoke-WebRequest -UseBasicParsing 'https://dl.google.com/android/repository/platform-tools-latest-windows.zip' -OutFile $zip -ErrorAction Stop
     Expand-Archive -Path $zip -DestinationPath (Split-Path $tools) -Force -ErrorAction Stop
@@ -79,7 +79,7 @@ if (-not $watch) {
 $model = (& $adb -s $watch shell getprop ro.product.model).Trim()
 Ok "$model ($watch)"
 
-Step 3 'GymMane'
+Step 3 'Jesselicious'
 $tmp = $null
 if ($Apk) {
   if (-not (Test-Path $Apk -PathType Leaf)) { Fail "$Apk does not exist." }
@@ -87,11 +87,11 @@ if ($Apk) {
 } else {
   $abis = (& $adb -s $watch shell getprop ro.product.cpu.abilist).Trim() -split ','
   $abi = $abis | ForEach-Object { $_.Trim() } | Where-Object { @('arm64-v8a', 'armeabi-v7a', 'x86_64') -contains $_ } | Select-Object -First 1
-  if (-not $abi) { Fail "This watch reports $($abis -join ', '), and there is no GymMane APK for it." }
-  $tmp = Join-Path ([IO.Path]::GetTempPath()) "GymMane-$abi.apk"
-  Say "Downloading GymMane for $abi from the latest release..."
+  if (-not $abi) { Fail "This watch reports $($abis -join ', '), and there is no Jesselicious APK for it." }
+  $tmp = Join-Path ([IO.Path]::GetTempPath()) "Jesselicious-$abi.apk"
+  Say "Downloading Jesselicious for $abi from the latest release..."
   try {
-    Invoke-WebRequest -UseBasicParsing "https://github.com/$repo/releases/latest/download/GymMane-$abi.apk" -OutFile $tmp -ErrorAction Stop
+    Invoke-WebRequest -UseBasicParsing "https://github.com/$repo/releases/latest/download/Jesselicious-$abi.apk" -OutFile $tmp -ErrorAction Stop
   } catch {
     Fail 'Could not download the APK. Check the connection and try again.'
   }
@@ -105,12 +105,12 @@ try {
 } finally {
   if ($tmp) { Remove-Item $tmp -ErrorAction SilentlyContinue }
 }
-if ($r -match 'VERSION_DOWNGRADE') { Fail 'The watch already has a newer GymMane than this one. Nothing to do.' }
-if ($r -match 'UPDATE_INCOMPATIBLE') { Fail 'The GymMane on the watch was signed by someone else. Uninstall it from the watch first, then run this again.' }
+if ($r -match 'VERSION_DOWNGRADE') { Fail 'The watch already has a newer Jesselicious than this one. Nothing to do.' }
+if ($r -match 'UPDATE_INCOMPATIBLE') { Fail 'The Jesselicious on the watch was signed by someone else. Uninstall it from the watch first, then run this again.' }
 if ($r -notmatch 'Success') { Fail "The watch refused the install: $($r.Trim())" }
-Ok 'GymMane is on the watch'
+Ok 'Jesselicious is on the watch'
 
 Write-Host ''
-Say 'Open GymMane on the watch. To sync it with your phone, see WEAR.md.'
+Say 'Open Jesselicious on the watch. To sync it with your phone, see WEAR.md.'
 Say 'You can turn Wireless debugging off now.'
 Write-Host ''

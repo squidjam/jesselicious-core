@@ -1,6 +1,6 @@
 <div align="center">
 
-# Contributing to GymMane
+# Contributing to Jesselicious
 
 </div>
 
@@ -29,13 +29,13 @@ person who claimed it is assigned automatically (the maintainer can also pick
 someone directly), and later claims on an approved, unassigned issue are assigned
 straight away. If an issue is not approved, it won't be worked on.
 
-GymMane is made by a student, so reviews can take a while. Thanks for your patience!
+Reviews can take a while. Thanks for your patience!
 
 ## Two rules that never bend
 
 1. **No accounts, no logins, no remote user data.** Ever.
 2. **No network.** The app has no `INTERNET` permission and no analytics, and it
-   stays that way. A feature that needs a server is a feature GymMane won't have.
+   stays that way. A feature that needs a server is a feature Jesselicious won't have.
 
 Anything that keeps working on a phone in flight mode is fair game.
 

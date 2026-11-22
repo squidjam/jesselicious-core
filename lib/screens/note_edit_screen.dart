@@ -167,7 +167,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                       maxLength: _kNoteMaxLength,
                       textCapitalization: TextCapitalization.sentences,
                       onChanged: (_) => setState(() {}),
-                      cursorColor: gc.accent,
+                      cursorColor: gc.teal,
                       style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text, height: 1.45),
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -258,8 +258,8 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                   PrimaryButton(
                     label: t.save,
                     onTap: _save,
-                    bg: _canSave ? gc.ember : gc.mutedFill,
-                    fg: _canSave ? gc.onEmber : gc.textTertiary,
+                    bg: _canSave ? gc.magenta : gc.mutedFill,
+                    fg: _canSave ? gc.onMagenta : gc.textTertiary,
                   ),
                 ],
               ),

@@ -48,10 +48,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - { os: ubuntu-latest, name: linux-x64, exe: gymmane-server }
-          - { os: ubuntu-24.04-arm, name: linux-arm64, exe: gymmane-server }
-          - { os: macos-latest, name: macos-arm64, exe: gymmane-server }
-          - { os: windows-latest, name: windows-x64, exe: gymmane-server.exe }
+          - { os: ubuntu-latest, name: linux-x64, exe: jesselicious-server }
+          - { os: ubuntu-24.04-arm, name: linux-arm64, exe: jesselicious-server }
+          - { os: macos-latest, name: macos-arm64, exe: jesselicious-server }
+          - { os: windows-latest, name: windows-x64, exe: jesselicious-server.exe }
     steps:
       - uses: actions/checkout@v4
         with:
@@ -71,36 +71,36 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: web
-          path: package/gymmane/web
+          path: package/jesselicious/web
 
       - name: Package (Linux and macOS)
         if: runner.os != 'Windows'
         run: |
-          cp server/${{ matrix.exe }} package/gymmane/
-          chmod +x package/gymmane/${{ matrix.exe }}
-          tar -czf gymmane-selfhost-${{ matrix.name }}.tar.gz -C package gymmane
+          cp server/${{ matrix.exe }} package/jesselicious/
+          chmod +x package/jesselicious/${{ matrix.exe }}
+          tar -czf jesselicious-selfhost-${{ matrix.name }}.tar.gz -C package jesselicious
 
       - name: Package (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          Copy-Item server/${{ matrix.exe }} package/gymmane/
-          Set-Content -Path package/gymmane/start.bat -Value "@echo off`r`ncd /d %~dp0`r`ngymmane-server.exe`r`npause"
-          Compress-Archive -Path package/gymmane -DestinationPath gymmane-selfhost-${{ matrix.name }}.zip
+          Copy-Item server/${{ matrix.exe }} package/jesselicious/
+          Set-Content -Path package/jesselicious/start.bat -Value "@echo off`r`ncd /d %~dp0`r`njesselicious-server.exe`r`npause"
+          Compress-Archive -Path package/jesselicious -DestinationPath jesselicious-selfhost-${{ matrix.name }}.zip
 
       - name: Keep the files (test run)
         if: inputs.tag == ''
         uses: actions/upload-artifact@v4
         with:
-          name: gymmane-selfhost-${{ matrix.name }}
-          path: gymmane-selfhost-${{ matrix.name }}.*
+          name: jesselicious-selfhost-${{ matrix.name }}
+          path: jesselicious-selfhost-${{ matrix.name }}.*
 
       - name: Attach to the release
         if: inputs.tag != ''
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ inputs.tag }}" gymmane-selfhost-${{ matrix.name }}.* --clobber --repo "${{ github.repository }}"
+        run: gh release upload "${{ inputs.tag }}" jesselicious-selfhost-${{ matrix.name }}.* --clobber --repo "${{ github.repository }}"
 
   docker:
     name: Docker image
@@ -124,7 +124,7 @@ jobs:
       - name: Image name
         id: name
         run: |
-          echo "image=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/gymmane" >> "$GITHUB_OUTPUT"
+          echo "image=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/jesselicious" >> "$GITHUB_OUTPUT"
           echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
         env:
           TAG: ${{ inputs.tag || 'test' }}
@@ -140,5 +140,5 @@ jobs:
             ${{ steps.name.outputs.image }}:${{ steps.name.outputs.version }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
-            org.opencontainers.image.description=GymMane self-hosted: the full app on your own server
+            org.opencontainers.image.description=Jesselicious self-hosted: the full app on your own server
             org.opencontainers.image.licenses=GPL-3.0

@@ -176,7 +176,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver, Single
     if (data.isEmpty || fit.isSessionActive) return;
     fit.applyBackup(data);
     if (!mounted) return;
-    showNotchToast(context, fromPhone ? t.webSyncedPhone : t.webSynced, icon: PhosphorIconsFill.arrowsClockwise, accent: context.gc.sage);
+    showNotchToast(context, fromPhone ? t.webSyncedPhone : t.webSynced, icon: PhosphorIconsFill.arrowsClockwise, accent: context.gc.lavender);
   }
 
   void _openSupplements(List<String> ids) {
@@ -237,7 +237,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver, Single
       t.restOverTitle,
       subtitle: '${t.catalogName(ex.id, ex.name)} · $next',
       icon: PhosphorIconsFill.timer,
-      accent: context.gc.sage,
+      accent: context.gc.lavender,
       sound: false,
     );
   }
@@ -897,8 +897,8 @@ class _ParkedPill extends StatelessWidget {
               Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
-                child: Icon(PhosphorIconsFill.play, size: 16, color: gc.onEmber),
+                decoration: BoxDecoration(color: gc.magenta, shape: BoxShape.circle),
+                child: Icon(PhosphorIconsFill.play, size: 16, color: gc.onMagenta),
               ),
               ]),
             ),
@@ -1134,11 +1134,11 @@ class _NavBarState extends State<_NavBar> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [gc.accent, gc.brass],
+            colors: [gc.teal, gc.marigold],
           ),
           shape: BoxShape.circle,
           boxShadow: [
-            BoxShadow(color: gc.accent.withValues(alpha: 0.45), blurRadius: 18, offset: const Offset(0, 6)),
+            BoxShadow(color: gc.teal.withValues(alpha: 0.45), blurRadius: 18, offset: const Offset(0, 6)),
           ],
         ),
         child: Icon(PhosphorIconsFill.play, size: 21, color: gc.bg),
@@ -1390,7 +1390,7 @@ class _Sidebar extends StatelessWidget {
             ),
             const SizedBox(width: 11),
             Expanded(
-              child: Text('GymMane',
+              child: Text('Jesselicious',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTheme.f(19, weight: FontWeight.w800, color: gc.text, letterSpacing: -0.4)),
@@ -1459,14 +1459,14 @@ class _StartButton extends StatelessWidget {
         button: true,
         child: Container(
           height: 48,
-          decoration: BoxDecoration(color: gc.ember, borderRadius: BorderRadius.circular(100)),
+          decoration: BoxDecoration(color: gc.magenta, borderRadius: BorderRadius.circular(100)),
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Icon(PhosphorIconsFill.play, size: 15, color: gc.onEmber),
+            Icon(PhosphorIconsFill.play, size: 15, color: gc.onMagenta),
             const SizedBox(width: 9),
             Flexible(
               child: FitText(live ? t.keepTraining : sentenceCase(t.startWorkout),
-                  style: AppTheme.f(14.5, weight: FontWeight.w800, color: gc.onEmber)),
+                  style: AppTheme.f(14.5, weight: FontWeight.w800, color: gc.onMagenta)),
             ),
           ]),
         ),
@@ -1561,7 +1561,7 @@ class _ServerStatus extends StatelessWidget {
             Container(
               width: 7,
               height: 7,
-              decoration: BoxDecoration(color: ok ? gc.sage : gc.warn, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: ok ? gc.lavender : gc.warn, shape: BoxShape.circle),
             ),
             const SizedBox(width: 9),
             Expanded(

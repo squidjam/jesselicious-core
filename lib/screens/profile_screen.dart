@@ -398,7 +398,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                         height: 6 + 52 * v,
                         decoration: BoxDecoration(
                           color: m == thisMonth
-                              ? gc.ember
+                              ? gc.magenta
                               : (months[m - 1] > 0 ? gc.textTertiary : gc.bgRaised2),
                           borderRadius: BorderRadius.circular(5),
                         ),

@@ -58,10 +58,10 @@ IconData healthIcon(HealthMetric m) => switch (m) {
     };
 
 Color healthTone(GymColors gc, HealthGroup g) => switch (g) {
-      HealthGroup.heart => gc.accent,
+      HealthGroup.heart => gc.teal,
       HealthGroup.vitals => gc.info,
       HealthGroup.sleep => gc.warn,
-      HealthGroup.activity => gc.sage,
+      HealthGroup.activity => gc.lavender,
     };
 
 double healthShown(HealthMetric m, double v) => switch (m) {
@@ -128,7 +128,7 @@ class HealthCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(children: [
-              Icon(PhosphorIconsFill.heartbeat, size: 15, color: gc.accent),
+              Icon(PhosphorIconsFill.heartbeat, size: 15, color: gc.teal),
               const SizedBox(width: 7),
               Expanded(
                 child: Text(t.healthTitle.toUpperCase(),
@@ -360,7 +360,7 @@ void showHealthPins(BuildContext context) {
                                   child: Icon(
                                     top.contains(m) ? PhosphorIconsFill.checkCircle : PhosphorIconsRegular.circle,
                                     size: 22,
-                                    color: top.contains(m) ? gc.accent : gc.textTertiary,
+                                    color: top.contains(m) ? gc.teal : gc.textTertiary,
                                   ),
                                 ),
                               ]),
@@ -879,7 +879,7 @@ class _HealthLinksState extends State<_HealthLinks> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             child: Row(children: [
-              Icon(icon, size: 18, color: on ? gc.accent : gc.textSecondary),
+              Icon(icon, size: 18, color: on ? gc.teal : gc.textSecondary),
               const SizedBox(width: 14),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

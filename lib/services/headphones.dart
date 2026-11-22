@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class Headphones {
   Headphones._();
 
-  static const _channel = MethodChannel('gymmane/device');
+  static const _channel = MethodChannel('jesselicious/device');
 
   static Future<bool> connected() async {
     if (kIsWeb || !(Platform.isAndroid || Platform.isIOS)) return false;

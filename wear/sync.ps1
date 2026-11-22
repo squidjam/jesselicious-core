@@ -4,11 +4,11 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$watchDir = '/sdcard/Android/data/com.gymmane.app/files/sync'
-$prefix = 'gymmane-auto-'
+$watchDir = '/sdcard/Android/data/com.jesselicious.app/files/sync'
+$prefix = 'jesselicious-auto-'
 
 if (-not $Source -or $Source -in '-h', '--help') {
-  Write-Host 'GymMane watch sync'
+  Write-Host 'Jesselicious watch sync'
   Write-Host ''
   Write-Host '  .\sync.ps1 <folder>            the folder where your phone or server leaves its backups'
   Write-Host '  .\sync.ps1 <backup.zip>        a single backup exported from the phone'
@@ -37,8 +37,8 @@ if (-not $Serial) {
   }
 }
 
-$installed = Invoke-Adb shell pm path com.gymmane.app 2>$null
-if (-not $installed) { Write-Host 'GymMane is not installed on that device.'; exit 1 }
+$installed = Invoke-Adb shell pm path com.jesselicious.app 2>$null
+if (-not $installed) { Write-Host 'Jesselicious is not installed on that device.'; exit 1 }
 Invoke-Adb shell mkdir -p $watchDir | Out-Null
 
 $newest = $null
@@ -57,7 +57,7 @@ if (Test-Path $Source -PathType Container) {
   exit 1
 }
 
-$tmp = Join-Path ([IO.Path]::GetTempPath()) ("gymmane-watch-" + [Guid]::NewGuid().ToString('N'))
+$tmp = Join-Path ([IO.Path]::GetTempPath()) ("jesselicious-watch-" + [Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $tmp | Out-Null
 try {
   if ($newest) {
@@ -66,7 +66,7 @@ try {
     $zip = $null
     try {
       $zip = [IO.Compression.ZipFile]::OpenRead($newest.FullName)
-      $entry = $zip.Entries | Where-Object { $_.FullName -eq 'gymmane.json' } | Select-Object -First 1
+      $entry = $zip.Entries | Where-Object { $_.FullName -eq 'jesselicious.json' } | Select-Object -First 1
       if ($entry) {
         $out = Join-Path $tmp $target
         [IO.Compression.ZipFileExtensions]::ExtractToFile($entry, $out, $true)
@@ -79,7 +79,7 @@ try {
       if ($zip) { $zip.Dispose() }
     }
     if ($sent) { Write-Host "Sent to the watch: $($newest.Name)" }
-    else { Write-Host "$($newest.Name) is not a GymMane backup, nothing was sent." }
+    else { Write-Host "$($newest.Name) is not a Jesselicious backup, nothing was sent." }
   } else {
     Write-Host "No backup found in $folder, nothing was sent."
   }
@@ -95,7 +95,7 @@ try {
   }
   if ($brought -eq 0) { Write-Host 'Nothing new on the watch.' }
   else { Write-Host "Brought from the watch: $brought file(s) into $folder" }
-  Write-Host 'On the watch, open GymMane > Settings > Sync now.'
+  Write-Host 'On the watch, open Jesselicious > Settings > Sync now.'
 } finally {
   Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
 }

@@ -85,8 +85,8 @@ class _TrainScreenState extends State<TrainScreen> {
       padding: EdgeInsets.fromLTRB(20, 8, 20, 14 + MediaQuery.of(context).padding.bottom),
       child: PrimaryButton(
         label: n == 0 ? t.pickAnExercise : t.startCount(n),
-        bg: n == 0 ? gc.bgRaised2 : gc.ember,
-        fg: n == 0 ? gc.textTertiary : gc.onEmber,
+        bg: n == 0 ? gc.bgRaised2 : gc.magenta,
+        fg: n == 0 ? gc.textTertiary : gc.onMagenta,
         onTap: fit.startSession,
       ),
     );
@@ -132,8 +132,8 @@ class _TrainScreenState extends State<TrainScreen> {
         const SizedBox(height: 18),
         PrimaryButton(
           label: t.continueBtn,
-          bg: hasSel ? gc.ember : gc.bgRaised2,
-          fg: hasSel ? gc.onEmber : gc.textTertiary,
+          bg: hasSel ? gc.magenta : gc.bgRaised2,
+          fg: hasSel ? gc.onMagenta : gc.textTertiary,
           onTap: fit.trainContinue,
         ),
         const SizedBox(height: 26),
@@ -164,8 +164,8 @@ class _TrainScreenState extends State<TrainScreen> {
             Container(
               width: 36,
               height: 36,
-              decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(12)),
-              child: Icon(icon, size: 19, color: gc.accent),
+              decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(12)),
+              child: Icon(icon, size: 19, color: gc.teal),
             ),
             const SizedBox(height: 14),
             Text(title, style: AppTheme.f(15, weight: FontWeight.w700, color: gc.text)),
@@ -178,13 +178,13 @@ class _TrainScreenState extends State<TrainScreen> {
   Widget _chip(GymColors gc, String id) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(color: gc.emberSoft, borderRadius: BorderRadius.circular(100)),
+      decoration: BoxDecoration(color: gc.magentaSoft, borderRadius: BorderRadius.circular(100)),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
-        Text(t.muscle(id), style: AppTheme.f(13, weight: FontWeight.w600, color: gc.ember)),
+        Text(t.muscle(id), style: AppTheme.f(13, weight: FontWeight.w600, color: gc.magenta)),
         const SizedBox(width: 6),
         GestureDetector(
           onTap: () => fit.toggleMuscle(id),
-          child: SvgPathIcon(Ic.closeThin, size: 12, color: gc.ember),
+          child: SvgPathIcon(Ic.closeThin, size: 12, color: gc.magenta),
         ),
       ]),
     );
@@ -308,8 +308,8 @@ class _TrainScreenState extends State<TrainScreen> {
         padding: const EdgeInsetsDirectional.only(end: 8),
         child: Pill(
           label: label,
-          bg: on ? gc.ember : gc.bgRaised2,
-          fg: on ? gc.onEmber : gc.textSecondary,
+          bg: on ? gc.magenta : gc.bgRaised2,
+          fg: on ? gc.onMagenta : gc.textSecondary,
           onTap: () => setState(pick),
           hPad: 12,
           vPad: 6,
@@ -337,7 +337,7 @@ class _TrainScreenState extends State<TrainScreen> {
                   controller: _searchCtrl,
                   onChanged: (v) => setState(() => _q = v),
                   style: AppTheme.f(14, weight: FontWeight.w500, color: gc.text),
-                  cursorColor: gc.accent,
+                  cursorColor: gc.teal,
                   decoration: InputDecoration(
                     isCollapsed: true,
                     border: InputBorder.none,
@@ -365,16 +365,16 @@ class _TrainScreenState extends State<TrainScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: fit.sessionPicks.isNotEmpty ? gc.emberSoft : gc.bgRaised,
+              color: fit.sessionPicks.isNotEmpty ? gc.magentaSoft : gc.bgRaised,
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
-                color: fit.sessionPicks.isNotEmpty ? gc.ember.withValues(alpha: 0.3) : gc.border,
+                color: fit.sessionPicks.isNotEmpty ? gc.magenta.withValues(alpha: 0.3) : gc.border,
               ),
             ),
             child: Icon(
               PhosphorIconsRegular.arrowCounterClockwise,
               size: 20,
-              color: fit.sessionPicks.isNotEmpty ? gc.ember : gc.textTertiary,
+              color: fit.sessionPicks.isNotEmpty ? gc.magenta : gc.textTertiary,
             ),
           ),
         ),
@@ -388,10 +388,10 @@ class _TrainScreenState extends State<TrainScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: gc.emberSoft,
+              color: gc.magentaSoft,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: Icon(PhosphorIconsRegular.plus, size: 20, color: gc.ember),
+            child: Icon(PhosphorIconsRegular.plus, size: 20, color: gc.magenta),
           ),
         ),
       ],
@@ -416,7 +416,7 @@ class _TrainScreenState extends State<TrainScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Text(t.createItInstead,
-                    style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                    style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
               ),
             ),
           ],
@@ -448,7 +448,7 @@ class _TrainScreenState extends State<TrainScreen> {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: gc.bgRaised,
-          border: Border.all(color: picked ? gc.ember : gc.border),
+          border: Border.all(color: picked ? gc.magenta : gc.border),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(children: [
@@ -475,11 +475,11 @@ class _TrainScreenState extends State<TrainScreen> {
             width: 26,
             height: 26,
             decoration: BoxDecoration(
-              color: picked ? gc.ember : Colors.transparent,
+              color: picked ? gc.magenta : Colors.transparent,
               shape: BoxShape.circle,
-              border: Border.all(color: picked ? gc.ember : gc.textTertiary, width: 2),
+              border: Border.all(color: picked ? gc.magenta : gc.textTertiary, width: 2),
             ),
-            child: picked ? Center(child: SvgPathIcon(Ic.checkBold, size: 13, color: gc.onEmber)) : null,
+            child: picked ? Center(child: SvgPathIcon(Ic.checkBold, size: 13, color: gc.onMagenta)) : null,
           ),
         ]),
       ),

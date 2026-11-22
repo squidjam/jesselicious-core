@@ -10,7 +10,7 @@ import '../theme/app_theme.dart';
 import 'liquid_notch.dart';
 import 'ui_kit.dart';
 
-const _guideUrl = 'https://github.com/InlitX/GymMane/blob/main/SELFHOST.md';
+const _guideUrl = 'https://github.com/InlitX/jesselicious-core/blob/main/SELFHOST.md';
 
 class ServerCard extends StatefulWidget {
   const ServerCard({super.key});
@@ -82,7 +82,7 @@ class _ServerCardState extends State<ServerCard> {
     final imported = r?['imported'] == true;
     showNotchToast(context, imported ? t.webPhoneImported : t.webPhoneNothing,
         icon: imported ? PhosphorIconsFill.checkCircle : PhosphorIconsFill.info,
-        accent: imported ? context.gc.sage : context.gc.textSecondary);
+        accent: imported ? context.gc.lavender : context.gc.textSecondary);
   }
 
   Future<void> _export() async {
@@ -93,7 +93,7 @@ class _ServerCardState extends State<ServerCard> {
     setState(() => _busy = false);
     if (r?['exported'] != true) return;
     HapticFeedback.lightImpact();
-    showNotchToast(context, t.webPhoneExportDone, icon: PhosphorIconsFill.fileZip, accent: context.gc.sage);
+    showNotchToast(context, t.webPhoneExportDone, icon: PhosphorIconsFill.fileZip, accent: context.gc.lavender);
   }
 
   @override
@@ -124,7 +124,7 @@ class _ServerCardState extends State<ServerCard> {
                   Container(
                     width: 7,
                     height: 7,
-                    decoration: BoxDecoration(color: link.online ? gc.sage : gc.warn, shape: BoxShape.circle),
+                    decoration: BoxDecoration(color: link.online ? gc.lavender : gc.warn, shape: BoxShape.circle),
                   ),
                   const SizedBox(width: 7),
                   Flexible(
@@ -184,7 +184,7 @@ class _ServerCardState extends State<ServerCard> {
                 child: Text(t.webPhoneGuide,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                    style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
               ),
             ),
             if (_info?['auth'] == true) ...[

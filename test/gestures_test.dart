@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/screens/routine_edit_screen.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_theme.dart';
-import 'package:gymmane/widgets/glass.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/screens/routine_edit_screen.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_theme.dart';
+import 'package:jesselicious/widgets/glass.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

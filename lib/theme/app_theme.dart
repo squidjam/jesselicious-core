@@ -19,10 +19,10 @@ class AppTheme {
       scaffoldBackgroundColor: gc.bg,
       colorScheme: base.colorScheme.copyWith(
         surface: gc.bgRaised,
-        primary: gc.accent,
-        onPrimary: gc.onEmber,
+        primary: gc.teal,
+        onPrimary: gc.onMagenta,
         onSurface: gc.text,
-        error: const Color(0xFFE5563B),
+        error: gc.danger,
       ),
       textTheme: base.textTheme.apply(
         fontFamily: sans,
@@ -37,19 +37,19 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
         hourMinuteShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         hourMinuteColor: WidgetStateColor.resolveWith(
-            (s) => s.contains(WidgetState.selected) ? gc.accentSoft : gc.bgRaised2),
+            (s) => s.contains(WidgetState.selected) ? gc.tealSoft : gc.bgRaised2),
         hourMinuteTextColor: WidgetStateColor.resolveWith(
-            (s) => s.contains(WidgetState.selected) ? gc.accent : gc.text),
+            (s) => s.contains(WidgetState.selected) ? gc.teal : gc.text),
         dayPeriodColor: WidgetStateColor.resolveWith(
-            (s) => s.contains(WidgetState.selected) ? gc.accentSoft : Colors.transparent),
+            (s) => s.contains(WidgetState.selected) ? gc.tealSoft : Colors.transparent),
         dayPeriodTextColor: WidgetStateColor.resolveWith(
-            (s) => s.contains(WidgetState.selected) ? gc.accent : gc.textSecondary),
+            (s) => s.contains(WidgetState.selected) ? gc.teal : gc.textSecondary),
         dayPeriodBorderSide: BorderSide(color: gc.border),
         helpTextStyle: TextStyle(
             fontFamily: sans, fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 1.2, color: gc.textSecondary),
         entryModeIconColor: gc.textSecondary,
         cancelButtonStyle: TextButton.styleFrom(foregroundColor: gc.textSecondary),
-        confirmButtonStyle: TextButton.styleFrom(foregroundColor: gc.accent),
+        confirmButtonStyle: TextButton.styleFrom(foregroundColor: gc.teal),
       ),
       extensions: [gc],
     );

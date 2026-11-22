@@ -293,8 +293,8 @@ class ToolsPeek extends StatelessWidget {
       spread: 1.4,
       children: [
         for (final (icon, tint) in [
-          (PhosphorIconsBold.fire, gc.accent),
-          (PhosphorIconsBold.circlesThree, gc.brass),
+          (PhosphorIconsBold.fire, gc.teal),
+          (PhosphorIconsBold.circlesThree, gc.marigold),
           (PhosphorIconsBold.barbell, gc.text),
         ])
           Container(

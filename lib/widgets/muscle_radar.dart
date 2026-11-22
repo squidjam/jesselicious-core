@@ -186,17 +186,17 @@ class _RadarPainter extends CustomPainter {
 
     final pts = [for (var i = 0; i < n; i++) _at(c, i, radius * values[i].clamp(0.0, 1.0))];
     final shape = Path()..addPolygon(pts, true);
-    canvas.drawPath(shape, Paint()..color = gc.accent.withValues(alpha: 0.22));
+    canvas.drawPath(shape, Paint()..color = gc.teal.withValues(alpha: 0.22));
     canvas.drawPath(
       shape,
       Paint()
-        ..color = gc.accent
+        ..color = gc.teal
         ..style = PaintingStyle.stroke
         ..strokeWidth = 2
         ..strokeJoin = StrokeJoin.round,
     );
     for (var i = 0; i < n; i++) {
-      canvas.drawCircle(pts[i], i == picked ? 5 : 3, Paint()..color = i == picked ? gc.text : gc.accent);
+      canvas.drawCircle(pts[i], i == picked ? 5 : 3, Paint()..color = i == picked ? gc.text : gc.teal);
     }
   }
 
@@ -266,7 +266,7 @@ class MuscleFigurePainter extends CustomPainter {
     paintBodyBase(canvas, art, skin, skin);
     clipMuscles(canvas, art);
     for (final e in art.fills.entries) {
-      paint.color = lit.contains(e.key) ? gc.accent : rest;
+      paint.color = lit.contains(e.key) ? gc.teal : rest;
       for (final d in e.value) {
         canvas.drawPath(svgPath(d), paint);
       }

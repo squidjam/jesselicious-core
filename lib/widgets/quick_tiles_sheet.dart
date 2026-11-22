@@ -129,17 +129,17 @@ class _Tile extends StatelessWidget {
             duration: const Duration(milliseconds: 220),
             child: added
                 ? Row(key: const ValueKey('done'), mainAxisSize: MainAxisSize.min, children: [
-                    Icon(PhosphorIconsBold.check, size: 14, color: gc.sage),
+                    Icon(PhosphorIconsBold.check, size: 14, color: gc.lavender),
                     const SizedBox(width: 4),
-                    Text(t.qsAdded, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.sage)),
+                    Text(t.qsAdded, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.lavender)),
                   ])
                 : Pressable(
                     key: const ValueKey('add'),
                     onTap: onAdd,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                      decoration: BoxDecoration(color: gc.ember, borderRadius: BorderRadius.circular(100)),
-                      child: Text(t.qsAdd, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.onEmber)),
+                      decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(100)),
+                      child: Text(t.qsAdd, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.onTeal)),
                     ),
                   ),
           ),

@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 
 enum IncomingBridge {
-  static let startWorkoutType = "com.gymmane.app.start"
+  static let startWorkoutType = "com.jesselicious.app.start"
 
   private static var incoming: FlutterMethodChannel?
   private static var openChannel: FlutterMethodChannel?
@@ -12,7 +12,7 @@ enum IncomingBridge {
   private static var routeReady = false
 
   static func register(with messenger: FlutterBinaryMessenger) {
-    let incomingChannel = FlutterMethodChannel(name: "gymmane/incoming", binaryMessenger: messenger)
+    let incomingChannel = FlutterMethodChannel(name: "jesselicious/incoming", binaryMessenger: messenger)
     incomingChannel.setMethodCallHandler { call, result in
       guard call.method == "take" else {
         result(FlutterMethodNotImplemented)
@@ -24,7 +24,7 @@ enum IncomingBridge {
     }
     incoming = incomingChannel
 
-    let channel = FlutterMethodChannel(name: "gymmane/open", binaryMessenger: messenger)
+    let channel = FlutterMethodChannel(name: "jesselicious/open", binaryMessenger: messenger)
     channel.setMethodCallHandler { call, result in
       guard call.method == "take" else {
         result(FlutterMethodNotImplemented)
@@ -38,7 +38,7 @@ enum IncomingBridge {
   }
 
   static func receive(url: URL) {
-    if url.scheme == "gymmane" {
+    if url.scheme == "jesselicious" {
       if let route = url.host, !route.isEmpty { open(route) }
       return
     }

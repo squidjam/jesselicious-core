@@ -24,11 +24,11 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		6F1A0000C0DE000000000004 /* GymManeWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000003 /* GymManeWidgets.swift */; };
+		6F1A0000C0DE000000000004 /* JesseliciousWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000003 /* JesseliciousWidgets.swift */; };
 		6F1A0000C0DE00000000000D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE00000000000B /* WidgetKit.framework */; };
 		6F1A0000C0DE00000000000E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE00000000000C /* SwiftUI.framework */; };
 		6F1A0000C0DE000000000019 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000018 /* Localizable.strings */; };
-		6F1A0000C0DE000000000010 /* GymManeWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000002 /* GymManeWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6F1A0000C0DE000000000010 /* JesseliciousWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000002 /* JesseliciousWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6F1A0000C0DE000000000022 /* rest_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000021 /* rest_over.wav */; };
 		6F1A0000C0DE000000000024 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000023 /* InfoPlist.strings */; };
 		6F1A0000C0DE000000000033 /* WorkoutActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A0000C0DE000000000032 /* WorkoutActivityAttributes.swift */; };
@@ -51,7 +51,7 @@
 			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6F1A0000C0DE000000000001;
-			remoteInfo = GymManeWidgets;
+			remoteInfo = JesseliciousWidgets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				6F1A0000C0DE000000000010 /* GymManeWidgets.appex in Embed Foundation Extensions */,
+				6F1A0000C0DE000000000010 /* JesseliciousWidgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,10 +104,10 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F1A0000C0DE000000000002 /* GymManeWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GymManeWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F1A0000C0DE000000000003 /* GymManeWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymManeWidgets.swift; sourceTree = "<group>"; };
+		6F1A0000C0DE000000000002 /* JesseliciousWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JesseliciousWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F1A0000C0DE000000000003 /* JesseliciousWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JesseliciousWidgets.swift; sourceTree = "<group>"; };
 		6F1A0000C0DE000000000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F1A0000C0DE000000000006 /* GymManeWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GymManeWidgets.entitlements; sourceTree = "<group>"; };
+		6F1A0000C0DE000000000006 /* JesseliciousWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JesseliciousWidgets.entitlements; sourceTree = "<group>"; };
 		6F1A0000C0DE00000000000B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6F1A0000C0DE00000000000C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		6F1A0000C0DE000000000020 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				6F1A0000C0DE000000000039 /* Shared */,
-				6F1A0000C0DE000000000007 /* GymManeWidgets */,
+				6F1A0000C0DE000000000007 /* JesseliciousWidgets */,
 				97C146EF1CF9000F007C117D /* Products */,
 				331C8082294A63A400263BE5 /* RunnerTests */,
 				6F1A0000C0DE00000000000F /* Frameworks */,
@@ -236,7 +236,7 @@
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
 				331C8081294A63A400263BE5 /* RunnerTests.xctest */,
-				6F1A0000C0DE000000000002 /* GymManeWidgets.appex */,
+				6F1A0000C0DE000000000002 /* JesseliciousWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,18 +261,18 @@
 			path = Runner;
 			sourceTree = "<group>";
 		};
-		6F1A0000C0DE000000000007 /* GymManeWidgets */ = {
+		6F1A0000C0DE000000000007 /* JesseliciousWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				6F1A0000C0DE000000000003 /* GymManeWidgets.swift */,
+				6F1A0000C0DE000000000003 /* JesseliciousWidgets.swift */,
 				6F1A0000C0DE000000000035 /* WorkoutLiveActivity.swift */,
 				6F1A0000C0DE00000000003F /* NutritionWidgets.swift */,
 				6F1A0000C0DE000000000037 /* Assets.xcassets */,
 				6F1A0000C0DE000000000018 /* Localizable.strings */,
 				6F1A0000C0DE000000000005 /* Info.plist */,
-				6F1A0000C0DE000000000006 /* GymManeWidgets.entitlements */,
+				6F1A0000C0DE000000000006 /* JesseliciousWidgets.entitlements */,
 			);
-			path = GymManeWidgets;
+			path = JesseliciousWidgets;
 			sourceTree = "<group>";
 		};
 		6F1A0000C0DE00000000000F /* Frameworks */ = {
@@ -334,9 +334,9 @@
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6F1A0000C0DE000000000001 /* GymManeWidgets */ = {
+		6F1A0000C0DE000000000001 /* JesseliciousWidgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F1A0000C0DE000000000017 /* Build configuration list for PBXNativeTarget "GymManeWidgets" */;
+			buildConfigurationList = 6F1A0000C0DE000000000017 /* Build configuration list for PBXNativeTarget "JesseliciousWidgets" */;
 			buildPhases = (
 				6F1A0000C0DE000000000008 /* Sources */,
 				6F1A0000C0DE000000000009 /* Frameworks */,
@@ -346,9 +346,9 @@
 			);
 			dependencies = (
 			);
-			name = GymManeWidgets;
-			productName = GymManeWidgets;
-			productReference = 6F1A0000C0DE000000000002 /* GymManeWidgets.appex */;
+			name = JesseliciousWidgets;
+			productName = JesseliciousWidgets;
+			productReference = 6F1A0000C0DE000000000002 /* JesseliciousWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -410,7 +410,7 @@
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
 				331C8080294A63A400263BE5 /* RunnerTests */,
-				6F1A0000C0DE000000000001 /* GymManeWidgets */,
+				6F1A0000C0DE000000000001 /* JesseliciousWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -514,7 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F1A0000C0DE000000000004 /* GymManeWidgets.swift in Sources */,
+				6F1A0000C0DE000000000004 /* JesseliciousWidgets.swift in Sources */,
 				6F1A0000C0DE000000000036 /* WorkoutLiveActivity.swift in Sources */,
 				6F1A0000C0DE000000000040 /* NutritionWidgets.swift in Sources */,
 				6F1A0000C0DE000000000034 /* WorkoutActivityAttributes.swift in Sources */,
@@ -531,7 +531,7 @@
 		};
 		6F1A0000C0DE000000000013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F1A0000C0DE000000000001 /* GymManeWidgets */;
+			target = 6F1A0000C0DE000000000001 /* JesseliciousWidgets */;
 			targetProxy = 6F1A0000C0DE000000000012 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -682,7 +682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -698,7 +698,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -715,7 +715,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
@@ -730,7 +730,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
@@ -864,7 +864,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -889,7 +889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -902,10 +902,10 @@
 			baseConfigurationReference = 9740EEB31CF90195004384FC /* Generated.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = GymManeWidgets/GymManeWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JesseliciousWidgets/JesseliciousWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				INFOPLIST_FILE = GymManeWidgets/Info.plist;
+				INFOPLIST_FILE = JesseliciousWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -913,7 +913,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -929,10 +929,10 @@
 			baseConfigurationReference = 9740EEB31CF90195004384FC /* Generated.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = GymManeWidgets/GymManeWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JesseliciousWidgets/JesseliciousWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				INFOPLIST_FILE = GymManeWidgets/Info.plist;
+				INFOPLIST_FILE = JesseliciousWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -940,7 +940,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -956,10 +956,10 @@
 			baseConfigurationReference = 9740EEB31CF90195004384FC /* Generated.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = GymManeWidgets/GymManeWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JesseliciousWidgets/JesseliciousWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				INFOPLIST_FILE = GymManeWidgets/Info.plist;
+				INFOPLIST_FILE = JesseliciousWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -967,7 +967,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gymmane.app.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jesselicious.app.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1011,7 +1011,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F1A0000C0DE000000000017 /* Build configuration list for PBXNativeTarget "GymManeWidgets" */ = {
+		6F1A0000C0DE000000000017 /* Build configuration list for PBXNativeTarget "JesseliciousWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F1A0000C0DE000000000014 /* Debug */,

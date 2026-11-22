@@ -3,18 +3,18 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/measure.dart';
-import 'package:gymmane/models/nutrition.dart';
-import 'package:gymmane/models/report_doc.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/health_metrics.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/plan_pdf.dart';
-import 'package:gymmane/services/report_content.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_theme.dart';
-import 'package:gymmane/widgets/report_sheet.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/measure.dart';
+import 'package:jesselicious/models/nutrition.dart';
+import 'package:jesselicious/models/report_doc.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/health_metrics.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/plan_pdf.dart';
+import 'package:jesselicious/services/report_content.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_theme.dart';
+import 'package:jesselicious/widgets/report_sheet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -156,7 +156,7 @@ void main() {
           expect(pages, greaterThan(2), reason: kind.name);
         }
       }
-      expect(reportFileStem(range(7), ReportKind.nutrition), startsWith('gymmane-nutrition-'));
+      expect(reportFileStem(range(7), ReportKind.nutrition), startsWith('jesselicious-nutrition-'));
       await tester.pump(const Duration(seconds: 5));
     });
   });

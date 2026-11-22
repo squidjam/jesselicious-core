@@ -3,13 +3,13 @@ import 'dart:io';
 import 'dart:ui' show PlatformDispatcher;
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/l10n/catalog_es.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/exercise.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/l10n/catalog_es.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/exercise.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -304,7 +304,7 @@ void main() {
 
     bool looksLikeUi(String t) => RegExp(r'^[A-Z]').hasMatch(t) || t.contains(' ');
 
-    const allowed = {'GymMane', 'GYMMANE', 'GYM · MANE', 'M', 'F', 'kg', 'lb', 'cm', 'EN', 'ES', 'NFC'};
+    const allowed = {'Jesselicious', 'JESSELICIOUS', 'GYM · MANE', 'M', 'F', 'kg', 'lb', 'cm', 'EN', 'ES', 'NFC'};
 
     final offenders = <String>[];
 

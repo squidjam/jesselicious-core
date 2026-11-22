@@ -26,8 +26,8 @@ class NutritionWidgets {
   static const levels = 48;
   static const kcalSize = Size(320, 150);
   static const _pendingKey = 'nutri_pending';
-  static const _route = MethodChannel('gymmane/open');
-  static const _device = MethodChannel('gymmane/device');
+  static const _route = MethodChannel('jesselicious/open');
+  static const _device = MethodChannel('jesselicious/device');
   static String _signature = '';
 
   static String signature() {
@@ -112,8 +112,8 @@ class NutritionWidgets {
         'nutri_geo', VesselWidgetGeometry.fractions().map((v) => v.toStringAsFixed(5)).join(','));
     await HomeWidget.saveWidgetData<String>('nutri_text', _hex(day.text));
     await HomeWidget.saveWidgetData<String>('nutri_text_night', _hex(night.text));
-    await HomeWidget.saveWidgetData<String>('nutri_done', _hex(day.sage));
-    await HomeWidget.saveWidgetData<String>('nutri_done_night', _hex(night.sage));
+    await HomeWidget.saveWidgetData<String>('nutri_done', _hex(day.lavender));
+    await HomeWidget.saveWidgetData<String>('nutri_done_night', _hex(night.lavender));
 
     if (wants(water)) {
       await _both(

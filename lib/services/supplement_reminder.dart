@@ -37,7 +37,7 @@ class SupplementReminder {
   static const payloadPrefix = 'supp:';
 
   static const takeAction = 'supp_take';
-  static const _portName = 'gymmane_supp_take';
+  static const _portName = 'jesselicious_supp_take';
   static const _pendingKey = 'gm_supp_taken_pending';
 
   void Function(List<String> ids)? onOpen;

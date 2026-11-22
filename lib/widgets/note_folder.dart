@@ -329,7 +329,7 @@ class _FolderEditorState extends State<_FolderEditor> {
               textCapitalization: TextCapitalization.sentences,
               onChanged: (_) => setState(() {}),
               onSubmitted: (_) => _save(),
-              cursorColor: gc.accent,
+              cursorColor: gc.teal,
               style: AppTheme.f(15, weight: FontWeight.w600, color: gc.text),
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -362,8 +362,8 @@ class _FolderEditorState extends State<_FolderEditor> {
           PrimaryButton(
             label: t.save,
             onTap: _save,
-            bg: _ok ? gc.ember : gc.mutedFill,
-            fg: _ok ? gc.onEmber : gc.textTertiary,
+            bg: _ok ? gc.magenta : gc.mutedFill,
+            fg: _ok ? gc.onMagenta : gc.textTertiary,
           ),
         ]),
       ),

@@ -295,13 +295,13 @@ class _ExerciseHistorySheetState extends State<ExerciseHistorySheet> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
                     decoration: BoxDecoration(
-                        color: up ? gc.sageSoft : gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+                        color: up ? gc.lavenderSoft : gc.tealSoft, borderRadius: BorderRadius.circular(100)),
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
                       Icon(delta >= 0 ? PhosphorIconsBold.trendUp : PhosphorIconsBold.trendDown,
-                          size: 12, color: up ? gc.sage : gc.accent),
+                          size: 12, color: up ? gc.lavender : gc.teal),
                       const SizedBox(width: 4),
                       Text('${delta >= 0 ? '+' : ''}${fmt((shownDelta * 10).round() / 10)}${_relative ? ' %' : ''}',
-                          style: AppTheme.s(11.5, weight: FontWeight.w700, color: up ? gc.sage : gc.accent)),
+                          style: AppTheme.s(11.5, weight: FontWeight.w700, color: up ? gc.lavender : gc.teal)),
                     ]),
                   ),
                 ),

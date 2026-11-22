@@ -45,7 +45,7 @@ class ShareCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('GymMane', style: AppTheme.f(14, weight: FontWeight.w800, color: gc.text, letterSpacing: -0.2)),
+              Text('Jesselicious', style: AppTheme.f(14, weight: FontWeight.w800, color: gc.text, letterSpacing: -0.2)),
               const Spacer(),
               Text(t.shortDateYear(DateTime.now()),
                   style: AppTheme.f(11, weight: FontWeight.w600, color: gc.textTertiary)),
@@ -138,7 +138,7 @@ class ShareCard extends StatelessWidget {
               shaderCallback: (r) => LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [gc.accent, gc.brass],
+                colors: [gc.teal, gc.marigold],
               ).createShader(r),
               child: Text('${fit.currentStreak}',
                   style: AppTheme.f(104, weight: FontWeight.w800, color: gc.text, height: 1, letterSpacing: -5)
@@ -246,7 +246,7 @@ class ShareCard extends StatelessWidget {
         if (delta != null) ...[
           const SizedBox(height: 8),
           Text('${delta > 0 ? '+' : ''}${fmt(delta)} ${fit.units}',
-              style: AppTheme.f(20, weight: FontWeight.w700, color: gc.accent)),
+              style: AppTheme.f(20, weight: FontWeight.w700, color: gc.teal)),
         ],
         const SizedBox(height: 16),
       ],

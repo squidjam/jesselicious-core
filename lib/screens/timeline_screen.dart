@@ -162,17 +162,17 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 duration: const Duration(milliseconds: 180),
                 height: 40,
                 decoration: BoxDecoration(
-                  color: on ? gc.ember : Colors.transparent,
+                  color: on ? gc.teal : Colors.transparent,
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(icon, size: 15, color: on ? gc.onEmber : gc.textSecondary),
+                    Icon(icon, size: 15, color: on ? gc.onTeal : gc.textSecondary),
                     const SizedBox(width: 7),
                     Text(label,
                         style: AppTheme.s(13,
-                            weight: FontWeight.w600, color: on ? gc.onEmber : gc.textSecondary)),
+                            weight: FontWeight.w600, color: on ? gc.onTeal : gc.textSecondary)),
                   ],
                 ),
               ),
@@ -280,7 +280,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   }
 
   Widget _rail(GymColors gc, {required bool last, required int gap}) {
-    final dash = Color.lerp(gc.border, gc.accent, 0.55)!;
+    final dash = Color.lerp(gc.border, gc.teal, 0.55)!;
     return SizedBox(
       width: 34,
       child: Column(
@@ -290,9 +290,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
             height: 11,
             margin: const EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
-              color: gc.accent,
+              color: gc.teal,
               shape: BoxShape.circle,
-              border: Border.all(color: gc.accentSoft, width: 3),
+              border: Border.all(color: gc.tealSoft, width: 3),
             ),
           ),
           if (!last)
@@ -409,7 +409,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 Expanded(child: _thumb(gc, a, double.infinity, 150)),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Icon(PhosphorIconsBold.arrowRight, size: 16, color: gc.accent),
+                  child: Icon(PhosphorIconsBold.arrowRight, size: 16, color: gc.teal),
                 ),
                 Expanded(child: _thumb(gc, b, double.infinity, 150)),
               ],
@@ -428,7 +428,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                         Text('${delta > 0 ? '+' : ''}${fmt(delta)} ${fit.units}',
                             style: AppTheme.s(12.5,
                                 weight: FontWeight.w600,
-                                color: delta == 0 ? gc.textSecondary : gc.accent)),
+                                color: delta == 0 ? gc.textSecondary : gc.teal)),
                       ],
                     ],
                   ),
@@ -436,8 +436,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 if (pose != null)
                   Pill(
                     label: t.compare,
-                    bg: gc.ember,
-                    fg: gc.onEmber,
+                    bg: gc.teal,
+                    fg: gc.onTeal,
                     fontSize: 12,
                     onTap: fit.goCompare,
                   ),
@@ -477,7 +477,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             if (!body && left != null)
               Text(due ? t.photoDueNow : t.photoNextIn(left),
                   style: AppTheme.f(12,
-                      weight: FontWeight.w600, color: due ? gc.accent : gc.textTertiary)),
+                      weight: FontWeight.w600, color: due ? gc.teal : gc.textTertiary)),
           ],
         ),
         const SizedBox(height: 10),
@@ -533,7 +533,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
           height: 36,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: on ? gc.ember : Colors.transparent,
+            color: on ? gc.teal : Colors.transparent,
             borderRadius: BorderRadius.circular(100),
           ),
           child: FittedBox(
@@ -543,7 +543,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
               child: Text(label,
                   maxLines: 1,
                   style: AppTheme.f(13,
-                      weight: FontWeight.w600, color: on ? gc.onEmber : gc.textSecondary)),
+                      weight: FontWeight.w600, color: on ? gc.onTeal : gc.textSecondary)),
             ),
           ),
         ),

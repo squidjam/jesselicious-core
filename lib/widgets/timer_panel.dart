@@ -45,7 +45,7 @@ class TimerPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    final accent = color ?? gc.sage;
+    final accent = color ?? gc.lavender;
     final left = total <= 0 ? 0.0 : (remaining / total).clamp(0.0, 1.0);
     return Semantics(
       button: true,

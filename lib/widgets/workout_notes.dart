@@ -92,7 +92,7 @@ Widget _noteLine(GymColors gc, String text, IconData icon) => Row(
   children: [
     Padding(
       padding: const EdgeInsets.only(top: 1.5),
-      child: Icon(icon, size: 13, color: gc.accent),
+      child: Icon(icon, size: 13, color: gc.teal),
     ),
     const SizedBox(width: 8),
     Expanded(
@@ -146,7 +146,7 @@ Future<void> showWorkoutNotesSheet(BuildContext context, String exerciseId, {Str
             SheetTitle(t.workoutNotesTitle, subtitle: _exerciseTitle(exerciseId)),
             const SizedBox(height: 16),
             if (routineNote != null) ...[
-              Text(t.routineExerciseNote, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.accent)),
+              Text(t.routineExerciseNote, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.teal)),
               const SizedBox(height: 6),
               Text(routineNote, style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text, height: 1.4)),
               const SizedBox(height: 16),
@@ -159,7 +159,7 @@ Future<void> showWorkoutNotesSheet(BuildContext context, String exerciseId, {Str
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Row(children: [
-                        Icon(_iconOf(n), size: 12, color: gc.accent),
+                        Icon(_iconOf(n), size: 12, color: gc.teal),
                         const SizedBox(width: 6),
                         Flexible(
                           child: Text(
@@ -168,7 +168,7 @@ Future<void> showWorkoutNotesSheet(BuildContext context, String exerciseId, {Str
                                   : DateUtils.isSameDay(n.date, DateTime.now())
                                       ? t.workoutNoteNext
                                       : t.workoutNoteFromLast(t.shortDate(n.date)),
-                              style: AppTheme.f(11, weight: FontWeight.w700, color: gc.accent, letterSpacing: 0.3)),
+                              style: AppTheme.f(11, weight: FontWeight.w700, color: gc.teal, letterSpacing: 0.3)),
                         ),
                       ]),
                       const SizedBox(height: 6),
@@ -274,14 +274,14 @@ class _WorkoutNoteEditorState extends State<_WorkoutNoteEditor> {
             duration: const Duration(milliseconds: 160),
             padding: const EdgeInsets.fromLTRB(12, 11, 12, 12),
             decoration: BoxDecoration(
-              color: on ? gc.accentSoft : gc.bgRaised2,
+              color: on ? gc.tealSoft : gc.bgRaised2,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: on ? gc.accent : gc.border, width: on ? 1.4 : 1),
+              border: Border.all(color: on ? gc.teal : gc.border, width: on ? 1.4 : 1),
             ),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(children: [
                 Icon(every ? PhosphorIconsFill.pushPin : PhosphorIconsFill.arrowBendDownRight,
-                    size: 14, color: on ? gc.accent : gc.textTertiary),
+                    size: 14, color: on ? gc.teal : gc.textTertiary),
                 const SizedBox(width: 6),
                 Flexible(
                   child: Text(every ? t.workoutNoteEvery : t.workoutNoteNext,
@@ -314,7 +314,7 @@ class _WorkoutNoteEditorState extends State<_WorkoutNoteEditor> {
           maxLines: 6,
           maxLength: 1000,
           textCapitalization: TextCapitalization.sentences,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text, height: 1.4),
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -421,7 +421,7 @@ class _SetNoteFieldState extends State<SetNoteField> {
           maxLines: 4,
           maxLength: 280,
           textCapitalization: TextCapitalization.sentences,
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           onChanged: widget.onChanged,
           style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text, height: 1.4),
           decoration: InputDecoration(

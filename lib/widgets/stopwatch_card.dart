@@ -79,9 +79,9 @@ class _StopwatchCardState extends State<StopwatchCard> {
             child: Container(
               width: 44,
               height: 44,
-              decoration: BoxDecoration(color: running ? gc.bgRaised2 : gc.ember, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: running ? gc.bgRaised2 : gc.magenta, shape: BoxShape.circle),
               child: Icon(running ? PhosphorIconsFill.pause : PhosphorIconsFill.play,
-                  size: 20, color: running ? gc.text : gc.onEmber),
+                  size: 20, color: running ? gc.text : gc.onMagenta),
             ),
           ),
         ],

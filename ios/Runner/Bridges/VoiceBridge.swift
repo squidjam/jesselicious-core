@@ -11,7 +11,7 @@ final class VoiceBridge: NSObject, AVSpeechSynthesizerDelegate {
 
   static func register(with messenger: FlutterBinaryMessenger) {
     shared.synthesizer.delegate = shared
-    FlutterMethodChannel(name: "gymmane/voice", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/voice", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         shared.handle(call, result)
       }

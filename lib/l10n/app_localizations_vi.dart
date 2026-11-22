@@ -1419,7 +1419,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get aboutGymmane => 'Giới thiệu GymMane';
+  String get aboutGymmane => 'Giới thiệu Jesselicious';
 
   @override
   String get yourProfile => 'HỒ SƠ CỦA BẠN';
@@ -2181,7 +2181,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aiIntro =>
-      'GymMane không bao giờ kết nối với AI. Bạn lấy danh sách bài tập ra, dán vào trợ lý mà bạn vẫn dùng, rồi mang câu trả lời của nó trở lại. Không gì tự rời khỏi điện thoại.';
+      'Jesselicious không bao giờ kết nối với AI. Bạn lấy danh sách bài tập ra, dán vào trợ lý mà bạn vẫn dùng, rồi mang câu trả lời của nó trở lại. Không gì tự rời khỏi điện thoại.';
 
   @override
   String aiMissing(int n) {
@@ -2206,7 +2206,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get awardFirstStepName => 'Bước đầu tiên';
 
   @override
-  String get awardFirstStepLine => 'Chào mừng đến với GymMane. Huy chương này là quà tặng.';
+  String get awardFirstStepLine => 'Chào mừng đến với Jesselicious. Huy chương này là quà tặng.';
 
   @override
   String get awardFirstWorkoutName => 'Buổi tập đầu tiên';
@@ -2800,7 +2800,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String shareMessage(String name) {
-    return '$name: mở tệp bằng GymMane để thêm vào.';
+    return '$name: mở tệp bằng Jesselicious để thêm vào.';
   }
 
   @override
@@ -2808,7 +2808,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importPasteHint =>
-      'Dán giáo án tập vào đây: giáo án được chia sẻ từ GymMane, câu trả lời của AI, JSON hoặc CSV.';
+      'Dán giáo án tập vào đây: giáo án được chia sẻ từ Jesselicious, câu trả lời của AI, JSON hoặc CSV.';
 
   @override
   String get pasteAction => 'Dán';
@@ -2836,11 +2836,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get nothingToImport => 'Không có gì ở đây mà GymMane có thể nhập';
+  String get nothingToImport => 'Không có gì ở đây mà Jesselicious có thể nhập';
 
   @override
   String get aiStepCopy =>
-      'Sao chép yêu cầu. Nó chứa danh sách bài tập của bạn và định dạng mà GymMane đọc được.';
+      'Sao chép yêu cầu. Nó chứa danh sách bài tập của bạn và định dạng mà Jesselicious đọc được.';
 
   @override
   String get aiStepAsk =>
@@ -2990,7 +2990,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get shareIntroBody =>
-      'Gửi cho bạn tập, bạn bè hoặc gia đình. Họ sẽ nhận một tệp nhỏ mở được bằng GymMane và thêm vào chỉ với một lần chạm, kèm các hiệp và mức tạ.';
+      'Gửi cho bạn tập, bạn bè hoặc gia đình. Họ sẽ nhận một tệp nhỏ mở được bằng Jesselicious và thêm vào chỉ với một lần chạm, kèm các hiệp và mức tạ.';
 
   @override
   String get removedFromRoutine => 'Đã gỡ khỏi giáo án tập';
@@ -3141,7 +3141,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepsInfoLocal =>
-      'Số bước chỉ nằm trên điện thoại của bạn. GymMane không bao giờ kết nối internet.';
+      'Số bước chỉ nằm trên điện thoại của bạn. Jesselicious không bao giờ kết nối internet.';
 
   @override
   String get stepsInfoOff => 'Tắt bất cứ lúc nào trong Cài đặt hoặc trong Health Connect.';
@@ -3499,7 +3499,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get appIcon => 'Biểu tượng ứng dụng';
 
   @override
-  String get appIconHint => 'GymMane trông thế nào trên màn hình chính';
+  String get appIconHint => 'Jesselicious trông thế nào trên màn hình chính';
 
   @override
   String get appIconColors => 'Màu sắc';
@@ -4689,7 +4689,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get nutritionAboutWhat =>
-      'Cách đơn giản để ghi bữa ăn, nước, đạm và thực phẩm bổ sung ngay cạnh các buổi tập. GymMane trước hết là ứng dụng tập gym: Dinh dưỡng có mặt để bạn giữ mọi thứ ở một chỗ, không phải để thay thế một ứng dụng ăn kiêng chuyên dụng.';
+      'Cách đơn giản để ghi bữa ăn, nước, đạm và thực phẩm bổ sung ngay cạnh các buổi tập. Jesselicious trước hết là ứng dụng tập gym: Dinh dưỡng có mặt để bạn giữ mọi thứ ở một chỗ, không phải để thay thế một ứng dụng ăn kiêng chuyên dụng.';
 
   @override
   String get nutritionAboutScanTitle => 'Không bao giờ quét mã';
@@ -4703,7 +4703,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get nutritionAboutLocal =>
-      'Hơn 500 thực phẩm có ảnh đi kèm sẵn trong ứng dụng. Bạn có thể tự thêm, đổi ảnh và sửa giá trị của chúng. Tất cả đều nằm trên điện thoại của bạn, như phần còn lại của GymMane.';
+      'Hơn 500 thực phẩm có ảnh đi kèm sẵn trong ứng dụng. Bạn có thể tự thêm, đổi ảnh và sửa giá trị của chúng. Tất cả đều nằm trên điện thoại của bạn, như phần còn lại của Jesselicious.';
 
   @override
   String get nutritionAboutBetaTitle => 'Vẫn đang beta';
@@ -4764,7 +4764,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get notifSuppTap => 'Đánh dấu trong GymMane sau khi bạn đã dùng.';
+  String get notifSuppTap => 'Đánh dấu trong Jesselicious sau khi bạn đã dùng.';
 
   @override
   String get suppNoneToday => 'Hôm nay không cần dùng gì.';
@@ -5659,7 +5659,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get ladderHint =>
-      'Sắp xếp các bậc từ dễ nhất đến khó nhất. Khi bạn tập 3 hiệp 8 lần lặp hai buổi liên tiếp (5 với các bài chậm), GymMane sẽ đề xuất bậc tiếp theo.';
+      'Sắp xếp các bậc từ dễ nhất đến khó nhất. Khi bạn tập 3 hiệp 8 lần lặp hai buổi liên tiếp (5 với các bài chậm), Jesselicious sẽ đề xuất bậc tiếp theo.';
 
   @override
   String get ladderBuiltIn =>
@@ -6625,14 +6625,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get supportThanksBody =>
-      'GymMane miễn phí và sẽ luôn như vậy, không quảng cáo và không có gì bị giấu.\n\nNếu ứng dụng giúp ích cho việc tập luyện của bạn, mời tôi một ly cà phê sẽ làm tôi vui cả ngày ☕\nCòn nếu không thể, đừng lo: một ngôi sao trên GitHub cũng vậy ⭐';
+      'Jesselicious miễn phí và sẽ luôn như vậy, không quảng cáo và không có gì bị giấu.\n\nNếu ứng dụng giúp ích cho việc tập luyện của bạn, mời tôi một ly cà phê sẽ làm tôi vui cả ngày ☕\nCòn nếu không thể, đừng lo: một ngôi sao trên GitHub cũng vậy ⭐';
 
   @override
   String get perfSetting => 'Hiệu năng';
 
   @override
   String get perfSheetHint =>
-      'GymMane dùng bao nhiêu tài nguyên điện thoại. Bạn có thể thay đổi từng phần bên dưới.';
+      'Jesselicious dùng bao nhiêu tài nguyên điện thoại. Bạn có thể thay đổi từng phần bên dưới.';
 
   @override
   String get perfLite => 'Tiết kiệm';
@@ -7173,7 +7173,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get autoProgressHint =>
-      'Khi bạn bắt đầu buổi tập, GymMane sẽ điền bước tiếp theo cho từng bài tập. Với Thêm lần lặp, bạn thêm một lần lặp mỗi hiệp cho đến 12, sau đó mức tạ tăng lên và bạn bắt đầu lại từ 8. Bạn vẫn có thể điều chỉnh từng bài tập trong trang của nó.';
+      'Khi bạn bắt đầu buổi tập, Jesselicious sẽ điền bước tiếp theo cho từng bài tập. Với Thêm lần lặp, bạn thêm một lần lặp mỗi hiệp cho đến 12, sau đó mức tạ tăng lên và bạn bắt đầu lại từ 8. Bạn vẫn có thể điều chỉnh từng bài tập trong trang của nó.';
 
   @override
   String get noteFolders => 'Thư mục';
@@ -7657,7 +7657,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Cho những máy hiển thị chữ bị lỗi. Hiệu ứng mờ vẫn giữ, vài hiệu ứng sẽ đơn giản hơn';
 
   @override
-  String get gfxRestartTitle => 'Khởi động lại GymMane?';
+  String get gfxRestartTitle => 'Khởi động lại Jesselicious?';
 
   @override
   String get gfxRestartBody =>
@@ -7752,7 +7752,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get wearSyncNow => 'Đồng bộ ngay';
 
   @override
-  String get wearSyncHow => 'Trên điện thoại, bật Cài đặt › Đồng hồ Wear OS và mở GymMane trên cả hai.';
+  String get wearSyncHow => 'Trên điện thoại, bật Cài đặt › Đồng hồ Wear OS và mở Jesselicious trên cả hai.';
 
   @override
   String get routinesOrder => 'Sắp xếp giáo án';
@@ -8132,13 +8132,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get watchSubtitle => 'Giáo án trên cổ tay, buổi tập quay về điện thoại';
 
   @override
-  String get watchPoint1 => 'Cài GymMane lên đồng hồ';
+  String get watchPoint1 => 'Cài Jesselicious lên đồng hồ';
 
   @override
   String get watchPoint1Body => 'Cùng một ứng dụng như trên điện thoại. Chạm để xem hướng dẫn cài.';
 
   @override
-  String get watchPoint2 => 'Mở GymMane trên cả hai';
+  String get watchPoint2 => 'Mở Jesselicious trên cả hai';
 
   @override
   String get watchPoint2Body =>
@@ -8166,13 +8166,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get watchSearching => 'Đang tìm đồng hồ…';
 
   @override
-  String get watchSearchingHint => 'Mở GymMane trên đồng hồ nếu chưa mở.';
+  String get watchSearchingHint => 'Mở Jesselicious trên đồng hồ nếu chưa mở.';
 
   @override
   String get watchBluetoothOff => 'Bluetooth đang tắt.';
 
   @override
-  String get watchNotFound => 'Không thấy đồng hồ. Mở GymMane trên đồng hồ rồi thử lại.';
+  String get watchNotFound => 'Không thấy đồng hồ. Mở Jesselicious trên đồng hồ rồi thử lại.';
 
   @override
   String get watchNever => 'Chưa đồng bộ.';
@@ -8247,7 +8247,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get qsAdded => 'Đã thêm';
 
   @override
-  String get qsManual => 'Kéo Cài đặt nhanh xuống, chạm vào bút chì và kéo ô GymMane vào các ô của bạn.';
+  String get qsManual => 'Kéo Cài đặt nhanh xuống, chạm vào bút chì và kéo ô Jesselicious vào các ô của bạn.';
 
   @override
   String get qsPassUse => 'Mở từ Cài đặt nhanh';
@@ -8985,7 +8985,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get scannerTitle => 'GymMane Scanner';
 
   @override
-  String get scannerKicker => 'Community app · not part of GymMane';
+  String get scannerKicker => 'Community app · not part of Jesselicious';
 
   @override
   String get scannerBody => 'Scan a barcode and it sends you the food, ready to check.';

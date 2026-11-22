@@ -137,7 +137,7 @@ class _RulerPickerState extends State<RulerPicker> {
               child: Container(
                 width: vertical ? 44 : 3,
                 height: vertical ? 3 : 44,
-                decoration: BoxDecoration(color: gc.accent, borderRadius: BorderRadius.circular(2)),
+                decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(2)),
               ),
             ),
           ],

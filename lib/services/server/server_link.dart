@@ -33,7 +33,7 @@ class ServerLink extends ChangeNotifier {
     final r = await net.send('GET', 'api/state');
     if (r.status == 204 || (r.ok && (r.headers['content-type'] ?? '').contains('json'))) {
       available = true;
-      rev = int.tryParse(r.headers['x-gymmane-rev'] ?? '') ?? 0;
+      rev = int.tryParse(r.headers['x-jesselicious-rev'] ?? '') ?? 0;
       remoteText = r.status == 204 ? null : utf8.decode(r.bytes ?? Uint8List(0));
     }
   }
@@ -72,7 +72,7 @@ class ServerLink extends ChangeNotifier {
         _pending = null;
         final r = await net.send('PUT', 'api/state',
             body: Uint8List.fromList(utf8.encode(text)),
-            headers: {'content-type': 'application/json', 'x-gymmane-base-rev': '$rev'});
+            headers: {'content-type': 'application/json', 'x-jesselicious-base-rev': '$rev'});
         if (r.ok) {
           _setOnline(true);
           wait = 2;
@@ -116,10 +116,10 @@ class ServerLink extends ChangeNotifier {
   Future<void> _pull({bool conflict = false}) async {
     final r = await net.send('GET', 'api/state');
     if (!r.ok || r.bytes == null) return;
-    rev = int.tryParse(r.headers['x-gymmane-rev'] ?? '') ?? rev;
+    rev = int.tryParse(r.headers['x-jesselicious-rev'] ?? '') ?? rev;
     final text = utf8.decode(r.bytes!);
     remoteText = text;
-    onRemote?.call(text, conflict: conflict, fromPhone: r.headers['x-gymmane-source'] == 'phone');
+    onRemote?.call(text, conflict: conflict, fromPhone: r.headers['x-jesselicious-source'] == 'phone');
   }
 
   Future<Map<String, dynamic>?> _json(String method, String path) async {

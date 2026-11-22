@@ -14,9 +14,9 @@ import 'local_image.dart';
 
 extension NutritionColors on GymColors {
   Color get water => info;
-  Color get protein => accent;
+  Color get protein => teal;
   Color get carbs => warn;
-  Color get fat => sage;
+  Color get fat => lavender;
 }
 
 class CalorieRing extends StatelessWidget {
@@ -42,8 +42,8 @@ class CalorieRing extends StatelessWidget {
           painter: _CalorieRingPainter(
             pct: v,
             track: gc.bgRaised2,
-            from: Color.lerp(color ?? gc.accent, gc.bgRaised2, 0.35)!,
-            to: color ?? gc.accent,
+            from: Color.lerp(color ?? gc.teal, gc.bgRaised2, 0.35)!,
+            to: color ?? gc.teal,
             over: gc.danger,
             stroke: stroke,
           ),

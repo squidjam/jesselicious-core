@@ -70,7 +70,7 @@ import '../services/server/server_link.dart';
 import '../widgets/server_card.dart';
 import 'about_screen.dart';
 
-const _kRepoUrl = 'https://github.com/InlitX/GymMane';
+const _kRepoUrl = 'https://github.com/InlitX/jesselicious-core';
 const _kBugUrl = '$_kRepoUrl/issues/new?labels=bug';
 const _kFeatureUrl = '$_kRepoUrl/issues/new?labels=enhancement';
 const _kKofiUrl = 'https://ko-fi.com/inlitx';
@@ -1326,8 +1326,8 @@ class SettingsScreen extends StatelessWidget {
       return;
     }
     final stamp = DateTime.now().toIso8601String().split('T').first;
-    await shareFile('gymmane-workouts-$stamp.csv', utf8Bytes(fit.exportCsv()),
-        mime: 'text/csv', subject: 'GymMane workouts');
+    await shareFile('jesselicious-workouts-$stamp.csv', utf8Bytes(fit.exportCsv()),
+        mime: 'text/csv', subject: 'Jesselicious workouts');
   }
 
   Future<void> _clearWorkouts(BuildContext context) async {
@@ -1362,7 +1362,7 @@ class SettingsScreen extends StatelessWidget {
     final stamp = DateTime.now().toIso8601String().split('T').first;
     final zip = await buildBackupZip();
     if (!context.mounted) return;
-    await shareFile('gymmane-backup-$stamp.zip', zip, mime: 'application/zip', subject: 'GymMane backup');
+    await shareFile('jesselicious-backup-$stamp.zip', zip, mime: 'application/zip', subject: 'Jesselicious backup');
   }
 
   Future<void> _importBackup(BuildContext context) async {
@@ -1408,12 +1408,12 @@ class SettingsScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
         decoration: BoxDecoration(
-          color: gc.accentSoft,
+          color: gc.tealSoft,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: gc.accent.withValues(alpha: .3)),
+          border: Border.all(color: gc.teal.withValues(alpha: .3)),
         ),
         child: Row(children: [
-          Icon(PhosphorIconsRegular.bellSlash, size: 18, color: gc.accent),
+          Icon(PhosphorIconsRegular.bellSlash, size: 18, color: gc.teal),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -1428,7 +1428,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Text(t.alarmBlockedAction,
-              style: AppTheme.f(12, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1)),
+              style: AppTheme.f(12, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1)),
         ]),
       ),
     );
@@ -1501,10 +1501,10 @@ class SettingsScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(PhosphorIconsRegular.githubLogo, size: 15, color: gc.accent),
+                      Icon(PhosphorIconsRegular.githubLogo, size: 15, color: gc.teal),
                       const SizedBox(width: 8),
                       Text(t.importAskApp,
-                          style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                          style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
                     ],
                   ),
                 ),
@@ -1635,8 +1635,8 @@ class SettingsScreen extends StatelessWidget {
         title: Text(t.importUnitTitle, style: AppTheme.f(18, weight: FontWeight.w700, color: gc.text)),
         content: Text(t.importUnitBody, style: AppTheme.f(13, weight: FontWeight.w500, color: gc.textSecondary)),
         actions: [
-          dialogAction('kg', gc.accent, () => Navigator.of(dctx).pop(false)),
-          dialogAction('lb', gc.accent, () => Navigator.of(dctx).pop(true)),
+          dialogAction('kg', gc.teal, () => Navigator.of(dctx).pop(false)),
+          dialogAction('lb', gc.teal, () => Navigator.of(dctx).pop(true)),
         ],
       ),
     );
@@ -1661,7 +1661,7 @@ class SettingsScreen extends StatelessWidget {
         return;
       }
       await HomeWidget.requestPinWidget(
-          qualifiedAndroidName: 'com.gymmane.app.$provider');
+          qualifiedAndroidName: 'com.jesselicious.app.$provider');
     } catch (_) {
       if (context.mounted) _snack(context, t.pinUnsupported);
     }
@@ -1741,7 +1741,7 @@ class SettingsScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: _habitLabel(sheet) == null
                         ? AppTheme.f(12.5, weight: FontWeight.w500, color: gc.textSecondary)
-                        : AppTheme.f(22, weight: FontWeight.w700, color: gc.ember)),
+                        : AppTheme.f(22, weight: FontWeight.w700, color: gc.teal)),
                 const SizedBox(height: 12),
                 Text(t.reminderSmartHint,
                     textAlign: TextAlign.center,
@@ -1778,7 +1778,7 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 8),
               Text(_clockLabel(sheet, minutes),
                   textAlign: TextAlign.center,
-                  style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.ember)),
+                  style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.teal)),
               const SizedBox(height: 14),
               Text(t.trainReminderHint,
                   textAlign: TextAlign.center,
@@ -1921,7 +1921,7 @@ class SettingsScreen extends StatelessWidget {
                         height: 44,
                         alignment: Alignment.center,
                         child: Text(t.bgPhotoRemove,
-                            style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                            style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
                       ),
                     ),
                   ],
@@ -2030,7 +2030,7 @@ class SettingsScreen extends StatelessWidget {
 
 
   void _snack(BuildContext context, String msg) {
-    showNotchToast(context, msg, icon: PhosphorIconsFill.checkCircle, accent: context.gc.sage);
+    showNotchToast(context, msg, icon: PhosphorIconsFill.checkCircle, accent: context.gc.lavender);
   }
 }
 
@@ -2094,7 +2094,7 @@ class _NotifSoundSheet extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                       decoration: BoxDecoration(color: gc.bgRaised, borderRadius: BorderRadius.circular(16)),
                       child: Row(children: [
-                        Icon(PhosphorIconsRegular.musicNote, size: 16, color: gc.accent),
+                        Icon(PhosphorIconsRegular.musicNote, size: 16, color: gc.teal),
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text(name.isEmpty ? t.notifSoundPhone : name,
@@ -2102,7 +2102,7 @@ class _NotifSoundSheet extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: AppTheme.f(13.5, weight: FontWeight.w700, color: gc.text)),
                         ),
-                        Text(t.notifSoundChange, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.accent)),
+                        Text(t.notifSoundChange, style: AppTheme.f(12.5, weight: FontWeight.w700, color: gc.teal)),
                       ]),
                     ),
                   ),
@@ -2323,7 +2323,7 @@ class _ProfileSheetState extends State<_ProfileSheet> {
               _field(gc, t.nameLabel, TextField(
                 controller: _name,
                 style: AppTheme.f(15.5, weight: FontWeight.w600, color: gc.text),
-                cursorColor: gc.accent,
+                cursorColor: gc.teal,
                 textCapitalization: TextCapitalization.words,
                 onChanged: (v) => fit.updateProfile(name: v),
                 decoration: InputDecoration(
@@ -2340,7 +2340,7 @@ class _ProfileSheetState extends State<_ProfileSheet> {
                   child: TextField(
                     controller: _handle,
                     style: AppTheme.f(15.5, weight: FontWeight.w600, color: gc.text),
-                    cursorColor: gc.accent,
+                    cursorColor: gc.teal,
                     onChanged: fit.setProfileHandle,
                     decoration: InputDecoration(
                       isCollapsed: true,
@@ -3108,9 +3108,9 @@ class _SettingsHomeState extends State<_SettingsHome> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(t.helpGo, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                                    Text(t.helpGo, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
                                     const SizedBox(width: 4),
-                                    Icon(PhosphorIconsBold.arrowUpRight, size: 13, color: gc.accent),
+                                    Icon(PhosphorIconsBold.arrowUpRight, size: 13, color: gc.teal),
                                   ],
                                 ),
                               ),

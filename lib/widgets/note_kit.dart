@@ -23,7 +23,7 @@ import 'local_image.dart';
 Color noteKindColor(GymColors gc, NoteKind k) => switch (k) {
       NoteKind.note => gc.info,
       NoteKind.plan => gc.warn,
-      NoteKind.done => gc.sage,
+      NoteKind.done => gc.lavender,
       NoteKind.pain => gc.danger,
     };
 
@@ -150,9 +150,9 @@ class NoteCalendar extends StatelessWidget {
           height: 46,
           margin: const EdgeInsets.all(1.5),
           decoration: BoxDecoration(
-            color: on ? gc.emberSoft : Colors.transparent,
+            color: on ? gc.tealSoft : Colors.transparent,
             borderRadius: BorderRadius.circular(13),
-            border: Border.all(color: on ? gc.ember : Colors.transparent),
+            border: Border.all(color: on ? gc.teal : Colors.transparent),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -163,7 +163,7 @@ class NoteCalendar extends StatelessWidget {
                       color: on
                           ? gc.text
                           : isToday
-                              ? gc.ember
+                              ? gc.teal
                               : gc.textSecondary)),
               const SizedBox(height: 4),
               SizedBox(
@@ -364,7 +364,7 @@ class NoteFilterBar extends StatelessWidget {
         children: [
           chip(
             label: t.noteFilterAll,
-            color: gc.ember,
+            color: gc.teal,
             on: selected == null,
             onTap: () => onPick(null),
           ),
@@ -472,7 +472,7 @@ class NoteCard extends StatelessWidget {
                               const SizedBox(width: 6),
                               Semantics(
                                 label: t.workoutNoteEvery,
-                                child: Icon(PhosphorIconsFill.pushPin, size: 12, color: gc.accent),
+                                child: Icon(PhosphorIconsFill.pushPin, size: 12, color: gc.teal),
                               ),
                             ],
                           ]),
@@ -724,7 +724,7 @@ class _NoteSheetView extends StatelessWidget {
                 style: AppTheme.f(11, weight: FontWeight.w800, color: color, letterSpacing: 1.3)),
             if (note.pinned) ...[
               const SizedBox(width: 8),
-              Icon(PhosphorIconsFill.pushPin, size: 13, color: gc.accent),
+              Icon(PhosphorIconsFill.pushPin, size: 13, color: gc.teal),
             ],
             const SizedBox(width: 12),
             Expanded(
@@ -834,7 +834,7 @@ class NoteLinkTile extends StatelessWidget {
         padding: const EdgeInsetsDirectional.fromSTEB(14, 10, 6, 10),
         decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(16)),
         child: Row(children: [
-          Icon(PhosphorIconsRegular.link, size: 18, color: gc.accent),
+          Icon(PhosphorIconsRegular.link, size: 18, color: gc.teal),
           const SizedBox(width: 12),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

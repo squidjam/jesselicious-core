@@ -90,7 +90,7 @@ class _WeightStackSheetState extends State<_WeightStackSheet> {
             TextField(
               controller: c,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
-              cursorColor: gc.accent,
+              cursorColor: gc.teal,
               style: AppTheme.f(16, weight: FontWeight.w800, color: gc.text),
               decoration: InputDecoration(
                 isDense: true,
@@ -158,13 +158,13 @@ class _WeightStackSheetState extends State<_WeightStackSheet> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
-                      color: gc.accentSoft,
+                      color: gc.tealSoft,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
-                      Icon(PhosphorIconsBold.plus, size: 12, color: gc.accent),
+                      Icon(PhosphorIconsBold.plus, size: 12, color: gc.teal),
                       const SizedBox(width: 4),
-                      Text(t.addShort, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                      Text(t.addShort, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
                     ]),
                   ),
                 ),

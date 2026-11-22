@@ -54,11 +54,11 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(children: [
-                    Icon(PhosphorIconsRegular.shieldCheck, size: 18, color: gc.sage),
+                    Icon(PhosphorIconsRegular.shieldCheck, size: 18, color: gc.lavender),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(t.fullyOffline.toUpperCase(),
-                          style: AppTheme.f(12, weight: FontWeight.w700, color: gc.sage, letterSpacing: 1.4)),
+                          style: AppTheme.f(12, weight: FontWeight.w700, color: gc.lavender, letterSpacing: 1.4)),
                     ),
                   ]),
                   const SizedBox(height: 10),
@@ -84,7 +84,7 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
               keyboardType: TextInputType.multiline,
               onChanged: (_) => setState(() {}),
               style: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.text, height: 1.35),
-              cursorColor: gc.accent,
+              cursorColor: gc.teal,
               decoration: InputDecoration(
                 hintText: t.aiPasteHint,
                 hintStyle: AppTheme.f(14, weight: FontWeight.w500, color: gc.textTertiary),
@@ -107,7 +107,7 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
                     child: Text(t.showFormat,
                         textAlign: TextAlign.end,
-                        style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.accent)),
+                        style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.teal)),
                   ),
                 ),
               ),
@@ -124,8 +124,8 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
             const SizedBox(height: 14),
             PrimaryButton(
               label: t.importAction,
-              bg: _answer.text.trim().isEmpty ? gc.bgRaised2 : gc.ember,
-              fg: _answer.text.trim().isEmpty ? gc.textTertiary : gc.onEmber,
+              bg: _answer.text.trim().isEmpty ? gc.bgRaised2 : gc.magenta,
+              fg: _answer.text.trim().isEmpty ? gc.textTertiary : gc.onMagenta,
               onTap: _import,
             ),
             if (_unreadable || _added > 0 || _notesAdded > 0 || _missed.isNotEmpty) ...[
@@ -162,8 +162,8 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
           width: 22,
           height: 22,
           alignment: Alignment.center,
-          decoration: BoxDecoration(color: gc.emberSoft, shape: BoxShape.circle),
-          child: Text('$n', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.ember)),
+          decoration: BoxDecoration(color: gc.marigoldSoft, shape: BoxShape.circle),
+          child: Text('$n', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.marigold)),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -178,7 +178,7 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: gc.bgRaised,
-        border: Border.all(color: good ? gc.sage : gc.border),
+        border: Border.all(color: good ? gc.lavender : gc.border),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -192,7 +192,7 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
                     : _notesAdded > 0
                     ? '${t.routineNotesAdded} · ${t.noteCount(_notesAdded)}'
                     : t.planNothing,
-            style: AppTheme.f(13.5, weight: FontWeight.w600, color: good ? gc.sage : gc.text),
+            style: AppTheme.f(13.5, weight: FontWeight.w600, color: good ? gc.lavender : gc.text),
           ),
           if (_missed.isNotEmpty) ...[
             const SizedBox(height: 8),
@@ -207,7 +207,7 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: fit.backFromAiPlan,
-              child: Text(t.routines, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+              child: Text(t.routines, style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
             ),
           ],
         ],
@@ -219,13 +219,13 @@ class _AiPlanScreenState extends State<AiPlanScreen> {
     await Clipboard.setData(ClipboardData(text: fit.planRequestText()));
     if (!mounted) return;
     showNotchToast(context, t.copiedDone,
-        subtitle: t.aiStepAsk, icon: PhosphorIconsFill.copy, accent: context.gc.sage);
+        subtitle: t.aiStepAsk, icon: PhosphorIconsFill.copy, accent: context.gc.lavender);
   }
 
   Future<void> _export() async {
     try {
-      await shareFile('gymmane-exercises.txt', utf8Bytes(fit.planRequestText()),
-          mime: 'text/plain', subject: 'GymMane exercises');
+      await shareFile('jesselicious-exercises.txt', utf8Bytes(fit.planRequestText()),
+          mime: 'text/plain', subject: 'Jesselicious exercises');
     } catch (_) {}
   }
 

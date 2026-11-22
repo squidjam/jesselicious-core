@@ -159,7 +159,7 @@ class NotesScreen extends StatelessWidget {
         onTap: onTap,
         size: 38,
         filled: filled,
-        child: Icon(icon, size: 16, color: filled ? gc.onEmber : gc.text),
+        child: Icon(icon, size: 16, color: filled ? gc.onMagenta : gc.text),
       );
 
   Widget _calendar(BuildContext context, GymColors gc, bool showExercise) {

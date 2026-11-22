@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import 'app/gymmane_app.dart';
+import 'app/jesselicious_app.dart';
 import 'services/alarm_store.dart';
 import 'services/auto_backup.dart';
 import 'services/device_kind.dart';
@@ -67,7 +67,7 @@ Future<void> main() async {
   AutoBackup.instance.init();
   unawaited(WatchPhone.init());
   unawaited(QuickTiles.init());
-  runApp(const GymManeApp());
+  runApp(const JesseliciousApp());
 
   GraphicsMode.watchFirstFrame();
   WidgetsBinding.instance.addPostFrameCallback((_) => HomeWidgetBridge.update());

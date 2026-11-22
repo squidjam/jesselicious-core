@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-REPO=InlitX/GymMane
-TOOLS="${HOME}/.local/share/gymmane/platform-tools"
+REPO=InlitX/jesselicious-core
+TOOLS="${HOME}/.local/share/jesselicious/platform-tools"
 APK="${1:-}"
 
 say() { printf '  %s\n' "$*"; }
@@ -15,14 +15,14 @@ fetch() { if have curl; then curl -fsSL "$1" -o "$2"; else wget -q "$1" -O "$2";
 
 case "$APK" in
   -h|--help)
-    echo 'GymMane watch installer'
+    echo 'Jesselicious watch installer'
     echo
     echo '  ./install.sh              connects to the watch and installs the right APK from the latest release'
     echo '  ./install.sh <file.apk>   installs that APK instead'
     exit 0 ;;
 esac
 
-printf '\n  GymMane for Wear OS\n'
+printf '\n  Jesselicious for Wear OS\n'
 say 'Before you start, on the watch: Settings > System > About > Versions, tap Build number 7 times.'
 say 'Then Settings > Developer options: turn on ADB debugging and Wireless debugging.'
 say 'The watch and this computer must be on the same Wi-Fi.'
@@ -89,7 +89,7 @@ fi
 model=$("$ADB" -s "$WATCH" shell getprop ro.product.model | tr -d '\r')
 ok "$model ($WATCH)"
 
-step 3 GymMane
+step 3 Jesselicious
 TMPAPK=""
 if [ -n "$APK" ]; then
   [ -f "$APK" ] || fail "$APK does not exist."
@@ -101,14 +101,14 @@ else
   for a in $(echo "$abis" | tr ',' ' '); do
     case "$a" in arm64-v8a|armeabi-v7a|x86_64) abi=$a; break ;; esac
   done
-  [ -n "$abi" ] || fail "This watch reports $abis, and there is no GymMane APK for it."
+  [ -n "$abi" ] || fail "This watch reports $abis, and there is no Jesselicious APK for it."
   TMPDIR_APK=$(mktemp -d)
-  TMPAPK="$TMPDIR_APK/GymMane-$abi.apk"
-  say "Downloading GymMane for $abi from the latest release..."
-  fetch "https://github.com/$REPO/releases/latest/download/GymMane-$abi.apk" "$TMPAPK" ||
+  TMPAPK="$TMPDIR_APK/Jesselicious-$abi.apk"
+  say "Downloading Jesselicious for $abi from the latest release..."
+  fetch "https://github.com/$REPO/releases/latest/download/Jesselicious-$abi.apk" "$TMPAPK" ||
     { rm -rf "$TMPDIR_APK"; fail 'Could not download the APK. Check the connection and try again.'; }
   FILE=$TMPAPK
-  ok "GymMane-$abi.apk"
+  ok "Jesselicious-$abi.apk"
 fi
 [ -n "$TMPAPK" ] || ok "$(basename "$FILE")"
 
@@ -116,13 +116,13 @@ step 4 Install
 r=$("$ADB" -s "$WATCH" install -r "$FILE" 2>&1 || true)
 [ -z "$TMPAPK" ] || rm -rf "$TMPDIR_APK"
 case "$r" in
-  *Success*) ok 'GymMane is on the watch' ;;
-  *VERSION_DOWNGRADE*) fail 'The watch already has a newer GymMane than this one. Nothing to do.' ;;
-  *UPDATE_INCOMPATIBLE*) fail 'The GymMane on the watch was signed by someone else. Uninstall it from the watch first, then run this again.' ;;
+  *Success*) ok 'Jesselicious is on the watch' ;;
+  *VERSION_DOWNGRADE*) fail 'The watch already has a newer Jesselicious than this one. Nothing to do.' ;;
+  *UPDATE_INCOMPATIBLE*) fail 'The Jesselicious on the watch was signed by someone else. Uninstall it from the watch first, then run this again.' ;;
   *) fail "The watch refused the install: $r" ;;
 esac
 
 printf '\n'
-say 'Open GymMane on the watch. To sync it with your phone, see WEAR.md.'
+say 'Open Jesselicious on the watch. To sync it with your phone, see WEAR.md.'
 say 'You can turn Wireless debugging off now.'
 printf '\n'

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/services/workout_import.dart';
+import 'package:jesselicious/services/workout_import.dart';
 
 void main() {
   const header = 'Workout DateTime,Program,Day Name,Exercise,Is Warmup Set?,Required Reps,Completed Reps,Is AMRAP?,'

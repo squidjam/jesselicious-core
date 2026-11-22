@@ -71,7 +71,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             child: Text(t.createNamed(_q.trim()),
                 textAlign: TextAlign.center,
-                style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
           ),
         ),
       );
@@ -215,7 +215,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
               controller: _name,
               autofocus: fit.activeRoutine?.name.isEmpty ?? false,
               style: AppTheme.f(22, weight: FontWeight.w700, color: gc.text, letterSpacing: 0.5),
-              cursorColor: gc.accent,
+              cursorColor: gc.teal,
               textCapitalization: TextCapitalization.words,
               onChanged: (v) => fit.renameRoutine(_id, v),
               onTapOutside: (_) => FocusScope.of(context).unfocus(),
@@ -355,8 +355,8 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
           padding: const EdgeInsetsDirectional.only(end: 8),
           child: Pill(
             label: label,
-            bg: active ? gc.ember : gc.bgRaised2,
-            fg: active ? gc.onEmber : gc.textSecondary,
+            bg: active ? gc.teal : gc.bgRaised2,
+            fg: active ? gc.onTeal : gc.textSecondary,
             onTap: onTap,
             hPad: 12,
             vPad: 6,
@@ -396,7 +396,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
               Pill(
                 label: t.clearFilters,
                 bg: gc.bgRaised2,
-                fg: gc.accent,
+                fg: gc.teal,
                 onTap: () {
                   _clearSearch();
                   fit.clearExFilters();
@@ -431,13 +431,13 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
         width: 38,
         height: 38,
         decoration: BoxDecoration(
-          color: on ? gc.ember : gc.bgRaised2,
+          color: on ? gc.teal : gc.bgRaised2,
           shape: BoxShape.circle,
         ),
         alignment: Alignment.center,
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 220),
-          style: AppTheme.f(14, weight: FontWeight.w700, color: on ? gc.onEmber : gc.textSecondary),
+          style: AppTheme.f(14, weight: FontWeight.w700, color: on ? gc.onTeal : gc.textSecondary),
           child: Text(t.weekdayInitial(weekday)),
         ),
       ),
@@ -449,7 +449,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
           width: 4,
           margin: EdgeInsets.only(top: top ? 10 : 0, bottom: bottom ? 10 : 0),
           decoration: BoxDecoration(
-            color: gc.brass,
+            color: gc.marigold,
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(top ? 4 : 0),
               bottom: Radius.circular(bottom ? 4 : 0),
@@ -529,7 +529,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                 padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
                 decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(16)),
                 child: Row(children: [
-                  Icon(PhosphorIconsFill.listChecks, size: 20, color: gc.ember),
+                  Icon(PhosphorIconsFill.listChecks, size: 20, color: gc.teal),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(fit.routineTitle(routine),
@@ -653,24 +653,24 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                     ),
                     const SizedBox(width: 5),
                     Icon(PhosphorIconsRegular.slidersHorizontal,
-                        size: 13, color: plan.isEmpty ? gc.textTertiary : gc.ember),
+                        size: 13, color: plan.isEmpty ? gc.textTertiary : gc.teal),
                   ]),
                 ),
               ),
               if (inChain) ...[
                 const SizedBox(height: 2),
                 Text((inJump ? t.jumpSet : t.superset).toUpperCase(),
-                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.brass, letterSpacing: 1)),
+                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.marigold, letterSpacing: 1)),
               ],
               if (repeat.of > 1) ...[
                 const SizedBox(height: 2),
                 Text(t.routineRepeatTag(repeat.n, repeat.of).toUpperCase(),
-                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1)),
+                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1)),
               ],
               if (fit.ladderIn(routine, ex.id) case final ladder?) ...[
                 const SizedBox(height: 2),
                 Text('${t.ladderTitle} · ${ladder.indexOf(ex.id) + 1}/${ladder.length}'.toUpperCase(),
-                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.sage, letterSpacing: 1)),
+                    style: AppTheme.f(9.5, weight: FontWeight.w700, color: gc.lavender, letterSpacing: 1)),
               ],
               const SizedBox(height: 2),
               FittedBox(
@@ -712,12 +712,12 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                 if (chained) {
                   fit.toggleJump(_id, slot);
                   showNotchToast(context, t.jumpSet,
-                      subtitle: t.jumpSetHint, icon: PhosphorIconsFill.arrowsClockwise, accent: gc.brass);
+                      subtitle: t.jumpSetHint, icon: PhosphorIconsFill.arrowsClockwise, accent: gc.marigold);
                   return;
                 }
                 fit.toggleChain(_id, slot);
                 showNotchToast(context, t.superset,
-                    subtitle: t.supersetHint, icon: PhosphorIconsFill.link, accent: gc.brass);
+                    subtitle: t.supersetHint, icon: PhosphorIconsFill.link, accent: gc.marigold);
               },
               child: SizedBox(
                 width: 38,
@@ -737,7 +737,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                               : PhosphorIconsRegular.link,
                       key: ValueKey(jumps ? 2 : chained ? 1 : 0),
                       size: 17,
-                      color: jumps ? gc.brass : chained ? gc.ember : gc.textTertiary,
+                      color: jumps ? gc.marigold : chained ? gc.teal : gc.textTertiary,
                     ),
                   ),
                 ),
@@ -781,7 +781,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: gc.bgRaised,
-          border: Border.all(color: inRoutine ? gc.ember.withValues(alpha: 0.75) : Colors.transparent),
+          border: Border.all(color: inRoutine ? gc.teal.withValues(alpha: 0.75) : Colors.transparent),
           borderRadius: BorderRadius.circular(18),
         ),
         child: Row(children: [
@@ -806,9 +806,9 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
             width: 30,
             height: 30,
             decoration: BoxDecoration(
-              color: inRoutine ? gc.ember : Colors.transparent,
+              color: inRoutine ? gc.teal : Colors.transparent,
               shape: BoxShape.circle,
-              border: Border.all(color: inRoutine ? gc.ember : gc.border, width: 2),
+              border: Border.all(color: inRoutine ? gc.teal : gc.border, width: 2),
             ),
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 260),
@@ -821,10 +821,10 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                 child: times > 1
                     ? Center(
                         child: Text('$times',
-                            style: AppTheme.f(13, weight: FontWeight.w900, color: gc.onEmber, height: 1)),
+                            style: AppTheme.f(13, weight: FontWeight.w900, color: gc.onMagenta, height: 1)),
                       )
                     : inRoutine
-                        ? SvgPathIcon(Ic.checkBold, size: 14, color: gc.onEmber)
+                        ? SvgPathIcon(Ic.checkBold, size: 14, color: gc.onMagenta)
                         : Icon(PhosphorIconsRegular.plus, size: 15, color: gc.textSecondary),
               ),
             ),
@@ -879,7 +879,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                   if (repeat.of > 1) ...[
                     const SizedBox(height: 2),
                     Text(t.routineRepeatTag(repeat.n, repeat.of).toUpperCase(),
-                        style: AppTheme.f(10, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1)),
+                        style: AppTheme.f(10, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1)),
                   ],
                   const SizedBox(height: 4),
                   Text(
@@ -952,7 +952,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                         height: 44,
                         alignment: Alignment.center,
                         child: Text(t.clearPlan,
-                            style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                            style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
                       ),
                     ),
                   const SizedBox(height: 10),
@@ -1030,7 +1030,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
           ),
           const SizedBox(width: 8),
           Text(progressKindName(kind),
-              style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.accent : gc.textSecondary)),
+              style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.teal : gc.textSecondary)),
           const SizedBox(width: 6),
           Icon(PhosphorIconsBold.caretRight, size: 13, color: gc.textTertiary),
         ]),
@@ -1046,7 +1046,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
           HapticFeedback.mediumImpact();
           Navigator.of(sheet).pop();
           showNotchToast(context, t.routineAddedAgain,
-              subtitle: t.routineAddedAgainHint, icon: PhosphorIconsBold.plus, accent: gc.accent);
+              subtitle: t.routineAddedAgainHint, icon: PhosphorIconsBold.plus, accent: gc.teal);
         },
         child: Container(
           padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
@@ -1149,7 +1149,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
         padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
         decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(18)),
         child: Row(children: [
-          Icon(PhosphorIconsRegular.stairs, size: 19, color: own != null ? gc.sage : gc.textSecondary),
+          Icon(PhosphorIconsRegular.stairs, size: 19, color: own != null ? gc.lavender : gc.textSecondary),
           const SizedBox(width: 12),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -1195,7 +1195,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
                 onTap: own != null ? () => fit.setRoutineRest(routine.id, slot, null) : null,
                 child: Text(own != null ? t.restInRoutineReset : t.restInRoutineHint,
                     style: AppTheme.f(11.5,
-                        weight: FontWeight.w500, color: own != null ? gc.accent : gc.textSecondary, height: 1.3)),
+                        weight: FontWeight.w500, color: own != null ? gc.teal : gc.textSecondary, height: 1.3)),
               ),
             ],
           ),
@@ -1483,7 +1483,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
           autofocus: true,
           textCapitalization: TextCapitalization.words,
           style: AppTheme.f(15, weight: FontWeight.w500, color: gc.text),
-          cursorColor: gc.accent,
+          cursorColor: gc.teal,
           decoration: InputDecoration(
             hintText: t.groupNameHint,
             hintStyle: AppTheme.f(15, weight: FontWeight.w500, color: gc.textTertiary),
@@ -1497,7 +1497,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
         ),
         actions: [
           dialogAction(t.cancel, gc.textSecondary, () => Navigator.of(dctx).pop(), strong: false),
-          dialogAction(t.save, gc.accent, () => Navigator.of(dctx).pop(controller.text)),
+          dialogAction(t.save, gc.teal, () => Navigator.of(dctx).pop(controller.text)),
         ],
       ),
     );
@@ -1522,7 +1522,7 @@ class _RoutineEditScreenState extends State<RoutineEditScreen> {
               const SizedBox(height: 18),
               PrimaryButton(
                 label: t.deleteCaps,
-                bg: gc.accent,
+                bg: gc.teal,
                 onTap: () {
                   Navigator.pop(context);
                   fit.deleteRoutine(_id);
@@ -1573,11 +1573,11 @@ class _ShareArt extends StatelessWidget {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              color: gc.emberSoft,
+              color: gc.tealSoft,
               borderRadius: BorderRadius.circular(26),
               border: Border.all(color: gc.bgRaised, width: 3),
             ),
-            child: Icon(PhosphorIconsFill.paperPlaneTilt, size: 34, color: gc.ember),
+            child: Icon(PhosphorIconsFill.paperPlaneTilt, size: 34, color: gc.teal),
           ),
         ],
       ),

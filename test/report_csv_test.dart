@@ -3,15 +3,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/nutrition.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/plan_pdf.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/theme/app_theme.dart';
-import 'package:gymmane/widgets/report_sheet.dart';
-import 'package:gymmane/widgets/ui_kit.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/nutrition.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/plan_pdf.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/theme/app_theme.dart';
+import 'package:jesselicious/widgets/report_sheet.dart';
+import 'package:jesselicious/widgets/ui_kit.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 // ignore: depend_on_referenced_packages
@@ -55,7 +55,7 @@ void main() {
   });
 
   Future<List<String>> captureSharedFiles(Future<void> Function() triggerShare) async {
-    final directory = Directory.systemTemp.createTempSync('gymmane_report_csv');
+    final directory = Directory.systemTemp.createTempSync('jesselicious_report_csv');
     final shared = Completer<List<String>>();
     final originalPaths = PathProviderPlatform.instance;
     PathProviderPlatform.instance = _TestPathProvider(directory.path);
@@ -184,8 +184,8 @@ void main() {
       () => shareReport(report, csv: {ReportSection.weighIns, ReportSection.sessions}),
     );
     expect(paths, [
-      'gymmane-weigh-ins-2026-11-09_2026-11-09.csv',
-      'gymmane-sessions-2026-11-09_2026-11-09.csv',
+      'jesselicious-weigh-ins-2026-11-09_2026-11-09.csv',
+      'jesselicious-sessions-2026-11-09_2026-11-09.csv',
     ]);
   });
 
@@ -237,7 +237,7 @@ void main() {
       }),
     );
     expect(find.byType(AppSheet), findsNothing);
-    expect(paths!.single, startsWith('gymmane-supplements-'));
+    expect(paths!.single, startsWith('jesselicious-supplements-'));
     await tester.pumpAndSettle();
   });
 }

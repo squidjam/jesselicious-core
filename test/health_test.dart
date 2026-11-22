@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/services/health_metrics.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
-import 'package:gymmane/widgets/health_cards.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/services/health_metrics.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
+import 'package:jesselicious/widgets/health_cards.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -204,7 +204,7 @@ void main() {
       expect(fit.healthWorkoutType(run), 'running');
       expect(fit.healthWorkoutType(walk), 'treadmill');
       expect(fit.healthWorkoutType(LoggedSession(end, 60, const [])), 'strength');
-      expect(HealthState.healthWorkoutId(lift), 'gymmane-${end.millisecondsSinceEpoch}');
+      expect(HealthState.healthWorkoutId(lift), "jesselicious-${end.millisecondsSinceEpoch}');
       expect(HealthState.healthWorkoutId(lift), HealthState.healthWorkoutId(run),
           reason: 'mismo final, mismo registro: al reanudarlo se actualiza en vez de duplicarse');
       expect(fit.healthWorkoutNotes(lift), contains(' · '));

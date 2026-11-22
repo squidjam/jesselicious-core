@@ -26,7 +26,7 @@ class WatchLink extends ChangeNotifier with WidgetsBindingObserver {
   WatchLink._();
   static final WatchLink instance = WatchLink._();
 
-  static const _ch = MethodChannel('gymmane/watchlink');
+  static const _ch = MethodChannel('jesselicious/watchlink');
   static const _note = 'watchLink';
 
   bool onWatch = false;

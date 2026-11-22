@@ -169,7 +169,7 @@ class ProgressScreen extends StatelessWidget {
           Container(width: 1, height: 18, color: gc.border),
         ],
         half(t.share, () => showShareSheet(context), [
-          Icon(PhosphorIconsBold.export, size: 15, color: gc.accent),
+          Icon(PhosphorIconsBold.export, size: 15, color: gc.teal),
           const SizedBox(width: 7),
           Text(sentenceCase(t.share), style: AppTheme.f(13, weight: FontWeight.w700, color: gc.text)),
         ], EdgeInsets.fromLTRB(fit.sessions.isNotEmpty ? 12 : 14, 0, 16, 0)),
@@ -238,7 +238,7 @@ class ProgressScreen extends StatelessWidget {
 
   Widget _delta(GymColors gc, int pct) {
     final up = pct >= 0;
-    final color = up ? gc.sage : gc.accent;
+    final color = up ? gc.lavender : gc.teal;
     return Row(mainAxisSize: MainAxisSize.min, children: [
       Icon(up ? PhosphorIconsBold.trendUp : PhosphorIconsBold.trendDown, size: 11, color: color),
       const SizedBox(width: 3),
@@ -350,7 +350,7 @@ class ProgressScreen extends StatelessWidget {
             ),
           const SizedBox(height: 14),
           Row(children: [
-            Icon(PhosphorIconsFill.fire, size: 14, color: gc.accent),
+            Icon(PhosphorIconsFill.fire, size: 14, color: gc.teal),
             const SizedBox(width: 7),
             Flexible(
               child: FittedBox(
@@ -501,7 +501,7 @@ class ProgressScreen extends StatelessWidget {
             _ => PhosphorIconsRegular.trendUp,
           },
           size: 15,
-          color: note.kind == 'up' ? gc.sage : gc.textSecondary,
+          color: note.kind == 'up' ? gc.lavender : gc.textSecondary,
         ),
       ),
       const SizedBox(width: 12),
@@ -567,7 +567,7 @@ class ProgressScreen extends StatelessWidget {
                   Icon(
                     step.done ? PhosphorIconsFill.checkCircle : PhosphorIconsRegular.circleDashed,
                     size: 17,
-                    color: step.done ? gc.sage : gc.textTertiary,
+                    color: step.done ? gc.lavender : gc.textTertiary,
                   ),
                   const SizedBox(width: 11),
                   Expanded(
@@ -625,8 +625,8 @@ class ProgressScreen extends StatelessWidget {
                 Container(
                   width: 34,
                   height: 34,
-                  decoration: BoxDecoration(color: gc.accentSoft, shape: BoxShape.circle),
-                  child: Icon(PhosphorIconsBold.clockCounterClockwise, size: 16, color: gc.accent),
+                  decoration: BoxDecoration(color: gc.tealSoft, shape: BoxShape.circle),
+                  child: Icon(PhosphorIconsBold.clockCounterClockwise, size: 16, color: gc.teal),
                 ),
                 const SizedBox(width: 11),
                 Expanded(
@@ -642,7 +642,7 @@ class ProgressScreen extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: AppTheme.s(11.5,
                                 weight: FontWeight.w600,
-                                color: fit.photoDue ? gc.accent : gc.textTertiary)),
+                                color: fit.photoDue ? gc.teal : gc.textTertiary)),
                       ],
                     ],
                   ),
@@ -754,7 +754,7 @@ class ProgressScreen extends StatelessWidget {
           height: 14,
           child: CustomPaint(
             size: const Size(double.infinity, 14),
-            painter: _TrackPainter(spots, gc.accent, gc.border, gc.bgRaised, open: label == null),
+            painter: _TrackPainter(spots, gc.teal, gc.border, gc.bgRaised, open: label == null),
           ),
         ),
       ],
@@ -779,7 +779,7 @@ class ProgressScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(hidden ? PhosphorIconsRegular.eyeSlash : PhosphorIconsRegular.eye,
-                  size: 15, color: hidden ? gc.accent : gc.textTertiary),
+                  size: 15, color: hidden ? gc.teal : gc.textTertiary),
               const SizedBox(width: 6),
               Flexible(
                 child: Text(t.photoCount(fit.shotCount),
@@ -996,9 +996,9 @@ class _BodyweightSheetState extends State<_BodyweightSheet> {
     final aim = fit.effectiveWeightAim;
     final band = NutritionState.paceCorridors[aim];
     final (text, color) = switch (status) {
-      'onPace' => (t.paceOn, gc.sage),
+      'onPace' => (t.paceOn, gc.lavender),
       'tooFast' => (t.paceTooFast, gc.warn),
-      'tooSlow' => (t.paceTooSlow, gc.brass),
+      'tooSlow' => (t.paceTooSlow, gc.marigold),
       'wrongWay' => (t.paceWrongWay, gc.danger),
       'drifting' => (t.paceDrifting, gc.warn),
       _ => (t.paceSetAim, gc.textSecondary),
@@ -1046,7 +1046,7 @@ class _BodyweightSheetState extends State<_BodyweightSheet> {
                     height: 6,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                          color: gc.sage.withValues(alpha: 0.45), borderRadius: BorderRadius.circular(3)),
+                          color: gc.lavender.withValues(alpha: 0.45), borderRadius: BorderRadius.circular(3)),
                     ),
                   ),
                 Positioned(
@@ -1209,9 +1209,9 @@ class _BodyweightSheetState extends State<_BodyweightSheet> {
                       onTap: _editGoal,
                       child: Row(mainAxisSize: MainAxisSize.min, children: [
                         Text(goal > 0 ? fit.weightLabel(goal) : '—',
-                            style: AppTheme.f(14, weight: FontWeight.w800, color: gc.accent)),
+                            style: AppTheme.f(14, weight: FontWeight.w800, color: gc.teal)),
                         const SizedBox(width: 6),
-                        Icon(PhosphorIconsBold.pencilSimple, size: 13, color: gc.accent),
+                        Icon(PhosphorIconsBold.pencilSimple, size: 13, color: gc.teal),
                       ]),
                     ),
                   ),
@@ -1225,7 +1225,7 @@ class _BodyweightSheetState extends State<_BodyweightSheet> {
                             ? t.weightToLose(fit.weightLabel(-diff))
                             : t.weightToGain(fit.weightLabel(diff)),
                     textAlign: TextAlign.center,
-                    style: AppTheme.f(12.5, weight: FontWeight.w700, color: diff.abs() < 0.05 ? gc.sage : gc.textSecondary),
+                    style: AppTheme.f(12.5, weight: FontWeight.w700, color: diff.abs() < 0.05 ? gc.lavender : gc.textSecondary),
                   ),
                 ],
                 if (fit.weightPace != null) ...[
@@ -1725,7 +1725,7 @@ class _MuscleMapCardState extends State<_MuscleMapCard> {
         ? (t.recoveryTired, gc.danger)
         : value < 0.8
             ? (t.recoveryStateMid, gc.warn)
-            : (t.recoveryStateReady, gc.sage);
+            : (t.recoveryStateReady, gc.lavender);
     String when(int h) => h < 48 ? '$h h' : '${(h / 24).round()} ${t.unitDays}';
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Row(children: [
@@ -1756,7 +1756,7 @@ class _MuscleMapCardState extends State<_MuscleMapCard> {
           child: Stack(clipBehavior: Clip.none, children: [
             zone(0, 0.5, gc.danger),
             zone(0.5, 0.8, gc.warn),
-            zone(0.8, 1, gc.sage),
+            zone(0.8, 1, gc.lavender),
             TweenAnimationBuilder<double>(
               tween: Tween(end: value.clamp(0.0, 1.0)),
               duration: const Duration(milliseconds: 420),
@@ -1900,13 +1900,13 @@ class _StrengthCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
                 decoration: BoxDecoration(
-                    color: up ? gc.sageSoft : gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+                    color: up ? gc.lavenderSoft : gc.tealSoft, borderRadius: BorderRadius.circular(100)),
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
                   Icon(up ? PhosphorIconsBold.trendUp : PhosphorIconsBold.trendDown,
-                      size: 12, color: up ? gc.sage : gc.accent),
+                      size: 12, color: up ? gc.lavender : gc.teal),
                   const SizedBox(width: 4),
                   Text('${up ? '+' : ''}${fit.weightLabel(delta)}',
-                      style: AppTheme.s(11.5, weight: FontWeight.w700, color: up ? gc.sage : gc.accent)),
+                      style: AppTheme.s(11.5, weight: FontWeight.w700, color: up ? gc.lavender : gc.teal)),
                 ]),
               ),
             ),
@@ -1955,7 +1955,7 @@ class _StrengthCard extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(t.dotsLevelName(rel.level),
-                style: AppTheme.f(12, weight: FontWeight.w700, color: gc.brass)),
+                style: AppTheme.f(12, weight: FontWeight.w700, color: gc.marigold)),
           ]),
           const SizedBox(height: 7),
           Row(children: [
@@ -1972,7 +1972,7 @@ class _StrengthCard extends StatelessWidget {
                         alignment: AlignmentDirectional.centerStart,
                         widthFactor: i < rel.level ? 1 : (i == rel.level ? rel.toNext : 0),
                         heightFactor: 1,
-                        child: ColoredBox(color: gc.brass),
+                        child: ColoredBox(color: gc.marigold),
                       ),
                     ),
                   ),
@@ -2092,7 +2092,7 @@ class _PrCardState extends State<_PrCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(children: [
-            Icon(PhosphorIconsFill.trophy, size: 14, color: gc.accent),
+            Icon(PhosphorIconsFill.trophy, size: 14, color: gc.teal),
             const SizedBox(width: 7),
             Expanded(
               child: Text(t.personalRecords,
@@ -2155,7 +2155,7 @@ class _PrCardState extends State<_PrCard> {
   }
 
   Widget _row(GymColors gc, PersonalRecord pr, int rank, bool border) {
-    final medal = rank < 3 ? [gc.brass, gc.textSecondary, gc.accent][rank] : null;
+    final medal = rank < 3 ? [gc.marigold, gc.textSecondary, gc.teal][rank] : null;
     return Pressable(
       onTap: () => showExerciseHistorySheet(context, pr.id),
       scale: 0.98,
@@ -2391,7 +2391,7 @@ class _DaySheet extends StatelessWidget {
             OptionItem(t.copyWorkout, icon: PhosphorIconsRegular.copy, onTap: () {
               go(sheet, () {
                 Clipboard.setData(ClipboardData(text: fit.workoutText(s)));
-                showNotchToast(context, t.copiedDone, icon: PhosphorIconsRegular.copy, accent: gc.accent);
+                showNotchToast(context, t.copiedDone, icon: PhosphorIconsRegular.copy, accent: gc.teal);
               });
             }),
             OptionItem(t.editDuration,
@@ -2443,9 +2443,9 @@ class _DaySheet extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(100)),
           child: Row(mainAxisSize: MainAxisSize.min, children: [
-            part(PhosphorIconsRegular.moon, s.sleep, gc.sage),
+            part(PhosphorIconsRegular.moon, s.sleep, gc.lavender),
             const SizedBox(width: 8),
-            part(PhosphorIconsRegular.lightning, s.energy, gc.brass),
+            part(PhosphorIconsRegular.lightning, s.energy, gc.marigold),
           ]),
         ),
       ),
@@ -2532,7 +2532,7 @@ class _DaySheet extends StatelessWidget {
             child: Container(
               width: 5,
               height: 5,
-              decoration: BoxDecoration(color: gc.accent, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: gc.teal, shape: BoxShape.circle),
             ),
           ),
           const SizedBox(width: 10),
@@ -2552,7 +2552,7 @@ class _DaySheet extends StatelessWidget {
                       child: Text(broke.map(fit.loggedSetLabel).join(' · '),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: AppTheme.s(11, weight: FontWeight.w700, color: gc.brass)),
+                          style: AppTheme.s(11, weight: FontWeight.w700, color: gc.marigold)),
                     ),
                   ]),
                 ],
@@ -2692,7 +2692,7 @@ class _LogBodyweightSheetState extends State<_LogBodyweightSheet> {
                   minLines: 1,
                   maxLength: 200,
                   textCapitalization: TextCapitalization.sentences,
-                  cursorColor: gc.accent,
+                  cursorColor: gc.teal,
                   style: AppTheme.f(13.5, weight: FontWeight.w600, color: gc.text),
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -2819,7 +2819,7 @@ Widget _cardioKcalCard(BuildContext context, GymColors gc, LoggedSession s, Logg
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Text(label, style: AppTheme.s(13, weight: FontWeight.w600, color: gc.accent)),
+          child: Text(label, style: AppTheme.s(13, weight: FontWeight.w600, color: gc.teal)),
         ),
       );
   return Container(
@@ -3180,9 +3180,9 @@ class _ReadinessCard extends StatelessWidget {
         Text(t.readinessLast30, style: AppTheme.s(11, weight: FontWeight.w600, color: gc.textTertiary)),
         const SizedBox(height: 8),
         Row(children: [
-          avg(PhosphorIconsRegular.moon, t.checkInSleep, recent.sleep, gc.sage),
+          avg(PhosphorIconsRegular.moon, t.checkInSleep, recent.sleep, gc.lavender),
           const SizedBox(width: 8),
-          avg(PhosphorIconsRegular.lightning, t.checkInEnergy, recent.energy, gc.brass),
+          avg(PhosphorIconsRegular.lightning, t.checkInEnergy, recent.energy, gc.marigold),
         ]),
       ]),
     );
@@ -3260,7 +3260,7 @@ class _BalanceCardState extends State<_BalanceCard> {
   Widget _row(GymColors gc, ({String id, double kg, double target, double score}) l, bool behind) {
     final gap = l.target - l.kg;
     final even = l.score >= 0.95 && l.score <= 1.05;
-    final color = behind ? gc.warn : (l.score < 0.95 ? Color.lerp(gc.textSecondary, gc.warn, 0.4)! : gc.sage);
+    final color = behind ? gc.warn : (l.score < 0.95 ? Color.lerp(gc.textSecondary, gc.warn, 0.4)! : gc.lavender);
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [

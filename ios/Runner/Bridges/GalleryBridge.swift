@@ -3,7 +3,7 @@ import Photos
 
 enum GalleryBridge {
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/gallery", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/gallery", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         guard call.method == "savePng" else {
           result(FlutterMethodNotImplemented)

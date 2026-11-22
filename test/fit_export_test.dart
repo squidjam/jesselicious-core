@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/fit_export.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/fit_export.dart';
 
 void main() {
   final session = LoggedSession(DateTime(2026, 9, 27, 19, 30), 3000, [

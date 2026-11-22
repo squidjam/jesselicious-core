@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class CommunityApps {
   CommunityApps._();
 
-  static const _channel = MethodChannel('gymmane/device');
+  static const _channel = MethodChannel('jesselicious/device');
   static const scannerPackage = 'de.gymmane.scanner';
   static const scannerPage = 'https://github.com/KingMezzo/GymMane-Scanner/releases/latest';
 

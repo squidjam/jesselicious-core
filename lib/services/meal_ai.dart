@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import '../models/nutrition.dart';
 import 'food_library.dart';
 
-const kMealAiTag = 'gymmane-meal';
+const kMealAiTag = 'jesselicious-meal';
 const kMealAiVersion = 1;
 const kMealAiMaxOptions = 6;
 const kMealAiMaxItems = 40;
@@ -1085,7 +1085,7 @@ String buildMealAiPrompt(MealAiBrief b) {
       ? 'a full day of eating, spread over these meals: $mealList'
       : 'ONE meal only: ${b.mealLabel} (id "${b.mealId}")';
   final lines = <String>[
-    'You are the nutrition assistant of GymMane, an offline fitness app. A program, not a person, will read your reply, so the format below is strict.',
+    'You are the nutrition assistant of Jesselicious, an offline fitness app. A program, not a person, will read your reply, so the format below is strict.',
     '',
     'REQUEST',
     '- I want $what.',
@@ -1098,7 +1098,7 @@ String buildMealAiPrompt(MealAiBrief b) {
     '',
     'FORMAT RULES (follow every one)',
     '1. Reply with exactly one JSON object inside one ```json code block. Nothing before it, nothing after it: no greeting, no explanation, no notes, no markdown outside the block.',
-    '2. Use exactly the keys shown in the example. Keep "gymmane" as "$kMealAiTag" and "v" as $kMealAiVersion.',
+    '2. Use exactly the keys shown in the example. Keep "jesselicious" as "$kMealAiTag" and "v" as $kMealAiVersion.',
     '3. One entry in "items" per food or ingredient. Split mixed dishes into their ingredients (for example "Rice, cooked" and "Chicken breast, grilled").',
     '4. "grams" is the weight in grams of that item (for liquids, the volume in millilitres). Always a plain number, never a range.',
     '5. "kcal", "protein", "carbs" and "fat" are the TOTAL for the amount in "grams", not per 100 g. Plain numbers only: dot as decimal separator, no units, no quotes. Protein, carbs and fat are in grams. kcal must be close to 4 x protein + 4 x carbs + 9 x fat. Optional, same rules (totals for the amount in "grams"): "fiber", "sugar", "saturated", "trans", "monounsaturated" and "polyunsaturated" in grams, and "sodium", "cholesterol", "iron" and "potassium" in milligrams. Add them only when you know them, for example from a nutrition label I gave you; leave the key out otherwise, never write 0 for unknown.',
@@ -1111,7 +1111,7 @@ String buildMealAiPrompt(MealAiBrief b) {
     'EXAMPLE OF A VALID REPLY (the foods and numbers are only an illustration)',
     '```json',
     '{',
-    '  "gymmane": "$kMealAiTag",',
+    '  "jesselicious": "$kMealAiTag",',
     '  "v": $kMealAiVersion,',
     '  "options": [',
     '    {',
@@ -1125,12 +1125,12 @@ String buildMealAiPrompt(MealAiBrief b) {
     '}',
     '```',
     '',
-    'If you cannot follow these rules, reply with {"gymmane": "$kMealAiTag", "v": $kMealAiVersion, "options": []}.',
+    'If you cannot follow these rules, reply with {"jesselicious": "$kMealAiTag", "v": $kMealAiVersion, "options": []}.',
   ];
   return lines.join('\n');
 }
 
-const kFoodAiTag = 'gymmane-food';
+const kFoodAiTag = 'jesselicious-food';
 
 class AiFoodPick {
   const AiFoodPick(this.food, {this.serving = '', this.liquid = false});
@@ -1198,7 +1198,7 @@ AiFoodPick? parseFoodAi(String raw) {
 
 String buildFoodAiPrompt(String language) {
   final lines = <String>[
-    'You are the nutrition assistant of GymMane, an offline fitness app. A program, not a person, will read your reply, so the format below is strict.',
+    'You are the nutrition assistant of Jesselicious, an offline fitness app. A program, not a person, will read your reply, so the format below is strict.',
     '',
     'REQUEST',
     '- Together with this message I give you a nutrition label, a photo or screenshot of a product, a link to it, or just the name of a food. Turn it into ONE food for my food list.',
@@ -1208,7 +1208,7 @@ String buildFoodAiPrompt(String language) {
     '',
     'FORMAT RULES (follow every one)',
     '1. Reply with exactly one JSON object inside one ```json code block. Nothing before it, nothing after it.',
-    '2. Use exactly the keys shown in the example. Keep "gymmane" as "$kFoodAiTag" and "v" as 1.',
+    '2. Use exactly the keys shown in the example. Keep "jesselicious" as "$kFoodAiTag" and "v" as 1.',
     '3. "per100" holds the values per 100 g (per 100 ml for drinks): "kcal", plus "protein", "carbs" and "fat" in grams. Optional, only when you know them: "fiber", "sugar", "saturated", "trans", "monounsaturated" and "polyunsaturated" in grams, "sodium", "cholesterol", "iron" and "potassium" in milligrams. If the label gives salt instead of sodium, sodium in mg is salt in g x 400. Leave a key out when you do not know it, never write 0 for unknown.',
     '4. Plain numbers only: dot as decimal separator, no units, no quotes.',
     '5. "serving_name" is the serving the label uses, short (for example "1 bar" or "1 glass"), and "grams" is the weight of that serving in grams (millilitres for drinks). With no serving, use "100 g" and 100.',
@@ -1218,7 +1218,7 @@ String buildFoodAiPrompt(String language) {
     'EXAMPLE OF A VALID REPLY (the numbers are only an illustration)',
     '```json',
     '{',
-    '  "gymmane": "$kFoodAiTag",',
+    '  "jesselicious": "$kFoodAiTag",',
     '  "v": 1,',
     '  "food": {',
     '    "name": "Greek yogurt 2%",',

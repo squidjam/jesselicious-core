@@ -65,9 +65,9 @@ class _StickerEditorState extends State<StickerEditor> {
   List<Color> _swatches(GymColors gc) => [
         Colors.white,
         const Color(0xFF111111),
-        gc.accent,
-        gc.brass,
-        gc.sage,
+        gc.teal,
+        gc.marigold,
+        gc.lavender,
         const Color(0xFFE8E1D7),
       ];
 
@@ -108,18 +108,18 @@ class _StickerEditorState extends State<StickerEditor> {
 
   Future<void> _share() => _run((png) async {
         final dir = await getTemporaryDirectory();
-        final file = File('${dir.path}/gymmane-sticker.png');
+        final file = File('${dir.path}/jesselicious-sticker.png');
         await file.writeAsBytes(png, flush: true);
-        await SharePlus.instance.share(ShareParams(files: [XFile(file.path)], subject: 'GymMane'));
+        await SharePlus.instance.share(ShareParams(files: [XFile(file.path)], subject: 'Jesselicious'));
       });
 
   Future<void> _save() => _run((png) async {
-        final ok = await saveImageToGallery(png, 'gymmane-${DateTime.now().millisecondsSinceEpoch}.png');
+        final ok = await saveImageToGallery(png, 'jesselicious-${DateTime.now().millisecondsSinceEpoch}.png');
         if (!ok) throw StateError('save');
         HapticFeedback.lightImpact();
         if (mounted) {
           showNotchToast(context, t.stickerSaved,
-              icon: PhosphorIconsFill.checkCircle, accent: context.gc.sage);
+              icon: PhosphorIconsFill.checkCircle, accent: context.gc.lavender);
         }
       });
 
@@ -252,7 +252,7 @@ class _StickerEditorState extends State<StickerEditor> {
             const Spacer(),
             Pill(
               label: t.stickerDate,
-              bg: _date ? gc.emberSoft : gc.bgRaised2,
+              bg: _date ? gc.tealSoft : gc.bgRaised2,
               fg: _date ? gc.text : gc.textTertiary,
               fontSize: 12,
               onTap: () => setState(() => _date = !_date),
@@ -326,7 +326,7 @@ class _StickerEditorState extends State<StickerEditor> {
             height: 44,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
-              color: on ? gc.emberSoft : gc.bgRaised2,
+              color: on ? gc.tealSoft : gc.bgRaised2,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -349,7 +349,7 @@ class _StickerEditorState extends State<StickerEditor> {
           duration: const Duration(milliseconds: 180),
           height: 38,
           decoration: BoxDecoration(
-            color: on ? gc.emberSoft : gc.bgRaised2,
+            color: on ? gc.tealSoft : gc.bgRaised2,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(icon, size: 17, color: on ? gc.text : gc.textTertiary),
@@ -403,9 +403,9 @@ class _Sticker extends StatelessWidget {
   }
 
   Color _brand(GymColors gc) {
-    if (!_light) return Color.lerp(gc.accent, Colors.black, 0.45)!;
-    final warm = color.toARGB32() == gc.accent.toARGB32() || color.toARGB32() == gc.brass.toARGB32();
-    return warm ? Colors.white : gc.accent;
+    if (!_light) return Color.lerp(gc.teal, Colors.black, 0.45)!;
+    final warm = color.toARGB32() == gc.teal.toARGB32() || color.toARGB32() == gc.marigold.toARGB32();
+    return warm ? Colors.white : gc.teal;
   }
 
   Widget _mark({double size = 12}) => Builder(builder: (context) {
@@ -418,7 +418,7 @@ class _Sticker extends StatelessWidget {
             colorBlendMode: BlendMode.srcIn,
           ),
           const SizedBox(width: 5),
-          Text('GymMane', style: _s(size, FontWeight.w900, spacing: 0.2).copyWith(color: brand)),
+          Text('Jesselicious', style: _s(size, FontWeight.w900, spacing: 0.2).copyWith(color: brand)),
         ]);
       });
 

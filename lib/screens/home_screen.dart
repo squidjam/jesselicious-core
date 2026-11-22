@@ -344,7 +344,7 @@ class HomeScreen extends StatelessWidget {
             decoration: BoxDecoration(color: gc.bgRaised, borderRadius: BorderRadius.circular(100)),
             child: Row(
               children: [
-                SvgPathIcon(Ic.flame, size: 15, color: gc.accent),
+                SvgPathIcon(Ic.flame, size: 15, color: gc.teal),
                 const SizedBox(width: 6),
                 Text('${fit.currentStreak}',
                     style: AppTheme.f(14, weight: FontWeight.w800, color: gc.text)),
@@ -450,7 +450,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 width: 176,
                 height: 176,
-                decoration: BoxDecoration(color: gc.accentSoft, shape: BoxShape.circle),
+                decoration: BoxDecoration(color: gc.tealSoft, shape: BoxShape.circle),
               ),
             ),
             Positioned(
@@ -459,7 +459,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 width: 92,
                 height: 92,
-                decoration: BoxDecoration(color: gc.emberSoft, shape: BoxShape.circle),
+                decoration: BoxDecoration(color: gc.marigoldSoft, shape: BoxShape.circle),
               ),
             ),
             Positioned(
@@ -481,13 +481,13 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         width: 16,
                         height: 16,
-                        decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
-                        child: Center(child: SvgPathIcon(Ic.checkBold, size: 8, color: gc.onEmber)),
+                        decoration: BoxDecoration(color: gc.teal, shape: BoxShape.circle),
+                        child: Center(child: SvgPathIcon(Ic.checkBold, size: 8, color: gc.onTeal)),
                       ),
                       const SizedBox(width: 7),
                     ],
                     if (rest != null) ...[
-                      Icon(PhosphorIconsFill.bed, size: 14, color: gc.sage),
+                      Icon(PhosphorIconsFill.bed, size: 14, color: gc.lavender),
                       const SizedBox(width: 7),
                     ],
                     Text(label.toUpperCase(),
@@ -601,16 +601,16 @@ class HomeScreen extends StatelessWidget {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                color: done ? gc.ember : gc.bgRaised2,
+                color: done ? gc.teal : gc.bgRaised2,
                 shape: BoxShape.circle,
-                border: isToday && !done ? Border.all(color: gc.ember, width: 2) : null,
+                border: isToday && !done ? Border.all(color: gc.marigold, width: 2) : null,
               ),
               child: done
-                  ? Center(child: SvgPathIcon(Ic.checkBold, size: 13, color: gc.onEmber))
+                  ? Center(child: SvgPathIcon(Ic.checkBold, size: 13, color: gc.onTeal))
                   : off != null
                       ? Icon(dayOffIcon(off), size: 15, color: gc.textSecondary)
                       : fit.restOn(date)
-                          ? Icon(PhosphorIconsFill.bed, size: 14, color: gc.sage)
+                          ? Icon(PhosphorIconsFill.bed, size: 14, color: gc.lavender)
                           : null,
             ),
           ],
@@ -699,7 +699,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
         child: Row(
           children: [
-            Icon(PhosphorIconsRegular.camera, size: 19, color: gc.accent),
+            Icon(PhosphorIconsRegular.camera, size: 19, color: gc.teal),
             const SizedBox(width: 14),
             Expanded(
               child: Column(

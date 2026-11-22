@@ -131,7 +131,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                           label: t.backToTop,
                           onTap: () => _scroll.animateTo(0,
                               duration: const Duration(milliseconds: 520), curve: Curves.easeOutCubic),
-                          child: Icon(PhosphorIconsBold.arrowUp, size: 18, color: gc.onEmber),
+                          child: Icon(PhosphorIconsBold.arrowUp, size: 18, color: gc.onMagenta),
                         ),
                       ),
                     ),
@@ -255,9 +255,9 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                               width: 17,
                               height: 17,
                               alignment: Alignment.center,
-                              decoration: BoxDecoration(color: gc.ember, shape: BoxShape.circle),
+                              decoration: BoxDecoration(color: gc.teal, shape: BoxShape.circle),
                               child: Text('$active',
-                                  style: AppTheme.f(10, weight: FontWeight.w800, color: gc.onEmber)),
+                                  style: AppTheme.f(10, weight: FontWeight.w800, color: gc.onTeal)),
                             ),
                           ),
                       ]),
@@ -319,8 +319,8 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
     final anyOn = sheetOn > 0 || zoneOn || fit.exFavouritesOnly;
     Widget pill(String label, bool on, VoidCallback onTap) => Pill(
           label: label,
-          bg: on ? gc.ember : gc.bgRaised2,
-          fg: on ? gc.onEmber : gc.textSecondary,
+          bg: on ? gc.teal : gc.bgRaised2,
+          fg: on ? gc.onTeal : gc.textSecondary,
           onTap: onTap,
           hPad: 14,
           vPad: 7,
@@ -367,7 +367,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
           Pill(
             label: t.clearFilters,
             bg: Colors.transparent,
-            fg: gc.accent,
+            fg: gc.teal,
             onTap: _clearAll,
             hPad: 10,
             vPad: 7,
@@ -402,7 +402,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Text(t.clearFilters,
-                  style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                  style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
             ),
           ),
         ],
@@ -540,8 +540,8 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
       width: 18,
       height: 18,
       child: Stack(children: [
-        if (fav) SvgPathIcon(const [IconPath('M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z', fill: true)], size: 18, color: gc.accent),
-        SvgPathIcon(Ic.star, size: 18, color: fav ? gc.accent : gc.textTertiary),
+        if (fav) SvgPathIcon(const [IconPath('M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z', fill: true)], size: 18, color: gc.teal),
+        SvgPathIcon(Ic.star, size: 18, color: fav ? gc.teal : gc.textTertiary),
       ]),
     );
   }
@@ -564,11 +564,11 @@ class _ActiveFilter extends StatelessWidget {
       scale: 0.94,
       child: Container(
         padding: const EdgeInsets.fromLTRB(14, 7, 10, 7),
-        decoration: BoxDecoration(color: gc.ember, borderRadius: BorderRadius.circular(100)),
+        decoration: BoxDecoration(color: gc.teal, borderRadius: BorderRadius.circular(100)),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
-          Text(titleCase(label), style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.onEmber)),
+          Text(titleCase(label), style: AppTheme.f(12.5, weight: FontWeight.w600, color: gc.onTeal)),
           const SizedBox(width: 6),
-          Icon(PhosphorIconsBold.x, size: 11, color: gc.onEmber.withValues(alpha: 0.8)),
+          Icon(PhosphorIconsBold.x, size: 11, color: gc.onTeal.withValues(alpha: 0.8)),
         ]),
       ),
     );
@@ -651,7 +651,7 @@ void showCreateExerciseSheet(BuildContext context,
           }
 
           final nameLine = BorderSide(color: nameMissing ? gc.danger : gc.border, width: nameMissing ? 1.5 : 1);
-          final nameFocusLine = BorderSide(color: nameMissing ? gc.danger : gc.accent, width: nameMissing ? 1.5 : 1);
+          final nameFocusLine = BorderSide(color: nameMissing ? gc.danger : gc.teal, width: nameMissing ? 1.5 : 1);
           return SafeArea(
             child: SingleChildScrollView(
               controller: scroll,
@@ -670,7 +670,7 @@ void showCreateExerciseSheet(BuildContext context,
                       focusNode: nameFocus,
                       autofocus: editing == null && copyOf == null,
                       style: AppTheme.f(15, weight: FontWeight.w500, color: gc.text),
-                      cursorColor: nameMissing ? gc.danger : gc.accent,
+                      cursorColor: nameMissing ? gc.danger : gc.teal,
                       textCapitalization: TextCapitalization.words,
                       onChanged: (v) {
                         if (nameMissing && v.trim().isNotEmpty) setSheet(() => nameMissing = false);
@@ -749,8 +749,8 @@ void showCreateExerciseSheet(BuildContext context,
                     for (final zone in kBodyZones.entries)
                       Pill(
                         label: zone.value.length == 1 ? t.muscle(zone.value.single) : t.muscleGroupName(zone.key),
-                        bg: zone.value.contains(muscle) ? gc.ember : gc.bgRaised2,
-                        fg: zone.value.contains(muscle) ? gc.onEmber : gc.textSecondary,
+                        bg: zone.value.contains(muscle) ? gc.lavender : gc.bgRaised2,
+                        fg: zone.value.contains(muscle) ? gc.onLavender : gc.textSecondary,
                         onTap: () {
                           HapticFeedback.selectionClick();
                           setSheet(() {
@@ -806,8 +806,8 @@ void showCreateExerciseSheet(BuildContext context,
                       for (final e in [...common, if (all) ...rest])
                         Pill(
                           label: t.equipment(e),
-                          bg: equipment == e ? gc.ember : gc.bgRaised2,
-                          fg: equipment == e ? gc.onEmber : gc.textSecondary,
+                          bg: equipment == e ? gc.teal : gc.bgRaised2,
+                          fg: equipment == e ? gc.onTeal : gc.textSecondary,
                           onTap: () {
                             HapticFeedback.selectionClick();
                             setSheet(() => equipment = e);
@@ -819,7 +819,7 @@ void showCreateExerciseSheet(BuildContext context,
                       Pill(
                         label: t.equipNew,
                         bg: Colors.transparent,
-                        fg: gc.accent,
+                        fg: gc.teal,
                         onTap: () async {
                           final name = await askText(context, title: t.equipNewTitle, hint: t.equipNewHint);
                           if (name == null || name.trim().isEmpty) return;
@@ -837,7 +837,7 @@ void showCreateExerciseSheet(BuildContext context,
                         Pill(
                           label: '+${rest.length}',
                           bg: Colors.transparent,
-                          fg: gc.accent,
+                          fg: gc.teal,
                           onTap: () => setSheet(() => allEquipment = true),
                           hPad: 12,
                           vPad: 8,
@@ -887,8 +887,8 @@ void showCreateExerciseSheet(BuildContext context,
                                 if (m.id != muscle)
                                   Pill(
                                     label: t.muscle(m.id),
-                                    bg: secondary.contains(m.id) ? gc.ember : gc.bgRaised2,
-                                    fg: secondary.contains(m.id) ? gc.onEmber : gc.textSecondary,
+                                    bg: secondary.contains(m.id) ? gc.lavender : gc.bgRaised2,
+                                    fg: secondary.contains(m.id) ? gc.onLavender : gc.textSecondary,
                                     onTap: () => setSheet(() {
                                       if (!secondary.remove(m.id)) secondary.add(m.id);
                                     }),
@@ -917,8 +917,8 @@ void showCreateExerciseSheet(BuildContext context,
                                   for (final k in kExerciseKinds)
                                     Pill(
                                       label: t.exerciseKind(k),
-                                      bg: shown == k ? gc.ember : gc.bgRaised2,
-                                      fg: shown == k ? gc.onEmber : gc.textSecondary,
+                                      bg: shown == k ? gc.teal : gc.bgRaised2,
+                                      fg: shown == k ? gc.onTeal : gc.textSecondary,
                                       onTap: () => setSheet(() => kind = k),
                                       vPad: 7,
                                       fontSize: 12,
@@ -948,7 +948,7 @@ void showCreateExerciseSheet(BuildContext context,
                               keyboardType: TextInputType.multiline,
                               textCapitalization: TextCapitalization.sentences,
                               style: AppTheme.f(14, weight: FontWeight.w500, color: gc.text, height: 1.45),
-                              cursorColor: gc.accent,
+                              cursorColor: gc.teal,
                               decoration: InputDecoration(
                                 hintText: t.howToHint,
                                 hintStyle: AppTheme.f(14, weight: FontWeight.w500, color: gc.textTertiary),
@@ -958,7 +958,7 @@ void showCreateExerciseSheet(BuildContext context,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.border)),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.accent)),
+                                    borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.teal)),
                               ),
                             ),
                             const SizedBox(height: 18),
@@ -967,7 +967,7 @@ void showCreateExerciseSheet(BuildContext context,
                             TextField(
                               controller: aliasCtrl,
                               style: AppTheme.f(14, weight: FontWeight.w500, color: gc.text),
-                              cursorColor: gc.accent,
+                              cursorColor: gc.teal,
                               textCapitalization: TextCapitalization.words,
                               decoration: InputDecoration(
                                 hintText: t.aliasesHint,
@@ -978,7 +978,7 @@ void showCreateExerciseSheet(BuildContext context,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.border)),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.accent)),
+                                    borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: gc.teal)),
                               ),
                             ),
                             if (editing == null) ...[
@@ -1178,8 +1178,8 @@ class _FilterSheet extends StatelessWidget {
               for (final c in chips)
                 Pill(
                   label: c.label,
-                  bg: c.active ? gc.ember : gc.bgRaised2,
-                  fg: c.active ? gc.onEmber : gc.textSecondary,
+                  bg: c.active ? gc.teal : gc.bgRaised2,
+                  fg: c.active ? gc.onTeal : gc.textSecondary,
                   onTap: () => tap(c.onTap),
                   hPad: 14,
                   vPad: 8,
@@ -1239,7 +1239,7 @@ class _FilterSheet extends StatelessWidget {
                     height: 44,
                     margin: const EdgeInsets.only(top: 6),
                     alignment: Alignment.center,
-                    child: Text(t.clearFilters, style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                    child: Text(t.clearFilters, style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
                   ),
                 ),
         ),
@@ -1339,11 +1339,11 @@ class _ZoneHeader extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: selected ? gc.ember : gc.bgRaised2,
+                color: selected ? gc.teal : gc.bgRaised2,
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Text('${t.allExercisesShort} · ${fit.zoneCount(zone)}',
-                  style: AppTheme.f(11.5, weight: FontWeight.w700, color: selected ? gc.onEmber : gc.textSecondary)),
+                  style: AppTheme.f(11.5, weight: FontWeight.w700, color: selected ? gc.onTeal : gc.textSecondary)),
             ),
         ]),
       ),
@@ -1451,7 +1451,7 @@ class _StarPopState extends State<_StarPop> with SingleTickerProviderStateMixin 
                 height: 18 + 22 * v,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: gc.accent.withValues(alpha: (1 - v) * 0.7), width: 2 * (1 - v) + 0.4),
+                  border: Border.all(color: gc.teal.withValues(alpha: (1 - v) * 0.7), width: 2 * (1 - v) + 0.4),
                 ),
               ),
             Transform.scale(scale: scale, child: child),

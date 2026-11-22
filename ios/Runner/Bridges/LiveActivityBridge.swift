@@ -3,7 +3,7 @@ import Flutter
 
 enum LiveActivityBridge {
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/live_activity", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/live_activity", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         guard #available(iOS 16.2, *) else {
           result(nil)
@@ -37,7 +37,7 @@ enum LiveWorkoutActivity {
 
   static func update(_ args: [String: Any]) async {
     let state = WorkoutActivityAttributes.ContentState(
-      exercise: args["exercise"] as? String ?? "GymMane",
+      exercise: args["exercise"] as? String ?? "Jesselicious",
       detail: args["detail"] as? String ?? "",
       index: args["index"] as? Int ?? 0,
       total: args["total"] as? Int ?? 0,

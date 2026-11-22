@@ -10,7 +10,7 @@ class NotifSound {
   NotifSound._();
 
   static const silent = 'silent';
-  static const _channel = MethodChannel('gymmane/device');
+  static const _channel = MethodChannel('jesselicious/device');
 
   static final Map<SoundGroup, String> uris = {};
 
@@ -46,7 +46,7 @@ class NotifSound {
     }
   }
 
-  static const _sounds = MethodChannel('gymmane/sounds');
+  static const _sounds = MethodChannel('jesselicious/sounds');
   static List<({String uri, String name})>? _list;
 
   static Future<List<({String uri, String name})>> phoneSounds() async {

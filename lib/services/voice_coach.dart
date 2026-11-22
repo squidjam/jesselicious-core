@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class VoiceCoach {
   VoiceCoach._();
 
-  static const _channel = MethodChannel('gymmane/voice');
+  static const _channel = MethodChannel('jesselicious/voice');
   static bool enabled = true;
 
   static Future<void> say(String text, String lang) async {

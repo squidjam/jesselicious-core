@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-const String syncPrefix = 'gymmane-auto-';
+const String syncPrefix = 'jesselicious-auto-';
 
 const Set<String> _localOnly = {'live', 'liveStart', 'liveElapsed', 'livePaused', 'alarmSound', 'alarmSoundName'};
 

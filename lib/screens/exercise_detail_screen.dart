@@ -117,7 +117,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
               label: archived ? t.restoreExercise : t.archiveExercise,
               onTap: () => _toggleArchived(context, ex),
               child: Icon(archived ? PhosphorIconsFill.archive : PhosphorIconsRegular.archive,
-                  size: 16, color: archived ? gc.accent : gc.textSecondary),
+                  size: 16, color: archived ? gc.teal : gc.textSecondary),
             ),
             const SizedBox(width: 10),
             RoundAction(
@@ -319,7 +319,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                 child: Pill(
                   label: t.addSteps,
                   bg: gc.bgRaised2,
-                  fg: gc.accent,
+                  fg: gc.teal,
                   onTap: () => showCreateExerciseSheet(context, editing: ex),
                 ),
               ),
@@ -1024,8 +1024,8 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                     if (m.id != ex.primary)
                       Pill(
                         label: t.muscle(m.id),
-                        bg: ex.secondary.contains(m.id) ? gc.ember : gc.bgRaised2,
-                        fg: ex.secondary.contains(m.id) ? gc.onEmber : gc.textSecondary,
+                        bg: ex.secondary.contains(m.id) ? gc.lavender : gc.bgRaised2,
+                        fg: ex.secondary.contains(m.id) ? gc.onLavender : gc.textSecondary,
                         vPad: 7,
                         onTap: () => fit.setSecondary(
                             id,
@@ -1043,7 +1043,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                       margin: const EdgeInsets.only(top: 8),
                       alignment: Alignment.center,
                       child: Text(t.alarmReset,
-                          style: AppTheme.f(13, weight: FontWeight.w600, color: gc.accent)),
+                          style: AppTheme.f(13, weight: FontWeight.w600, color: gc.teal)),
                     ),
                   )
                 else
@@ -1093,7 +1093,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
       t.mergedToast,
       subtitle: exerciseName(to),
       icon: PhosphorIconsRegular.gitMerge,
-      accent: context.gc.accent,
+      accent: context.gc.teal,
     );
   }
 
@@ -1105,7 +1105,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
       t.archivedToast,
       subtitle: t.archivedToastHint,
       icon: PhosphorIconsFill.archive,
-      accent: context.gc.accent,
+      accent: context.gc.teal,
       action: t.undo,
       onTap: () => fit.toggleArchived(ex.id),
       duration: const Duration(milliseconds: 3600),
@@ -1114,9 +1114,9 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
 
   Widget _archivedBanner(GymColors gc, Exercise ex) => Container(
         padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
-        decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(16)),
         child: Row(children: [
-          Icon(PhosphorIconsFill.archive, size: 17, color: gc.accent),
+          Icon(PhosphorIconsFill.archive, size: 17, color: gc.teal),
           const SizedBox(width: 12),
           Expanded(
             child: Text(t.archivedBanner,
@@ -1128,7 +1128,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               child: Text(t.restoreExercise,
-                  style: AppTheme.f(13, weight: FontWeight.w700, color: gc.accent)),
+                  style: AppTheme.f(13, weight: FontWeight.w700, color: gc.teal)),
             ),
           ),
         ]),
@@ -1191,9 +1191,9 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
         Container(
           width: 24,
           height: 24,
-          decoration: BoxDecoration(color: gc.emberSoft, shape: BoxShape.circle),
+          decoration: BoxDecoration(color: gc.marigoldSoft, shape: BoxShape.circle),
           alignment: Alignment.center,
-          child: Text('$n', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.ember)),
+          child: Text('$n', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.marigold)),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -1223,7 +1223,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                   stack == null
                       ? t.weightStackOff
                       : '${fit.weightValueFor(id, stack.first)}–${fit.weightValueFor(id, stack.last)} ${fit.unitsFor(id)} · ${t.stackCount(stack.length)}',
-                  style: AppTheme.f(11.5, weight: FontWeight.w500, color: stack != null ? gc.accent : gc.textSecondary)),
+                  style: AppTheme.f(11.5, weight: FontWeight.w500, color: stack != null ? gc.teal : gc.textSecondary)),
             ]),
           ),
           Icon(PhosphorIconsRegular.caretRight, size: 15, color: gc.textTertiary),
@@ -1243,7 +1243,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
             Text(t.holdProgress, style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text)),
             const SizedBox(height: 3),
             Text(step > 0 ? t.holdProgressOn(step) : t.holdProgressHint,
-                style: AppTheme.f(11.5, weight: FontWeight.w500, color: step > 0 ? gc.accent : gc.textSecondary)),
+                style: AppTheme.f(11.5, weight: FontWeight.w500, color: step > 0 ? gc.teal : gc.textSecondary)),
           ]),
         ),
         const SizedBox(width: 12),
@@ -1279,7 +1279,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                   child: Text(custom ? t.restCustom : t.restUsingDefault,
                       style: AppTheme.f(11.5,
                           weight: FontWeight.w500,
-                          color: custom ? gc.accent : gc.textSecondary)),
+                          color: custom ? gc.teal : gc.textSecondary)),
                 ),
               ],
             ),
@@ -1330,7 +1330,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                   behavior: HitTestBehavior.opaque,
                   onTap: own ? () => fit.setBodyShare(id, null) : null,
                   child: Text(own ? t.bodyShareCustom(fit.bodyShareDefault(id)) : t.bodyShareHint,
-                      style: AppTheme.f(11.5, weight: FontWeight.w500, color: own ? gc.accent : gc.textSecondary, height: 1.3)),
+                      style: AppTheme.f(11.5, weight: FontWeight.w500, color: own ? gc.teal : gc.textSecondary, height: 1.3)),
                 ),
               ],
             ),
@@ -1374,7 +1374,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                   behavior: HitTestBehavior.opaque,
                   onTap: own ? () => fit.setExerciseBar(ex.id, null) : null,
                   child: Text(own ? t.barWeightCustom : t.barWeightHint,
-                      style: AppTheme.f(11.5, weight: FontWeight.w500, color: own ? gc.accent : gc.textSecondary)),
+                      style: AppTheme.f(11.5, weight: FontWeight.w500, color: own ? gc.teal : gc.textSecondary)),
                 ),
               ],
             ),
@@ -1446,7 +1446,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
         padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
           color: gc.bgRaised,
-          border: Border.all(color: done ? gc.ember : Colors.transparent),
+          border: Border.all(color: done ? gc.teal : Colors.transparent),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -1467,7 +1467,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                   ),
                 ),
                 Text(done ? t.goalReached : t.goalToGo(fit.goalLabel(id, goal.target - best)),
-                    style: AppTheme.f(12.5, weight: FontWeight.w600, color: done ? gc.ember : gc.textSecondary)),
+                    style: AppTheme.f(12.5, weight: FontWeight.w600, color: done ? gc.teal : gc.textSecondary)),
               ],
             ),
             const SizedBox(height: 14),
@@ -1477,14 +1477,14 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                 value: share,
                 minHeight: 6,
                 backgroundColor: gc.bgRaised2,
-                valueColor: AlwaysStoppedAnimation(done ? gc.ember : gc.accent),
+                valueColor: AlwaysStoppedAnimation(done ? gc.teal : gc.teal),
               ),
             ),
             if (when != null) ...[
               const SizedBox(height: 10),
               Text(when,
                   style: AppTheme.f(11.5,
-                      weight: FontWeight.w500, color: days! < 0 ? gc.ember : gc.textTertiary)),
+                      weight: FontWeight.w500, color: days! < 0 ? gc.teal : gc.textTertiary)),
             ],
           ],
         ),
@@ -1606,12 +1606,12 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
         color: gc.bgRaised,
-        border: Border.all(color: up ? gc.ember : gc.border),
+        border: Border.all(color: up ? gc.marigold : gc.border),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         children: [
-          SvgPathIcon(Ic.trendUp, size: 18, color: up ? gc.ember : gc.textSecondary),
+          SvgPathIcon(Ic.trendUp, size: 18, color: up ? gc.marigold : gc.textSecondary),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -1628,7 +1628,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
           ),
           const SizedBox(width: 10),
           Text(fit.nextTargetLabel(id)!,
-              style: AppTheme.f(20, weight: FontWeight.w800, color: up ? gc.ember : gc.text)),
+              style: AppTheme.f(20, weight: FontWeight.w800, color: up ? gc.marigold : gc.text)),
         ],
       ),
     );
@@ -1698,7 +1698,7 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
               child: Text(t.progression, style: AppTheme.f(14.5, weight: FontWeight.w500, color: gc.text)),
             ),
             const SizedBox(width: 12),
-            Text(progressKindName(kind), style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.accent : gc.textSecondary)),
+            Text(progressKindName(kind), style: AppTheme.f(13, weight: FontWeight.w600, color: on ? gc.teal : gc.textSecondary)),
             const SizedBox(width: 6),
             Icon(PhosphorIconsRegular.caretRight, size: 15, color: gc.textTertiary),
           ],

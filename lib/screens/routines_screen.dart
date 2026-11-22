@@ -311,9 +311,9 @@ class RoutinesScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
             decoration: BoxDecoration(
-              color: active ? gc.ember : gc.bgRaised,
+              color: active ? gc.teal : gc.bgRaised,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: active ? gc.ember : gc.border),
+              border: Border.all(color: active ? gc.teal : gc.border),
             ),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               if (icon != null) ...[
@@ -322,7 +322,7 @@ class RoutinesScreen extends StatelessWidget {
               ],
               Text(label,
                   style: AppTheme.f(12.5,
-                      weight: FontWeight.w600, color: active ? gc.onEmber : (icon != null ? gc.textSecondary : gc.text))),
+                      weight: FontWeight.w600, color: active ? gc.onTeal : (icon != null ? gc.textSecondary : gc.text))),
             ]),
           ),
         );
@@ -427,8 +427,8 @@ class RoutinesScreen extends StatelessWidget {
           Container(
             width: 38,
             height: 38,
-            decoration: BoxDecoration(color: gc.emberSoft, borderRadius: BorderRadius.circular(11)),
-            child: Icon(icon, size: 19, color: gc.ember),
+            decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(11)),
+            child: Icon(icon, size: 19, color: gc.teal),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -490,7 +490,7 @@ class RoutinesScreen extends StatelessWidget {
         Navigator.pop(sheet);
         if (made == 0 || !context.mounted) return;
         showNotchToast(context, t.templateAdded(made),
-            subtitle: template.name, icon: PhosphorIconsFill.stack, accent: context.gc.sage);
+            subtitle: template.name, icon: PhosphorIconsFill.stack, accent: context.gc.lavender);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),
@@ -504,8 +504,8 @@ class RoutinesScreen extends StatelessWidget {
             Container(
               width: 42,
               height: 42,
-              decoration: BoxDecoration(color: gc.emberSoft, borderRadius: BorderRadius.circular(12)),
-              child: Icon(PhosphorIconsRegular.stack, size: 20, color: gc.ember),
+              decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(12)),
+              child: Icon(PhosphorIconsRegular.stack, size: 20, color: gc.teal),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -560,9 +560,9 @@ class RoutinesScreen extends StatelessWidget {
                       height: 5,
                       decoration: BoxDecoration(
                         color: i < step
-                            ? gc.sage
+                            ? gc.lavender
                             : i == step
-                                ? gc.ember
+                                ? gc.teal
                                 : gc.bgRaised2,
                         borderRadius: BorderRadius.circular(3),
                       ),
@@ -646,7 +646,7 @@ class RoutinesScreen extends StatelessWidget {
       key: ValueKey('rot-$id'),
       margin: const EdgeInsets.symmetric(vertical: 2),
       decoration: BoxDecoration(
-        color: isNext ? gc.sageSoft : gc.bgRaised,
+        color: isNext ? gc.lavenderSoft : gc.bgRaised,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(children: [
@@ -662,11 +662,11 @@ class RoutinesScreen extends StatelessWidget {
                   height: 30,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: isNext ? gc.sage : (done ? gc.sageSoft : gc.bgRaised2),
+                    color: isNext ? gc.lavender : (done ? gc.lavenderSoft : gc.bgRaised2),
                     shape: BoxShape.circle,
                   ),
                   child: done
-                      ? Icon(PhosphorIconsBold.check, size: 13, color: gc.sage)
+                      ? Icon(PhosphorIconsBold.check, size: 13, color: gc.lavender)
                       : Icon(PhosphorIconsFill.bed, size: 14, color: isNext ? gc.bg : gc.textSecondary),
                 ),
                 const SizedBox(width: 12),
@@ -688,7 +688,7 @@ class RoutinesScreen extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: AppTheme.f(11.5,
                             weight: isNext ? FontWeight.w700 : FontWeight.w500,
-                            color: isNext ? gc.sage : gc.textTertiary),
+                            color: isNext ? gc.lavender : gc.textTertiary),
                       ),
                     ],
                   ),
@@ -778,7 +778,7 @@ class RoutinesScreen extends StatelessWidget {
       key: ValueKey('rot-${r.id}'),
       margin: const EdgeInsets.symmetric(vertical: 2),
       decoration: BoxDecoration(
-        color: isNext ? gc.emberSoft : gc.bgRaised,
+        color: isNext ? gc.tealSoft : gc.bgRaised,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(children: [
@@ -794,13 +794,13 @@ class RoutinesScreen extends StatelessWidget {
                   height: 30,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: isNext ? gc.ember : (done ? gc.sageSoft : gc.bgRaised2),
+                    color: isNext ? gc.teal : (done ? gc.lavenderSoft : gc.bgRaised2),
                     shape: BoxShape.circle,
                   ),
                   child: done
-                      ? Icon(PhosphorIconsBold.check, size: 13, color: gc.sage)
+                      ? Icon(PhosphorIconsBold.check, size: 13, color: gc.lavender)
                       : Text(letter,
-                          style: AppTheme.f(13, weight: FontWeight.w800, color: isNext ? gc.onEmber : gc.text)),
+                          style: AppTheme.f(13, weight: FontWeight.w800, color: isNext ? gc.onTeal : gc.text)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -821,7 +821,7 @@ class RoutinesScreen extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: AppTheme.f(11.5,
                             weight: isNext ? FontWeight.w700 : FontWeight.w500,
-                            color: isNext ? gc.ember : gc.textTertiary),
+                            color: isNext ? gc.teal : gc.textTertiary),
                       ),
                     ],
                   ),
@@ -960,10 +960,10 @@ class RoutinesScreen extends StatelessWidget {
             Text(t.weekdayShort(weekday),
                 maxLines: 1,
                 softWrap: false,
-                style: AppTheme.f(14, weight: FontWeight.w600, color: isToday ? gc.ember : gc.text)),
+                style: AppTheme.f(14, weight: FontWeight.w600, color: isToday ? gc.marigold : gc.text)),
             const SizedBox(width: 14),
             if (moved) ...[
-              Icon(PhosphorIconsBold.arrowsLeftRight, size: 12, color: gc.brass),
+              Icon(PhosphorIconsBold.arrowsLeftRight, size: 12, color: gc.marigold),
               const SizedBox(width: 6),
             ],
             Expanded(
@@ -1056,7 +1056,7 @@ class RoutinesScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(4, 14, 0, 14),
                 child: Row(
                   children: [
-                    Icon(PhosphorIconsRegular.folderSimple, size: 15, color: gc.brass),
+                    Icon(PhosphorIconsRegular.folderSimple, size: 15, color: gc.marigold),
                     const SizedBox(width: 8),
                     Flexible(
                       child: Text(name,
@@ -1338,7 +1338,7 @@ void showMoveDaySheet(BuildContext context, Routine r) {
                       showNotchToast(context, t.movedToast,
                           subtitle: '${fit.routineTitle(r)} → ${i == 0 ? t.tomorrow : titleCase(t.weekday(d.weekday))}',
                           icon: PhosphorIconsFill.calendarCheck,
-                          accent: context.gc.brass,
+                          accent: context.gc.marigold,
                           action: t.undo,
                           onTap: undo);
                     },
@@ -1405,7 +1405,7 @@ void showRoutineMenu(BuildContext context, Routine r) {
                 context,
                 t.routineArchived,
                 icon: PhosphorIconsFill.archive,
-                accent: gc.brass,
+                accent: gc.marigold,
                 action: t.undo,
                 onTap: undo,
                 duration: const Duration(milliseconds: 3600),

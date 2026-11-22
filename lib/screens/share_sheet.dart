@@ -60,7 +60,7 @@ class _ShareSheetState extends State<_ShareSheet> {
       if (data == null) return;
 
       if (!mounted) return;
-      await shareFile('gymmane-${_kind.name}.png', data.buffer.asUint8List(), mime: 'image/png', subject: 'GymMane');
+      await shareFile('jesselicious-${_kind.name}.png', data.buffer.asUint8List(), mime: 'image/png', subject: 'Jesselicious');
     } catch (_) {
       if (mounted) {
         showNotchToast(context, t.shareFailed, icon: PhosphorIconsFill.warningCircle, accent: context.gc.warn);

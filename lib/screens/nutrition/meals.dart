@@ -209,8 +209,8 @@ Future<void> showSavedMealsSheet(BuildContext context) => _sheet<void>(context, 
             leading: Container(
               width: 38,
               height: 38,
-              decoration: BoxDecoration(color: gc.accent.withValues(alpha: 0.14), shape: BoxShape.circle),
-              child: Icon(PhosphorIconsBold.cookingPot, size: 17, color: gc.accent),
+              decoration: BoxDecoration(color: gc.teal.withValues(alpha: 0.14), shape: BoxShape.circle),
+              child: Icon(PhosphorIconsBold.cookingPot, size: 17, color: gc.teal),
             ),
             title: t.dishNew,
             detail: t.dishNewHint,
@@ -345,7 +345,7 @@ class _MealTabsState extends State<_MealTabs> {
                     child: Container(
                       width: 6,
                       height: 6,
-                      decoration: BoxDecoration(color: gc.accent, shape: BoxShape.circle),
+                      decoration: BoxDecoration(color: gc.teal, shape: BoxShape.circle),
                     ),
                   ),
               ]),
@@ -544,7 +544,7 @@ Future<void> showMealMenu(BuildContext context, Meal meal, List<FoodEntry> shown
                 t.movedMealToast(moved.length),
                 subtitle: mealName(to),
                 icon: PhosphorIconsFill.arrowsLeftRight,
-                accent: gc.accent,
+                accent: gc.teal,
                 action: t.undo,
                 onTap: () => fit.moveEntries(moved, meal),
               );
@@ -573,7 +573,7 @@ Future<void> showMealMenu(BuildContext context, Meal meal, List<FoodEntry> shown
                     t.copiedMealToast(added.length),
                     subtitle: mealName(meal),
                     icon: PhosphorIconsFill.copy,
-                    accent: gc.accent,
+                    accent: gc.teal,
                     action: t.undo,
                     onTap: () {
                       for (final e in added) {
@@ -604,7 +604,7 @@ Future<void> showMealMenu(BuildContext context, Meal meal, List<FoodEntry> shown
                     t.copiedMealToast(added.length),
                     subtitle: dayName(d),
                     icon: PhosphorIconsFill.copy,
-                    accent: gc.accent,
+                    accent: gc.teal,
                     action: t.undo,
                     onTap: () {
                       for (final e in added) {
@@ -798,7 +798,7 @@ class _RecipeSheetState extends State<_RecipeSheet> {
             t.loggedToast(mealInSentence(_meal)),
             subtitle: r.name,
             icon: PhosphorIconsFill.forkKnife,
-            accent: context.gc.accent,
+            accent: context.gc.teal,
             action: t.undo,
             onTap: () {
               for (final e in added) {
@@ -1022,17 +1022,17 @@ class _MealPicker extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 3),
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: m == value ? gc.accentSoft : gc.bgRaised2,
+          color: m == value ? gc.tealSoft : gc.bgRaised2,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: m == value ? gc.accent.withValues(alpha: 0.6) : Colors.transparent),
+          border: Border.all(color: m == value ? gc.teal.withValues(alpha: 0.6) : Colors.transparent),
         ),
         child: Column(children: [
-          Icon(_mealIcon(m), size: 16, color: m == value ? gc.accent : gc.textSecondary),
+          Icon(_mealIcon(m), size: 16, color: m == value ? gc.teal : gc.textSecondary),
           const SizedBox(height: 4),
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(mealName(m),
-                style: AppTheme.f(11, weight: FontWeight.w700, color: m == value ? gc.accent : gc.textSecondary)),
+                style: AppTheme.f(11, weight: FontWeight.w700, color: m == value ? gc.teal : gc.textSecondary)),
           ),
         ]),
       ),
@@ -1302,9 +1302,9 @@ class _DishEditorState extends State<_DishEditor> {
                       border: Border.all(color: gc.border),
                     ),
                     child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Icon(PhosphorIconsBold.plus, size: 13, color: gc.accent),
+                      Icon(PhosphorIconsBold.plus, size: 13, color: gc.teal),
                       const SizedBox(width: 6),
-                      Text(t.prepAddIngredient, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.accent)),
+                      Text(t.prepAddIngredient, style: AppTheme.f(12.5, weight: FontWeight.w800, color: gc.teal)),
                     ]),
                   ),
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/nutrition.dart';
+import 'package:jesselicious/models/nutrition.dart';
 
 void main() {
   Map<String, dynamic> raw([Object? p]) => {

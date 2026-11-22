@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>GymMane</string>
+	<string>Jesselicious</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,7 +40,7 @@
 		<string>ur</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>GymMane</string>
+	<string>Jesselicious</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -53,10 +53,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.gymmane.app</string>
+			<string>com.jesselicious.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gymmane</string>
+				<string>jesselicious</string>
 			</array>
 		</dict>
 	</array>
@@ -64,7 +64,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>GymMane data</string>
+			<string>Jesselicious data</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSHandlerRank</key>
@@ -86,15 +86,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
-	<string>GymMane reads your steps, sleep and heart data from Health to show them next to your training.</string>
+	<string>Jesselicious reads your steps, sleep and heart data from Health to show them next to your training.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>GymMane saves your finished workouts to Health.</string>
+	<string>Jesselicious saves your finished workouts to Health.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>GymMane uses the camera to take your progress photos.</string>
+	<string>Jesselicious uses the camera to take your progress photos.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>GymMane saves the cards you share to your photo library.</string>
+	<string>Jesselicious saves the cards you share to your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>GymMane opens your photo library to pick progress photos, exercise media and backgrounds.</string>
+	<string>Jesselicious opens your photo library to pick progress photos, exercise media and backgrounds.</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -126,7 +126,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Start workout</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.gymmane.app.start</string>
+			<string>com.jesselicious.app.start</string>
 		</dict>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

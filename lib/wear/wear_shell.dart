@@ -21,7 +21,7 @@ import 'wear_sync.dart';
 class WearRotary {
   WearRotary._();
 
-  static const _channel = MethodChannel('gymmane/rotary');
+  static const _channel = MethodChannel('jesselicious/rotary');
   static final List<ScrollController> _stack = [];
   static VoidCallback? onTurn;
 
@@ -84,7 +84,7 @@ class _WearShellState extends State<WearShell> with WidgetsBindingObserver {
     });
   }
 
-  static const _open = MethodChannel('gymmane/open');
+  static const _open = MethodChannel('jesselicious/open');
 
   void _openRoute(String? route) {
     if (!mounted || route != 'play') return;
@@ -267,7 +267,7 @@ class _EdgeRing extends StatelessWidget {
       curve: Curves.linear,
       builder: (context, v, _) => SizedBox.expand(
         child: RepaintBoundary(
-          child: CustomPaint(painter: _EdgePainter(track: gc.bgRaised, fill: gc.accent, pct: v)),
+          child: CustomPaint(painter: _EdgePainter(track: gc.bgRaised, fill: gc.teal, pct: v)),
         ),
       ),
     );
@@ -462,7 +462,7 @@ class WearHome extends StatelessWidget {
         const SizedBox(height: 8),
         Center(
           child: Row(mainAxisSize: MainAxisSize.min, children: [
-            Icon(PhosphorIconsFill.fire, size: 14, color: gc.accent),
+            Icon(PhosphorIconsFill.fire, size: 14, color: gc.teal),
             const SizedBox(width: 4),
             Text('${fit.currentStreak}', style: AppTheme.f(15, weight: FontWeight.w700, color: gc.text)),
             const SizedBox(width: 4),
@@ -519,7 +519,7 @@ class _WeekRing extends StatelessWidget {
         width: 76,
         height: 76,
         child: CustomPaint(
-          painter: _RingPainter(track: gc.bgRaised2, fill: gc.accent, pct: pct),
+          painter: _RingPainter(track: gc.bgRaised2, fill: gc.teal, pct: pct),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -589,8 +589,8 @@ class WearButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final gc = context.gc;
     final enabled = onTap != null;
-    final bg = filled ? (color ?? gc.ember) : gc.bgRaised;
-    final fg = filled ? gc.onEmber : gc.text;
+    final bg = filled ? (color ?? gc.magenta) : gc.bgRaised;
+    final fg = filled ? gc.onMagenta : gc.text;
     return Semantics(
       button: true,
       enabled: enabled,
@@ -721,7 +721,7 @@ class WearRoutines extends StatelessWidget {
               decoration: BoxDecoration(
                 color: gc.bgRaised,
                 borderRadius: BorderRadius.circular(26),
-                border: Border.all(color: today ? gc.accent : Colors.transparent, width: 1.4),
+                border: Border.all(color: today ? gc.teal : Colors.transparent, width: 1.4),
               ),
               child: Row(children: [
                 Expanded(
@@ -736,7 +736,7 @@ class WearRoutines extends StatelessWidget {
                         style: AppTheme.f(11.5, weight: FontWeight.w500, color: gc.textSecondary)),
                   ]),
                 ),
-                Icon(icon, size: 14, color: today ? gc.accent : gc.textTertiary),
+                Icon(icon, size: 14, color: today ? gc.teal : gc.textTertiary),
               ]),
             ),
           ),
@@ -836,7 +836,7 @@ class WearSettings extends StatelessWidget {
                 child: Text(t.wearSyncWaiting(sync.waiting),
                     textAlign: TextAlign.center,
                     maxLines: 3,
-                    style: AppTheme.f(11.5, weight: FontWeight.w600, color: gc.accent, height: 1.25)),
+                    style: AppTheme.f(11.5, weight: FontWeight.w600, color: gc.teal, height: 1.25)),
               ),
             ],
             const SizedBox(height: 8),
@@ -1009,9 +1009,9 @@ class WearSession extends StatelessWidget {
           children: [
             if (fit.inSuperset)
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Icon(PhosphorIconsBold.link, size: 11, color: gc.brass),
+                Icon(PhosphorIconsBold.link, size: 11, color: gc.marigold),
                 const SizedBox(width: 4),
-                Text(t.superset, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.brass)),
+                Text(t.superset, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.marigold)),
               ]),
             Text(ex == null ? '' : t.catalogName(ex.id, ex.name),
                 maxLines: 2,
@@ -1154,7 +1154,7 @@ class WearSession extends StatelessWidget {
                     : t.timeCol),
             style: AppTheme.f(11.5, weight: FontWeight.w700, color: gc.textSecondary)),
         Text(lead > 0 ? '$lead' : (fit.holdOvertime ? '+${durationLabel(fit.holdExtra)}' : durationLabel(left)),
-            style: AppTheme.f(32, weight: FontWeight.w800, color: lead > 0 ? gc.accent : gc.text, height: 1.1)),
+            style: AppTheme.f(32, weight: FontWeight.w800, color: lead > 0 ? gc.teal : gc.text, height: 1.1)),
       ]),
     );
   }
@@ -1204,9 +1204,9 @@ class WearSession extends StatelessWidget {
             height: 44,
             padding: const EdgeInsets.fromLTRB(14, 0, 10, 0),
             decoration: BoxDecoration(
-              color: st.done ? gc.sageSoft : gc.bgRaised,
+              color: st.done ? gc.lavenderSoft : gc.bgRaised,
               borderRadius: BorderRadius.circular(22),
-              border: Border.all(color: current ? gc.accent : Colors.transparent, width: 1.4),
+              border: Border.all(color: current ? gc.teal : Colors.transparent, width: 1.4),
             ),
             child: Row(children: [
               SizedBox(
@@ -1224,9 +1224,9 @@ class WearSession extends StatelessWidget {
                 width: 22,
                 height: 22,
                 decoration: BoxDecoration(
-                  color: st.done ? gc.sage : Colors.transparent,
+                  color: st.done ? gc.lavender : Colors.transparent,
                   shape: BoxShape.circle,
-                  border: Border.all(color: st.done ? gc.sage : gc.textTertiary, width: 1.6),
+                  border: Border.all(color: st.done ? gc.lavender : gc.textTertiary, width: 1.6),
                 ),
                 child: st.done ? const Icon(PhosphorIconsBold.check, size: 12, color: Colors.white) : null,
               ),
@@ -1286,7 +1286,7 @@ class WearSession extends StatelessWidget {
     final prs = fit.gamification ? fit.summaryPrs : 0;
     return WearPage(children: [
       Center(
-        child: Icon(PhosphorIconsFill.checkCircle, size: 28, color: gc.sage),
+        child: Icon(PhosphorIconsFill.checkCircle, size: 28, color: gc.lavender),
       ),
       const SizedBox(height: 6),
       Center(

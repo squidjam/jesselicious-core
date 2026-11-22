@@ -61,7 +61,7 @@ class _FastingCardState extends State<_FastingCard> {
     final elapsed = start == null ? Duration.zero : now.difference(start);
     final progress = start == null ? 0.0 : (elapsed.inSeconds / goal.inSeconds).clamp(0.0, 1.0);
     final reached = start != null && elapsed >= goal;
-    final color = reached ? gc.sage : gc.brass;
+    final color = reached ? gc.lavender : gc.marigold;
     final last = fit.fasts.isEmpty ? null : fit.fasts.last;
     final meal = fit.lastMealAt;
     final streak = fit.fastStreak;
@@ -127,7 +127,7 @@ class _FastingCardState extends State<_FastingCard> {
               Text(line,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: AppTheme.s(12, color: reached ? gc.sage : gc.textSecondary, height: 1.3)),
+                  style: AppTheme.s(12, color: reached ? gc.lavender : gc.textSecondary, height: 1.3)),
             ]),
           ),
         ]),
@@ -194,7 +194,7 @@ class _FastingCardState extends State<_FastingCard> {
                     t.fastSaved,
                     subtitle: _span(saved.length),
                     icon: PhosphorIconsFill.hourglassMedium,
-                    accent: saved.reached ? gc.sage : gc.brass,
+                    accent: saved.reached ? gc.lavender : gc.marigold,
                     action: t.fastAdjust,
                     onTap: () {
                       final kept = fit.fasts.where((r) => identical(r, saved));
@@ -243,7 +243,7 @@ extension on _FastingCardState {
       padding: const EdgeInsets.fromLTRB(16, 14, 14, 14),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Row(children: [
-          Icon(PhosphorIconsRegular.moonStars, size: 16, color: fasting ? gc.brass : gc.textSecondary),
+          Icon(PhosphorIconsRegular.moonStars, size: 16, color: fasting ? gc.marigold : gc.textSecondary),
           const SizedBox(width: 8),
           Expanded(child: _kicker(gc, t.ramadanDay(fit.ramadanDay).toUpperCase())),
           _roundIcon(PhosphorIconsBold.dotsThree, gc.textSecondary, () => showFastingSheet(context), label: t.fastOptions),
@@ -258,12 +258,12 @@ extension on _FastingCardState {
               duration: const Duration(milliseconds: 520),
               curve: Curves.easeOutCubic,
               builder: (_, v, _) => CustomPaint(
-                painter: _FastRing(v, track: gc.bgRaised2, color: gc.brass),
+                painter: _FastRing(v, track: gc.bgRaised2, color: gc.marigold),
                 child: Center(
                   child: Icon(
                     fasting ? PhosphorIconsRegular.moonStars : PhosphorIconsRegular.forkKnife,
                     size: 22,
-                    color: fasting ? gc.brass : gc.textTertiary,
+                    color: fasting ? gc.marigold : gc.textTertiary,
                   ),
                 ),
               ),
@@ -473,7 +473,7 @@ Future<void> showFastingSheet(BuildContext context) => _sheet<void>(context, (co
                     decoration: BoxDecoration(color: gc.bgRaised2, borderRadius: BorderRadius.circular(16)),
                     child: Row(children: [
                       Icon(r.reached ? PhosphorIconsBold.check : PhosphorIconsRegular.hourglassMedium,
-                          size: 14, color: r.reached ? gc.sage : gc.textTertiary),
+                          size: 14, color: r.reached ? gc.lavender : gc.textTertiary),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -592,9 +592,9 @@ class _FastEditSheetState extends State<_FastEditSheet> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Text(text, style: AppTheme.f(14, weight: FontWeight.w800, color: gc.accent)),
+              Text(text, style: AppTheme.f(14, weight: FontWeight.w800, color: gc.teal)),
               const SizedBox(width: 6),
-              Icon(icon, size: 15, color: gc.accent),
+              Icon(icon, size: 15, color: gc.teal),
             ]),
           ),
         );
@@ -655,7 +655,7 @@ class _FastEditSheetState extends State<_FastEditSheet> {
                       ? PhosphorIconsBold.check
                       : PhosphorIconsRegular.hourglassMedium,
               size: 14,
-              color: problem != null ? gc.danger : (reached ? gc.sage : gc.textTertiary),
+              color: problem != null ? gc.danger : (reached ? gc.lavender : gc.textTertiary),
             ),
             const SizedBox(width: 6),
             Flexible(

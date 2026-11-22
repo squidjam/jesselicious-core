@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/widgets/glass.dart';
+import 'package:jesselicious/widgets/glass.dart';
 
 const _screen = 800.0;
 const _keyboard = 300.0;

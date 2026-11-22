@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/catalog/exercise_catalog.dart';
-import 'package:gymmane/catalog/program_templates.dart';
-import 'package:gymmane/l10n/catalog_es.dart';
-import 'package:gymmane/l10n/catalog_it.dart';
-import 'package:gymmane/l10n/catalog_zh.dart';
-import 'package:gymmane/models/exercise.dart';
-import 'package:gymmane/services/exercise_match.dart';
+import 'package:jesselicious/catalog/exercise_catalog.dart';
+import 'package:jesselicious/catalog/program_templates.dart';
+import 'package:jesselicious/l10n/catalog_es.dart';
+import 'package:jesselicious/l10n/catalog_it.dart';
+import 'package:jesselicious/l10n/catalog_zh.dart';
+import 'package:jesselicious/models/exercise.dart';
+import 'package:jesselicious/services/exercise_match.dart';
 
 const _mainPath = {
   'warm-up': ["Yuri's Shoulder Band Warmup", 'Wrist Prep', 'Squat Sky Reaches', 'Deadbugs', 'Arch Hang',

@@ -33,7 +33,7 @@ class StepsCard extends StatelessWidget {
   Widget _locked(GymColors gc) {
     return Row(
       children: [
-        Icon(PhosphorIconsRegular.footprints, size: 19, color: gc.accent),
+        Icon(PhosphorIconsRegular.footprints, size: 19, color: gc.teal),
         const SizedBox(width: 14),
         Expanded(
           child: Column(
@@ -98,7 +98,7 @@ class StepsCard extends StatelessWidget {
                       FractionallySizedBox(
                         widthFactor: pct,
                         heightFactor: 1,
-                        child: ColoredBox(color: gc.ember),
+                        child: ColoredBox(color: gc.teal),
                       ),
                     ],
                   ),
@@ -131,7 +131,7 @@ class StepsCard extends StatelessWidget {
           width: 7,
           height: h,
           decoration: BoxDecoration(
-            color: reached ? gc.ember : (today ? gc.accent : gc.mutedFill),
+            color: reached ? gc.marigold : (today ? gc.teal : gc.mutedFill),
             borderRadius: BorderRadius.circular(100),
           ),
         ),
@@ -186,7 +186,7 @@ void showStepsSheet(BuildContext context) {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(icon, size: 16, color: gc.accent),
+                    Icon(icon, size: 16, color: gc.teal),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(text,

@@ -294,7 +294,7 @@ class _RecapScreenState extends State<RecapScreen> {
         _Page.sleep => t.recapTickSleep,
         _Page.food => t.recapTickFood,
         _Page.habit => t.weekday(_recap.favDay ?? 1),
-        _Page.share => 'GymMane',
+        _Page.share => 'Jesselicious',
       };
 
   Future<void> _share() async {
@@ -308,8 +308,8 @@ class _RecapScreenState extends State<RecapScreen> {
       image.dispose();
       if (data == null) return;
       if (!mounted) return;
-      await shareFile('gymmane-${_recap.month.year}-${_recap.month.month}-$_variant.png', data.buffer.asUint8List(),
-          mime: 'image/png', subject: 'GymMane');
+      await shareFile('jesselicious-${_recap.month.year}-${_recap.month.month}-$_variant.png', data.buffer.asUint8List(),
+          mime: 'image/png', subject: 'Jesselicious');
     } catch (_) {
       if (mounted) {
         showNotchToast(context, t.shareFailed, icon: PhosphorIconsFill.warningCircle, accent: context.gc.warn);
@@ -410,7 +410,7 @@ class _RecapScreenState extends State<RecapScreen> {
     final side = page == _Page.share ? 0.0 : 24.0;
     return Padding(
       padding: EdgeInsets.fromLTRB(side, pad.top + 60, page == _Page.share ? 0 : 34, pad.bottom + 24),
-      child: _page(gc, page, gc.accent),
+      child: _page(gc, page, gc.teal),
     );
   }
 
@@ -1824,13 +1824,13 @@ class _WorkoutsPageState extends State<_WorkoutsPage> with SingleTickerProviderS
                   height: cell,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: lit.contains(d) ? gc.ember : gc.bgRaised2,
+                    color: lit.contains(d) ? gc.magenta : gc.bgRaised2,
                     shape: BoxShape.circle,
                     border: lit.contains(d) ? null : Border.all(color: gc.border.withValues(alpha: 0.7)),
                   ),
                   child: Text('$d',
                       style: AppTheme.f(cell * 0.34,
-                          weight: FontWeight.w800, color: lit.contains(d) ? gc.onEmber : gc.textSecondary)),
+                          weight: FontWeight.w800, color: lit.contains(d) ? gc.onMagenta : gc.textSecondary)),
                 ),
               ),
           ]),
@@ -1864,7 +1864,7 @@ class RecapCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    final tone = gc.accent;
+    final tone = gc.teal;
     final lift = recap.lift == null ? null : fit.exerciseById(recap.lift!.id);
     final wall = variant == 2 ? recapWallIds(recap) : const <String>[];
     return SizedBox(
@@ -1993,7 +1993,7 @@ class RecapCard extends StatelessWidget {
           child: Image.asset('assets/img/app_icon.png', width: 20, height: 20),
         ),
         const SizedBox(width: 7),
-        Text('GymMane', style: AppTheme.f(14, weight: FontWeight.w900, color: gc.text, letterSpacing: -0.2, height: 1)),
+        Text('Jesselicious', style: AppTheme.f(14, weight: FontWeight.w900, color: gc.text, letterSpacing: -0.2, height: 1)),
       ]);
 
   Widget _stat(GymColors gc, String value, String unit, String label, {double size = 28, bool soft = false}) => Column(
@@ -2098,12 +2098,12 @@ class RecapCard extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: recap.days.contains(d) ? gc.ember : gc.bgRaised2,
+                color: recap.days.contains(d) ? gc.magenta : gc.bgRaised2,
                 shape: BoxShape.circle,
               ),
               child: Text('$d',
                   style: AppTheme.f(11.5,
-                      weight: FontWeight.w800, color: recap.days.contains(d) ? gc.onEmber : gc.textSecondary)),
+                      weight: FontWeight.w800, color: recap.days.contains(d) ? gc.onMagenta : gc.textSecondary)),
             ),
         ],
       ),

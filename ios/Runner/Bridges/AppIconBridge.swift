@@ -5,7 +5,7 @@ enum AppIconBridge {
   private static let prefix = "AppIcon-"
 
   static func register(with messenger: FlutterBinaryMessenger) {
-    FlutterMethodChannel(name: "gymmane/app_icon", binaryMessenger: messenger)
+    FlutterMethodChannel(name: "jesselicious/app_icon", binaryMessenger: messenger)
       .setMethodCallHandler { call, result in
         switch call.method {
         case "current":

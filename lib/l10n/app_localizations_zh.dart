@@ -1400,7 +1400,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get aboutGymmane => '关于 GymMane';
+  String get aboutGymmane => '关于 Jesselicious';
 
   @override
   String get yourProfile => '个人资料';
@@ -2146,7 +2146,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiRoutine => '用 AI 生成计划';
 
   @override
-  String get aiIntro => 'GymMane 不会和任何 AI 通信。你把动作清单导出，粘贴给你惯用的助手，再把它的回答导回来。手机不会自己往外发任何东西。';
+  String get aiIntro => 'Jesselicious 不会和任何 AI 通信。你把动作清单导出，粘贴给你惯用的助手，再把它的回答导回来。手机不会自己往外发任何东西。';
 
   @override
   String aiMissing(int n) {
@@ -2166,7 +2166,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get awardFirstStepName => '第一步';
 
   @override
-  String get awardFirstStepLine => '欢迎来到 GymMane，这枚是送你的。';
+  String get awardFirstStepLine => '欢迎来到 Jesselicious，这枚是送你的。';
 
   @override
   String get awardFirstWorkoutName => '第一次训练';
@@ -2745,14 +2745,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String shareMessage(String name) {
-    return '$name，用 GymMane 打开这个文件即可添加。';
+    return '$name，用 Jesselicious 打开这个文件即可添加。';
   }
 
   @override
   String get importRoutines => '导入训练计划';
 
   @override
-  String get importPasteHint => '在这里粘贴训练计划：GymMane 分享的内容、AI 的回答、JSON 或 CSV 都可以。';
+  String get importPasteHint => '在这里粘贴训练计划：Jesselicious 分享的内容、AI 的回答、JSON 或 CSV 都可以。';
 
   @override
   String get pasteAction => '粘贴';
@@ -2777,10 +2777,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get nothingToImport => '这里没有 GymMane 能导入的内容';
+  String get nothingToImport => '这里没有 Jesselicious 能导入的内容';
 
   @override
-  String get aiStepCopy => '复制请求。它包含你的动作列表和 GymMane 能读取的格式。';
+  String get aiStepCopy => '复制请求。它包含你的动作列表和 Jesselicious 能读取的格式。';
 
   @override
   String get aiStepAsk => '把它粘贴到任意 AI 里，说出你的需求：每周几天、目标、几周。';
@@ -2927,7 +2927,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get shareIntroTitle => '分享这个计划';
 
   @override
-  String get shareIntroBody => '发给你的伴侣、朋友或家人。他们会收到一个小文件，用 GymMane 打开，一点就能加入，组数和重量都在。';
+  String get shareIntroBody => '发给你的伴侣、朋友或家人。他们会收到一个小文件，用 Jesselicious 打开，一点就能加入，组数和重量都在。';
 
   @override
   String get removedFromRoutine => '已从计划中移除';
@@ -3075,7 +3075,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepsInfoRead => '只读取步数。不读取其他任何内容，也不会写入 Health Connect。';
 
   @override
-  String get stepsInfoLocal => '步数只保存在手机上。GymMane 从不联网。';
+  String get stepsInfoLocal => '步数只保存在手机上。Jesselicious 从不联网。';
 
   @override
   String get stepsInfoOff => '可随时在设置或 Health Connect 中关闭。';
@@ -3418,7 +3418,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appIcon => '应用图标';
 
   @override
-  String get appIconHint => 'GymMane 在主屏幕上的样子';
+  String get appIconHint => 'Jesselicious 在主屏幕上的样子';
 
   @override
   String get appIconColors => '颜色';
@@ -4597,7 +4597,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nutritionAboutWhat =>
-      '一种在训练旁边记录饮食、饮水、蛋白质和补剂的简单方式。GymMane 首先是一款健身房应用：饮食功能是为了让你把一切放在一个地方，而不是取代专门的饮食应用。';
+      '一种在训练旁边记录饮食、饮水、蛋白质和补剂的简单方式。Jesselicious 首先是一款健身房应用：饮食功能是为了让你把一切放在一个地方，而不是取代专门的饮食应用。';
 
   @override
   String get nutritionAboutScanTitle => '没有扫码，永远不会有';
@@ -4610,7 +4610,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutritionAboutLocalTitle => '一切都在你的手机上';
 
   @override
-  String get nutritionAboutLocal => '应用内置 500 多种带图片的食物。你可以添加自己的食物、更换图片、编辑数值。和 GymMane 的其他部分一样，一切都留在你的手机上。';
+  String get nutritionAboutLocal =>
+      '应用内置 500 多种带图片的食物。你可以添加自己的食物、更换图片、编辑数值。和 Jesselicious 的其他部分一样，一切都留在你的手机上。';
 
   @override
   String get nutritionAboutBetaTitle => '仍是测试版';
@@ -4670,7 +4671,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get notifSuppTap => '吃完后在 GymMane 里打勾。';
+  String get notifSuppTap => '吃完后在 Jesselicious 里打勾。';
 
   @override
   String get suppNoneToday => '今天没有要吃的。';
@@ -5548,7 +5549,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ladderTitle => '进阶';
 
   @override
-  String get ladderHint => '按从易到难排列步骤。连续两次训练完成 3 组 8 次（慢速动作 5 次）后，GymMane 会建议下一步。';
+  String get ladderHint => '按从易到难排列步骤。连续两次训练完成 3 组 8 次（慢速动作 5 次）后，Jesselicious 会建议下一步。';
 
   @override
   String get ladderBuiltIn => '基于应用自带的进阶。添加、删除或重新排序步骤后，它就属于此计划。';
@@ -6489,13 +6490,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get supportThanksBody =>
-      'GymMane 永远免费，没有广告，也没有任何隐藏收费。\n\n如果它对你的训练有帮助，请我喝杯咖啡会让我开心一整天 ☕\n如果不方便也没关系：在 GitHub 上点一颗星也一样 ⭐';
+      'Jesselicious 永远免费，没有广告，也没有任何隐藏收费。\n\n如果它对你的训练有帮助，请我喝杯咖啡会让我开心一整天 ☕\n如果不方便也没关系：在 GitHub 上点一颗星也一样 ⭐';
 
   @override
   String get perfSetting => '性能';
 
   @override
-  String get perfSheetHint => 'GymMane 占用手机多少性能。下面每一项都可以单独调整。';
+  String get perfSheetHint => 'Jesselicious 占用手机多少性能。下面每一项都可以单独调整。';
 
   @override
   String get perfLite => '省电';
@@ -7007,7 +7008,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get autoProgressHint =>
-      '开始训练时，GymMane 会为每个动作填好下一步。选“加次数”时，每组每次加一次，加到 12 次后加重量，再从 8 次重新开始。每个动作仍可在它自己的页面里调整。';
+      '开始训练时，Jesselicious 会为每个动作填好下一步。选“加次数”时，每组每次加一次，加到 12 次后加重量，再从 8 次重新开始。每个动作仍可在它自己的页面里调整。';
 
   @override
   String get noteFolders => '文件夹';
@@ -7483,7 +7484,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get gfxCompatHint => '适用于文字显示错乱的手机。模糊保留，部分效果会简化';
 
   @override
-  String get gfxRestartTitle => '重启 GymMane？';
+  String get gfxRestartTitle => '重启 Jesselicious？';
 
   @override
   String get gfxRestartBody => '它会关闭再打开，以改变绘制屏幕的方式。你保存的内容都不会丢失。';
@@ -7571,7 +7572,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get wearSyncNow => '立即同步';
 
   @override
-  String get wearSyncHow => '在手机上开启 设置 › Wear OS 手表，并在两边都打开 GymMane。';
+  String get wearSyncHow => '在手机上开启 设置 › Wear OS 手表，并在两边都打开 Jesselicious。';
 
   @override
   String get routinesOrder => '调整训练计划顺序';
@@ -7940,13 +7941,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get watchSubtitle => '训练计划戴在手腕上，训练记录回到手机里';
 
   @override
-  String get watchPoint1 => '在手表上安装 GymMane';
+  String get watchPoint1 => '在手表上安装 Jesselicious';
 
   @override
   String get watchPoint1Body => '和手机上是同一个应用。点击查看安装指南。';
 
   @override
-  String get watchPoint2 => '在两边都打开 GymMane';
+  String get watchPoint2 => '在两边都打开 Jesselicious';
 
   @override
   String get watchPoint2Body => '它们通过手机和手表之间已有的蓝牙自动同步。无需联网。';
@@ -7973,13 +7974,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get watchSearching => '正在寻找手表…';
 
   @override
-  String get watchSearchingHint => '如果还没打开，请在手表上打开 GymMane。';
+  String get watchSearchingHint => '如果还没打开，请在手表上打开 Jesselicious。';
 
   @override
   String get watchBluetoothOff => '蓝牙已关闭。';
 
   @override
-  String get watchNotFound => '未找到手表。请在手表上打开 GymMane 后重试。';
+  String get watchNotFound => '未找到手表。请在手表上打开 Jesselicious 后重试。';
 
   @override
   String get watchNever => '尚未同步。';
@@ -8054,7 +8055,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get qsAdded => '已添加';
 
   @override
-  String get qsManual => '下拉快捷设置，点铅笔，把 GymMane 磁贴拖到你的磁贴里。';
+  String get qsManual => '下拉快捷设置，点铅笔，把 Jesselicious 磁贴拖到你的磁贴里。';
 
   @override
   String get qsPassUse => '从快捷设置打开';
@@ -8786,7 +8787,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get scannerTitle => 'GymMane Scanner';
 
   @override
-  String get scannerKicker => 'Community app · not part of GymMane';
+  String get scannerKicker => 'Community app · not part of Jesselicious';
 
   @override
   String get scannerBody => 'Scan a barcode and it sends you the food, ready to check.';
@@ -10194,7 +10195,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   }
 
   @override
-  String get aboutGymmane => '關於 GymMane';
+  String get aboutGymmane => '關於 Jesselicious';
 
   @override
   String get yourProfile => '你的個人檔案';
@@ -10789,7 +10790,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get planNothing => '此檔案中的動作都與你的資料庫不符';
 
   @override
-  String get planFailed => '這個檔案不是 GymMane 能讀取的課表';
+  String get planFailed => '這個檔案不是 Jesselicious 能讀取的課表';
 
   @override
   String get routineGroup => '群組';
@@ -10943,7 +10944,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get aiRoutine => 'AI 課表';
 
   @override
-  String get aiIntro => 'GymMane 絕不直接與 AI 通訊。你先匯出動作清單，貼到你已在使用的 AI 助手，再把回覆匯入。任何資料都不會自行離開手機。';
+  String get aiIntro => 'Jesselicious 絕不直接與 AI 通訊。你先匯出動作清單，貼到你已在使用的 AI 助手，再把回覆匯入。任何資料都不會自行離開手機。';
 
   @override
   String aiMissing(int n) {
@@ -10969,7 +10970,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get awardFirstStepName => '第一步';
 
   @override
-  String get awardFirstStepLine => '歡迎來到 GymMane。這個送給你。';
+  String get awardFirstStepLine => '歡迎來到 Jesselicious。這個送給你。';
 
   @override
   String get awardFirstWorkoutName => '第一次訓練';
@@ -11554,14 +11555,14 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String shareMessage(String name) {
-    return '$name，用 GymMane 開啟檔案即可加入。';
+    return '$name，用 Jesselicious 開啟檔案即可加入。';
   }
 
   @override
   String get importRoutines => '匯入課表';
 
   @override
-  String get importPasteHint => '在這裡貼上課表：從 GymMane 分享的、AI 的回答、JSON 或 CSV。';
+  String get importPasteHint => '在這裡貼上課表：從 Jesselicious 分享的、AI 的回答、JSON 或 CSV。';
 
   @override
   String get pasteAction => '貼上';
@@ -11588,10 +11589,10 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   }
 
   @override
-  String get nothingToImport => '這裡沒有 GymMane 能匯入的內容';
+  String get nothingToImport => '這裡沒有 Jesselicious 能匯入的內容';
 
   @override
-  String get aiStepCopy => '複製這段請求。裡面有你的動作清單和 GymMane 讀得懂的格式。';
+  String get aiStepCopy => '複製這段請求。裡面有你的動作清單和 Jesselicious 讀得懂的格式。';
 
   @override
   String get aiStepAsk => '貼到任何 AI，說出你的需求：每週幾天、目標、幾週。';
@@ -11738,7 +11739,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get shareIntroTitle => '分享這個課表';
 
   @override
-  String get shareIntroBody => '傳給你的伴侶、朋友或家人。他們會收到一個小檔案，用 GymMane 開啟，一點就能加入，組數和重量都在。';
+  String get shareIntroBody => '傳給你的伴侶、朋友或家人。他們會收到一個小檔案，用 Jesselicious 開啟，一點就能加入，組數和重量都在。';
 
   @override
   String get removedFromRoutine => '已從課表移除';
@@ -11886,7 +11887,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get stepsInfoRead => '只讀取步數。不讀取其他任何內容，也不會寫入 Health Connect。';
 
   @override
-  String get stepsInfoLocal => '步數只保存在手機上。GymMane 從不連網。';
+  String get stepsInfoLocal => '步數只保存在手機上。Jesselicious 從不連網。';
 
   @override
   String get stepsInfoOff => '可隨時在設定或 Health Connect 中關閉。';
@@ -12229,7 +12230,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get appIcon => '應用程式圖示';
 
   @override
-  String get appIconHint => 'GymMane 在主畫面上的樣子';
+  String get appIconHint => 'Jesselicious 在主畫面上的樣子';
 
   @override
   String get appIconColors => '顏色';
@@ -13408,7 +13409,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get nutritionAboutWhat =>
-      '一種在訓練旁邊記錄飲食、飲水、蛋白質和補充品的簡單方式。GymMane 首先是一款健身房 App：飲食功能是為了讓你把一切放在同一個地方，而不是取代專門的飲食 App。';
+      '一種在訓練旁邊記錄飲食、飲水、蛋白質和補充品的簡單方式。Jesselicious 首先是一款健身房 App：飲食功能是為了讓你把一切放在同一個地方，而不是取代專門的飲食 App。';
 
   @override
   String get nutritionAboutScanTitle => '沒有掃描，永遠不會有';
@@ -13421,7 +13422,8 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get nutritionAboutLocalTitle => '一切都在你的手機上';
 
   @override
-  String get nutritionAboutLocal => 'App 內建 500 多種附照片的食物。你可以新增自己的食物、更換照片、編輯數值。和 GymMane 的其他部分一樣，一切都留在你的手機上。';
+  String get nutritionAboutLocal =>
+      'App 內建 500 多種附照片的食物。你可以新增自己的食物、更換照片、編輯數值。和 Jesselicious 的其他部分一樣，一切都留在你的手機上。';
 
   @override
   String get nutritionAboutBetaTitle => '仍是測試版';
@@ -13481,7 +13483,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   }
 
   @override
-  String get notifSuppTap => '吃完後在 GymMane 裡打勾。';
+  String get notifSuppTap => '吃完後在 Jesselicious 裡打勾。';
 
   @override
   String get suppNoneToday => '今天沒有要吃的。';
@@ -14359,7 +14361,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get ladderTitle => '進階';
 
   @override
-  String get ladderHint => '依由易到難排列步驟。連續兩次訓練完成 3 組 8 次（慢速動作 5 次）後，GymMane 會建議下一步。';
+  String get ladderHint => '依由易到難排列步驟。連續兩次訓練完成 3 組 8 次（慢速動作 5 次）後，Jesselicious 會建議下一步。';
 
   @override
   String get ladderBuiltIn => '以應用程式內建的進階為基礎。新增、刪除或重新排序步驟後，就屬於此課表。';
@@ -15300,13 +15302,13 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get supportThanksBody =>
-      'GymMane 永遠免費，沒有廣告，也沒有任何隱藏收費。\n\n如果它對你的訓練有幫助，請我喝杯咖啡會讓我開心一整天 ☕\n如果不方便也沒關係：在 GitHub 上點一顆星也一樣 ⭐';
+      'Jesselicious 永遠免費，沒有廣告，也沒有任何隱藏收費。\n\n如果它對你的訓練有幫助，請我喝杯咖啡會讓我開心一整天 ☕\n如果不方便也沒關係：在 GitHub 上點一顆星也一樣 ⭐';
 
   @override
   String get perfSetting => '效能';
 
   @override
-  String get perfSheetHint => 'GymMane 要用掉手機多少效能。下面每一項都能分開調整。';
+  String get perfSheetHint => 'Jesselicious 要用掉手機多少效能。下面每一項都能分開調整。';
 
   @override
   String get perfLite => '省電';
@@ -15818,7 +15820,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get autoProgressHint =>
-      '開始訓練時，GymMane 會替每個動作填好下一步。選「加次數」時，每組每次加一下，加到 12 下後加重量，再從 8 下重新開始。每個動作仍可在它自己的頁面調整。';
+      '開始訓練時，Jesselicious 會替每個動作填好下一步。選「加次數」時，每組每次加一下，加到 12 下後加重量，再從 8 下重新開始。每個動作仍可在它自己的頁面調整。';
 
   @override
   String get noteFolders => '資料夾';
@@ -16294,7 +16296,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get gfxCompatHint => '適用於文字顯示錯亂的手機。模糊保留，部分效果會簡化';
 
   @override
-  String get gfxRestartTitle => '要重新啟動 GymMane 嗎？';
+  String get gfxRestartTitle => '要重新啟動 Jesselicious 嗎？';
 
   @override
   String get gfxRestartBody => '它會關閉再開啟，以改變繪製螢幕的方式。你儲存的內容都不會遺失。';
@@ -16382,7 +16384,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get wearSyncNow => '立即同步';
 
   @override
-  String get wearSyncHow => '在手機上開啟 設定 › Wear OS 手錶，並在兩邊都開啟 GymMane。';
+  String get wearSyncHow => '在手機上開啟 設定 › Wear OS 手錶，並在兩邊都開啟 Jesselicious。';
 
   @override
   String get routinesOrder => '調整課表順序';
@@ -16685,13 +16687,13 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get watchSubtitle => '課表戴在手腕上，訓練紀錄回到手機裡';
 
   @override
-  String get watchPoint1 => '在手錶上安裝 GymMane';
+  String get watchPoint1 => '在手錶上安裝 Jesselicious';
 
   @override
   String get watchPoint1Body => '跟手機上是同一個 App。點一下查看安裝指南。';
 
   @override
-  String get watchPoint2 => '在兩邊都開啟 GymMane';
+  String get watchPoint2 => '在兩邊都開啟 Jesselicious';
 
   @override
   String get watchPoint2Body => '它們透過手機和手錶之間既有的藍牙自動同步。不需要網路。';
@@ -16718,13 +16720,13 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get watchSearching => '正在尋找手錶…';
 
   @override
-  String get watchSearchingHint => '如果還沒開，請在手錶上開啟 GymMane。';
+  String get watchSearchingHint => '如果還沒開，請在手錶上開啟 Jesselicious。';
 
   @override
   String get watchBluetoothOff => '藍牙已關閉。';
 
   @override
-  String get watchNotFound => '找不到手錶。請在手錶上開啟 GymMane 後再試一次。';
+  String get watchNotFound => '找不到手錶。請在手錶上開啟 Jesselicious 後再試一次。';
 
   @override
   String get watchNever => '尚未同步。';
@@ -16781,7 +16783,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get qsAdded => '已新增';
 
   @override
-  String get qsManual => '下拉快速設定，點鉛筆，把 GymMane 圖塊拖到你的圖塊裡。';
+  String get qsManual => '下拉快速設定，點鉛筆，把 Jesselicious 圖塊拖到你的圖塊裡。';
 
   @override
   String get qsPassUse => '從快速設定開啟';

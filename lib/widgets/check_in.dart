@@ -33,7 +33,7 @@ class CheckInCard extends StatelessWidget {
         icon: PhosphorIconsRegular.moon,
         label: t.checkInSleep,
         value: session.sleep,
-        color: gc.sage,
+        color: gc.lavender,
         onPick: (v) => fit.rateSession(session, sleep: true, value: v),
       ),
       const SizedBox(height: 12),
@@ -41,7 +41,7 @@ class CheckInCard extends StatelessWidget {
         icon: PhosphorIconsRegular.lightning,
         label: t.checkInEnergy,
         value: session.energy,
-        color: gc.brass,
+        color: gc.marigold,
         onPick: (v) => fit.rateSession(session, sleep: false, value: v),
       ),
     ]);

@@ -235,7 +235,7 @@ class _Tile extends StatelessWidget {
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(size * 0.24 + 4),
-                  border: Border.all(color: on ? gc.accent : Colors.transparent, width: 2),
+                  border: Border.all(color: on ? gc.teal : Colors.transparent, width: 2),
                 ),
                 child: Stack(clipBehavior: Clip.none, children: [
                   AppIconThumb(style, size: size),
@@ -251,11 +251,11 @@ class _Tile extends StatelessWidget {
                         height: 22,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: gc.accent,
+                          color: gc.teal,
                           shape: BoxShape.circle,
                           border: Border.all(color: gc.bgRaised, width: 2),
                         ),
-                        child: Icon(PhosphorIconsBold.check, size: 11, color: gc.onEmber),
+                        child: Icon(PhosphorIconsBold.check, size: 11, color: gc.onMagenta),
                       ),
                     ),
                   ),

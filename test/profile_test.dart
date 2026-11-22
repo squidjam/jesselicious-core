@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/models/nutrition.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/screens/recap_screen.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/models/nutrition.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/screens/recap_screen.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

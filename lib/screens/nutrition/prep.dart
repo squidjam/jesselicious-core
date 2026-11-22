@@ -272,12 +272,12 @@ class _BatchLogSheetState extends State<_BatchLogSheet> {
           margin: const EdgeInsets.symmetric(horizontal: 3),
           padding: const EdgeInsets.symmetric(vertical: 11),
           decoration: BoxDecoration(
-            color: on ? gc.accentSoft : gc.bgRaised2,
+            color: on ? gc.tealSoft : gc.bgRaised2,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: on ? gc.accent.withValues(alpha: 0.6) : Colors.transparent),
+            border: Border.all(color: on ? gc.teal.withValues(alpha: 0.6) : Colors.transparent),
           ),
           child: Column(children: [
-            Text(label, style: AppTheme.f(13, weight: FontWeight.w800, color: on ? gc.accent : gc.text)),
+            Text(label, style: AppTheme.f(13, weight: FontWeight.w800, color: on ? gc.teal : gc.text)),
             Text(sub, style: AppTheme.f(10, weight: FontWeight.w600, color: gc.textTertiary)),
           ]),
         ),
@@ -428,13 +428,13 @@ class _DayStrip extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 3),
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: d == value ? gc.accentSoft : gc.bgRaised2,
+                color: d == value ? gc.tealSoft : gc.bgRaised2,
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: d == value ? gc.accent.withValues(alpha: 0.6) : Colors.transparent),
+                border: Border.all(color: d == value ? gc.teal.withValues(alpha: 0.6) : Colors.transparent),
               ),
               child: Column(children: [
                 Text(label(d),
-                    style: AppTheme.f(12, weight: FontWeight.w800, color: d == value ? gc.accent : gc.text)),
+                    style: AppTheme.f(12, weight: FontWeight.w800, color: d == value ? gc.teal : gc.text)),
                 Text('${d.day}',
                     style: AppTheme.f(10, weight: FontWeight.w600, color: gc.textTertiary)),
               ]),

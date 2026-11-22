@@ -47,7 +47,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
                 setState(() => _picking = !_picking);
               },
               child: Icon(_picking ? PhosphorIconsBold.check : PhosphorIconsRegular.pushPin,
-                  size: 17, color: _picking ? gc.onEmber : gc.text),
+                  size: 17, color: _picking ? gc.onMagenta : gc.text),
             ),
         ],
         slivers: [
@@ -101,7 +101,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
               ]),
             ),
             Text('${total == 0 ? 0 : (won * 100 / total).round()} %',
-                style: AppTheme.f(15, weight: FontWeight.w800, color: gc.accent)),
+                style: AppTheme.f(15, weight: FontWeight.w800, color: gc.teal)),
           ],
         ),
         const SizedBox(height: 16),
@@ -123,7 +123,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
                 Container(
                   width: box.maxWidth * v.clamp(0.02, 1.0),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [gc.accent, gc.brass]),
+                    gradient: LinearGradient(colors: [gc.teal, gc.marigold]),
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),

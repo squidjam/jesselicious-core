@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gymmane/l10n/l10n.dart';
-import 'package:gymmane/models/note.dart';
-import 'package:gymmane/models/workout.dart';
-import 'package:gymmane/services/local_store.dart';
-import 'package:gymmane/services/plan_pdf.dart';
-import 'package:gymmane/services/plan_share.dart';
-import 'package:gymmane/state/fit_state.dart';
+import 'package:jesselicious/l10n/l10n.dart';
+import 'package:jesselicious/models/note.dart';
+import 'package:jesselicious/models/workout.dart';
+import 'package:jesselicious/services/local_store.dart';
+import 'package:jesselicious/services/plan_pdf.dart';
+import 'package:jesselicious/services/plan_share.dart';
+import 'package:jesselicious/state/fit_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -93,7 +93,7 @@ void main() {
       fit.setPlannedSets(r.id, bench, const [PlannedSet(reps: 8, weightKg: 50)]);
       fit.assignRoutineToDay(3, r.id);
       final json = fit.exportPlanJson([r]);
-      expect(jsonDecode(json)['gymmane'], 'plan');
+      expect(jsonDecode(json)["jesselicious"], 'plan');
       expect(fit.planSummaryText([r]), contains('Mixed'));
 
       fit.resetAllData();
@@ -205,7 +205,7 @@ void main() {
       expect(text, contains('/Author ${hex('InlitX')}'));
       expect(text, contains('/Lang (es)'));
       expect(text, contains('<dc:creator><rdf:Seq><rdf:li>InlitX</rdf:li></rdf:Seq></dc:creator>'));
-      expect(text, contains('<xmp:CreatorTool>GymMane</xmp:CreatorTool>'));
+      expect(text, contains('<xmp:CreatorTool>Jesselicious</xmp:CreatorTool>'));
       final xref = int.parse(RegExp(r'startxref\n(\d+)').firstMatch(text)!.group(1)!);
       expect(text.substring(xref, xref + 4), 'xref');
       for (final m in RegExp(r'(\d{10}) 00000 n ').allMatches(text)) {

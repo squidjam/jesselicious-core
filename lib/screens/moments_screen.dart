@@ -83,7 +83,7 @@ class _MomentsScreenState extends State<MomentsScreen> {
             height: 22,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: on ? gc.accent : Colors.black.withValues(alpha: 0.3),
+              color: on ? gc.teal : Colors.black.withValues(alpha: 0.3),
               border: Border.all(color: Colors.white, width: 1.6),
             ),
             child: on ? const Icon(PhosphorIconsBold.check, size: 12, color: Colors.black) : null,

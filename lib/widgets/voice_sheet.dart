@@ -41,7 +41,7 @@ void showVoiceSheet(BuildContext context) {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(icon, size: 16, color: gc.accent),
+                  Icon(icon, size: 16, color: gc.teal),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(text,

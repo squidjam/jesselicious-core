@@ -59,17 +59,17 @@ class Config {
     }
 
     final here = File(Platform.resolvedExecutable).parent.path;
-    final data = read('GYMMANE_DATA') ?? '$here${Platform.pathSeparator}data';
-    final sync = read('GYMMANE_SYNC');
+    final data = read('JESSELICIOUS_DATA') ?? '$here${Platform.pathSeparator}data';
+    final sync = read('JESSELICIOUS_SYNC');
     return Config(
-      port: int.tryParse(read('GYMMANE_PORT') ?? read('PORT') ?? '') ?? 8080,
-      host: read('GYMMANE_HOST') ?? '0.0.0.0',
+      port: int.tryParse(read('JESSELICIOUS_PORT') ?? read('PORT') ?? '') ?? 8080,
+      host: read('JESSELICIOUS_HOST') ?? '0.0.0.0',
       dataDir: data,
-      webDir: read('GYMMANE_WEB') ?? '$here${Platform.pathSeparator}web',
+      webDir: read('JESSELICIOUS_WEB') ?? '$here${Platform.pathSeparator}web',
       syncDir: sync == 'off' ? null : sync ?? '$data${Platform.pathSeparator}sync',
-      password: read('GYMMANE_PASSWORD'),
-      keepDays: int.tryParse(read('GYMMANE_KEEP_DAYS') ?? '') ?? 30,
-      people: parsePeople(read('GYMMANE_PEOPLE')),
+      password: read('JESSELICIOUS_PASSWORD'),
+      keepDays: int.tryParse(read('JESSELICIOUS_KEEP_DAYS') ?? '') ?? 30,
+      people: parsePeople(read('JESSELICIOUS_PEOPLE')),
     );
   }
 
@@ -89,7 +89,7 @@ class Config {
       if (name.isEmpty || name.length > 40) {
         throw FormatException('"$label" cannot be a name: use letters or digits, up to 40.');
       }
-      if (out.any((p) => p.name == name)) throw FormatException('"$label" is in GYMMANE_PEOPLE twice.');
+      if (out.any((p) => p.name == name)) throw FormatException('"$label" is in JESSELICIOUS_PEOPLE twice.');
       out.add(Person(name, label, pass == null || pass.isEmpty ? null : pass));
     }
     return out;

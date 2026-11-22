@@ -68,9 +68,9 @@ class _StravaSheetState extends State<_StravaSheet> {
               const SizedBox(width: 10),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(color: gc.accentSoft, borderRadius: BorderRadius.circular(100)),
+                decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(100)),
                 child: Text(t.stravaBeta,
-                    style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.accent, letterSpacing: 1.4)),
+                    style: AppTheme.f(10.5, weight: FontWeight.w700, color: gc.teal, letterSpacing: 1.4)),
               ),
             ]),
             const SizedBox(height: 8),
@@ -165,9 +165,9 @@ class _StravaSheetState extends State<_StravaSheet> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: on
-                ? gc.ember
+                ? gc.magenta
                 : has
-                    ? gc.accentSoft
+                    ? gc.tealSoft
                     : Colors.transparent,
             borderRadius: BorderRadius.circular(13),
             border: Border.all(color: day == today && !on ? gc.border : Colors.transparent),
@@ -176,9 +176,9 @@ class _StravaSheetState extends State<_StravaSheet> {
               style: AppTheme.f(14,
                   weight: has ? FontWeight.w800 : FontWeight.w500,
                   color: on
-                      ? gc.onEmber
+                      ? gc.onMagenta
                       : has
-                          ? gc.accent
+                          ? gc.teal
                           : gc.textTertiary)),
         ),
       ),
@@ -208,8 +208,8 @@ class _StravaSheetState extends State<_StravaSheet> {
           Container(
             width: 38,
             height: 38,
-            decoration: BoxDecoration(color: gc.accentSoft, shape: BoxShape.circle),
-            child: Icon(PhosphorIconsRegular.export, size: 17, color: gc.accent),
+            decoration: BoxDecoration(color: gc.tealSoft, shape: BoxShape.circle),
+            child: Icon(PhosphorIconsRegular.export, size: 17, color: gc.teal),
           ),
         ]),
       ),
@@ -221,7 +221,7 @@ Future<void> shareWorkoutFit(LoggedSession s) async {
   try {
     final d = s.date;
     final stamp = '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
-    await shareFile('GymMane $stamp.fit', Uint8List.fromList(workoutFit(s, pounds: fit.isLb)),
+    await shareFile('Jesselicious $stamp.fit', Uint8List.fromList(workoutFit(s, pounds: fit.isLb)),
         mime: 'application/vnd.ant.fit', text: t.exportForStravaHint);
   } catch (_) {}
 }

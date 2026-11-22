@@ -96,7 +96,7 @@ Widget _bars(GymColors gc, List<double> values, {int hi = -1, double h = 120}) =
             child: Container(
               height: 6 + (h - 38) * v,
               decoration: BoxDecoration(
-                color: v == 0 ? gc.bgRaised : (i == hi ? gc.accent : gc.text.withValues(alpha: 0.5)),
+                color: v == 0 ? gc.bgRaised : (i == hi ? gc.teal : gc.text.withValues(alpha: 0.5)),
                 borderRadius: BorderRadius.circular(6),
               ),
             ),
@@ -131,7 +131,7 @@ Widget _toggleTile(GymColors gc, IconData icon, bool on, {double h = 96}) => _Ti
           height: 30,
           padding: const EdgeInsets.all(4),
           alignment: on ? Alignment.centerRight : Alignment.centerLeft,
-          decoration: BoxDecoration(color: on ? gc.sage : gc.bgRaised, borderRadius: BorderRadius.circular(100)),
+          decoration: BoxDecoration(color: on ? gc.lavender : gc.bgRaised, borderRadius: BorderRadius.circular(100)),
           child: Container(
             width: 22,
             height: 22,
@@ -393,7 +393,7 @@ class AlertsShowcase extends StatelessWidget {
               child: Icon(icon, size: 12, color: tone),
             ),
             const SizedBox(width: 8),
-            Text('GymMane', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.textSecondary)),
+            Text('Jesselicious', style: AppTheme.f(12, weight: FontWeight.w700, color: gc.textSecondary)),
             if (when.isNotEmpty)
               Flexible(
                 child: Text(' · $when',
@@ -427,7 +427,7 @@ class AlertsShowcase extends StatelessWidget {
       w: 150,
       h: 170,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Icon(PhosphorIconsRegular.bellRinging, size: 44, color: gc.sage),
+        Icon(PhosphorIconsRegular.bellRinging, size: 44, color: gc.lavender),
         const Spacer(),
         _big(gc, '18:30'),
         const SizedBox(height: 4),
@@ -446,7 +446,7 @@ class AlertsShowcase extends StatelessWidget {
             Container(
               width: 6,
               height: 36 * v,
-              decoration: BoxDecoration(color: i < 6 ? gc.accent : gc.bgRaised, borderRadius: BorderRadius.circular(3)),
+              decoration: BoxDecoration(color: i < 6 ? gc.teal : gc.bgRaised, borderRadius: BorderRadius.circular(3)),
             ),
           ],
         ]),
@@ -456,7 +456,7 @@ class AlertsShowcase extends StatelessWidget {
     final live = _note(
       gc,
       icon: PhosphorIconsFill.barbell,
-      tone: gc.accent,
+      tone: gc.teal,
       title: t.catalogName('EIeI8Vf', 'Barbell Bench Press'),
       body: '${t.liveSet(3, 4)} · 80 kg × 8',
       when: t.liveChannel,
@@ -474,7 +474,7 @@ class AlertsShowcase extends StatelessWidget {
       ),
     );
     final restNote = _note(gc,
-        icon: PhosphorIconsFill.timer, tone: gc.accent, title: t.restOverTitle, body: t.restOverBody, when: t.noteToday);
+        icon: PhosphorIconsFill.timer, tone: gc.teal, title: t.restOverTitle, body: t.restOverBody, when: t.noteToday);
     final island = _lift(
       Container(
         width: 330,
@@ -485,8 +485,8 @@ class AlertsShowcase extends StatelessWidget {
           Container(
             width: 44,
             height: 44,
-            decoration: BoxDecoration(color: gc.sage.withValues(alpha: 0.2), shape: BoxShape.circle),
-            child: Icon(PhosphorIconsFill.checkCircle, size: 22, color: gc.sage),
+            decoration: BoxDecoration(color: gc.lavender.withValues(alpha: 0.2), shape: BoxShape.circle),
+            child: Icon(PhosphorIconsFill.checkCircle, size: 22, color: gc.lavender),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -505,12 +505,12 @@ class AlertsShowcase extends StatelessWidget {
       child: Center(
         child: _Ring(
           value: 0.62,
-          color: gc.accent,
+          color: gc.teal,
           size: 112,
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             _big(gc, '1:24', size: 28),
             const SizedBox(height: 2),
-            Text(t.liveResting, style: AppTheme.f(11, weight: FontWeight.w600, color: gc.accent)),
+            Text(t.liveResting, style: AppTheme.f(11, weight: FontWeight.w600, color: gc.teal)),
           ]),
         ),
       ),
@@ -520,7 +520,7 @@ class AlertsShowcase extends StatelessWidget {
       h: 140,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(children: [
-          Icon(PhosphorIconsRegular.pill, size: 26, color: gc.brass),
+          Icon(PhosphorIconsRegular.pill, size: 26, color: gc.marigold),
           const Spacer(),
           Text('10:00', style: AppTheme.f(13, weight: FontWeight.w700, color: gc.textSecondary)),
         ]),
@@ -533,7 +533,7 @@ class AlertsShowcase extends StatelessWidget {
       w: 150,
       h: 110,
       child: Row(children: [
-        Icon(PhosphorIconsRegular.hourglassMedium, size: 30, color: gc.sage),
+        Icon(PhosphorIconsRegular.hourglassMedium, size: 30, color: gc.lavender),
         const SizedBox(width: 10),
         _big(gc, '16 h', size: 26),
       ]),
@@ -543,46 +543,46 @@ class AlertsShowcase extends StatelessWidget {
       left: [
         _stack(0, [
           _toggleTile(gc, PhosphorIconsRegular.bell, true),
-          _iconTile(gc, PhosphorIconsRegular.calendarCheck, '3', '', gc.sage),
+          _iconTile(gc, PhosphorIconsRegular.calendarCheck, '3', '', gc.lavender),
           _iconTile(gc, PhosphorIconsRegular.moonStars, '23:00', '', gc.textSecondary),
-          _gauge(gc, 0.85, '85 %', gc.sage),
+          _gauge(gc, 0.85, '85 %', gc.lavender),
           _iconTile(gc, PhosphorIconsRegular.sunHorizon, '7:30', '', gc.warn),
-          _iconTile(gc, PhosphorIconsRegular.barbell, '4/4', '', gc.accent),
+          _iconTile(gc, PhosphorIconsRegular.barbell, '4/4', '', gc.teal),
           _iconTile(gc, PhosphorIconsRegular.timer, '45 s', '', gc.textSecondary),
         ]),
         _stack(0, [
           _chips(gc, const ['30 s', '60 s', '90 s', '2 min', '3 min'], on: 2),
           _bars(gc, const [0.5, 0.2, 0.9, 0.4, 0.0, 0.7, 0.3], hi: 2),
-          _wideStat(gc, PhosphorIconsRegular.bellSimple, '7:00 · 18:30', '', gc.sage),
+          _wideStat(gc, PhosphorIconsRegular.bellSimple, '7:00 · 18:30', '', gc.lavender),
           _exerciseList(gc, 3),
           _chips(gc, [for (var d = 1; d <= 7; d++) _letter(d)], on: 0),
-          _calendar(gc, 3, '12', gc.sage),
-          _wideStat(gc, PhosphorIconsRegular.clockClockwise, '3 min', '', gc.accent),
+          _calendar(gc, 3, '12', gc.lavender),
+          _wideStat(gc, PhosphorIconsRegular.clockClockwise, '3 min', '', gc.teal),
         ]),
       ],
       right: [
         _stack(0, [
-          _wideStat(gc, PhosphorIconsRegular.pill, '10:00', t.suppCreatine, gc.brass),
+          _wideStat(gc, PhosphorIconsRegular.pill, '10:00', t.suppCreatine, gc.marigold),
           _chips(gc, const ['5 g', '3 g', '500 mg', '1000 IU'], on: 0),
-          _macros(gc, [('P', 0.8, gc.accent), ('C', 0.55, gc.sage), ('G', 0.4, gc.warn)]),
+          _macros(gc, [('P', 0.8, gc.teal), ('C', 0.55, gc.lavender), ('G', 0.4, gc.warn)]),
           _wideStat(gc, PhosphorIconsRegular.drop, '2 L', '', gc.info),
           _bars(gc, const [0.3, 0.6, 0.45, 0.8, 0.55, 1.0, 0.7], hi: 5),
           _wideStat(gc, PhosphorIconsRegular.camera, '14', t.notifPhotoTitle, gc.info),
-          _rings(gc, [(0.7, gc.accent, '7/10'), (0.4, gc.sage, '2 L'), (0.9, gc.brass, '5 g')]),
+          _rings(gc, [(0.7, gc.teal, '7/10'), (0.4, gc.lavender, '2 L'), (0.9, gc.marigold, '5 g')]),
         ]),
         _stack(0, [
           _iconTile(gc, PhosphorIconsRegular.speakerHigh, '80 %', '', gc.text),
           _toggleTile(gc, PhosphorIconsRegular.headphones, true),
           _gauge(gc, 0.75, '16 h', gc.warn),
           _iconTile(gc, PhosphorIconsRegular.bellSimpleSlash, '8:00', '', gc.textTertiary),
-          _iconTile(gc, PhosphorIconsRegular.footprints, '6 240', '', gc.sage),
-          _iconTile(gc, PhosphorIconsRegular.coffee, '1', '', gc.brass),
+          _iconTile(gc, PhosphorIconsRegular.footprints, '6 240', '', gc.lavender),
+          _iconTile(gc, PhosphorIconsRegular.coffee, '1', '', gc.marigold),
           _toggleTile(gc, PhosphorIconsRegular.moon, false),
         ]),
       ],
       columns: [
         _stack(20, [bell, sound, vibrate, _iconTile(gc, PhosphorIconsRegular.bellSlash, '22:00', '', gc.textSecondary),
-            _iconTile(gc, PhosphorIconsRegular.alarm, '7:00', '', gc.accent), _gauge(gc, 0.4, '2:00', gc.accent)]),
+            _iconTile(gc, PhosphorIconsRegular.alarm, '7:00', '', gc.teal), _gauge(gc, 0.4, '2:00', gc.teal)]),
         _stack(0, [
           restNote,
           live,
@@ -614,7 +614,7 @@ class AlertsShowcase extends StatelessWidget {
             w: 330,
             h: 104,
             child: Row(children: [
-              Icon(PhosphorIconsRegular.bellSimpleRinging, size: 26, color: gc.sage),
+              Icon(PhosphorIconsRegular.bellSimpleRinging, size: 26, color: gc.lavender),
               const SizedBox(width: 14),
               Expanded(
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -625,21 +625,21 @@ class AlertsShowcase extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const {1, 3, 5}.contains(d) ? gc.sage.withValues(alpha: 0.22) : gc.bgRaised,
+                        color: const {1, 3, 5}.contains(d) ? gc.lavender.withValues(alpha: 0.22) : gc.bgRaised,
                       ),
                       child: Text(_letter(d),
                           style: AppTheme.f(11.5,
-                              weight: FontWeight.w800, color: const {1, 3, 5}.contains(d) ? gc.sage : gc.textTertiary)),
+                              weight: FontWeight.w800, color: const {1, 3, 5}.contains(d) ? gc.lavender : gc.textTertiary)),
                     ),
                 ]),
               ),
             ]),
           ),
-          _spark(gc, const [62, 75, 58, 90, 70, 84, 96, 78, 88], gc.accent, '1:30', t.liveResting),
+          _spark(gc, const [62, 75, 58, 90, 70, 84, 96, 78, 88], gc.teal, '1:30', t.liveResting),
         ]),
         _stack(40, [timer, supp, fast, _iconTile(gc, PhosphorIconsRegular.ruler, '14', t.notifMeasureTitle, gc.warn),
             _iconTile(gc, PhosphorIconsRegular.drop, '1,5 L', '', gc.info),
-            _iconTile(gc, PhosphorIconsRegular.clockCountdown, '5 min', '', gc.accent)]),
+            _iconTile(gc, PhosphorIconsRegular.clockCountdown, '5 min', '', gc.teal)]),
       ],
     );
   }
@@ -651,17 +651,17 @@ class HomeExtrasShowcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    const pass = GymPass(id: 'demo', name: 'GymMane Fit', code: 'GYMMANE-2026-0042', hue: 0);
+    const pass = GymPass(id: 'demo', name: 'Jesselicious Fit', code: 'JESSELICIOUS-2026-0042', hue: 0);
     final steps = _Tile(
       w: 150,
       h: 170,
       child: Center(
         child: _Ring(
           value: 0.78,
-          color: gc.sage,
+          color: gc.lavender,
           size: 112,
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Icon(PhosphorIconsRegular.footprints, size: 18, color: gc.sage),
+            Icon(PhosphorIconsRegular.footprints, size: 18, color: gc.lavender),
             _big(gc, '6 240', size: 22),
             Text(t.homeCardSteps, style: AppTheme.f(11, weight: FontWeight.w600, color: gc.textTertiary)),
           ]),
@@ -683,7 +683,7 @@ class HomeExtrasShowcase extends StatelessWidget {
             child: CustomPaint(
               painter: _Pulse(
                 const [64, 62, 63, 60, 61, 59, 60, 57, 58, 56, 58],
-                line: gc.accent,
+                line: gc.teal,
                 grid: gc.text.withValues(alpha: 0.06),
                 dotRing: gc.bgRaised2,
               ),
@@ -692,7 +692,7 @@ class HomeExtrasShowcase extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
             child: Row(children: [
-              Icon(PhosphorIconsFill.heart, size: 16, color: gc.accent),
+              Icon(PhosphorIconsFill.heart, size: 16, color: gc.teal),
               const SizedBox(width: 6),
               Expanded(child: _kicker(gc, t.healthRestingHr)),
               Ltr(child: Row(crossAxisAlignment: CrossAxisAlignment.baseline, textBaseline: TextBaseline.alphabetic, children: [
@@ -727,7 +727,7 @@ class HomeExtrasShowcase extends StatelessWidget {
       w: 150,
       h: 108,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Icon(PhosphorIconsFill.flame, size: 24, color: gc.accent),
+        Icon(PhosphorIconsFill.flame, size: 24, color: gc.teal),
         const Spacer(),
         _big(gc, '12'),
         _kicker(gc, t.streakCaps),
@@ -747,46 +747,46 @@ class HomeExtrasShowcase extends StatelessWidget {
       offset: const Offset(22, -8),
       left: [
         _stack(0, [
-          _gauge(gc, 0.6, '60 %', gc.accent),
-          _iconTile(gc, PhosphorIconsRegular.heartbeat, '128', t.healthBpm, gc.accent),
+          _gauge(gc, 0.6, '60 %', gc.teal),
+          _iconTile(gc, PhosphorIconsRegular.heartbeat, '128', t.healthBpm, gc.teal),
           _iconTile(gc, PhosphorIconsRegular.barbell, '42', '', gc.text),
-          _iconTile(gc, PhosphorIconsRegular.lightning, '4', t.streakCaps, gc.accent),
-          _iconTile(gc, PhosphorIconsRegular.target, '100 %', '', gc.sage),
+          _iconTile(gc, PhosphorIconsRegular.lightning, '4', t.streakCaps, gc.teal),
+          _iconTile(gc, PhosphorIconsRegular.target, '100 %', '', gc.lavender),
           _toggleTile(gc, PhosphorIconsRegular.heart, false),
           _iconTile(gc, PhosphorIconsRegular.bicycle, '12', 'km', gc.textSecondary),
         ]),
         _stack(0, [
           _bars(gc, const [0.4, 0.7, 0.2, 0.9, 0.5, 1.0, 0.3], hi: 5),
-          _wideStat(gc, PhosphorIconsRegular.personSimpleRun, '8 432', t.homeCardSteps, gc.sage),
+          _wideStat(gc, PhosphorIconsRegular.personSimpleRun, '8 432', t.homeCardSteps, gc.lavender),
           _chips(gc, [for (var d = 1; d <= 7; d++) _letter(d)], on: 3),
-          _calendar(gc, 7, '18', gc.accent),
+          _calendar(gc, 7, '18', gc.teal),
           _wideStat(gc, PhosphorIconsRegular.barbell, '3,9 t', '', gc.text),
-          _rings(gc, [(0.8, gc.accent, '4/5'), (0.6, gc.sage, '60 %'), (0.95, gc.warn, '7 h')]),
-          _wideStat(gc, PhosphorIconsRegular.calendarCheck, '4/4', '', gc.accent),
+          _rings(gc, [(0.8, gc.teal, '4/5'), (0.6, gc.lavender, '60 %'), (0.95, gc.warn, '7 h')]),
+          _wideStat(gc, PhosphorIconsRegular.calendarCheck, '4/4', '', gc.teal),
         ]),
       ],
       right: [
         _stack(0, [
           _wideStat(gc, PhosphorIconsRegular.moon, '7:42', t.unitHours, gc.warn),
           _bars(gc, const [0.6, 0.3, 0.8, 1.0, 0.0, 0.5, 0.7], hi: 3),
-          _wideStat(gc, PhosphorIconsRegular.chartLineUp, '+2,5 kg', '', gc.sage),
+          _wideStat(gc, PhosphorIconsRegular.chartLineUp, '+2,5 kg', '', gc.lavender),
           _chips(gc, const ['1 RM', '5 RM', '10 RM'], on: 0),
-          _macros(gc, [('P', 0.9, gc.accent), ('C', 0.6, gc.sage), ('G', 0.45, gc.warn)]),
+          _macros(gc, [('P', 0.9, gc.teal), ('C', 0.6, gc.lavender), ('G', 0.45, gc.warn)]),
           _exerciseList(gc, 25),
-          _spark(gc, const [80.2, 79.8, 79.9, 79.1, 78.9, 79.0, 78.6, 78.4], gc.brass, '78,4', 'kg'),
+          _spark(gc, const [80.2, 79.8, 79.9, 79.1, 78.9, 79.0, 78.6, 78.4], gc.marigold, '78,4', 'kg'),
         ]),
         _stack(0, [
           _iconTile(gc, PhosphorIconsRegular.drop, '2,1 L', '', gc.info),
           _toggleTile(gc, PhosphorIconsRegular.bell, true),
           _iconTile(gc, PhosphorIconsRegular.clock, '17:05', '', gc.textSecondary),
-          _iconTile(gc, PhosphorIconsRegular.trendUp, '+12 %', '', gc.sage),
+          _iconTile(gc, PhosphorIconsRegular.trendUp, '+12 %', '', gc.lavender),
           _iconTile(gc, PhosphorIconsRegular.swimmingPool, '1 km', '', gc.info),
           _iconTile(gc, PhosphorIconsRegular.mountains, '320 m', '', gc.textSecondary),
           _toggleTile(gc, PhosphorIconsRegular.sun, true),
         ]),
       ],
       columns: [
-        _stack(20, [steps, medal, _iconTile(gc, PhosphorIconsRegular.fire, '520', 'kcal', gc.accent),
+        _stack(20, [steps, medal, _iconTile(gc, PhosphorIconsRegular.fire, '520', 'kcal', gc.teal),
             _iconTile(gc, PhosphorIconsRegular.scales, '78,4', 'kg', gc.textSecondary),
             _toggleTile(gc, PhosphorIconsRegular.footprints, true),
             _iconTile(gc, PhosphorIconsRegular.timer, '55 min', '', gc.textSecondary)]),
@@ -812,7 +812,7 @@ class HomeExtrasShowcase extends StatelessWidget {
                     Container(
                       height: 8 + 62 * v,
                       decoration: BoxDecoration(
-                        color: v == 0 ? gc.bgRaised : (i == 3 ? gc.accent : gc.text.withValues(alpha: 0.55)),
+                        color: v == 0 ? gc.bgRaised : (i == 3 ? gc.teal : gc.text.withValues(alpha: 0.55)),
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
@@ -825,8 +825,8 @@ class HomeExtrasShowcase extends StatelessWidget {
           ),
           _exerciseList(gc, 11),
         ]),
-        _stack(40, [streak, sleep, medalLocked, _iconTile(gc, PhosphorIconsRegular.path, '4,2', 'km', gc.sage),
-            _iconTile(gc, PhosphorIconsRegular.trophy, '3', '', gc.brass), _gauge(gc, 0.9, '9/10', gc.brass)]),
+        _stack(40, [streak, sleep, medalLocked, _iconTile(gc, PhosphorIconsRegular.path, '4,2', 'km', gc.lavender),
+            _iconTile(gc, PhosphorIconsRegular.trophy, '3', '', gc.marigold), _gauge(gc, 0.9, '9/10', gc.marigold)]),
       ],
     );
   }
@@ -868,7 +868,7 @@ class LookShowcase extends StatelessWidget {
           child: Column(children: [
             Container(height: 14, decoration: BoxDecoration(color: c.bgRaised, borderRadius: BorderRadius.circular(4))),
             const Spacer(),
-            Container(height: 8, decoration: BoxDecoration(color: c.accent, borderRadius: BorderRadius.circular(4))),
+            Container(height: 8, decoration: BoxDecoration(color: c.teal, borderRadius: BorderRadius.circular(4))),
           ]),
         );
     final themes = _Tile(
@@ -932,7 +932,7 @@ class LookShowcase extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
             decoration: BoxDecoration(color: gc.bgRaised, borderRadius: BorderRadius.circular(100)),
             child: Text(w,
-                style: AppTheme.f(13, weight: FontWeight.w700, color: w == 'Hola' ? gc.accent : gc.textSecondary)),
+                style: AppTheme.f(13, weight: FontWeight.w700, color: w == 'Hola' ? gc.teal : gc.textSecondary)),
           ),
       ]),
     );
@@ -945,9 +945,9 @@ class LookShowcase extends StatelessWidget {
             width: 34,
             height: 34,
             alignment: Alignment.center,
-            decoration: BoxDecoration(shape: BoxShape.circle, color: d == 1 ? gc.accent : gc.bgRaised),
+            decoration: BoxDecoration(shape: BoxShape.circle, color: d == 1 ? gc.teal : gc.bgRaised),
             child: Text(_letter(d),
-                style: AppTheme.f(12.5, weight: FontWeight.w800, color: d == 1 ? gc.onEmber : gc.textSecondary)),
+                style: AppTheme.f(12.5, weight: FontWeight.w800, color: d == 1 ? gc.onMagenta : gc.textSecondary)),
           ),
       ]),
     );
@@ -967,7 +967,7 @@ class LookShowcase extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: Stack(children: [
-          Positioned(left: -8, top: -10, child: _blob(gc.accent, 70)),
+          Positioned(left: -8, top: -10, child: _blob(gc.teal, 70)),
           Positioned(right: -12, bottom: -18, child: _blob(gc.info, 60)),
           Positioned(
             left: 14,
@@ -987,31 +987,31 @@ class LookShowcase extends StatelessWidget {
       offset: const Offset(22, -8),
       left: [
         _stack(0, [
-          _iconTile(gc, PhosphorIconsRegular.globe, '17', '', gc.accent),
+          _iconTile(gc, PhosphorIconsRegular.globe, '17', '', gc.teal),
           _toggleTile(gc, PhosphorIconsRegular.sparkle, false),
-          _iconTile(gc, PhosphorIconsRegular.ruler, 'cm', '', gc.sage),
-          _gauge(gc, 0.3, '1,15×', gc.sage),
+          _iconTile(gc, PhosphorIconsRegular.ruler, 'cm', '', gc.lavender),
+          _gauge(gc, 0.3, '1,15×', gc.lavender),
           _iconTile(gc, PhosphorIconsRegular.thermometer, '°C', '', gc.warn),
           _iconTile(gc, PhosphorIconsRegular.arrowsLeftRight, 'RTL', '', gc.textSecondary),
-          _iconTile(gc, PhosphorIconsRegular.calendarBlank, _letter(1), '', gc.accent),
+          _iconTile(gc, PhosphorIconsRegular.calendarBlank, _letter(1), '', gc.teal),
         ]),
         _stack(0, [
           _wideStat(gc, PhosphorIconsRegular.clock, '6:30 PM', '12 h', gc.textSecondary),
           _bars(gc, const [0.2, 0.9, 0.5, 0.7, 0.35, 0.6, 0.0], hi: 1),
           _chips(gc, const ['ES', 'EN', 'DE', 'FR', 'IT', 'PT', 'العربية'], on: 0),
-          _calendar(gc, 5, '84', gc.accent),
-          _rings(gc, [(0.33, gc.textSecondary, '1×'), (0.66, gc.accent, '1,15×'), (1.0, gc.text, '1,3×')]),
+          _calendar(gc, 5, '84', gc.teal),
+          _rings(gc, [(0.33, gc.textSecondary, '1×'), (0.66, gc.teal, '1,15×'), (1.0, gc.text, '1,3×')]),
           _wideStat(gc, PhosphorIconsRegular.squaresFour, '3', '', gc.text),
           _chips(gc, const ['00:00', '06:00', '12:00', '18:00'], on: 3),
         ]),
       ],
       right: [
         _stack(0, [
-          _wideStat(gc, PhosphorIconsRegular.paintBrush, 'D9A184', '', gc.accent),
+          _wideStat(gc, PhosphorIconsRegular.paintBrush, 'D9A184', '', gc.teal),
           _bars(gc, const [0.7, 0.4, 0.0, 0.8, 1.0, 0.3, 0.55], hi: 4),
           _exerciseList(gc, 80),
           _chips(gc, const ['Auto', '1×', '2×', '3×'], on: 0),
-          _spark(gc, const [40, 52, 48, 61, 58, 70, 66, 75], gc.sage, '60 fps', ''),
+          _spark(gc, const [40, 52, 48, 61, 58, 70, 66, 75], gc.lavender, '60 fps', ''),
           _wideStat(gc, PhosphorIconsRegular.monitor, '1440 × 900', '', gc.textSecondary),
           _wideStat(gc, PhosphorIconsRegular.vibrate, '20 ms', '', gc.textSecondary),
         ]),
@@ -1019,14 +1019,14 @@ class LookShowcase extends StatelessWidget {
           _toggleTile(gc, PhosphorIconsRegular.sunDim, false),
           _iconTile(gc, PhosphorIconsRegular.eye, '100 %', '', gc.textSecondary),
           _iconTile(gc, PhosphorIconsRegular.image, '9:16', '', gc.info),
-          _iconTile(gc, PhosphorIconsRegular.palette, '4', '', gc.accent),
+          _iconTile(gc, PhosphorIconsRegular.palette, '4', '', gc.teal),
           _iconTile(gc, PhosphorIconsRegular.frameCorners, '16', '', gc.textSecondary),
           _iconTile(gc, PhosphorIconsRegular.monitor, '1440', '', gc.textSecondary),
           _toggleTile(gc, PhosphorIconsRegular.drop, true),
         ]),
       ],
       columns: [
-        _stack(20, [themes, units, text, _iconTile(gc, PhosphorIconsRegular.translate, 'A文', '', gc.accent),
+        _stack(20, [themes, units, text, _iconTile(gc, PhosphorIconsRegular.translate, 'A文', '', gc.teal),
             _iconTile(gc, PhosphorIconsRegular.clock, '18:30', '24 h', gc.textSecondary),
             _toggleTile(gc, PhosphorIconsRegular.moon, true),
             _iconTile(gc, PhosphorIconsRegular.textAa, '1,3×', '', gc.textSecondary)]),
@@ -1070,7 +1070,7 @@ class LookShowcase extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [gc.accent.withValues(alpha: 0.7), gc.info.withValues(alpha: 0.5), gc.bg],
+                      colors: [gc.teal.withValues(alpha: 0.7), gc.info.withValues(alpha: 0.5), gc.bg],
                     ),
                   ),
                   child: Icon(PhosphorIconsRegular.image, size: 22, color: Colors.white.withValues(alpha: 0.8)),
@@ -1078,11 +1078,11 @@ class LookShowcase extends StatelessWidget {
               ),
             ]),
           ),
-          _wideStat(gc, PhosphorIconsRegular.batteryHigh, '98 %', '', gc.sage),
+          _wideStat(gc, PhosphorIconsRegular.batteryHigh, '98 %', '', gc.lavender),
         ]),
         _stack(40, [dots, blur, motion, _iconTile(gc, PhosphorIconsRegular.sunHorizon, '7:30', t.lightTheme, gc.warn),
             _iconTile(gc, PhosphorIconsRegular.moon, '21:00', t.darkTheme, gc.textSecondary),
-            _gauge(gc, 0.5, 'Aa', gc.accent)]),
+            _gauge(gc, 0.5, 'Aa', gc.teal)]),
       ],
     );
   }

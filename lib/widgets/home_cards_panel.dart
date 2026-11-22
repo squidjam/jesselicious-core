@@ -255,7 +255,7 @@ class _HomeSketch extends StatelessWidget {
               Container(
                 width: 12,
                 height: 12,
-                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: gc.accent, width: 2)),
+                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: gc.teal, width: 2)),
               ),
             ])),
       ),
@@ -288,7 +288,7 @@ class _HomeSketch extends StatelessWidget {
                         width: 7,
                         height: 6,
                         decoration: BoxDecoration(
-                          color: (r + c) % 3 == 0 ? gc.accent.withValues(alpha: 0.4 + c * 0.06) : gc.bgRaised2,
+                          color: (r + c) % 3 == 0 ? gc.teal.withValues(alpha: 0.4 + c * 0.06) : gc.bgRaised2,
                           borderRadius: BorderRadius.circular(1.5),
                         ),
                       ),
@@ -330,9 +330,9 @@ class _HomeSketch extends StatelessWidget {
                 child: SizedBox(
                   height: 4,
                   child: Row(children: [
-                    Expanded(flex: 5, child: ColoredBox(color: gc.sage)),
+                    Expanded(flex: 5, child: ColoredBox(color: gc.lavender)),
                     const SizedBox(width: 2),
-                    Expanded(flex: 3, child: ColoredBox(color: gc.accent)),
+                    Expanded(flex: 3, child: ColoredBox(color: gc.teal)),
                     const SizedBox(width: 2),
                     Expanded(flex: 2, child: ColoredBox(color: gc.text.withValues(alpha: 0.35))),
                   ]),
@@ -348,7 +348,7 @@ class _HomeSketch extends StatelessWidget {
           child: Row(children: [
             _bar(26, 6, gc.text.withValues(alpha: 0.6)),
             const Spacer(),
-            for (final c in [gc.accent, gc.info, gc.text.withValues(alpha: 0.35)]) ...[
+            for (final c in [gc.teal, gc.info, gc.text.withValues(alpha: 0.35)]) ...[
               const SizedBox(width: 3),
               Container(width: 7, height: 7, decoration: BoxDecoration(color: c, shape: BoxShape.circle)),
             ],

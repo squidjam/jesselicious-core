@@ -1,14 +1,14 @@
-function Install-GymMane {
+function Install-Jesselicious {
   $ErrorActionPreference = 'Stop'
   $ProgressPreference = 'SilentlyContinue'
-  $repo = 'InlitX/GymMane'
-  $home_ = if ($env:GYMMANE_HOME) { $env:GYMMANE_HOME } else { Join-Path $env:LOCALAPPDATA 'GymMane' }
+  $repo = 'InlitX/jesselicious-core'
+  $home_ = if ($env:JESSELICIOUS_HOME) { $env:JESSELICIOUS_HOME } else { Join-Path $env:LOCALAPPDATA 'Jesselicious' }
   $data = Join-Path $home_ 'data'
-  $envFile = Join-Path $home_ 'gymmane.env'
-  $exe = Join-Path $home_ 'gymmane-server.exe'
+  $envFile = Join-Path $home_ 'jesselicious.env'
+  $exe = Join-Path $home_ 'jesselicious-server.exe'
   $admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-  $quiet = $env:GYMMANE_YES -eq '1'
-  $action = if ($env:GYMMANE_UNINSTALL -eq '1') { 'remove' } else { '' }
+  $quiet = $env:JESSELICIOUS_YES -eq '1'
+  $action = if ($env:JESSELICIOUS_UNINSTALL -eq '1') { 'remove' } else { '' }
 
   $vt = $false
   try { $vt = [bool]$Host.UI.SupportsVirtualTerminal } catch { }
@@ -100,7 +100,7 @@ function Install-GymMane {
 
   function Healthy($port, $pass) {
     $headers = @{}
-    if ($pass) { $headers['Authorization'] = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("gymmane:$pass")) }
+    if ($pass) { $headers['Authorization'] = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("jesselicious:$pass")) }
     try {
       $r = Invoke-WebRequest -UseBasicParsing -TimeoutSec 3 -Headers $headers "http://127.0.0.1:$port/api/health"
       return $r.StatusCode -eq 200
@@ -144,9 +144,9 @@ function Install-GymMane {
   $os = (Get-CimInstance Win32_OperatingSystem -ErrorAction SilentlyContinue).Caption
   if (-not $os) { $os = 'Windows' }
   Ok "$os $D($($env:PROCESSOR_ARCHITECTURE.ToLower()))$R"
-  if ($admin) { Note 'Running as administrator: GymMane starts with Windows' } else { Note "Running as $env:USERNAME, no administrator needed: GymMane starts when you log in" }
+  if ($admin) { Note 'Running as administrator: Jesselicious starts with Windows' } else { Note "Running as $env:USERNAME, no administrator needed: Jesselicious starts when you log in" }
   $installed = Test-Path $exe
-  if ($installed) { Ok "GymMane is already installed in $home_" }
+  if ($installed) { Ok "Jesselicious is already installed in $home_" }
 
   if ($installed -and -not $action) {
     if ($quiet) { $action = 'update' } else {
@@ -166,12 +166,12 @@ function Install-GymMane {
   if ($action -eq 'remove') {
     $script:steps = 2
     Line ''
-    if (-not $quiet -and -not (YesNo "Remove GymMane? Your data stays in $data" $false)) { Line ''; return }
-    Step 'Removing GymMane'
-    Unregister-ScheduledTask -TaskName 'GymMane' -Confirm:$false -ErrorAction SilentlyContinue
-    Get-Process gymmane-server -ErrorAction SilentlyContinue | Stop-Process -Force
+    if (-not $quiet -and -not (YesNo "Remove Jesselicious? Your data stays in $data" $false)) { Line ''; return }
+    Step 'Removing Jesselicious'
+    Unregister-ScheduledTask -TaskName 'Jesselicious' -Confirm:$false -ErrorAction SilentlyContinue
+    Get-Process jesselicious-server -ErrorAction SilentlyContinue | Stop-Process -Force
     Ok 'Stopped it and removed it from startup'
-    if ($admin) { Remove-NetFirewallRule -DisplayName 'GymMane' -ErrorAction SilentlyContinue }
+    if ($admin) { Remove-NetFirewallRule -DisplayName 'Jesselicious' -ErrorAction SilentlyContinue }
     Remove-Item -Recurse -Force (Join-Path $home_ 'web'), $exe, (Join-Path $home_ 'run.cmd'), (Join-Path $home_ 'start.bat') -ErrorAction SilentlyContinue
     Ok 'Removed the program files'
     Line ''
@@ -181,14 +181,14 @@ function Install-GymMane {
   }
 
   $update = $action -eq 'update'
-  $oldPort = EnvValue 'GYMMANE_PORT'
-  $port = if ($env:GYMMANE_PORT) { $env:GYMMANE_PORT } elseif ($oldPort) { $oldPort } else { '8080' }
+  $oldPort = EnvValue 'JESSELICIOUS_PORT'
+  $port = if ($env:JESSELICIOUS_PORT) { $env:JESSELICIOUS_PORT } elseif ($oldPort) { $oldPort } else { '8080' }
 
   Step 'Settings'
   if ($update) { Ok 'Keeping your port, password and data' } elseif (-not $quiet) { Note 'Press Enter to keep the value in grey.'; Line '' }
-  if (-not $update -and -not $env:GYMMANE_PORT) {
+  if (-not $update -and -not $env:JESSELICIOUS_PORT) {
     while ($true) {
-      $p = Ask 'Port to open GymMane on' $port
+      $p = Ask 'Port to open Jesselicious on' $port
       $n = 0
       if ([int]::TryParse($p, [ref]$n) -and $n -ge 1 -and $n -le 65535) { $port = "$n"; break }
       Note 'Type a number between 1 and 65535.'
@@ -196,11 +196,11 @@ function Install-GymMane {
   }
 
   $generated = $false
-  if ($null -ne $env:GYMMANE_PASSWORD) {
-    $pass = $env:GYMMANE_PASSWORD
-    if ($pass -and -not (ValidPassword $pass)) { throw 'GYMMANE_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -' }
+  if ($null -ne $env:JESSELICIOUS_PASSWORD) {
+    $pass = $env:JESSELICIOUS_PASSWORD
+    if ($pass -and -not (ValidPassword $pass)) { throw 'JESSELICIOUS_PASSWORD needs 8 or more characters: letters, digits and . _ @ % + = ! ? ~ ^ : , / -' }
   } elseif ($update) {
-    $pass = EnvValue 'GYMMANE_PASSWORD'
+    $pass = EnvValue 'JESSELICIOUS_PASSWORD'
   } elseif (YesNo 'Ask for a password in the browser?' $true) {
     $pass = ''
     if (-not $quiet) {
@@ -220,10 +220,10 @@ function Install-GymMane {
     $pass = ''
   }
 
-  if ($null -ne $env:GYMMANE_PEOPLE) {
-    $people = $env:GYMMANE_PEOPLE.Trim()
+  if ($null -ne $env:JESSELICIOUS_PEOPLE) {
+    $people = $env:JESSELICIOUS_PEOPLE.Trim()
   } elseif ($update) {
-    $people = "$(EnvValue 'GYMMANE_PEOPLE')"
+    $people = "$(EnvValue 'JESSELICIOUS_PEOPLE')"
   } elseif (-not $quiet -and (YesNo 'Will more than one person use it, each with their own data?' $false)) {
     $people = ''
     while (-not $people) {
@@ -235,7 +235,7 @@ function Install-GymMane {
   } else {
     $people = ''
   }
-  if ($people -match '"') { throw 'GYMMANE_PEOPLE cannot have quotes in it.' }
+  if ($people -match '"') { throw 'JESSELICIOUS_PEOPLE cannot have quotes in it.' }
   $who = NamesOnly $people
 
   $openPort = $false
@@ -258,48 +258,48 @@ function Install-GymMane {
 
   $extra = @()
   if (Test-Path $envFile) {
-    $extra = @(Get-Content $envFile -Encoding UTF8 | Where-Object { $_ -match '^GYMMANE_' -and $_ -notmatch '^GYMMANE_(PASSWORD|PORT|DATA|WEB|PEOPLE)=' })
+    $extra = @(Get-Content $envFile -Encoding UTF8 | Where-Object { $_ -match '^JESSELICIOUS_' -and $_ -notmatch '^JESSELICIOUS_(PASSWORD|PORT|DATA|WEB|PEOPLE)=' })
   }
 
-  Step 'Installing GymMane'
-  $tmp = Join-Path ([IO.Path]::GetTempPath()) ('gymmane-' + [guid]::NewGuid())
+  Step 'Installing Jesselicious'
+  $tmp = Join-Path ([IO.Path]::GetTempPath()) ('jesselicious-' + [guid]::NewGuid())
   New-Item -ItemType Directory -Force $tmp | Out-Null
   try {
-    if ($env:GYMMANE_ARCHIVE) {
-      Expand-Archive $env:GYMMANE_ARCHIVE -DestinationPath $tmp -Force
-      Ok "Unpacked $(Split-Path $env:GYMMANE_ARCHIVE -Leaf)"
+    if ($env:JESSELICIOUS_ARCHIVE) {
+      Expand-Archive $env:JESSELICIOUS_ARCHIVE -DestinationPath $tmp -Force
+      Ok "Unpacked $(Split-Path $env:JESSELICIOUS_ARCHIVE -Leaf)"
     } else {
-      $zip = Join-Path $tmp 'gymmane.zip'
-      Spinner 0 'Downloading gymmane-selfhost-windows-x64.zip'
+      $zip = Join-Path $tmp 'jesselicious.zip'
+      Spinner 0 'Downloading jesselicious-selfhost-windows-x64.zip'
       [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-      try { Invoke-WebRequest -UseBasicParsing "https://github.com/$repo/releases/latest/download/gymmane-selfhost-windows-x64.zip" -OutFile $zip }
-      catch { Unspin; throw 'Could not download GymMane from the latest release. Check the internet connection and try again.' }
+      try { Invoke-WebRequest -UseBasicParsing "https://github.com/$repo/releases/latest/download/jesselicious-selfhost-windows-x64.zip" -OutFile $zip }
+      catch { Unspin; throw 'Could not download Jesselicious from the latest release. Check the internet connection and try again.' }
       Unspin
       Expand-Archive $zip -DestinationPath $tmp -Force
-      Ok 'Downloaded gymmane-selfhost-windows-x64.zip'
+      Ok 'Downloaded jesselicious-selfhost-windows-x64.zip'
     }
-    Stop-ScheduledTask -TaskName 'GymMane' -ErrorAction SilentlyContinue
-    Get-Process gymmane-server -ErrorAction SilentlyContinue | Stop-Process -Force
+    Stop-ScheduledTask -TaskName 'Jesselicious' -ErrorAction SilentlyContinue
+    Get-Process jesselicious-server -ErrorAction SilentlyContinue | Stop-Process -Force
     Start-Sleep -Milliseconds 500
     New-Item -ItemType Directory -Force $home_, $data | Out-Null
     Remove-Item -Recurse -Force (Join-Path $home_ 'web') -ErrorAction SilentlyContinue
-    Copy-Item -Recurse -Force (Join-Path $tmp 'gymmane\*') $home_
+    Copy-Item -Recurse -Force (Join-Path $tmp 'jesselicious\*') $home_
     Ok "Copied it to $home_"
   } finally {
     Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
   }
 
-  [IO.File]::WriteAllLines($envFile, [string[]](@("GYMMANE_PASSWORD=$pass", "GYMMANE_PORT=$port") + $(if ($people) { @("GYMMANE_PEOPLE=$people") } else { @() }) + $extra), (New-Object Text.UTF8Encoding $false))
+  [IO.File]::WriteAllLines($envFile, [string[]](@("JESSELICIOUS_PASSWORD=$pass", "JESSELICIOUS_PORT=$port") + $(if ($people) { @("JESSELICIOUS_PEOPLE=$people") } else { @() }) + $extra), (New-Object Text.UTF8Encoding $false))
   Ok "Saved the settings in $envFile"
   $run = Join-Path $home_ 'run.cmd'
   Set-Content -Path $run -Encoding ascii -Value @(
     '@echo off',
     'chcp 65001 >nul',
     "cd /d `"$home_`"",
-    "set GYMMANE_DATA=$data",
-    "set GYMMANE_WEB=$home_\web",
-    'for /f "usebackq eol=# tokens=1,* delims==" %%a in ("gymmane.env") do set "%%a=%%b"',
-    'gymmane-server.exe >> gymmane.log 2>&1'
+    "set JESSELICIOUS_DATA=$data",
+    "set JESSELICIOUS_WEB=$home_\web",
+    'for /f "usebackq eol=# tokens=1,* delims==" %%a in ("jesselicious.env") do set "%%a=%%b"',
+    'jesselicious-server.exe >> jesselicious.log 2>&1'
   )
 
   $taskAction = New-ScheduledTaskAction -Execute 'cmd.exe' -Argument "/c `"$run`"" -WorkingDirectory $home_
@@ -307,28 +307,28 @@ function Install-GymMane {
   if ($admin) {
     $trigger = New-ScheduledTaskTrigger -AtStartup
     $principal = New-ScheduledTaskPrincipal -UserId 'SYSTEM' -RunLevel Highest
-    Register-ScheduledTask -TaskName 'GymMane' -Action $taskAction -Trigger $trigger -Settings $settings -Principal $principal -Force | Out-Null
+    Register-ScheduledTask -TaskName 'Jesselicious' -Action $taskAction -Trigger $trigger -Settings $settings -Principal $principal -Force | Out-Null
   } else {
     $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
-    Register-ScheduledTask -TaskName 'GymMane' -Action $taskAction -Trigger $trigger -Settings $settings -Force | Out-Null
+    Register-ScheduledTask -TaskName 'Jesselicious' -Action $taskAction -Trigger $trigger -Settings $settings -Force | Out-Null
   }
-  Start-ScheduledTask -TaskName 'GymMane'
-  Ok "Started GymMane, it $starts"
+  Start-ScheduledTask -TaskName 'Jesselicious'
+  Ok "Started Jesselicious, it $starts"
 
   if ($openPort) {
-    Remove-NetFirewallRule -DisplayName 'GymMane' -ErrorAction SilentlyContinue
-    New-NetFirewallRule -DisplayName 'GymMane' -Direction Inbound -Protocol TCP -LocalPort $port -Action Allow | Out-Null
+    Remove-NetFirewallRule -DisplayName 'Jesselicious' -ErrorAction SilentlyContinue
+    New-NetFirewallRule -DisplayName 'Jesselicious' -Direction Inbound -Protocol TCP -LocalPort $port -Action Allow | Out-Null
     Ok "Opened port $port in Windows Firewall"
   }
 
   $up = $false
   for ($i = 0; $i -lt 60; $i++) {
-    Spinner $i 'Waiting for GymMane to answer'
+    Spinner $i 'Waiting for Jesselicious to answer'
     if (($i % 2 -eq 0) -and (Healthy $port $pass)) { $up = $true; break }
     Start-Sleep -Milliseconds 500
   }
   Unspin
-  if ($up) { Ok "GymMane answers on port $port" } else { Warn "GymMane is not answering yet. See what it says in $home_\gymmane.log" }
+  if ($up) { Ok "Jesselicious answers on port $port" } else { Warn "Jesselicious is not answering yet. See what it says in $home_\jesselicious.log" }
 
   $links = @("http://localhost:$port")
   $real = @(Get-NetAdapter -ErrorAction SilentlyContinue | Where-Object { $_.Status -eq 'Up' -and $_.InterfaceDescription -notmatch 'VirtualBox|VMware|Hyper-V|WSL|TAP|Loopback' } | ForEach-Object { $_.ifIndex })
@@ -341,7 +341,7 @@ function Install-GymMane {
 
   Line ''
   BoxTop
-  if ($up) { BoxRow "+ GymMane is running" "$G$tick$R ${B}GymMane is running$R" } else { BoxRow 'GymMane is installed' "${B}GymMane is installed$R" }
+  if ($up) { BoxRow "+ Jesselicious is running" "$G$tick$R ${B}Jesselicious is running$R" } else { BoxRow 'Jesselicious is installed' "${B}Jesselicious is installed$R" }
   BoxRow ''
   BoxRow 'Open it from any device on your network:' "${D}Open it from any device on your network:$R"
   foreach ($l in $links) { BoxRow "  $l" "  $A$B$l$R" }
@@ -366,12 +366,12 @@ function Install-GymMane {
   Line ''
   Line "  ${D}Data      $R$data"
   Line "  ${D}Settings  $R$envFile"
-  Line "  ${D}Logs      $R$home_\gymmane.log"
+  Line "  ${D}Logs      $R$home_\jesselicious.log"
   Line "  ${D}Update    ${R}run this command again"
   Line ''
 }
 
-try { Install-GymMane } catch {
+try { Install-Jesselicious } catch {
   Write-Host ''
   Write-Host "     x  $($_.Exception.Message)" -ForegroundColor Red
   Write-Host ''

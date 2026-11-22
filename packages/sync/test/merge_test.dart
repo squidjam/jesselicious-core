@@ -59,9 +59,9 @@ void main() {
   test('reads sync file names and skips its own', () {
     final at = DateTime.utc(2026, 11, 11, 9, 5, 7);
     final name = syncName('server', at);
-    expect(name, 'gymmane-auto-server-2026-11-11-090507.zip');
+    expect(name, 'jesselicious-auto-server-2026-11-11-090507.zip');
     expect(SyncFile.parse(name)!.at, at);
-    expect(SyncFile.parse('gymmane-auto-2026-11-11-090507.zip'), isNull);
+    expect(SyncFile.parse('jesselicious-auto-2026-11-11-090507.zip'), isNull);
     final newest = newestByDevice([
       syncName('phone', at),
       syncName('phone', at.add(const Duration(hours: 1))),

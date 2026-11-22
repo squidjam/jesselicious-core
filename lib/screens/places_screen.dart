@@ -57,7 +57,7 @@ class PlacesScreen extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(PhosphorIconsRegular.plus, size: 16, color: gc.ember),
+                        Icon(PhosphorIconsRegular.plus, size: 16, color: gc.teal),
                         const SizedBox(width: 8),
                         Text(t.placeNew,
                             style: AppTheme.d(13,
@@ -133,7 +133,7 @@ class PlacesScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: gc.bgRaised,
-        border: Border.all(color: on ? gc.ember : gc.border),
+        border: Border.all(color: on ? gc.teal : gc.border),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -152,12 +152,12 @@ class PlacesScreen extends StatelessWidget {
                       width: 26,
                       height: 26,
                       decoration: BoxDecoration(
-                        color: on ? gc.ember : Colors.transparent,
+                        color: on ? gc.teal : Colors.transparent,
                         shape: BoxShape.circle,
-                        border: Border.all(color: on ? gc.ember : gc.textTertiary, width: 1.5),
+                        border: Border.all(color: on ? gc.teal : gc.textTertiary, width: 1.5),
                       ),
                       child: on
-                          ? Icon(PhosphorIconsBold.check, size: 14, color: gc.onEmber)
+                          ? Icon(PhosphorIconsBold.check, size: 14, color: gc.onTeal)
                           : null,
                     ),
                   ),
@@ -181,7 +181,7 @@ class PlacesScreen extends StatelessWidget {
                                 : '${t.placeExercises(fit.placeExerciseCount(place))} · ${t.placeTapToUse}',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: AppTheme.s(12, color: on ? gc.ember : gc.textTertiary)),
+                            style: AppTheme.s(12, color: on ? gc.teal : gc.textTertiary)),
                       ],
                     ),
                   ),
@@ -312,7 +312,7 @@ class PlacesScreen extends StatelessWidget {
                 child: Container(
                   height: 44,
                   alignment: Alignment.center,
-                  child: Text(t.platesAll, style: AppTheme.s(13, weight: FontWeight.w600, color: gc.accent)),
+                  child: Text(t.platesAll, style: AppTheme.s(13, weight: FontWeight.w600, color: gc.teal)),
                 ),
               ),
             ] else
@@ -343,9 +343,9 @@ class PlacesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: on ? gc.emberSoft : gc.bgRaised2,
+            color: on ? gc.tealSoft : gc.bgRaised2,
             borderRadius: BorderRadius.circular(100),
-            border: Border.all(color: on ? gc.ember : gc.border),
+            border: Border.all(color: on ? gc.teal : gc.border),
           ),
           child: Text(fmt(size),
               style: AppTheme.f(13, weight: FontWeight.w700, color: on ? gc.text : gc.textSecondary)),
@@ -390,15 +390,15 @@ class PlacesScreen extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
           decoration: BoxDecoration(
-            color: on ? gc.emberSoft : gc.bgRaised2,
+            color: on ? gc.tealSoft : gc.bgRaised2,
             borderRadius: BorderRadius.circular(100),
-            border: Border.all(color: on ? gc.ember : gc.border),
+            border: Border.all(color: on ? gc.teal : gc.border),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(on ? PhosphorIconsBold.check : PhosphorIconsBold.plus,
-                  size: 10, color: on ? gc.ember : gc.textTertiary),
+                  size: 10, color: on ? gc.teal : gc.textTertiary),
               const SizedBox(width: 6),
               Text(t.equipment(gear),
                   style: AppTheme.s(12.5,
@@ -464,7 +464,7 @@ class PlacesScreen extends StatelessWidget {
                           behavior: HitTestBehavior.opaque,
                           onTap: () => setSheet(() => fit.clearPlates(place.id)),
                           child: Text(t.platesAll,
-                              style: AppTheme.s(12, weight: FontWeight.w600, color: gc.accent)),
+                              style: AppTheme.s(12, weight: FontWeight.w600, color: gc.teal)),
                         ),
                     ],
                   ),

@@ -27,7 +27,7 @@ Future<void> sharePlan(List<Routine> routines, {String? title}) async {
         .toLowerCase()
         .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
         .replaceAll(RegExp(r'^-+|-+$'), '');
-    await shareFile('gymmane-${slug.isEmpty ? 'plan' : slug}.json', utf8Bytes(fit.exportPlanJson(routines)),
+    await shareFile('jesselicious-${slug.isEmpty ? 'plan' : slug}.json', utf8Bytes(fit.exportPlanJson(routines)),
         mime: 'application/json', text: '${fit.planSummaryText(routines)}\n\n${t.shareMessage(name)}', subject: name);
   } catch (_) {}
 }
@@ -120,7 +120,7 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
           ? t.noteCount(result.notesAdded)
           : null,
       icon: changed ? PhosphorIconsFill.checkCircle : PhosphorIconsFill.warningCircle,
-      accent: changed ? gc.sage : gc.warn,
+      accent: changed ? gc.lavender : gc.warn,
     );
     Navigator.of(context).pop();
   }
@@ -157,7 +157,7 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
                 maxLines: 8,
                 onChanged: (_) => _parse(),
                 style: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.text, height: 1.35),
-                cursorColor: gc.accent,
+                cursorColor: gc.teal,
                 decoration: InputDecoration(
                   hintText: _sample,
                   hintStyle: AppTheme.f(12.5, weight: FontWeight.w500, color: gc.textTertiary),
@@ -218,7 +218,7 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
               if (allOwned && !notesOnly) ...[
                 const SizedBox(height: 12),
                 Row(children: [
-                  Icon(PhosphorIconsRegular.checkCircle, size: 16, color: gc.sage),
+                  Icon(PhosphorIconsRegular.checkCircle, size: 16, color: gc.lavender),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(t.importAlreadyHave,
@@ -254,7 +254,7 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
                   child: Pill(
                     label: t.pasteAction,
                     bg: gc.bgRaised2,
-                    fg: gc.accent,
+                    fg: gc.teal,
                     onTap: () => setState(() => _field = true),
                   ),
                 ),
@@ -294,8 +294,8 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
         Container(
           width: 38,
           height: 38,
-          decoration: BoxDecoration(color: gc.emberSoft, borderRadius: BorderRadius.circular(11)),
-          child: Icon(PhosphorIconsRegular.listChecks, size: 19, color: gc.ember),
+          decoration: BoxDecoration(color: gc.tealSoft, borderRadius: BorderRadius.circular(11)),
+          child: Icon(PhosphorIconsRegular.listChecks, size: 19, color: gc.teal),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -318,8 +318,8 @@ class _PlanImportSheetState extends State<_PlanImportSheet> {
           const SizedBox(width: 8),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-            decoration: BoxDecoration(color: gc.sageSoft, borderRadius: BorderRadius.circular(100)),
-            child: Text(t.importOwned, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.sage)),
+            decoration: BoxDecoration(color: gc.lavenderSoft, borderRadius: BorderRadius.circular(100)),
+            child: Text(t.importOwned, style: AppTheme.f(11, weight: FontWeight.w700, color: gc.lavender)),
           ),
         ],
       ]),

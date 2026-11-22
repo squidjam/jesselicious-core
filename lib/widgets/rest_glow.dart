@@ -31,7 +31,7 @@ class _RestGlowState extends State<RestGlow> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    final color = context.gc.sage;
+    final color = context.gc.lavender;
     final pulses = fit.calmMotion ? 1 : 2;
     return IgnorePointer(
       child: AnimatedBuilder(

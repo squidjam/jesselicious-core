@@ -50,16 +50,16 @@ jobs:
       - name: Package IPA
         run: |
           mkdir -p build/ipa/Payload
-          cp -R build/ios/iphoneos/Runner.app build/ipa/Payload/GymMane.app
+          cp -R build/ios/iphoneos/Runner.app build/ipa/Payload/Jesselicious.app
           cd build/ipa
-          zip -qr GymMane-unsigned.ipa Payload
-          ls -la GymMane-unsigned.ipa
+          zip -qr Jesselicious-unsigned.ipa Payload
+          ls -la Jesselicious-unsigned.ipa
 
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
-          name: gymmane-ios-unsigned
-          path: build/ipa/GymMane-unsigned.ipa
+          name: jesselicious-ios-unsigned
+          path: build/ipa/Jesselicious-unsigned.ipa
           if-no-files-found: error
 
       - name: Attach to release
@@ -67,4 +67,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.tag }}
-          files: build/ipa/GymMane-unsigned.ipa
+          files: build/ipa/Jesselicious-unsigned.ipa

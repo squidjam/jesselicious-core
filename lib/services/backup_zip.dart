@@ -14,7 +14,8 @@ import 'alarm_store.dart';
 import 'local_store.dart';
 import 'media_store.dart';
 
-const String kBackupJsonEntry = 'gymmane.json';
+const String kBackupJsonEntry = 'jesselicious.json';
+const String kLegacyBackupJsonEntry = 'gymmane.json';
 const String _imagesDir = 'media/images';
 const String _videosDir = 'media/videos';
 const String _notesDir = 'media/notes';
@@ -341,6 +342,7 @@ ArchiveFile? _findJson(Archive a) {
   for (final f in a.files) {
     if (!f.isFile || !f.name.toLowerCase().endsWith('.json')) continue;
     if (f.name == kBackupJsonEntry) return f;
+    if (f.name == kLegacyBackupJsonEntry) return f;
     fallback ??= f;
   }
   return fallback;

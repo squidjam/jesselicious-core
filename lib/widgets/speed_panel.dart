@@ -148,8 +148,8 @@ class _SpeedSketchState extends State<_SpeedSketch> with SingleTickerProviderSta
           ]),
         ),
         Row(children: [
-          for (final c in [gc.accent, gc.sage]) ...[
-            if (c == gc.sage) const SizedBox(width: 6),
+          for (final c in [gc.teal, gc.lavender]) ...[
+            if (c == gc.lavender) const SizedBox(width: 6),
             Expanded(
               child: Container(
                 height: 40,

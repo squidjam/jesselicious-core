@@ -9,7 +9,7 @@ enum HealthAccess { unsupported, denied, granted }
 class HealthSteps {
   const HealthSteps._();
 
-  static const _channel = MethodChannel('gymmane/health');
+  static const _channel = MethodChannel('jesselicious/health');
 
   static void listen(void Function() onUsage) {
     _channel.setMethodCallHandler((call) async {

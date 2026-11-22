@@ -30,7 +30,7 @@ class Space {
 
   String get base => person == null ? '/' : '/${person!.name}/';
 
-  String get cookie => person == null ? 'gymmane' : 'gymmane-${person!.name}';
+  String get cookie => person == null ? 'jesselicious' : 'jesselicious-${person!.name}';
 
   String? get token => _token;
 
@@ -70,8 +70,8 @@ class Space {
   }
 }
 
-class GymManeServer {
-  GymManeServer(this.config);
+class JesseliciousServer {
+  JesseliciousServer(this.config);
 
   final Config config;
   final List<Space> spaces = [];
@@ -132,7 +132,7 @@ class GymManeServer {
     }
     for (final p in config.people) {
       if (taken.contains(p.name)) {
-        throw FormatException('"${p.label}" cannot be a name in GYMMANE_PEOPLE, pick another one.');
+        throw FormatException('"${p.label}" cannot be a name in JESSELICIOUS_PEOPLE, pick another one.');
       }
     }
     await Directory(config.dataDir).create(recursive: true);
@@ -341,7 +341,7 @@ class GymManeServer {
     if (route == 'info' && method == 'GET') {
       final now = store.current;
       return _json(res, {
-        'app': 'gymmane',
+        'app': 'jesselicious',
         'version': serverVersion,
         'rev': now.rev,
         if (now.savedAt != null) 'savedAt': now.savedAt!.toIso8601String(),
@@ -356,8 +356,8 @@ class GymManeServer {
       if (method == 'GET') {
         final now = store.current;
         res.headers
-          ..set('x-gymmane-rev', '${now.rev}')
-          ..set('x-gymmane-source', now.source);
+          ..set('x-jesselicious-rev', '${now.rev}')
+          ..set('x-jesselicious-source', now.source);
         if (now.text == null) {
           res.statusCode = HttpStatus.noContent;
           return;
@@ -371,7 +371,7 @@ class GymManeServer {
         if (bytes == null) return _json(res, {'error': 'too large'}, status: HttpStatus.requestEntityTooLarge);
         final text = utf8.decode(bytes, allowMalformed: false);
         if (!StateStore.isValid(text)) return _json(res, {'error': 'invalid'}, status: HttpStatus.badRequest);
-        final base = int.tryParse(req.headers.value('x-gymmane-base-rev') ?? '');
+        final base = int.tryParse(req.headers.value('x-jesselicious-base-rev') ?? '');
         final result = await store.write(text, baseRev: base);
         if (result.conflict) return _json(res, {'rev': result.rev}, status: HttpStatus.conflict);
         sync?.changed();
@@ -462,7 +462,7 @@ class GymManeServer {
       if (!await file.exists()) {
         res.statusCode = HttpStatus.serviceUnavailable;
         res.headers.contentType = ContentType.text;
-        res.write('The GymMane web files are missing. Set GYMMANE_WEB to the folder with index.html.');
+        res.write('The Jesselicious web files are missing. Set JESSELICIOUS_WEB to the folder with index.html.');
         return;
       }
     }
